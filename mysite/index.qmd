@@ -9,7 +9,6 @@ format:
 ---
 
 ```{=html}
-```{=html}
 <!-- ===== HEADER ===== -->
 <header id="header">
   <div class="header-container">
