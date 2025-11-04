@@ -1,5 +1,6 @@
 ---
 title: "Hirotaka Fukui"
+navbar: false
 format:
   html:
     theme: none       # HTMLデザインを優先するのでQuartoテーマは使わない
