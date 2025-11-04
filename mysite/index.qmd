@@ -2,129 +2,136 @@
 title: "Home"
 title-block-style: none
 ---
-::: {=html}
-<section class="hero-neo">
-  <!-- 背景グリッド（CSSで色が変わる） -->
-  <div class="hero-grid"></div>
 
-  <div class="hero-card">
-    <h1>Hirotaka Fukui</h1>
-    <p>Graduate Student in Economics, Kobe University</p>
-  </div>
+::: {.hero-neo}
 
-  <!-- 近未来的な “バラ+本” をSVGで：画像ファイル不使用 -->
-  <svg class="hero-art" viewBox="0 0 1200 360" role="img" aria-label="Futuristic rose and open book">
-    <!-- 背景のソフトグロー -->
-    <defs>
-      <radialGradient id="glow" cx="50%" cy="50%" r="60%">
-        <stop offset="0%" stop-color="var(--rose-glow)" stop-opacity="0.55"/>
-        <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-      </radialGradient>
-      <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"  stop-color="var(--ink-a)"/>
-        <stop offset="50%" stop-color="var(--ink-b)"/>
-        <stop offset="100%" stop-color="var(--ink-c)"/>
-      </linearGradient>
-      <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-        <feGaussianBlur stdDeviation="6" result="b"/>
-        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-      </filter>
-    </defs>
+```{julia}
+#| echo: false
+#| results: asis
+using Luxor, Colors
 
-    <!-- バラのグロー（抽象） -->
-    <circle cx="260" cy="180" r="140" fill="url(#glow)"/>
+# ===== SVGを生成して中身をそのまま出力 =====
+const W = 1200
+const H = 360
+const FNAME = "hero.svg"
 
-    <!-- バラの茎・葉（幾何学） -->
-    <g transform="translate(260 180)">
-      <!-- 茎 -->
-      <path d="M0 0 C -10 40, -8 90, -16 140" stroke="url(#ink)" stroke-width="2.5" fill="none"/>
-      <!-- 葉 左 -->
-      <path d="M-26 70 C -70 60, -70 100, -26 110 C 6 104, 6 78, -26 70 Z"
-            fill="none" stroke="url(#ink)" stroke-width="1.8"/>
-      <!-- 葉 右（小） -->
-      <path d="M-10 95 C 25 90, 25 112, -10 118 C -30 114, -30 98, -10 95 Z"
-            fill="none" stroke="url(#ink)" stroke-width="1.6"/>
-    </g>
+Drawing(W, H, :svg, FNAME)
+origin()
+setlinejoin("round")
+setlinecap("round")
 
-    <!-- バラの花（回転シンメトリ） -->
-    <g transform="translate(260 150)" filter="url(#soft)">
-      <!-- 中心コア -->
-      <circle r="8" fill="none" stroke="url(#ink)" stroke-width="2"/>
-      <!-- 花びら（楕円パスを回転複製、近未来線画） -->
-      <g fill="none" stroke="url(#ink)">
-        <!-- 5層、各層で半径拡張 -->
-        <g transform="scale(1.00)">
-          <ellipse rx="22" ry="10" transform="rotate(0)"/>
-          <ellipse rx="22" ry="10" transform="rotate(36)"/>
-          <ellipse rx="22" ry="10" transform="rotate(72)"/>
-          <ellipse rx="22" ry="10" transform="rotate(108)"/>
-          <ellipse rx="22" ry="10" transform="rotate(144)"/>
-          <ellipse rx="22" ry="10" transform="rotate(180)"/>
-          <ellipse rx="22" ry="10" transform="rotate(216)"/>
-          <ellipse rx="22" ry="10" transform="rotate(252)"/>
-          <ellipse rx="22" ry="10" transform="rotate(288)"/>
-          <ellipse rx="22" ry="10" transform="rotate(324)"/>
-        </g>
-        <g transform="scale(1.25)">
-          <ellipse rx="28" ry="12" transform="rotate(18)"/>
-          <ellipse rx="28" ry="12" transform="rotate(54)"/>
-          <ellipse rx="28" ry="12" transform="rotate(90)"/>
-          <ellipse rx="28" ry="12" transform="rotate(126)"/>
-          <ellipse rx="28" ry="12" transform="rotate(162)"/>
-          <ellipse rx="28" ry="12" transform="rotate(198)"/>
-          <ellipse rx="28" ry="12" transform="rotate(234)"/>
-          <ellipse rx="28" ry="12" transform="rotate(270)"/>
-          <ellipse rx="28" ry="12" transform="rotate(306)"/>
-          <ellipse rx="28" ry="12" transform="rotate(342)"/>
-        </g>
-        <g transform="scale(1.5)">
-          <ellipse rx="34" ry="14" transform="rotate(0)"/>
-          <ellipse rx="34" ry="14" transform="rotate(45)"/>
-          <ellipse rx="34" ry="14" transform="rotate(90)"/>
-          <ellipse rx="34" ry="14" transform="rotate(135)"/>
-          <ellipse rx="34" ry="14" transform="rotate(180)"/>
-          <ellipse rx="34" ry="14" transform="rotate(225)"/>
-          <ellipse rx="34" ry="14" transform="rotate(270)"/>
-          <ellipse rx="34" ry="14" transform="rotate(315)"/>
-        </g>
-        <g transform="scale(1.8)">
-          <ellipse rx="40" ry="16" transform="rotate(22.5)"/>
-          <ellipse rx="40" ry="16" transform="rotate(67.5)"/>
-          <ellipse rx="40" ry="16" transform="rotate(112.5)"/>
-          <ellipse rx="40" ry="16" transform="rotate(157.5)"/>
-          <ellipse rx="40" ry="16" transform="rotate(202.5)"/>
-          <ellipse rx="40" ry="16" transform="rotate(247.5)"/>
-          <ellipse rx="40" ry="16" transform="rotate(292.5)"/>
-          <ellipse rx="40" ry="16" transform="rotate(337.5)"/>
-        </g>
-      </g>
-    </g>
+# --- カラー（Okabe–Ito寄りの落ち着いた配色） ---
+ink_a = colorant"#4477AA"
+ink_b = colorant"#66CCEE"
+ink_c = colorant"#009988"
+gridc = RGBA(0,0,0,0.06)
 
-    <!-- 開いた本（ワイヤーフレーム、左右ページ＋ページライン） -->
-    <g transform="translate(720 210)">
-      <!-- 本の外形 -->
-      <path d="M-220 -20 C -140 -60, -80 -60, 0 -25 C 80 -60, 140 -60, 220 -20 
-               L 220 70 C 140 40, 80 40, 0 60 C -80 40, -140 40, -220 70 Z"
-            fill="none" stroke="url(#ink)" stroke-width="2.2"/>
-      <!-- 中央の綴じ目 -->
-      <path d="M0 -25 L 0 63" stroke="url(#ink)" stroke-width="1.6"/>
-      <!-- 右ページの罫線 -->
-      <g opacity="0.7">
-        <path d="M20 -15 C 90 -35, 140 -35, 210 -15" stroke="url(#ink)" stroke-width="1" fill="none"/>
-        <path d="M20 5   C 90 -15, 140 -15, 210 5"   stroke="url(#ink)" stroke-width="1" fill="none"/>
-        <path d="M20 25  C 90 5,   140 5,   210 25"  stroke="url(#ink)" stroke-width="1" fill="none"/>
-        <path d="M20 45  C 90 25,  140 25,  210 45"  stroke="url(#ink)" stroke-width="1" fill="none"/>
-      </g>
-      <!-- 左ページの罫線 -->
-      <g opacity="0.7">
-        <path d="M-20 -15 C -90 -35, -140 -35, -210 -15" stroke="url(#ink)" stroke-width="1" fill="none"/>
-        <path d="M-20 5   C -90 -15, -140 -15, -210 5"   stroke="url(#ink)" stroke-width="1" fill="none"/>
-        <path d="M-20 25  C -90 5,   -140 5,   -210 25"  stroke="url(#ink)" stroke-width="1" fill="none"/>
-        <path d="M-20 45  C -90 25,  -140 25,  -210 45"  stroke="url(#ink)" stroke-width="1" fill="none"/>
-      </g>
-    </g>
-  </svg>
-</section>
+# --- 背景グリッド（近未来感） ---
+fontsize(1)
+setcolor(gridc)
+for x in -W/2:24:W/2
+    line(Point(x, -H/2), Point(x, H/2), :stroke)
+end
+for y in -H/2:24:H/2
+    line(Point(-W/2, y), Point(W/2, y), :stroke)
+end
+
+# --- グラデ風ストローク関数（線に色を混ぜる簡易版） ---
+function gradstroke(p1::Point, p2::Point; n=24, w=2.0, c1=ink_a, c2=ink_b)
+    for i in 0:n
+        t = i/n
+        setline(w)
+        setcolor(blend(c1, c2, t))
+        line(lerp(p1,p2,t-1/n), lerp(p1,p2,t), :stroke)
+    end
+end
+
+# --- バラ：中心＆花弁（楕円回転） ---
+gsave()
+translate(-300, -30)
+
+setcolor(ink_a)
+circle(Point(0,0), 8, :stroke)
+
+for (k,rx,ry,rotstep) in [(1,22,10,36), (1.25,28,12,36), (1.5,34,14,45), (1.8,40,16,45)]
+    gsave()
+    scale(k)
+    for θ in 0:rotstep:360-rotstep
+        setcolor(blend(ink_a, ink_b, θ/360))
+        setline(1.6)
+        @layer begin
+            rotate(deg2rad(θ))
+            ellipse(Point(0,0), rx, ry, :stroke)
+        end
+    end
+    grestore()
+end
+
+# 茎・葉
+setcolor(ink_c); setline(2.5)
+curve(Point(0,0), Point(-10,40), Point(-8,90), Point(-16,140), :stroke)
+
+setline(1.8); setcolor(ink_b)
+newpath()
+moveto(Point(-26,70))
+curveto(Point(-70,60), Point(-70,100), Point(-26,110))
+curveto(Point(6,104), Point(6,78), Point(-26,70))
+closepath(); :stroke
+
+setline(1.6); setcolor(ink_b)
+newpath()
+moveto(Point(-10,95))
+curveto(Point(25,90), Point(25,112), Point(-10,118))
+curveto(Point(-30,114), Point(-30,98), Point(-10,95))
+closepath(); :stroke
+
+grestore()
+
+# --- 本：左右ページと罫線 ---
+gsave()
+translate(250, 60)
+
+# 外形
+setline(2.2)
+setcolor(ink_a)
+newpath()
+moveto(Point(-220,-20))
+curveto(Point(-140,-60), Point(-80,-60), Point(0,-25))
+curveto(Point(80,-60), Point(140,-60), Point(220,-20))
+lineto(Point(220,70))
+curveto(Point(140,40), Point(80,40), Point(0,60))
+curveto(Point(-80,40), Point(-140,40), Point(-220,70))
+closepath(); :stroke
+
+# 綴じ目
+setline(1.6); setcolor(ink_b)
+line(Point(0,-25), Point(0,63), :stroke)
+
+# 右ページ罫線
+setline(1); setcolor(blend(ink_a, ink_b, 0.5))
+for (y,c1,c2) in [(-15,-35,-15), (5,-15,5), (25,5,25), (45,25,45)]
+    newpath()
+    moveto(Point(20,y))
+    curveto(Point(90,c1), Point(140,c2), Point(210,y))
+    :stroke
+end
+
+# 左ページ罫線
+for (y,c1,c2) in [(-15,-35,-15), (5,-15,5), (25,5,25), (45,25,45)]
+    newpath()
+    moveto(Point(-20,y))
+    curveto(Point(-90,c1), Point(-140,c2), Point(-210,y))
+    :stroke
+end
+
+grestore()
+
+finish()
+
+# SVGの中身をそのまま出力（QuartoがHTMLとして解釈）
+print(read(FNAME, String))
+```
+
 :::
 
 ## Welcome
