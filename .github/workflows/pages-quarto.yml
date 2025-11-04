@@ -19,17 +19,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # 1) Python + Jupyter を用意（IJulia が使います）
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Jupyter
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install jupyter nbformat
+
+      # 2) Julia をセットアップ
+      - name: Setup Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.11'   # 1.11でもOK
+
+      # 3) Juliaパッケージ（IJulia, Luxor, Colors）を入れる
+      - name: Install Julia deps
+        run: |
+          julia --project -e 'using Pkg; Pkg.add(["IJulia","Luxor","Colors"])'
+          # (任意) 事前コンパイルでビルドを安定・高速化
+          julia --project -e 'using IJulia, Luxor, Colors'
+
+      # 4) Quarto をセットアップ
       - uses: quarto-dev/quarto-actions/setup@v2
 
-      # ← ここがポイント：mysite をビルド対象に
-      - name: Render site (mysite)
+      # 5) Quarto レンダリング（プロジェクト直下を想定）
+      - name: Render site
         run: quarto render mysite
+        # サブフォルダがサイトなら: quarto render mysite
 
-      # ← 生成物も mysite/_site をアップロード
+      # 6) Pages へデプロイ（Source: GitHub Actions を使う方式）
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: mysite/_site
+          path: mysite/_site         # サブフォルダsiteなら: mysite/_site
 
   deploy:
     needs: build
