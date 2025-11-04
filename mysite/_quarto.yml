@@ -3,9 +3,8 @@ project:
 
 website:
   title: "Hirotaka Fukui"
-  favicon: images/logo.jpg
+  site-url: https://fukui-hirotaka.com/
   navbar:
-    logo: images/logo.jpg
     pinned: true
     left:
       - href: index.qmd
