@@ -28,6 +28,5 @@ format:
     css: styles.css
     toc: true
     smooth-scroll: true
-    code-copy: true
 
 
