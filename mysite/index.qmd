@@ -1,5 +1,6 @@
 ---
-title: ""
+title: "Hirotaka Fukui"     # ← SEO・meta用
+title-block-style: none      # ← ページ上では非表示
 navbar: false
 format:
   html:
