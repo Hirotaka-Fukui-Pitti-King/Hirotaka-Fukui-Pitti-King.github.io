@@ -1,21 +1,36 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "mysite"
+  title: "Hirotaka Fukui"
+  favicon: images/logo.jpg
   navbar:
+    logo: images/logo.jpg
+    pinned: true
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: research.qmd
+        text: Research
+      - href: cv.qmd
+        text: CV
+      - href: contact.qmd
+        text: Contact
+
+page-footer:
+    right: "&copy; 2025 Hirotaka Fukui. All rights reserved."
+
 
 format:
   html:
     theme:
-      - cosmo
+      - quartz
       - brand
     css: styles.css
     toc: true
+    smooth-scroll: true
+    code-copy: true
 
 
 
