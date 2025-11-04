@@ -1,5 +1,5 @@
 ---
-title: "Hirotaka Fukui"
+title: ""
 navbar: false
 format:
   html:
