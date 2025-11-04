@@ -299,3 +299,23 @@
     .fade-in:nth-child(2) { animation-delay: 0.2s; }
     .fade-in:nth-child(3) { animation-delay: 0.4s; }
     .fade-in:nth-child(4) { animation-delay: 0.6s; }
+
+   /* ヒーロー見出し（グラデ文字を確実に適用） */
+.hero .hero-title {
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+
+  background: linear-gradient(135deg, #00D9FF 0%, #FF1493 50%, #FFD700 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+
+  /* フォールバック（環境依存の透明化対策の微小影） */
+  text-shadow: 0 0 0.01px rgba(255,255,255,0.001);
+}
+
+@media (max-width: 768px) {
+  .hero .hero-title { font-size: 2.6rem; }
+}
