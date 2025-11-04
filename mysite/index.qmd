@@ -10,7 +10,7 @@ title-block-style: none
 #| results: asis
 using Luxor, Colors
 
-# ===== SVGを生成して中身をそのまま出力 =====
+# =====SVGを生成して中身をそのまま出力 =====
 const W = 1200
 const H = 360
 const FNAME = "hero.svg"
