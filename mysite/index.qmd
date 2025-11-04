@@ -3,8 +3,6 @@ title: "Home"
 title-block-style: none
 ---
 
-::: {.hero-neo}
-
 ```{julia}
 #| echo: false
 #| results: asis
@@ -131,8 +129,6 @@ finish()
 # SVGの中身をそのまま出力（QuartoがHTMLとして解釈）
 print(read(FNAME, String))
 ```
-
-:::
 
 ## Welcome
 
