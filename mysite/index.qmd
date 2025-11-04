@@ -2,7 +2,7 @@
 title: "Home"
 title-block-style: none
 ---
-
+::: {=html}
 <section class="hero-neo">
   <!-- 背景グリッド（CSSで色が変わる） -->
   <div class="hero-grid"></div>
@@ -125,6 +125,7 @@ title-block-style: none
     </g>
   </svg>
 </section>
+:::
 
 ## Welcome
 
