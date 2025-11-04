@@ -12,7 +12,7 @@ title-block-style: none
     <p>Graduate Student in Economics, Kobe University</p>
   </div>
 
-  <!-- 近未来的な “バラ +本” をSVGで：画像ファイル不使用 -->
+  <!-- 近未来的な “バラ+本” をSVGで：画像ファイル不使用 -->
   <svg class="hero-art" viewBox="0 0 1200 360" role="img" aria-label="Futuristic rose and open book">
     <!-- 背景のソフトグロー -->
     <defs>
