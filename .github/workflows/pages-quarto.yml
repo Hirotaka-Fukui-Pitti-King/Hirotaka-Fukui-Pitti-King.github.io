@@ -21,13 +21,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render site
-        run: quarto render   # 既定で _site/ に生成される
+      # ← ここがポイント：mysite をビルド対象に
+      - name: Render site (mysite)
+        run: quarto render mysite
 
+      # ← 生成物も mysite/_site をアップロード
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site        # ← ここが _site であることが超重要
+          path: mysite/_site
 
   deploy:
     needs: build
