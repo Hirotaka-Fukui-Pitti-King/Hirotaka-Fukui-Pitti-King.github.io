@@ -13,7 +13,7 @@ website:
         text: Research
       - href: cv.qmd
         text: CV
-       -href: notes.qmd
+      - href: notes.qmd
         text: Notes
 
 page-footer:
