@@ -1,0 +1,2068 @@
+---
+title: "Exercise 1: Numerical Methods"
+subtitle: "TAセッション解説資料"
+date: today
+date-format: "YYYY年M月D日"
+author:
+  - name: "Hirotaka Fukui"
+    email: "227e127e@gsuite.kobe-u.ac.jp"
+    affiliations:
+      - name: "Kobe University, Graduate School of Economics"
+
+thanks: |
+  神戸大学大学院経済学研究科博士後期課程.  
+  227e127e@gsuite.kobe-u.ac.jp.  
+  無断転載を禁じます.  
+  本資料に含まれる誤りはすべて筆者の責任によるものです.  
+  内容の正確性を期しておりますが, 誤りや印刷上の不備がないことを保証するものではありません.  
+  もし誤りを見つけられた場合は, どうぞご連絡ください.
+
+format: typst
+brand:
+  typography:
+    fonts:
+      - family: "Noto Serif JP"
+        source: google
+      - family: "IBM Plex Sans JP"
+        source: google
+    base: "Noto Serif JP"
+    headings:
+      family: "IBM Plex Sans JP"
+      weight: regular
+---
+
+```{julia}
+#| label: setup
+#| include: false
+#| echo: false
+#| message: false
+#| warning: false
+using Pkg
+Pkg.activate(@__DIR__)   # .qmd と同じディレクトリの Project.toml を使う
+# Pkg.instantiate()  # 実行時には通常不要（事前に済ませる）
+using Plots, LaTeXStrings, Roots, NonlinearSolve, FastGaussQuadrature,
+      Distributions, SummaryTables, BenchmarkTools, JuMP, Optim,
+      Interpolations, SpecialFunctions, LinearAlgebra
+import Ipopt
+import Random
+
+default(size=(500,307), titlefontsize=10, fmt=:svg)
+```
+
+# Gauss–Hermite Quadrature
+
+授業ではガウス–エルミート求積によって**正規分布での期待値を近似**する方法を学んだ。  
+この方法は**多変量正規分布**に対しても適用できる。
+
+以下のような *joint utility maximization problem* を考える：
+
+$$
+\max_{c_m, c_f, l_m, l_f} \; u(c_m, l_m) + u(c_f, l_f)
+\quad \text{s.t.} \quad
+c_m + c_f = w_m (1 - l_m) + w_f (1 - l_f)
+$$
+
+ここで効用関数 $u(c,l)$ は以下のように定義される：
+
+$$
+u(c,l) = \frac{c^{1 - \gamma_c} - 1}{1 - \gamma_c}
++ \frac{l^{1 - \gamma_l} - 1}{1 - \gamma_l}.
+$$
+
+夫婦の対数時間給は次の**多変量正規分布**に従うとする：
+
+$$
+\log
+\begin{pmatrix}
+w_m \\ w_f
+\end{pmatrix}
+\sim
+\mathcal{N}\!\left(
+\begin{pmatrix}
+\mu_m \\ \mu_f
+\end{pmatrix},
+\begin{pmatrix}
+\sigma_m^2 & \rho \sigma_m \sigma_f \\
+\cdot & \sigma_f^2
+\end{pmatrix}
+\right).
+$$
+
+
+## 解答の方針 {.unnumbered}
+
+コアコースのミクロ経済学の講義を思い出してみましょう[^1]。
+
+[^1]: 忘れてしまった人はコアミクロの講義ノートを見返すか、宮川先生の[宮川栄一「制約付き最大化の解法と厳密性」『国民経済雑誌』第225巻第3号, 2022年, pp.31–51](https://hdl.handle.net/20.500.14094/81013180)を参照してください。
+
+### 一般的な最適化の手順 {.unnumbered}
+
+最大解を導く一般的な手順は以下の通りです。
+
+1. 最大解が存在することを確認する。  
+2. 微分不可能な点を排除する。  
+3. FJ条件と制約条件を満たす $(x, \lambda)$ の組を求める。  
+4. 唯一の候補があればそれが最大解。複数ある場合は $g_0$ を比較する。  
+5. 微分不可能な点がある場合は直接比較で確認する。
+
+FJ条件（Fritz John 条件）は以下の定理により与えられます。
+
+::: {.theorem #thm-fritz-john}
+**定理 1（フリッツ・ジョン定理）**
+
+$\hat{x} \in \mathbb{R}^n$ を最大化問題 (P) の解とする。
+この $\hat{x}$ においてすべての $g_j$ が微分可能ならば，
+$\lambda = (\lambda_0, \dots, \lambda_l) \in \mathbb{R}^{l+1}$ が存在し，
+
+$$
+\begin{aligned}
+\text{(a)} &\quad
+\sum_{j=0}^l \lambda_j \frac{\partial g_j(\hat{x})}{\partial x_i} = 0, 
+&& \forall i = 1, \dots, n \quad \text{(1階条件)}\\[0.5em]
+\text{(b)} &\quad
+\lambda_j \ge 0 \quad \forall j \ge 0 && \text{(非負条件)} \\[0.5em]
+\text{(c)} &\quad
+\lambda_j > 0 \ \text{for some } j \ge 0 && \text{(非ゼロ条件)} \\[0.5em]
+\text{(d)} &\quad
+\lambda_j g_j(\hat{x}) = 0 \quad \forall j \ge 1 && \text{(相補スラック条件)}
+\end{aligned}
+$$
+:::
+
+以下ではこのフレームワークに沿って問1に解答していきます。
+
+## 問 1.1（Question 1）
+
+$\gamma_c = \gamma_l = 1$、すなわち $u(c,l) = \log c + \log l$ とする。  
+$w_m, w_f$ を所与として、$c_m, c_f, l_m, l_f$ の解析解を求めよ。  
+ただし、$l_m = 1$ または $l_f = 1$ となる端点解にも注意せよ。
+
+### 解答
+
+#### ステップ1：最大解の存在
+
+効用関数 $u(c,l)=\log c+\log l$ は定義域 $(0,\infty)\times(0,1]$ 上で連続。  
+制約集合
+
+$$
+c_m + c_f = w_m (1-l_m) + w_f (1-l_f), \quad
+c_m, c_f \ge 0, \quad l_m, l_f \in [0,1]
+$$
+
+は**閉かつ有界（コンパクト）**なので、ワイエルシュトラスの定理より最大解は存在。  
+さらに $\log$ 関数は**厳密に凹**であるため、最大解は一意です[^2]。
+
+[^2]: 凹関数上の最適化問題では一意性が保証されます。
+
+#### ステップ2：微分不可能点の排除
+
+制約条件は次の通りです：
+
+$$
+\begin{aligned}
+g_0 &: u(c,l) = \log c_m + \log l_m + \log c_f + \log l_f,\\
+g_1 &: w_m (1 - l_m) + w_f (1 - l_f) - c_m - c_f \ge 0,\\
+g_2 &: 1 - l_m \ge 0,\quad g_3 : 1 - l_f \ge 0,\\
+g_4 &: c_m \ge 0,\quad g_5 : c_f \ge 0,\\
+g_6 &: l_m \ge 0,\quad g_7 : l_f \ge 0.
+\end{aligned}
+$$
+
+$g_1,\ldots,g_7$ はアフィンなので全域で微分可能です。  
+問題は $g_0 = \log c_m + \log l_m + \log c_f + \log l_f$ のみです。
+
+$c_i=0$ または $l_i=0$ の点では $\log 0 = -\infty$ のため微分不能となります。  
+これらが最大解にならないことを確認します。
+
+##### ケース1：$l_m = 0$（または $l_f = 0$）
+
+$(c_m, c_f, l_m=0, l_f)$ を考えます。  
+小さい $\varepsilon>0$ をとり、$\Delta l_m = \varepsilon$ だけ余暇を増やすことにします。  
+そのぶん労働所得 $w_m \varepsilon$ 減少させることで消費も $\Delta c_m = -w_m \varepsilon$ だけ減らす事が可能です。
+
+効用差は：
+
+$$
+f(\varepsilon) = u(c_m - w_m \varepsilon, \varepsilon, c_f, l_f)
+- u(c_m, 0, c_f, l_f)
+$$
+
+微分すると：
+
+$$
+f'(0+) = -\frac{w_m}{c_m} + \frac{1}{\varepsilon}\Big|_{\varepsilon \to 0+} = +\infty
+$$
+
+したがって $f(\varepsilon)>0$。  
+よって $l_m=0$ は最大解ではありません。同様に $l_f=0$ も排除されます。
+
+##### ケース2：$c_m = 0$（または $c_f = 0$）
+
+$(c_m=0, c_f, l_m, l_f)$ を考えます。  
+小さい $\delta>0$ に対して $c_m$ を $\delta$ 増やし、その分 $c_f$ を減らす事を考えます：
+
+$$
+g(\delta) = \log \delta + \log(c_f - \delta) - (\log 0 + \log c_f)
+$$
+
+微分すると：
+
+$$
+g'(0+) = \frac{1}{\delta}\Big|_{\delta \to 0+} - \frac{1}{c_f} = +\infty
+$$
+
+したがって、$c_m=0$ も最大解ではなく、$c_f=0$ も同様に排除されます。以上より最大解は次の領域に存在することがわかりました：
+
+$$
+c_m>0,\quad c_f>0,\quad 1\ge l_m>0,\quad 1\ge l_f>0.
+$$
+
+この領域では $u(c,l)$ は滑らかで、FJ条件を適用できます。
+
+#### ステップ3: FJ条件と制約条件を満たす $(x, \lambda)$ の組を求める。
+
+ここまでで最大解となる候補が $c_m>0,\quad c_f>0,\quad 1\ge l_m>0,\quad 1\ge l_f>0$に存在することがわかりました。
+ここからはこの範囲の解が本当に最大解なのかどうかをFJ条件を使って調べていきます。
+
+##### 内点解が満たすべき条件
+
+$$
+\begin{aligned}
+g_0 &: u(c,l) = \log c_m + \log l_m + \log c_f + \log l_f,\\
+g_1 &: w_m (1 - l_m) + w_f (1 - l_f) - c_m - c_f \ge 0,\\
+g_2 &: 1 - l_m \ge 0,\quad g_3 : 1 - l_f \ge 0,\\
+g_4 &: c_m \ge 0,\quad g_5 : c_f \ge 0,\\
+g_6 &: l_m \ge 0,\quad g_7 : l_f \ge 0.
+\end{aligned}
+$$
+
+として制約付き最適化問題
+
+$$
+\max_x g_0(x) \quad \text{s.t.} \quad g_j(x) \ge 0, \quad j = 1, \dots, J
+$$
+を考えます。このとき、最適解候補 \(x^*\) が**内点解** であるとは、
+すべての不等式制約が**厳密に成立している**（binding していない）こと、すなわち
+
+$$
+g_j(x^*) > 0 \quad \forall j = 1, \dots, J
+$$
+が成り立つ場合をいいます。もし $x^{*}$ が内点解であるならば、
+すべての不等式制約は厳密に満たされます $(g_j(x^*) > 0)$。
+
+したがって、相補スラック条件より $\lambda_j = 0 \forall j \ge 1$。
+これをFJ条件に代入すると：
+
+$$
+\lambda_0 \nabla g_0(x^*) = 0 \quad \Rightarrow \quad \nabla g_0(x^*) = 0
+$$
+（ただし $\lambda_0 \neq 0 $)
+
+制約のうち、余暇 $l_m, l_f$ に関するものは
+
+$$
+0 \le l_m \le 1, \quad 0 \le l_f \le 1,
+$$
+
+すなわち
+
+$$
+g_2 = 1 - l_m \ge 0, \quad g_3 = 1 - l_f \ge 0, \quad
+g_6 = l_m \ge 0, \quad g_7 = l_f \ge 0.
+$$
+
+したがって、内点解では
+$$
+g_j(x^*) > 0 \ \forall j \quad \Rightarrow \quad
+0 < l_m^* < 1, \quad 0 < l_f^* < 1.
+$$
+
+これを満たさない場合（例：$l_m = 1$ や $l_f = 1$）は、少なくとも1つの制約が等号で成立しているため、
+**端点解** となる。
+
+##### $l_m=1$, $l_f=1$ が内点条件を満たさないことの確認
+
+$l_m = 1 \Rightarrow g_2 = 1 - l_m = 0$ および $l_f = 1 \Rightarrow g_3 = 1 - l_f = 0$ では制約が binding。  
+
+したがって、$l_m = 1 \text{ または } l_f = 1 $ の場合は内点条件 $g_j(x^*) > 0 $ を満たさないため、内点解ではないことがわかります。
+
+##### 内点解のFJ条件
+
+::: {#lem-inter}
+
+**内点解におけるFJ条件**
+
+もし $x^*$ が**内点解**、すなわち
+
+$$
+g_j(x^*) > 0 \quad \text{for all } j \in J
+$$
+
+を満たすならば、Fritz–John 条件は次を含意する：
+
+$$
+\nabla g_0(x^*) = 0.
+$$
+
+:::
+
+::: {.callout-tip collapse="true"}
+###### 証明
+
+::: {.proof}
+
+$x^*$ が内点であるので、すべての不等式制約は厳密に満たされている：
+
+$$
+g_j(x^*) > 0 \quad \forall j \in J.
+$$
+
+Fritz–John 定理の**相補スラック条件**より、
+
+$$
+\lambda_j g_j(x^*) = 0 \quad \forall j \ge 1.
+$$
+
+ここで $g_j(x^*) > 0$ であるため、
+
+$$
+\lambda_j = 0 \quad \forall j \ge 1
+$$
+
+が成り立つ。
+これを Fritz–John の**1階条件**に代入すると、
+
+$$
+\lambda_0 \nabla g_0(x^*) = 0
+$$
+
+を得る。
+さらに、$(\lambda_0, \lambda_1, \dots, \lambda_J)$ が零ベクトルではないことから
+$\lambda_0 \ne 0$ が成立する。  
+したがって両辺を $\lambda_0$ で割ることで、
+
+$$
+\nabla g_0(x^*) = 0
+$$
+
+を得る。
+:::
+
+:::
+
+上の補題 @lem-inter　は、内点解においてはラグランジュ乗数がすべてゼロとなり、  
+問題が制約なし最適化問題に帰着することを示しています。  
+すなわち、「制約がbindingしていない＝緩い（slack）」場合、  
+最適化の一階条件は単純に
+
+$$
+\nabla g_0(x^*) = 0
+$$
+
+で与えられることがわかりました。
+
+##### 内点解の解析解
+
+ここでは補題 @lem-inter の結論（内点では $\nabla g_0(x^*)=0$）を用いて、内点解の解析解を求めます。
+
+内点では不等式制約の乗数はすべて $0$、したがって FJ の停留条件は
+$$
+\nabla g_0(x^*)=\mathbf{0}
+\quad\Longleftrightarrow\quad
+\frac{\partial\mathcal{L}}{\partial c_m}=0,\quad
+\frac{\partial\mathcal{L}}{\partial c_f}=0,\quad
+\frac{\partial\mathcal{L}}{\partial l_m}=0,\quad
+\frac{\partial\mathcal{L}}{\partial l_f}=0.
+$$
+
+これより
+$$
+\frac{1}{c_m}=\lambda,\quad
+\frac{1}{c_f}=\lambda
+\ \Rightarrow\ 
+c_m=c_f=\frac{1}{\lambda},
+$$
+$$
+\frac{1}{l_m}=\lambda w_m
+\ \Rightarrow\ 
+l_m=\frac{1}{\lambda w_m},\qquad
+\frac{1}{l_f}=\lambda w_f
+\ \Rightarrow\ 
+l_f=\frac{1}{\lambda w_f}.
+$$
+
+等式制約に代入して $\lambda$ を決定：
+
+$$
+\frac{2}{\lambda}
+=w_m\!\left(1-\frac{1}{\lambda w_m}\right)
++w_f\!\left(1-\frac{1}{\lambda w_f}\right)
+=(w_m+w_f)-\frac{2}{\lambda}
+\ \Longrightarrow\
+\lambda=\frac{4}{w_m+w_f}.
+$$
+
+よって内点解の候補は
+
+$$
+\boxed{
+\;
+c_m^*=c_f^*=\frac{w_m+w_f}{4},\quad
+l_m^*=\frac{w_m+w_f}{4w_m},\quad
+l_f^*=\frac{w_m+w_f}{4w_f}\;
+}
+$$
+
+::: {.callout-tip collapse="true"}
+###### 検算（等式制約）
+$$
+c_m^*+c_f^*=\frac{w_m+w_f}{2},
+$$
+$$
+w_m(1-l_m^*)+w_f(1-l_f^*)
+=w_m\!\left(1-\frac{w_m+w_f}{4w_m}\right)
++w_f\!\left(1-\frac{w_m+w_f}{4w_f}\right)
+=\frac{w_m+w_f}{2}.
+$$
+両辺が一致。
+:::
+
+::: {.callout-tip collapse="true"}
+##### 補足：必要条件（FJ条件）の使い方  
+（出典：[宮川(2022)](https://hdl.handle.net/20.500.14094/81013180)
+
+（以下、内容は第3節「必要条件の使い方」に基づく要約）
+
+###### 必要条件の役割は「消去法」
+
+必要条件の使い道は**消去法**である。  
+必要条件を満たさないものは解ではないので，すべて除外してよい。  
+必要条件を満たす点だけに集中すればよい。
+
+FJ条件は「微分したものがゼロ」というシャープな条件なので、  
+通常はほとんどの候補が消去され、残るのはごく少数である。  
+典型的な効用最大化問題では、残る候補が1つだけになることが多い。  
+
+残りが1つだけであれば、それ以外はすべて解でないので、  
+**もし解が存在するなら、その1つが解である**と結論できる。
+
+###### 解の存在の確認（ワイエルシュトラスの定理）
+
+残り1つの候補が真の解であるためには、まず**解の存在**を確認する必要がある。  
+存在の証明には、非線形計画法よりも一般的な**ワイエルシュトラスの定理**を使うのが定石である。
+
+**ワイエルシュトラスの定理**  
+> $f : X \to \mathbb{R}$ が連続関数で，  
+> $X \subset \mathbb{R}^n$ が有界かつ閉（コンパクト）で非空なら，  
+> $X$ 内に $f$ を最大にする点が存在する。
+
+標準的な消費者問題では，予算集合が有界かつ閉であり，  
+効用関数が連続（微分可能）なので，この定理を適用できる。  
+したがって，効用最大化問題の解の存在が保証される。
+
+###### 必要条件と存在定理の組み合わせ
+
+ワイエルシュトラス定理などにより解の存在が保証され，  
+FJ条件によって $x$ が1つに絞れたなら，その $x$ は最適解である。  
+他の点はすでに消去済みなので，それ以外に解は存在しない。
+
+このとき、必要条件（十分条件ではない）を使いながらも、  
+**解の存在と組み合わせることで唯一解を特定**できる。
+
+###### 複数候補が残る場合
+
+もしFJ条件で解候補が複数残った場合でも、  
+残りの候補が少数ならば、それらの間で目的関数 $g_0(x)$ の値を比較すればよい。  
+残った中で $g_0(x)$ が最大の点が最適解である。  
+すでに存在が保証されているなら、その点が**唯一の最適解**と断定できる。
+
+**要するに：**  
+
+> 必要条件は「最適解を直接求める」ためではなく、  
+> 「最適でないものを排除する」ための道具である。  
+> 凹最適化や消費者問題のように、候補が1つに絞れる状況では、  
+> 必要条件＋存在定理だけで最適解を完全に特定できる。
+:::
+
+##### 内点解の最適性の確認（最大解の十分条件）
+
+ここでは，先ほど求めた内点候補が真の最適解であることを示します：
+
+::: {#thm-arrow}
+**アロー＝エントーベン定理（Arrow and Enthoven, 1961**[^3] 
+ 
+最大化問題  
+$$
+\max_x g_0(x) \quad \text{s.t. } g_j(x) \ge 0, \; j=1,\ldots,J
+$$  
+において、各 $g_j$ が準凹関数で $x$ において微分可能であるとする。  
+もし $x$ が Fritz–John 条件と $\lambda_0>0$ を満たす $\lambda$ を伴い、かつ  
+$$
+\nabla g_0(x) \ne 0
+$$  
+が成立するならば、$x$ は最大化問題の**解である**。
+
+:::
+
+[^3]: [Arrow, Kenneth J., and Alain C. Enthoven. “Quasi-Concave Programming.” Econometrica 29, no. 4 (1961): 779–800.](https://doi.org/10.2307/1911819)
+
+###### 定理 @thm-arrow の前提確認
+
+最適化問題は
+
+$$
+\max_{c_m,c_f,l_m,l_f}\; g_0(x)=\log c_m+\log l_m+\log c_f+\log l_f
+\quad\text{s.t.}\quad
+\begin{cases}
+g_1(x)=w_m(1-l_m)+w_f(1-l_f)-c_m-c_f\ \ge 0,\\
+0\le l_m\le 1,\quad 0\le l_f\le 1,\quad c_m\ge 0,\ c_f\ge 0.
+\end{cases}
+$$
+
+でした。
+
+- **準凹性・微分可能性**：$g_0$ は厳密凹（⇒ 準凹）で，$g_1$・上下界制約はいずれも**アフィン**（⇒ 準凹），いずれも候補点で微分可能。  
+- **FJ（KKT）成立**：予算は **局所非飽和性**の下で等号（$g_1(x^*)=0$）となり，他の不等式は厳密不等号（$0<l_i^*<1$, $c_i^*>0$）。よって相補スラックより $\lambda_1\ge 0$, 他の乗数は $0$，さらに $\lambda_0>0$（KKT形）。  
+- **勾配がゼロでない**：$x^*$ で
+$$
+\nabla g_0(x^*)=\left(\tfrac{1}{c_m^*},\,\tfrac{1}{l_m^*},\,\tfrac{1}{c_f^*},\,\tfrac{1}{l_f^*}\right)\neq 0.
+$$
+が成立します。
+
+###### 結論：候補は最適解
+以上より、先ほど求めた内点候補は，アロー＝エントーベンの十分条件をすべて満たします。したがって、内点解候補
+
+$$
+\boxed{
+\begin{align}
+c_m^*=c_f^* & =\frac{w_m+w_f}{4},\\
+l_m^* & =\frac{w_m+w_f}{4w_m},\\
+l_f^* & =\frac{w_m+w_f}{4w_f}
+\end{align}
+}
+$$
+
+は最適解です。
+
+###### 内点解の可否条件
+
+内点では $0<l_m^*,l_f^*<1$ が必要です。上式より
+$$
+\begin{align}
+\frac{w_m+w_f}{4w_m}<1 & \Longleftrightarrow & \frac{w_f}{w_m}<3, \\
+\frac{w_m+w_f}{4w_f}<1 & \Longleftrightarrow & \frac{w_m}{w_f}<3.
+\end{align}
+$$
+
+したがって
+$$
+ \frac{1}{3}<\frac{w_m}{w_f}<3
+$$
+のとき、上の内点解が実現します。
+
+この条件を満たさない場合、すなわち
+
+$$
+\begin{align}
+\frac{w_m}{w_f}\ge 3 & \Longrightarrow & l_f^*\ge 1 \\
+\frac{w_m}{w_f}\le \frac{1}{3} & \Longrightarrow & l_m^*\ge 1
+\end{align}
+$$
+
+となり内点解である条件を満たしません。このときの端点解を以下で別途で検証していきます。
+
+##### 端点解について
+
+以下ではFJ条件を用いて、以下の3つの端点ケースが最適性の必要条件を満たすかを確認していきます。$c_{i}, i \in \{m, f\}$については内点解を仮定します。
+
+$$
+\begin{aligned}
+l_m = 1,　& 0 < l_f < 1 & \text{(ケース A)} \\
+0 < l_m < 1,　& l_f = 1 & \text{(ケース B)} \\
+l_m = 1,　& l_f = 1 & \text{(ケース C)} 
+\end{aligned}
+$$
+
+以下では次の命題[^4]を使います。
+
+[^4]: [宮川(2022)](https://hdl.handle.net/20.500.14094/81013180)の命題1 (定理6)です。
+
+::: {#prp-lam0}
+
+すべての不等式制約がアフィンなら、FJ条件に $\lambda_0>0$ を追加できる。
+
+:::
+
+::: {.callout-tip collapse="true"}
+###### 証明
+::: {.proof}
+証明は[宮川(2022)](https://hdl.handle.net/20.500.14094/81013180)の補足資料を参照。
+:::
+:::
+
+###### ケース 1 : $l_m = 1, 0 < l_f < 1$ 
+
+相補スラックより $1-l_m=0 \Rightarrow \lambda_2\ge0$（他は slack）。FJ の1階条件は：
+
+$$
+\begin{align}
+\frac{1}{c_m}=\lambda_1, \quad \frac{1}{c_f}=\lambda_1 & \Rightarrow & c_m=c_f=\frac{1}{\lambda_1}. \\
+\frac{1}{l_f}-\lambda_1 w_f=0 & \Rightarrow & l_f=\frac{1}{\lambda_1 w_f}, \\
+\underbrace{\frac{1}{l_m}}_{=1}-\lambda_1 w_m-\lambda_2=0 & \Rightarrow & \lambda_2=1-\lambda_1 w_m \ge 0.
+\end{align}
+$$
+
+予算制約式より、
+$$
+\frac{2}{\lambda_1}=w_f \left(1-\frac{1}{\lambda_1 w_f}\right) \Longrightarrow \lambda_1=\frac{3}{w_f}.
+$$
+
+したがって
+$$
+\begin{align}
+c_m^*=c_f^* & =\frac{w_f}{3},\\
+l_f^* & =\frac{1}{3},\\
+l_m^* & =1.
+\end{align}
+$$
+
+成立条件は：
+$$
+\lambda_2=1-\frac{3w_m}{w_f}\ge 0 \Longleftrightarrow \frac{w_m}{w_f}\le\frac{1}{3}.
+$$
+
+###### ケースB：$0<l_m<1, l_f=1$
+
+ケースAと同様の計算で
+
+$$
+\begin{align}
+\lambda_1 & =\frac{3}{w_m},\\
+c_m^*=c_f^* & =\frac{w_m}{3},\\
+l_m^* & =\frac{1}{3},\\
+l_f^* & =1,
+\end{align}
+$$
+成立条件は：
+
+$$
+\lambda_3 =1-\frac{3w_f}{w_m}\ge 0 \Longleftrightarrow \frac{w_m}{w_f}\ge 3.
+$$
+
+###### ケースC：$l_m=1, l_f=1$
+
+賃金所得が 0 で予算 $c_m+c_f=0$。非負制約より $c_m=c_f=0$ だが $\log 0=-\infty$。  
+微小な調整（どちらかが僅かに働く・消費を正にする）で効用が改善できるため、**最適解になり得ない**ことがわかります。
+
+以上より、端点解でFJ条件を満たすものは
+
+$$
+\boxed{
+\begin{align}
+c_m^*=c_f^* & =\frac{w_f}{3},\\
+l_f^* & =\frac{1}{3},\\
+l_m^* & =1.
+\end{align}
+}
+$$
+
+および
+
+$$
+\boxed{
+\begin{align}
+\lambda_1 & =\frac{3}{w_m},\\
+c_m^*=c_f^* & =\frac{w_m}{3},\\
+l_m^* & =\frac{1}{3},\\
+l_f^* & =1,
+\end{align}
+}
+$$
+
+となります。アロー＝エントーベンの定理　(@thm-arrow)　よりこれらは最適解の十分条件を満たします。
+
+#### 最適解のまとめ
+
+以上の結果より、$\gamma_c = \gamma_l = 1$、すなわち $u(c,l) = \log c + \log l$ としたときの最適化問題に対する $c_m, c_f, l_m, l_f$ の解析解は
+
+##### 内点解：$\frac{1}{3}<\frac{w_m}{w_f}<3$
+
+$$
+\begin{align}
+c_m^* = c_f^* &= \frac{w_m + w_f}{4},\\
+l_m^* &= \frac{w_m + w_f}{4w_m},\\
+l_f^* &= \frac{w_m + w_f}{4w_f}.
+\end{align}
+$$
+
+##### 端点解A：$\frac{w_m}{w_f} \le \frac{1}{3}$
+
+$$
+\begin{align}
+c_m^* = c_f^* &= \frac{w_f}{3},\\
+l_f^* &= \frac{1}{3},\\
+l_m^* &= 1.
+\end{align}
+$$
+
+### 端点解B：$\frac{w_m}{w_f} \ge 3$
+
+$$
+\begin{align}
+\lambda_1 &= \frac{3}{w_m},\\
+c_m^* = c_f^* &= \frac{w_m}{3},\\
+l_m^* &= \frac{1}{3},\\
+l_f^* &= 1.
+\end{align}
+$$
+
+の3パターンとなります。すなわち、夫婦の賃金比 $w_m/w_f$ に応じて内点解、端点解A、端点解Bの3つに決まります。
+
+## 問 1.2（Question 2）
+
+$w_m, w_f$ を所与とした，$\gamma_c, \gamma_l \ne 1$ のときに数値解を求める関数をプログラムせよ。  
+$w_m = 1.0$ とし，$w_f \in [0.1, 1.0]$ の範囲の値を取るときの  
+$c_m, c_f, l_m, l_f$ の値をプロットせよ。  
+
+この時，数値解の正しさを確認するために，$\gamma_c = \gamma_l = 0.95$ の場合と  
+$\gamma_c = \gamma_l = 1.05$ の場合の数値解を上で求めた解析解（$\gamma_c = \gamma_l = 1$）の三つをプロットせよ。
+
+### 解答
+
+先程までは $\gamma_c = \gamma_l = 1$　の場合の解析解を求めましたが、今回はCRRA効用において $\gamma_c, \gamma_l \ne 1$ の時の最大解を数値計算によって求めます。
+
+#### 最適化問題の手順1から3
+
+簡単に書きます。
+
+効用関数を一般のCRRA型（$\gamma_c, \gamma_l \ne 1$）として先程の問1.1と同じ手順を踏んでいきます。
+
+$$
+u(c,l) = \frac{c^{1 - \gamma_c} - 1}{1 - \gamma_c}
++ \frac{l^{1 - \gamma_l} - 1}{1 - \gamma_l}.
+$$
+
+与えられた賃金 $w_m, w_f$ の下で、次の最大化問題を考えます：
+
+$$
+\max_{c_m, c_f, l_m, l_f} \; u(c_m, l_m) + u(c_f, l_f)
+\quad \text{s.t.} \quad
+c_m + c_f = w_m (1 - l_m) + w_f (1 - l_f),
+$$
+
+ただし $0 \le l_m, l_f \le 1,\ c_m, c_f \ge 0$。
+
+### ステップ1：最大解の存在
+
+効用関数 $u(c,l)$ は $(0,\infty)\times(0,1]$ 上で連続であり、  
+制約集合も有界かつ閉であるため（$0 \le l_i \le 1$, $c_i \ge 0$）、  
+よってワイエルシュトラスの定理により最大解の存在が保証されます。
+
+さらに、$u(c,l)$ は各変数に関して厳密に凹関数であるため、  
+制約集合が凸であることから最大解は一意といえます。
+
+### ステップ2：微分不可能な点の排除
+
+$c_i = 0$ または $l_i = 0$ の場合、$u(c,l)$ の導関数が発散するため、  
+これらの点は最適解ではありえません。
+
+- $l_i = 0$ の場合：$u_l(c,0) = \lim_{l \to 0+} l^{-\gamma_l} = +\infty$。  
+  労働を少し減らして余暇を増やすと効用が上がるため、$l_i=0$ は排除されます。
+
+- $c_i = 0$ の場合：$u_c(0,l) = \lim_{c \to 0+} c^{-\gamma_c} = +\infty$。  
+  消費を少し増やすと効用が無限に上昇するため、$c_i=0$ も排除されます。
+
+したがって、最大解は次の内点領域に存在することになります：
+$$
+c_m>0,\quad c_f>0,\quad 0<l_m<1,\quad 0<l_f<1.
+$$
+
+### ステップ3：FJ条件と制約条件を満たす $(x, \lambda)$ の組を求める
+
+上の内点領域では、効用関数および制約式はいずれも滑らかであるため、  
+FJ条件をそのまま適用できます。
+
+ラグランジュ関数を定義：
+$$
+\mathcal{L}(c_m, c_f, l_m, l_f, \lambda)
+= u(c_m, l_m) + u(c_f, l_f)
++ \lambda \big[w_m(1-l_m)+w_f(1-l_f)-c_m-c_f\big].
+$$
+
+1階条件：
+$$
+\begin{aligned}
+\frac{\partial \mathcal{L}}{\partial c_m} &= c_m^{-\gamma_c} - \lambda = 0,\\
+\frac{\partial \mathcal{L}}{\partial c_f} &= c_f^{-\gamma_c} - \lambda = 0,\\
+\frac{\partial \mathcal{L}}{\partial l_m} &= l_m^{-\gamma_l} - \lambda w_m = 0,\\
+\frac{\partial \mathcal{L}}{\partial l_f} &= l_f^{-\gamma_l} - \lambda w_f = 0.
+\end{aligned}
+$$
+
+ここから、
+$$
+c_m = c_f = \lambda^{-1/\gamma_c}, \qquad
+l_m = (\lambda w_m)^{-1/\gamma_l}, \quad
+l_f = (\lambda w_f)^{-1/\gamma_l}.
+$$
+
+したがって、
+$$
+\begin{align}
+\lambda & = \frac{l_f^{-\gamma_l}}{w_f} \\
+c_m=c_f & =\lambda^{-1/\gamma_c}=w_f^{1/\gamma_c}\, l_f^{\gamma_l/\gamma_c},
+\end{align}
+$$
+
+$$
+\begin{align}
+l_m & =(\lambda w_m)^{-1/\gamma_l} \\
+& = \Big(\tfrac{w_m}{w_f}\,l_f^{-\gamma_l}\Big)^{-1/\gamma_l} \\
+& =\Big(\tfrac{w_f}{w_m}\Big)^{1/\gamma_l}\, l_f.
+\end{align}
+$$
+
+これを予算制約式 $c_m+c_f=w_m(1-l_m)+w_f(1-l_f)$ に代入すると，
+
+$$
+\boxed{
+2\,w_f^{1/\gamma_c}\,l_f^{\gamma_l/\gamma_c}
++\Big[w_m\Big(\tfrac{w_f}{w_m}\Big)^{1/\gamma_l}+w_f\Big]\,l_f
+-\,(w_m+w_f)=0
+}
+$$
+
+この方程式を数値的に解き、$l_f$ の最大解をもとめることでその他の $(c_m, c_f, l_m)$ が求まります。  
+
+#### 内点の可否条件
+内点解は  
+$$
+0 < l_m < 1, \quad 0 < l_f < 1
+$$  
+
+が成立する解のことでした。下限側（$l_i>0$, $c_i>0$）については、そうでない場合は上で述べたように最適解とはなりえないことが分かっているので、上限側の条件（$l_i<1$）のみを確認すればよいことになります。
+一階条件より
+$$
+l_i = (\lambda w_i)^{-1/\gamma_l}, \quad i \in \{m, f\}.
+$$
+
+したがって、
+$$
+l_i < 1
+\iff
+\lambda w_i > 1.
+$$
+
+ここで $w_m > w_f$ の場合、$\lambda w_f > 1$ を満たせば自動的に $\lambda w_m > 1$ も満たされます。  
+よって、内点解の可否は次のようにまとめられます：
+
+$$
+\boxed{
+\lambda w_f > 1
+\longrightarrow 0 < l_f < (w_m/w_f)^{1/\gamma_l}
+}
+$$
+
+#### 端点解の場合
+
+##### Corner A（$l_m=1, 0<l_f<1$）
+
+最適化の条件式は:
+
+$$
+\begin{align}
+l_f & =1, \\
+l_m & =(\lambda w_m)^{-1/\gamma_l}, \\
+c_m=c_f & =\lambda^{-1/\gamma_c}.
+\end{align}
+$$
+
+$\lambda=\dfrac{l_m^{-\gamma_l}}{w_m}$ を用い、予算制約
+
+$$
+c_m+c_f=w_m(1-l_m)
+$$
+に代入すると、
+$$
+2 w_m^{1/\gamma_c} l_m^{\gamma_l/\gamma_c}+w_m l_m- w_m =0.
+$$
+
+**可否条件**
+$$
+\lambda w_f \le 1 \Longleftrightarrow\ \Big(\tfrac{w_f}{w_m}\Big) l_m^{-\gamma_l}\le 1
+\Longleftrightarrow l_m \ge \Big(\tfrac{w_f}{w_m}\Big)^{1/\gamma_l},
+$$
+
+### Corner B ($0<l_m<1, l_f=1$）
+
+この場合は $l_f=1$ なので、端点Aと対称に $l_m$ について
+
+$$
+\begin{align}
+l_m & =1, \\
+l_f & =(\lambda w_f)^{-1/\gamma_l}, \\
+c_m=c_f & =\lambda^{-1/\gamma_c}.
+\end{align}
+$$
+
+$\lambda=\dfrac{l_f^{-\gamma_l}}{w_f}$ を用い、予算制約
+\(
+c_m+c_f=w_f(1-l_f)
+\)
+に代入すると，
+$$
+2 w_f^{1/\gamma_c} l_f^{\gamma_l/\gamma_c} + w_f l_f-w_f=0.
+$$
+
+**可否条件**
+$$
+\lambda w_m \le 1 \Longleftrightarrow \Big(\tfrac{w_m}{w_f}\Big) l_f^{-\gamma_l}\le 1
+\Longleftrightarrow l_f \ge \Big(\tfrac{w_m}{w_f}\Big)^{1/\gamma_l},
+$$
+
+##### Corner C（両側上限）：\(l_m=1,\ l_f=1\)
+
+### Corner C（両側上限）：$l_m=1,\ l_f=1$
+
+$$
+c_m + c_f = 0
+$$
+
+予算式から上式が成立します。  
+ところが、非負制約より $c_m, c_f \ge 0$ なので
+
+$$
+c_m = c_f = 0.
+$$
+
+CRRA 型効用の限界効用は $c_i \to 0$ のとき発散し、  
+すなわち
+
+$$
+\lim_{c_i \to 0} u(c_i, l_i)
+= \frac{c_i^{1-\gamma_c} - 1}{1-\gamma_c}
+\to -\infty.
+$$
+
+したがって，この場合の効用は
+
+$$
+u(c_m, l_m) + u(c_f, l_f) \to -\infty,
+$$
+
+となり，わずかでも消費や余暇を増やすことで効用が改善できます。  
+ゆえに Corner C（$l_m=1,\ l_f=1$）は最適解になり得ない（除外）ことがわかります。
+
+#### 最適化問題の回答手順4: 最大解を探す
+
+```{julia}
+function solve_bargaining(; w_m=1.0, w_f=0.5, γ_c=1.5, γ_l=1.5)
+
+    ϵ = 1e-9
+    f_int(l_f) = 2*w_f^(1/γ_c)*l_f^(γ_l/γ_c) + (w_m*(w_f/w_m)^(1/γ_l) + w_f)*l_f - (w_m + w_f)
+    left  = f_int(ϵ)
+    right = f_int(1 - ϵ)
+
+    if left * right < 0
+        # 内点：まず l_f を解いてから、l_m は一階条件で比例
+        l_f = find_zero(f_int, (ϵ, 1 - ϵ))
+        l_m = (w_f / w_m)^(1 / γ_l) * l_f
+    else
+        # Corner B: l_f = 1, l_m ∈ (0,1) を直接解く（lの方程式をそのまま）
+        l_f = 1.0
+        fB(l) = 2*w_m^(1/γ_c)*l^(γ_l/γ_c) + w_m*l - w_m
+        l_m = find_zero(fB, (ϵ, 1 - ϵ))
+    end
+
+    # 予算＝総消費 → 等分（対称効用のため常に c_m=c_f）
+    c = w_m*(1 - l_m) + w_f*(1 - l_f)
+    c_m = 0.5*c
+    c_f = 0.5*c
+
+    U = (c_m^(1-γ_c)-1)/(1-γ_c) + (l_m^(1-γ_l)-1)/(1-γ_l) +
+        (c_f^(1-γ_c)-1)/(1-γ_c) + (l_f^(1-γ_l)-1)/(1-γ_l)
+
+    return (c_m=c_m, c_f=c_f, l_m=l_m, l_f=l_f, U=U)
+end
+```
+
+```{julia}
+#| fig-cap: "**Solutions of bargaining problem.** $w_m = 1.0, w_f \\in [0.1, 1.0], \\gamma_c = \\gamma_l = 1.5$."
+theme(:bright, palette=:okabe_ito, linestyle=:auto)
+p1 = plot(0.1:0.01:1.0, w_f -> solve_bargaining(w_f=w_f).l_m, label=L"l_m",xlabel=L"w_f")
+plot!(0.1:0.01:1.0, w_f -> solve_bargaining(w_f=w_f).l_f, label=L"l_f")
+
+p2 = plot(0.1:0.01:1.0, w_f -> solve_bargaining(w_f=w_f).c_m, color="#009E73",label=L"c_m",xlabel=L"w_f", linestyle=:dashdotdot)
+
+p3 = plot(0.1:0.01:1.0, w_f -> solve_bargaining(w_f=w_f).c_f, color="#CC79A7",label=L"c_f",　xlabel=L"w_f", linestyle=:dot)
+
+plot(p1, p2, p3, layout = @layout([a; b c]), size=(950,420),link = :x)
+
+```
+
+```{julia}
+# ========= 解析解（γc=γl=1: u=log c + log l） =========
+# w_m は固定して、w_f を動かす
+# 戻り値: (c_m, c_f, l_m, l_f)
+function analytical_solution(; w_m=1.0, w_f=0.5,)
+    r = w_m / w_f
+    if r ≤ 1/3              # Corner A
+        c_m = c_f = w_f/3
+        l_f = 1/3
+        l_m = 1.0
+    elseif r ≥ 3            # Corner B
+        c_m = c_f = w_m/3
+        l_m = 1/3
+        l_f = 1.0
+    else                    # Interior
+        c_m = c_f = (w_m + w_f)/4
+        l_m = (w_m + w_f)/(4*w_m)
+        l_f = (w_m + w_f)/(4*w_f)
+    end
+    return (c_m=c_m, c_f=c_f, l_m=l_m, l_f=l_f)
+end
+```
+
+```{julia}
+#| fig-cap: "**Solutions of bargaining problem.** \\gamma_c = \\gamma_l = 0.95 \\text{vs} 1.00 \\text{vs} 1.05$."
+theme(:bright, palette=:okabe_ito, linestyle=:auto)
+# --- 1行目のプロット (l_m) ---
+p1 = plot(0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=0.95, γ_l=0.95).l_m,
+     label="", title=L"l_m" ,xlabel=L"w_f", ylabel="", legend=false)
+plot!(p1, 0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=1.05, γ_l=1.05).l_m,
+     label="")
+plot!(p1, 0.1:0.01:1.0,
+     w_f -> analytical_solution(w_f=w_f).l_m,
+     label="")
+
+# --- 2行目のプロット (l_f) ---
+p2 = plot(0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=0.95, γ_l=0.95).l_f,
+     label="", title=L"l_f", xlabel=L"w_f", ylabel="", legend=false)
+plot!(p2, 0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=1.05, γ_l=1.05).l_f,
+     label="")
+plot!(p2, 0.1:0.01:1.0,
+     w_f -> analytical_solution(w_f=w_f).l_f,
+     label="")
+
+# --- 3行目1列目のプロット (c_m) ---
+p3 = plot(0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=0.95, γ_l=0.95).c_m,
+     label="", title=L"c_m", xlabel=L"w_f", ylabel="", legend=false)
+plot!(p3, 0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=1.05, γ_l=1.05).c_m,
+     label="")
+plot!(p3, 0.1:0.01:1.0,
+     w_f -> analytical_solution(w_f=w_f).c_m,
+     label="")
+
+# --- 3行目2列目のプロット (c_f) ---
+p4 = plot(0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=0.95, γ_l=0.95).c_f,
+     label="", title=L"c_f", xlabel=L"w_f", ylabel="", legend=false)
+plot!(p4, 0.1:0.01:1.0,
+     w_f -> solve_bargaining(w_f=w_f, γ_c=1.05, γ_l=1.05).c_f,
+     label="")
+plot!(p4, 0.1:0.01:1.0,
+     w_f -> analytical_solution(w_f=w_f).c_f,
+     label="")
+
+# --- 並べて表示 ---
+pL = plot(legend=:bottom, framestyle=:none, grid=false,
+          xaxis=false, yaxis=false)
+
+plot!(pL, [NaN], [NaN], label=L"\gamma=0.95")  # 1本目
+plot!(pL, [NaN], [NaN], label=L"\gamma=1.05")  # 2本目
+plot!(pL, [NaN], [NaN], label=L"\gamma=1.00")  # 3本目
+
+# まとめて配置
+plot(p1, p2, p3, p4, pL,
+     layout = @layout([a; b; c d; e{0.12h}]),
+     size   = (950, 700), link   = :x)
+```
+
+## 問 1.3（ガウス・エルミート求積）
+
+ガウス・エルミート求積を用いて、$l_m, l_f$ の期待値を求めよ。その際、
+$\mu_m = 0, \mu_f = -0.2, \sigma_m = \sigma_f = 1.0, \rho = 0.7$ とする。
+効用関数は $\gamma_c = \gamma_l = 1$ とする（そのため、問1.1の結果を用いれば良い）。
+また、結果を $N = 10^6$ 程度のモンテカルロ法と比較せよ。
+
+### Hint
+
+平均 $\mu$、分散共分散行列 $\Sigma$ の多変量正規分布のガウス・ヘルミート求積は以下のように導出できる。
+$z = \frac{1}{\sqrt{2}}L^{-1}(x - \mu)$ として、
+
+$$
+\begin{align}
+S &= \int v(\exp(x)) \, dF(x) \\
+  &= \int v(\exp(x))
+     \frac{1}{\sqrt{\det(2\pi\Sigma)}}
+     \exp\!\left(
+       -\frac{1}{2}(x - \mu)^\top \Sigma^{-1}(x - \mu)
+     \right) dz \\[1em]
+  &= \int
+     v\!\left(\exp(\mu + \sqrt{2}Lz)\right)
+     \pi^{-\frac{N}{2}}
+     \exp(-z^\top z)
+     v\!\left(\mu + \sqrt{2}Lz\right)
+     dz \\[1em]
+  &= \int
+     v\!\left(\exp(\mu + \sqrt{2}Lz)\right)
+     \pi^{-\frac{N}{2}}
+     \exp\!\left(
+       -\sum_{n=1}^{N} z_n^2
+     \right) dz \\[1em]
+  &\approx
+     \sum_i \sum_j
+     \theta_i \theta_j \pi^{-1}
+     v\!\left(
+       \exp\!\left(
+         \mu + \sqrt{2}L(z_i, z_j)^\top
+       \right)
+     \right)
+\end{align}
+$$
+
+ここで、$L$ は $\Sigma$ のコレスキー分解であり、
+$LL^\top = \Sigma$ を満たす行列である。
+
+### 解答
+
+#### 数値計算の流れ
+
+**計算の考え方（流れの概要）**
+
+1. **分布の設定**  
+   夫婦の対数賃金 $(\log w_m, \log w_f)$ が平均 $\mu=(\mu_m,\mu_f)$、共分散行列 $\Sigma$ に従うと仮定。
+
+2. **賃金の従う分布関数の近似**  
+   賃金の従う分布関数を、**ガウス・エルミート求積 (Gauss–Hermite Quadrature)** によって近似。
+
+3. **節点と重みの生成**  
+   `FastGaussQuadrature.gausshermite()` により節点 $(z_i)$ と重み $(θ_i)$ を得る。
+
+4. **相関を導入した変換**  
+   標準正規分布から共分散 $\Sigma$ をもつ分布へ変換する：
+   $$
+   x = \mu + \sqrt{2}\,Lz, \quad L = \text{chol}(\Sigma)
+   $$
+   そして $w = \exp(x)$ により賃金水準へ写像する。
+
+5. **各節点で最適化を実行**  
+   各 $(w_m, w_f)$ に対して、`solve_bargaining()` 関数を使い、夫婦の効用最大化問題を解いて
+   $$(c_m, c_f, l_m, l_f)$$
+   を得る。
+
+6. **重み付き平均の計算**  
+   各節点の結果を重み $(θ_iθ_j)/π$ で加重平均して期待値を求める：
+   $$
+   E[l_m] \approx \sum_i\sum_j \frac{θ_i θ_j}{π} l_m(w_m, w_f)
+   $$
+$l_f$についても同様。
+
+7. **モンテカルロ法との比較**  
+   最後に、乱数サンプリング（$N=10^6$）による平均値と比較して、精度を確認する。
+
+
+##### 問題設定の確認
+
+問題文より、夫婦の対数賃金 $\log(w_m), \log(w_f)$ は次の2次元正規分布に従うと仮定されています：
+
+$$
+\begin{pmatrix} \log w_m \\ \log w_f \end{pmatrix}
+\sim \mathcal{N}\left(
+\begin{pmatrix} \mu_m \\ \mu_f \end{pmatrix},
+\begin{pmatrix}
+\sigma_m^2 & \rho\sigma_m\sigma_f \\
+\rho\sigma_m\sigma_f & \sigma_f^2
+\end{pmatrix}
+\right)
+$$
+
+求めたいのは、最適労働時間 $(l_m, l_f)$ の期待値：
+
+$$
+\begin{align}
+\mathbb{E}[l_m] & = \iint l_m(w_m, w_f) f(w_m, w_f)\,dw_m\,dw_f
+\mathbb{E}[l_f] & = \iint l_f(w_m, w_f) f(w_m, w_f)\,dw_m\,dw_f
+\end{align}
+$$
+
+です。
+
+##### ガウス・エルミート求積での近似
+
+この積分を直接解くのは困難なので、**ガウス・エルミート求積**を用いて次のように近似していきます：
+
+$$
+\mathbb{E}[l_m] \approx 
+\sum_{i=1}^N \sum_{j=1}^N 
+\theta_i \theta_j \frac{1}{\pi}\,
+l_m\big(\exp(\mu + \sqrt{2}Lz_{ij})\big)
+$$
+
+ここで：
+
+- $(z_i, \theta_i)$：1次元 Gauss–Hermite の節点と重み  
+- $L$：$\Sigma$ のコレスキー分解（$\Sigma = LL^\top$）  
+- $x = \mu + \sqrt{2}Lz$ により標準正規から共分散 $\Sigma$ へ変換  
+- $\exp(x)$ により対数賃金から実際の賃金へ変換  
+
+ガウス・エルミート求積で何をやるかといえば、$w_m, w_f$　の従う２次元正規分布をいくつかの点で近似することです。Julia では、そのために標準ライブラリ
+`FastGaussQuadrature.jl` というパッケージの `gausshermite(n)` 関数を使うことができます。
+
+::: {.callout-tip collapse="true"}
+
+###### $w_m, w_f$　の従う２次元正規分布
+
+$$
+\log
+\begin{pmatrix}
+w_m \\ w_f
+\end{pmatrix}
+\sim
+\mathcal{N}\!\left(
+\begin{pmatrix}
+\mu_m \\ \mu_f
+\end{pmatrix},
+\begin{pmatrix}
+\sigma_m^2 & \rho \sigma_m \sigma_f \\
+\rho \sigma_m \sigma_f & \sigma_f^2
+\end{pmatrix}
+\right)
+$$
+
+ここで：
+- $\mu_m, \mu_f$：平均  
+- $\sigma_m, \sigma_f$：標準偏差  
+- $\rho$：相関係数（$-1 < \rho < 1$）
+
+上の仮定のもとで、$(x_m, x_f) = (\log w_m, \log w_f)$ の確率密度関数は次のように表されます：
+
+$$
+f(\log w_m, \log w_f)
+= \frac{1}{2\pi\sigma_m\sigma_f\sqrt{1-\rho^2}}
+\exp\!\left(
+-\frac{1}{2(1-\rho^2)}
+\Big[
+\frac{(\log w_m-\mu_m)^2}{\sigma_m^2}
+- 2\rho\frac{(\log w_m-\mu_m)(\log w_f-\mu_f)}{\sigma_m\sigma_f}
++ \frac{(\log w_f-\mu_f)^2}{\sigma_f^2}
+\Big]
+\right)
+$$
+
+上の分布は「対数賃金」の分布です。  
+実際の賃金 $(w_m, w_f)$ の分布に変換するには、ヤコビアン（Jacobian）による補正を行います。
+
+ヤコビアン $J = |\partial(\log w_m, \log w_f)/\partial(w_m, w_f)| = 1/(w_m w_f)$ を考慮すると、次のようになります：
+
+$$
+f(w_m, w_f)
+= \frac{1}{w_m w_f 2\pi\sigma_m\sigma_f\sqrt{1-\rho^2}}
+\exp\!\left(
+-\frac{1}{2(1-\rho^2)}
+\Big[
+\frac{(\log w_m-\mu_m)^2}{\sigma_m^2}
+- 2\rho\frac{(\log w_m-\mu_m)(\log w_f-\mu_f)}{\sigma_m\sigma_f}
++ \frac{(\log w_f-\mu_f)^2}{\sigma_f^2}
+\Big]
+\right)
+$$
+
+この式が、
+> 「$\log w_m, \log w_f$ が平均 $\mu$, 分散共分散 $\Sigma$ に従うときの、$(w_m, w_f)$ の確率密度関数」
+です。
+
+Julia では、`Distributions.jl` パッケージを用いることで、  
+この2次元正規分布を直接扱うことができます。
+
+```{julia}
+using Distributions
+
+μ = [0.0, -0.2]
+σm, σf, ρ = 1.0, 1.0, 0.7
+Σ = [σm^2  ρ*σm*σf;
+     ρ*σm*σf  σf^2]
+
+# 2次元正規分布 (log w_m, log w_f)
+dist = MvNormal(μ, Σ)
+
+# 例：log w_m=0.5, log w_f=-0.3 の確率密度
+pdf(dist, [0.5, -0.3])
+
+```
+
+:::
+
+問1.3では、夫婦それぞれの賃金があるので、`for`ループを使って`gausshermite(n)` を2次元版に拡張します。
+
+##### $\mathbb{E}[l_m]$　と $\mathbb{E}[l_f]$ を求める
+
+```{julia}
+
+"""
+    gh2d(n::Int; μ=[0.0, 0.0], Σ=I(2))
+
+2次元ガウス・エルミート求積の節点と重みを返す関数。
+
+# 引数
+- `n` : 1次元の節点数
+- `μ` : 平均ベクトル（2次元）
+- `Σ` : 分散共分散行列（2×2）
+
+# 戻り値
+- `zz` : 各節点 (2×n² 行列)
+- `ww`: 各点の重み (n² 次元ベクトル)
+"""
+
+function gh2d(n::Int; μ=[0.0, 0.0], Σ=I(2))
+  # 1. コレスキー分解
+  L = cholesky(Hermitian(Σ)).L
+
+  # 2. 1次元節点と重み
+  z, w = gausshermite(n)
+
+  # 3. 2次元節点と重みを作る
+  zz = Vector{Vector{Float64}}()
+  ww = Float64[]
+
+  for i in 1:n, j in 1:n
+      z_vec = [z[i], z[j]]
+      x = μ .+ sqrt(2) .* (L * z_vec)    # 多変量正規に変換
+      push!(zz, x)
+      push!(ww, (w[i] * w[j]) / π)  # 2次元重み
+  end
+
+  # 4. 対数 → 賃金に変換
+  wages = [exp.(x) for x in zz]  # 各節点を (w_m, w_f) に変換
+
+  return wages, ww
+end
+
+```
+
+```{julia}
+# γc=γl=1: u(c,l)=log c + log l の場合の解析解（端点＋内点対応）
+# 入力: w_m, w_f
+# 出力: (l_m, l_f)
+function solve_ana(; w_m=1.0, w_f=0.5)
+    r = w_m / w_f
+
+    if r ≤ 1/3
+        # --- Corner A: 妻が完全労働 (l_f=1/3), 夫は全余暇 (l_m=1)
+        l_f = 1/3
+        l_m = 1.0
+
+    elseif r ≥ 3
+        # --- Corner B: 夫が完全労働 (l_m=1/3), 妻は全余暇 (l_f=1)
+        l_m = 1/3
+        l_f = 1.0
+
+    else
+        # --- Interior: 両者とも内点解
+        l_m = (w_m + w_f) / (4 * w_m)
+        l_f = (w_m + w_f) / (4 * w_f)
+    end
+
+    return (l_m=l_m, l_f=l_f)
+end
+
+```
+
+```{julia}
+
+function mean_leisure(; n=10, μ=[0.0, 0.0], Σ=I(2))
+    wages, ww = gh2d(n; μ=μ, Σ=Σ)
+
+    # 各節点について l_m, l_f を計算
+    l_m_list = Float64[]
+    l_f_list = Float64[]
+
+    for (w, weight) in zip(wages, ww)
+        w_m, w_f = w
+        sol = solve_ana(w_m=w_m, w_f=w_f)
+        push!(l_m_list, sol.l_m)
+        push!(l_f_list, sol.l_f)
+    end
+
+    # 期待値（加重平均）を計算
+    mean_l_m = sum(ww .* l_m_list)
+    mean_l_f = sum(ww .* l_f_list)
+
+    return (mean_l_m=mean_l_m, mean_l_f=mean_l_f)
+end
+
+```
+
+```{julia}
+μ = [0.0, -0.2]
+σ_m, σ_f, ρ = 1.0, 1.0, 0.7
+Σ = [σ_m^2  ρ*σ_m*σ_f;
+     ρ*σ_m*σ_f  σ_f^2]
+n = 10
+
+lmean = mean_leisure(; n=n, μ=μ, Σ=Σ)
+
+println("====ガウス・エルミート求積====")
+println("男性の平均余暇 (l_m の期待値) = ", lmean.mean_l_m)
+println("女性の平均余暇 (l_f の期待値) = ", lmean.mean_l_f)
+
+
+```
+
+##### モンテカルロ法との比較
+
+最後に、乱数サンプリング($N=10^6$)による平均値と比較して、精度を確認します。
+
+```{julia}
+
+function mc_leisure(; n::Int=10^6, μ_m=0.0, μ_f=-0.2, σ_m=1.0, σ_f=1.0, ρ=0.7, rng=Random.GLOBAL_RNG)
+    Σ = [σ_m^2  ρ*σ_m*σ_f; ρ*σ_m*σ_f  σ_f^2]
+    dist = MvNormal([μ_m, μ_f], Σ)
+    X = rand(rng, dist, n)
+
+    mean_l_m = mean((solve_ana(w_m=exp(X[1,j]), w_f=exp(X[2,j])).l_m for j in 1:n))
+    mean_l_f = mean((solve_ana(w_m=exp(X[1,j]), w_f=exp(X[2,j])).l_f for j in 1:n))
+    return (; mean_l_m, mean_l_f)
+end
+
+lmc = mc_leisure()
+
+println("====モンテカルロ計算の結果====")
+println("男性の平均余暇 (l_m の期待値) = ", lmc.mean_l_m)
+println("女性の平均余暇 (l_f の期待値) = ", lmc.mean_l_f)
+
+```
+
+::: {.callout-tip collapse="true"}
+###### ガウス・エルミート求積による近似を可視化する
+
+```{julia}
+# ==== 1) セットアップ ====
+μ  = [0.0, -0.2]
+σm, σf, ρ = 1.0, 1.0, 0.7
+Σ  = [σm^2  ρ*σm*σf;
+      ρ*σm*σf  σf^2]
+dist = MvNormal(μ, Σ)
+
+# ==== 2) GH節点 ====
+n = 10
+z, w = gausshermite(n)
+L = cholesky(Hermitian(Σ)).L
+
+X_log = Vector{Vector{Float64}}()
+WW    = Float64[]
+for i in 1:n, j in 1:n
+    zvec = [z[i], z[j]]
+    x = μ .+ sqrt(2) .* (L * zvec)
+    push!(X_log, x)
+    push!(WW, (w[i]*w[j]) / π)
+end
+
+x1 = first.(X_log)
+x2 = last.(X_log)
+
+# ==== 3) 等高線用グリッド ====
+gx1 = range(μ[1]-3σm, μ[1]+3σm, length=151)
+gx2 = range(μ[2]-3σf, μ[2]+3σf, length=151)
+Znorm = [pdf(dist, [x, y]) for y in gx2, x in gx1]
+
+# ==== 4) 図1: GH節点の分布（点サイズ = 重み）====
+ms = 4 .+ 1000 .* WW  # 重みをサイズに反映
+p1 = scatter(x1, x2;
+             ms=ms, m=:circle, mc=:blue, ma=0.6,
+             xlabel="log w_m", ylabel="log w_f",
+             aspect_ratio=1, label="GH nodes",
+             title="Gauss–Hermite nodes (size = weight)")
+
+# ==== 図2: 正規分布の等高線 ====
+p2 = contour(gx1, gx2, Znorm;
+             fill=false, levels=15,
+             lc=:gray, linewidth=1.0,
+             xlabel="log w_m", ylabel="log w_f",
+             title="Normal pdf in log-wage space",
+             aspect_ratio=1, cbar=false)
+
+# ==== 5) 並べて表示 ====
+#| fig-cap: "Gauss–Hermite Quadrature"
+plot(p1, p2, layout=(1,2), size=(1000,700),link=:y)
+
+```
+
+この図からわかるようにガウス・エルミート求積は重みをうまく設定することで正規分布の分布関数に含まれる積分などの数値的に難しい積分を精度良く近似することができます。
+:::
+
+## 2. Policy Function Iteration
+
+授業では確率的動学モデルを **Value Function Iteration** によって解く方法を学んだ。  
+ここでは **Policy Function Iteration (PFI)** を用いて同様の問題を解く。
+
+### 問 2.1 (Policy Function Iteration)
+
+$$
+V(k, z) = \max_{k'} \left\{ u(f(k, z) + (1 - \delta)k - k') + \beta \mathbb{E}[V(k', z') \mid z] \right\}.
+$$
+
+生産性 $z$ は以下のような **AR(1)** 過程に従う：
+
+$$
+\log z' = (1 - \rho)\mu + \rho \log z + \sigma \varepsilon, \quad \varepsilon \sim \mathcal{N}(0, 1).
+$$
+
+関数形とパラメータは以下の通り：
+
+- 効用関数：$u(c) = \log c$  
+- 生産関数：$f(k, z) = z k^{\alpha}$  
+- パラメータ：$\beta = 0.96$, $\delta = 0.1$, $\alpha = 0.36$  
+
+$z$ は5つのグリッドに離散化し、PFIを用いて次を求める：
+
+- 政策関数：$k' \coloneqq g(k, z)$  
+- 価値関数：$V(k, z)$  
+
+これらをそれぞれの $z$ に対してプロットせよ。
+
+#### Hint 1
+
+離散化されたAR(1)過程を $\Lambda(z, z')$ と表すと、オイラー方程式は以下のように書ける：
+
+$$
+u'(c) = \beta \sum_{z'} \Lambda(z, z') \, u'(c') \, [f'(k', z') + (1 - \delta)].
+$$
+
+#### Hint 2
+
+PFI終了後に $V(k, z)$ を線型方程式で求めるには、次のようにする：
+
+- $V(k, z)$ は離散化されたグリッド上の行列  
+  $\{V_{i_k, i_z}\}_{i_k=1,\dots,n_k,\, i_z=1,\dots,n_z}$  
+  である。
+- $\{V_{i_k, i_z}\}$ をベクトル化した $V$ を考える：
+  $$
+  V_{i_k + n_k (i_z - 1)} \coloneqq V_{i_k, i_z}.
+  $$
+- ある $(i_k, i_z)$ に対して、$k_j < g_{i_k, i_z} < k_{j+1}$ を満たす $j \in \{1, \dots, n_k\}$ を求める。
+- $(k, z)$ から $(k', z')$ への遷移は、$V$ 上で  
+  $i_k + n_k (i_z - 1)$ から $i_k' + n_k (i_z' - 1)$ への遷移となる。
+- 遷移行列 $P$ は以下のように定義され、定義されていない要素は $0$ とする：
+
+$$
+P_{i_k + n_k(i_z - 1), \, j + n_k(i_z' - 1)} =
+\begin{cases}
+\Lambda_{i_z, i_z'} \dfrac{k_{j+1} - g_{i_k, i_z}}{k_{j+1} - k_j}, & \text{if } 1 < j < n_k, \\[6pt]
+\Lambda_{i_z, i_z'}, & \text{otherwise.}
+\end{cases}
+$$
+
+$$
+P_{i_k + n_k(i_z - 1), \, j+1 + n_k(i_z' - 1)} =
+\begin{cases}
+\Lambda_{i_z, i_z'} \dfrac{g_{i_k, i_z} - k_j}{k_{j+1} - k_j}, & \text{if } 1 < j < n_k, \\[6pt]
+\Lambda_{i_z, i_z'}, & \text{otherwise.}
+\end{cases}
+$$
+
+### 解答
+
+#### ステップ1. AR(1)をTauchen Methodで離散化する
+
+この関数は、対数生産性 $y=\log z$ が従う AR(1) 過程
+
+$$
+y' = (1-\rho)\mu + \rho y + \sigma \varepsilon,\quad \varepsilon\sim\mathcal N(0,1)
+$$
+
+を [**Tauchen (1986)**](https://doi.org/10.1016/0165-1765(86)90168-0) [^6] の手法で有限状態マルコフ連鎖に離散化します。  
+返り値は、**（1）$z$ のグリッド**、**（2）遷移確率行列**、**（3）定常分布** です [^7]。
+
+```{julia}
+
+"""
+---------------------------------------------------
+=== Tauchen: AR(1) in log space (y = log z) ===
+---------------------------------------------------
+"""
+function tauchen_logz(N::Int, ρ::Real, σ::Real, μ::Real; m::Real=3.0)
+    @assert N ≥ 2 "N must be at least 2"
+    @assert abs(ρ) < 1 "Tauchen assumes |ρ|<1 for stationary AR(1)."
+
+    # 1) Stationary std of y and uniform grid in y-space
+    σy = σ / sqrt(1 - ρ^2)
+    ymin = μ - m*σy
+    ymax = μ + m*σy
+    y    = collect(range(ymin, ymax; length=N))
+    w    = y[2] - y[1]                      # bin width
+
+    # 2) Build transition matrix in y-space
+    Zprob = zeros(Float64, N, N)
+    ϕ = Normal(0.0, 1.0)                    # standard normal
+
+    # conditional mean of y' given current y_j
+    # m_j = (1-ρ)μ + ρ y_j
+    for j in 1:N
+        m_j = (1 - ρ)*μ + ρ*y[j]
+        # lower/upper bin boundaries around each grid point k
+        for k in 1:N
+            if k == 1
+                # (-∞, y1 + w/2]
+                ub = (y[1] + w/2 - m_j) / σ
+                Zprob[j,k] = cdf(ϕ, ub)
+            elseif k == N
+                # (yN - w/2, ∞)
+                lb = (y[N] - w/2 - m_j) / σ
+                Zprob[j,k] = 1.0 - cdf(ϕ, lb)
+            else
+                # (y_k - w/2, y_k + w/2]
+                ub = (y[k] + w/2 - m_j) / σ
+                lb = (y[k] - w/2 - m_j) / σ
+                Zprob[j,k] = cdf(ϕ, ub) - cdf(ϕ, lb)
+            end
+        end
+        # numerical clean-up to ensure rows sum to 1
+        rowsum = sum(Zprob[j, :])
+        if rowsum != 0.0
+            Zprob[j, :] ./= rowsum
+        else
+            # extremely unlikely; fallback to point mass at nearest bin
+            idx = argmin(abs.(y .- m_j))
+            Zprob[j, idx] = 1.0
+        end
+    end
+
+    # 3) Stationary distribution π: power iteration on P'
+    Zinv = fill(1.0 / N, N)
+    tol = 1e-12
+    maxit = 100_000
+    for _ in 1:maxit
+        Zinv_new = Zprob' * Zinv
+        if maximum(abs.(Zinv_new .- Zinv)) < tol
+            Zinv = Zinv_new
+            break
+        end
+        Zinv = Zinv_new
+    end
+    Zinv ./= sum(Zinv)   # normalize
+
+    # 4) Return grid in z (default) or y
+    Z = exp.(y)
+    return Z, Zprob, Zinv
+end
+
+```
+
+[^6]: Tauchen, G. (1986). Finite state markov-chain approximations to univariate and vector autoregressions. Economics letters, 20(2), 177-181.
+[^7]: 単純に自分の持っているTauchen法のコード(定量的マクロ経済学と数値計算という本についてきたコードを修正したもの)を使っているだけなので、皆さんがやるなら`QuantEcon.jl` の `tauchen` 関数を使ったほうが楽です。
+
+```{julia}
+Z, Zprob, Zinv = tauchen_logz(5,0.95, 0.2, 0.0; m=3.0)
+```
+
+#### ステップ2. 政策関数反復(PFI)
+
+```{julia}
+# =========================
+# 1) モデル構造体
+# =========================
+
+Base.@kwdef struct Model{TF<:AbstractFloat,TI<:Integer}
+    # Parameters
+    α::TF = 0.36
+    β::TF = 0.96
+    δ::TF = 0.1
+
+    # Capital grid
+    n_k::TI = 101
+    k_min::TF = 0.05
+    k_max::TF = 0.5
+    k_grid::Vector{TF} = collect(range(k_min, k_max, length=n_k))
+
+    # Productivity (Tauchen; log z AR(1))
+    ρ::TF = 0.95
+    σ::TF = 0.2
+    μ::TF = 0.0
+    n_z::TI = 5
+    m_tauchen::TF = 3.0
+
+    # Tauchen: z-grid and transition matrix Λ, stationary distribution π
+    Z::Vector{TF} = Float64[]                       
+    Λ::Matrix{TF} = Matrix{Float64}(undef, 0, 0)    
+                                              
+    # Policy (consumption): h[k,z]
+    h::Matrix{TF} = Matrix{Float64}(undef, 0, 0)    
+
+    # Value Function
+    V::Matrix{TF} = Matrix{Float64}(undef, 0, 0)    
+end
+```
+
+**基本パラメータ**：
+
+    -   $\alpha$：資本の所得分配率
+    -   $\beta$：割引因子
+    -   $\delta$：減耗率
+
+-   **資本グリッド** `k_grid`：\
+    資本の範囲 $[k_{\min}, k_{\max}] = [0.05, 0.5]$ を $n_k=101$
+    点で離散化。\
+    政策関数や補間の基盤。
+
+-   **生産性プロセス**：\
+    Tauchen法により、AR(1)過程を離散化し、$n_z=5$ の生産性状態 `Z`
+    と遷移確率行列 `Λ` を生成。
+
+-   **政策関数** `h`：\
+    行列サイズ $(n_k, n_z)$。各列が特定の生産性状態 $z_j$
+    に対応し、$h(k_i, z_j)$ は資本 $k_i$・生産性 $z_j$
+    における最適消費。
+
+- **価値関数** `V`: \
+  後で使うために確保
+
+```{julia}
+# ---- 関数形（u, f in z） ----
+u(c; m)  = log(c)
+u′(c; m) = 1 / c
+f(k, z; m)  = z * k^(m.α)
+f′(k, z; m) = m.α * z * k^(m.α - 1)
+
+# ---- euler_eq：現在の z = z_grid[iz] で評価。期待値は Λ の和 ----
+function euler_eq(c, k, h, iz; m)
+    (; β, δ, k_grid, Z, Λ) = m
+    z = Z[iz]
+
+    # k' 可行域でクランプ
+    k′ = max(min(f(k, z; m) + (1 - δ) * k - c, k_grid[end]), k_grid[begin])
+
+    # 期待値 E[u'(c') * (f'(k',z') + 1 - δ)]
+    Emu = 0.0
+    for izp in 1:length(Z)
+        # 各 z' 列の h(·, z') を線形補間して c'(k')
+        h_interp = linear_interpolation(k_grid, view(h, :, izp))
+        c′ = max(h_interp(k′), 1e-12)
+        Emu += Λ[iz, izp] * u′(c′; m) * (f′(k′, Z[izp]; m) + 1 - δ)
+    end
+
+    return u′(max(c, 1e-12); m) - β * Emu
+end
+
+```
+
+```{julia}
+# ---- PFI：講義資料の政策関数反復にz ループを“足す” ----
+function pfi!(m::Model; tol=1e-6, max_iter=1000, verbose=true)
+    (; k_min, k_max, k_grid, δ, Z) = m
+    h_new = similar(m.h)
+    iter, dist = 0, Inf
+
+    while dist > tol && iter < max_iter
+        for iz in 1:length(Z)
+            for (i_k, k) in enumerate(k_grid)
+                # 可行な消費のブラケット
+                c_min = max(1e-9, f(k, Z[iz]; m) + (1 - δ) * k - k_max)
+                c_max = f(k, Z[iz]; m) + (1 - δ) * k - k_grid[begin]
+
+                ee_left  = euler_eq(c_min, k, m.h, iz; m)
+                ee_right = euler_eq(c_max, k, m.h, iz; m)
+
+                h_new[i_k, iz] =
+                    (ee_left > 0 && ee_right > 0) ? c_max :
+                    (ee_left < 0 && ee_right < 0) ? c_min :
+                    find_zero(c -> euler_eq(c, k, m.h, iz; m), (c_min, c_max))
+            end
+        end
+
+        dist = maximum(abs.(h_new .- m.h))
+        m.h .= h_new
+        iter += 1
+    end
+
+    if verbose
+        println(iter == max_iter ? "Warning: Maximum iterations reached." :
+                                   "Converged in $iter iterations. sup‖Δh‖=$(dist)")
+    end
+    return nothing
+end
+```
+
+オイラー方程式：
+
+$$
+u'(c) = \eta \sum_{z'} \Lambda(z,z') \, u'(c') \, [f'(k',z') + 1 - \delta].
+$$
+
+与えられた $(k,z,c)$ に対して、この式を満たす $c$ を求めます。
+コードの流れは以下の通り：
+
+1.  **次期資本の決定：**
+
+    $$
+    k' = f(k,z) + (1-\delta)k - c
+    $$
+
+2.  **次期消費の補間：**
+
+    各 $z'$ ごとに現在の政策関数 $h(k',z')$ を線形補間で求める：
+
+3.  **期待値の計算：**
+
+    Tauchen法で得た遷移確率行列 `Λ[iz, izp]` を使って期待値をとる： 
+    $$
+    E_z′[\cdot] = \sum_{z′} Λ(z,z′)[u′(c′)(f′(k′,z′)+1−δ)]
+    $$
+
+4.  **最適な消費を求める：**
+
+
+```{julia}
+# ---- モデル組み立て----
+function build_model(; α=0.36, β=0.96, δ=0.1,
+                      n_k=101, k_min=0.05, k_max=0.5,
+                      ρ=0.95, σ=0.2, μ=0.0, n_z=5, m_tauchen=3.0)
+
+    k_grid = collect(range(k_min, k_max, length=n_k))
+    Z, Λ, _ = tauchen_logz(n_z, ρ, σ, μ; m=m_tauchen)
+
+    # 初期政策（素朴だが可行）：c0(k,z) = max(ε, z k^α - δ k)
+    ε = 1e-9
+    h0 = [max(ε, Z[jz]*k^α - δ*k) for k in k_grid, jz in 1:n_z]
+    V0 = zeros(Float64, n_k, n_z) 
+
+    return Model(; α, β, δ, n_k, k_min, k_max, k_grid,
+              ρ, σ, μ, n_z, m_tauchen, Z=Z, Λ=Λ, h=h0, V=V0)
+
+end
+
+```
+
+各 $(k,z)$ におけるオイラー方程式を満たす消費 $c$
+を求め、政策関数 $h(k,z)$ を更新。
+
+手順は以下の通り：
+
+1.  **$z$ のループ追加：**\
+    確定的モデルに $z$
+    のループを追加し、各生産性状態に対して政策更新を行う。
+
+2.  **可行な消費範囲の設定：**
+
+3.  **符号チェックによる端点処理：**
+    両端の符号が同じ場合は境界解を採用。そうでなければ `find_zero()`
+    で根を求める。
+
+4.  **収束判定：**
+
+    $$\max |h_{  ext{new}} - h| < 10^{-6}$$\
+    で終了。収束すれば「Converged」と出力。
+
+
+```{julia}
+
+# ---- 実行----
+m = build_model(n_z=5, m_tauchen=3.0)
+pfi!(m)
+
+# 各 z の政策を重ね描き
+#| fig-cap: "**Policy Function** "
+p = plot(m.k_grid, m.h[:,1], label="z=$(round(m.Z[1]; digits=3))");
+[plot!(p, m.k_grid, m.h[:,iz], label="z=$(round(m.Z[iz]; digits=3))") for iz in 2:m.n_z];
+p
+
+```
+結果の経済学的意味
+
+PFI により得られる政策関数は、以下の経済的特徴を再現：
+
+-   **高い生産性 $z$ のとき：**\
+    所得が多く、消費水準も上昇。政策関数 $c = h(k,z)$ は上方シフト。
+
+-   **低い生産性 $z$ のとき：**\
+    所得が少なく、将来に備えて消費を抑制し、貯蓄を増やす。 政策関数 $c = h(k,z)$ は下方シフト。
+
+#### ステップ3. $V(k, z)$ を線型方程式で求める
+
+```{julia}
+# 価値関数評価： (I - β P) vec(V) = vec(u(h))
+# 状態順序は idx(i_k, i_z) = i_k + n_k*(i_z-1)
+function compute_vf!(m::Model)
+    (; α, β, δ, k_grid, Z, Λ, h) = m
+    n_k, n_z = length(k_grid), length(Z)
+    n = n_k * n_z
+
+    # 行列P（状態遷移）とreturnベクトルrを用意
+    P = zeros(Float64, n, n)
+    r = zeros(Float64, n)
+
+    # 便利：フラット化インデックス
+    idx(i_k, i_z) = i_k + n_k*(i_z - 1)
+
+    for i_z in 1:n_z
+        z = Z[i_z]
+        for (i_k, k) in enumerate(k_grid)
+            row = idx(i_k, i_z)
+
+            # 現在の消費（既にPFIで収束済みの h を使用）
+            c = h[i_k, i_z]
+            r[row] = u(c; m)   # u(h(k,z))
+
+            # 次期資本 g = k' を計算
+            g = z * k^α + (1 - δ)*k - c
+            g = clamp(g, k_grid[begin], k_grid[end])
+
+            # k' を k_grid 上の2点に線形補間で割り当て
+            j = searchsortedlast(k_grid, g)
+            if j <= 1
+                # 最左端に吸着
+                for i_zp in 1:n_z
+                    col = idx(1, i_zp)
+                    P[row, col] += Λ[i_z, i_zp]
+                end
+            elseif j >= n_k
+                # 最右端に吸着
+                for i_zp in 1:n_z
+                    col = idx(n_k, i_zp)
+                    P[row, col] += Λ[i_z, i_zp]
+                end
+            else
+                # 線形補間の重み
+                w_hi = (g - k_grid[j]) / (k_grid[j+1] - k_grid[j])
+                w_lo = 1.0 - w_hi
+                for i_zp in 1:n_z
+                    # zの遷移は Λ[i_z, i_zp]
+                    P[row, idx(j,   i_zp)] += Λ[i_z, i_zp] * w_lo
+                    P[row, idx(j+1, i_zp)] += Λ[i_z, i_zp] * w_hi
+                end
+            end
+        end
+    end
+
+    # 連立一次方程式を解いて V を更新
+    # (I - βP) vec(V) = r
+    Vvec = (I - β * P) \ r
+    m.V .= reshape(Vvec, n_k, n_z)
+
+    return nothing
+end
+```
+
+##### `compute_vf!` の解説（多状態 $(k,z)$ の価値関数評価）
+
+この関数は、**既に収束した消費政策** $h(k,z)$ を所与として、**価値関数** $V(k,z)$ を  
+一次方程式  
+
+$$
+(I - \beta P)\,\mathrm{vec}(V) = \mathrm{vec}(u(h))
+$$  
+
+から解きます。ここで $P$ は **1期先の状態遷移**（$(k,z) \to (k',z')$）を表す行列です。
+
+### 1. 入出力と前提
+
+- **入力**：モデル `m::Model`
+  - グリッドとパラメータ：`k_grid`, `Z`（生産性の5グリッド）, `Λ`（Tauchenで得た遷移確率）, `α, β, δ`
+  - 既に PFI で収束した政策：`h[i_k, i_z] = h(k_i, z_i)`（**消費政策**）
+- **出力**：`m.V` を $(n_k \times n_z)$ 行列として上書き（更新）
+
+### 2. 状態のフラット化とサイズ
+
+- $n_k = \text{length}(k_{\text{grid}})$, $n_z = \text{length}(Z)$, 総状態数 $n = n_k n_z$。
+- 状態インデックスのフラット化：
+
+$$
+\text{idx}(i_k,i_z) = i_k + n_k (i_z - 1)
+$$
+
+よって $(k_i, z_j)$ に対応する **一次元インデックス**が `1..n` に写像されます。こうしておくとインデックスの管理が楽です。
+
+### 3. 右辺（即時効用）ベクトル $r = \mathrm{vec}(u(h))$
+
+各状態 $(k_i, z_j)$ で  
+
+$$
+r[\text{idx}(i_k, i_z)] = u\!\left(h[i_k, i_z]\right)
+$$  
+
+を代入。ここで $u(c) = \log c$です。
+
+### 4. 遷移行列 $P$ の構築（$(k,z) \to (k',z')$）
+
+1. **資本のLaw of Motion**（消費 $c = h(k,z)$ を使います）：
+
+$$
+g \equiv k' = z k^{\alpha} + (1 - \delta) k - c
+$$  
+
+これは `k_grid` の定義域に **クランプ**（端に外れたら端点に吸着）。
+
+2. **資本方向の線形補間（2点分配）**
+
+`searchsortedlast(k_grid, g)` により $g$ が属する区間 $[k_j, k_{j+1}]$ を見つけ、  
+
+$$
+w_{\mathrm{hi}} = \frac{g - k_j}{k_{j+1} - k_j}, \quad
+w_{\mathrm{lo}} = 1 - w_{\mathrm{hi}}
+$$  
+
+とします。これにより、**次期資本**が $k_j$ と $k_{j+1}$ にそれぞれ $w_{\mathrm{lo}}, w_{\mathrm{hi}}$ で分配されます
+（区間外なら左端/右端に**吸着**）。
+
+3. **生産性方向の遷移（Tauchen の $\Lambda$）**
+
+現在 $z = z_{i_z}$ から次期 $z' = z_{i_z'}$ へは確率 $\Lambda[i_z, i_z']$。  
+よって、**1期先の joint 確率**は  
+
+$$
+\Pr\bigl((k',z') = (k_j, z_{i_z'}) \mid (k,z)\bigr)
+= \Lambda[i_z, i_z'] \times w_{\mathrm{lo}},
+$$  
+
+$$
+\Pr\bigl((k',z') = (k_{j+1}, z_{i_z'}) \mid (k,z)\bigr)
+= \Lambda[i_z, i_z'] \times w_{\mathrm{hi}}.
+$$  
+
+これをフラット化インデックスに落として `P[row, col]` に加算します。
+
+> 直感的には、**資本の線形補間**と **生産性のマルコフ遷移**（$\Lambda$）を **同時に畳み込んだ**行列 $P$ を作っている感じです。
+
+### 5. 線形方程式の解法と `V` の復元
+
+連立一次方程式  
+
+$$
+(I - \beta P)\,V^{\mathrm{vec}} = r
+$$  
+
+を直接解きます。得られた `Vvec` を  
+
+$$
+V = \text{reshape}(Vvec, (n_k, n_z))
+$$  
+
+として `m.V` に格納します。
+
+### 6. 端点処理と数値安定の要点
+
+- $g$ がグリッド外に出た場合は **端点に吸着**（`j <= 1` / `j >= n_k` 分岐）。  
+- `searchsortedlast` は **単調グリッド前提**。`k_grid` は増加等間隔が望ましい。  
+- 大規模格子では $P$ は **疎行列** になるため、`SparseMatrixCSC` で構築し、  
+  `IterativeSolvers.jl` などの反復ソルバを使うとメモリと速度が改善する。
+
+
+```{julia}
+#| fig-cap: "**Value Function** "
+compute_vf!(m)
+
+#1つの z を選んで描画
+plt=plot(m.k_grid, m.V[:,1], label="z=$(round(m.Z[1]; digits=3))",
+     xlabel=L"k", ylabel=L"V(k,z)", legend=:outerbottom, legend_columns=5)
+for iz in 1+1:m.n_z
+    plot!(plt, m.k_grid, m.V[:,iz], label="z=$(round(m.Z[iz]; digits=3))")
+end
+plt
+```
+

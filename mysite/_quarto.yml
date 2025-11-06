@@ -13,8 +13,8 @@ website:
         text: Research
       - href: cv.qmd
         text: CV
-      - href: contact.qmd
-        text: Contact
+       - href: notes.qmd         
+        text: Notes
 
 page-footer:
     right: "&copy; 2025 Hirotaka Fukui. All rights reserved."

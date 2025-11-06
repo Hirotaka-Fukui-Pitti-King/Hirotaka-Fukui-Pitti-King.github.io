@@ -1,0 +1,15 @@
+---
+title: Notes
+description: Short notes, slides, and scratchpads.
+format:
+  html:
+    toc: true
+    toc-location: left
+listing:
+  contents: notes/*.qmd
+  sort: "date desc"
+  type: grid   # "grid" にすればカード表示
+  fields: [title, date, description]
+---
+
+
