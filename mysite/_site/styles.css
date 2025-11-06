@@ -1,5 +1,7 @@
 /* css styles */
-/* ==== 配色（ライト/ダークで自動切替） ============================= */
+/* =========================================================
+   GLOBAL VARIABLES / LIGHT-DARK COLOR SCHEME
+   ========================================================= */
 :root {
   --bg-a: #ffffff;
   --bg-b: #f5f7fb;
@@ -28,61 +30,353 @@
   }
 }
 
-/* ==== ヒーロー全体 ================================================== */
-.hero-neo {
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   ✅ REMOVE QUARTO DEFAULT TITLE BLOCK — ONLY ON index.qmd
+   ========================================================= */
+body.page-index #title-block-header,
+body.page-index .quarto-title-block,
+body.page-index .quarto-title {
+  display: none !important;
+}
+
+/* （重要）Quarto が h1 に勝手に margin をつける対策 */
+body h1 {
+  margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(10, 10, 10, 0.98);
+  box-shadow: 0 2px 20px rgba(255, 20, 147, 0.1);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover {
+  transform: translateX(5px);
+}
+
+.logo-svg {
+  width: 180px;
+  height: auto;
+  transition: opacity 0.3s ease;
+}
+
+.logo-wrapper:hover .logo-svg {
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+nav {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+nav a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
   position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  margin: 1.2rem auto 2.2rem auto;
-  min-height: 360px;
-  background: linear-gradient(135deg, var(--bg-a), var(--bg-b));
+  padding: 5px 0;
 }
 
-/* 背景グリッド（細い幾何学模様で“近未来感”） */
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(80% 80% at 50% 50%, black 60%, transparent 100%);
-  -webkit-mask-image: radial-gradient(80% 80% at 50% 50%, black 60%, transparent 100%);
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #00D9FF, #FF1493);
+  transition: width 0.3s ease;
 }
 
-/* グラスカード（サイト名/肩書） */
-.hero-card {
-  position: absolute; left: 50%; top: 20%;
-  transform: translateX(-50%);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  border-radius: 14px;
-  padding: 1.2rem 1.6rem;
+nav a:hover {
+  color: #ffffff;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+main {
+  padding-top: 80px;
+}
+
+.hero {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  z-index: 2;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
 }
-.hero-card h1 { margin: 0 0 .25rem 0; color: var(--text-strong); }
-.hero-card p  { margin: 0; opacity: .85; }
 
-/* SVGアート（中央に静かに浮いている感じ） */
-.hero-art {
-  position: absolute; left: 50%; top: 52%;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: min(1100px, 95vw);
-  display: block;
-  animation: float 14s ease-in-out infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-  50%      { transform: translate(-50%, -50%) translateY(-8px); }
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
 }
 
-/* 本文の幅微調整（Quartzに寄せた控えめ幅） */
-.page-content .content { max-width: 900px; }
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+}
 
-/* モバイル調整 */
-@media (max-width: 720px) {
-  .hero-card { top: 16%; padding: .9rem 1.1rem; }
-  .hero-art  { width: 96vw; }
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ✅ グラデーション H1（ヒーロー専用） */
+.hero .hero-title {
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+
+  background: linear-gradient(135deg, #00D9FF 0%, #FF1493 50%, #FFD700 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+
+  text-shadow: 0 0 0.01px rgba(255,255,255,0.001);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 40px;
+  border: 1px solid;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  border-color: #00D9FF;
+  color: #00D9FF;
+}
+
+.btn-primary:hover {
+  background: rgba(0, 217, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.btn-secondary {
+  border-color: #FF1493;
+  color: #FF1493;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 20, 147, 0.1);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 20px;
+    height: 70px;
+  }
+  .logo-svg {
+    width: 140px;
+  }
+  nav {
+    gap: 20px;
+  }
+  nav a {
+    font-size: 12px;
+  }
+  .hero .hero-title {
+    font-size: 2.6rem;
+  }
+}
+
+/* =========================
+   Contact page components
+   (.contact-*)
+   ========================= */
+.contact-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.contact-container h2 {
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+
+.contact-desc {
+  color: #cccccc;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: 0.3s ease;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+}
+
+.icon-card div {
+  margin-top: 0.6rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.icon-card:hover {
+  background: rgba(255,255,255,0.07);
+  transform: translateY(-4px);
+}
+
+/* ライトモード用の微調整（必要なら） */
+@media (prefers-color-scheme: light) {
+  .icon-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(0,0,0,0.02);
+  }
+  .icon-card:hover {
+    background: rgba(0,0,0,0.05);
+  }
+  .icon-card div { color: #111; }
+}
+
+/* =========================
+   About page mini icons
+   (.mini-contact-icons / .micon)
+   ========================= */
+.mini-contact-icons {
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.micon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 0.25s ease;
+  background: rgba(255,255,255,0.08);
+}
+
+.micon:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-3px);
+}
+
+.micon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ライトモードの馴染ませ */
+@media (prefers-color-scheme: light) {
+  .micon { background: rgba(0,0,0,0.06); }
+  .micon:hover { background: rgba(0,0,0,0.12); }
 }
