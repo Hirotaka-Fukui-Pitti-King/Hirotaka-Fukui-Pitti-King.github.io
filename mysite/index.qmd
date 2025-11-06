@@ -60,16 +60,6 @@ format:
           <circle cx="0" cy="0" r="2.2" fill="#ffffff" opacity="0.95"/>
           <circle cx="0" cy="0" r="1" fill="#FFD700"/>
         </g>
-        <g transform="translate(70, 30)">
-          <text x="0" y="5" font-family="'Georgia', 'Times New Roman', serif" 
-                font-size="16" font-weight="300" fill="#ffffff" letter-spacing="2">
-            H × F
-          </text>
-          <text x="0" y="14" font-family="Arial, sans-serif" 
-                font-size="6" fill="#999999" letter-spacing="1">
-            FOCUSED FLOW
-          </text>
-        </g>
       </svg>
     </a>
 
@@ -86,7 +76,7 @@ format:
   <div class="hero-content">
     <h1 class="hero-title fade-in">Hirotaka Fukui</h1>
     <p class="subtitle fade-in">Kobe University, Graduate School of Economics, Ph.D. Student</p>
-    <p class="tagline fade-in" style="font-size:1rem;color:#aaaaaa;">International Macroeconomics・Monetary Economics・Emerging and Developing Economies</p>
+    <p class="tagline fade-in" style="font-size:1rem;color:#aaaaaa;">International Macroeconomics・Monetary Economics・EMDEs</p>
     <div class="cta-buttons fade-in">
         <a href="research.html" class="btn btn-primary">VIEW RESEARCH</a>
         <a href="contact.html" class="btn btn-secondary">GET IN TOUCH</a>
