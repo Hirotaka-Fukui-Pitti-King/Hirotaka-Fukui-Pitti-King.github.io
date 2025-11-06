@@ -1654,7 +1654,6 @@ y' = (1-\rho)\mu + \rho y + \sigma \varepsilon,\quad \varepsilon\sim\mathcal N(0
 $$
 
 を [**Tauchen (1986)**](https://doi.org/10.1016/0165-1765(86)90168-0) [^6] の手法で有限状態マルコフ連鎖に離散化します。  
-返り値は、**（1）$z$ のグリッド**、**（2）遷移確率行列**、**（3）定常分布** です [^7]。
 
 ```{julia}
 
@@ -1732,7 +1731,6 @@ end
 ```
 
 [^6]: Tauchen, G. (1986). Finite state markov-chain approximations to univariate and vector autoregressions. Economics letters, 20(2), 177-181.
-[^7]: 単純に自分の持っているTauchen法のコード(定量的マクロ経済学と数値計算という本についてきたコードを修正したもの)を使っているだけなので、皆さんがやるなら`QuantEcon.jl` の `tauchen` 関数を使ったほうが楽です。
 
 ```{julia}
 Z, Zprob, Zinv = tauchen_logz(5,0.95, 0.2, 0.0; m=3.0)
@@ -1932,7 +1930,9 @@ end
 
 4.  **収束判定：**
 
-    $$\max |h_{  ext{new}} - h| < 10^{-6}$$\
+    $$
+    \max |h_{new} - h| < 10^{-6}
+    $$
     で終了。収束すれば「Converged」と出力。
 
 
@@ -2031,7 +2031,7 @@ end
 一次方程式  
 
 $$
-(I - \beta P)\,\mathrm{vec}(V) = \mathrm{vec}(u(h))
+(I - \beta P) \mathrm{vec}(V) = \mathrm{vec}(u(h))
 $$  
 
 から解きます。ここで $P$ は **1期先の状態遷移**（$(k,z) \to (k',z')$）を表す行列です。
@@ -2124,10 +2124,6 @@ $$
 ### 6. 端点処理と数値安定の要点
 
 - $g$ がグリッド外に出た場合は **端点に吸着**（`j <= 1` / `j >= n_k` 分岐）。  
-- `searchsortedlast` は **単調グリッド前提**。`k_grid` は増加等間隔が望ましい。  
-- 大規模格子では $P$ は **疎行列** になるため、`SparseMatrixCSC` で構築し、  
-  `IterativeSolvers.jl` などの反復ソルバを使うとメモリと速度が改善する。
-
 
 ```{julia}
 #| fig-cap: "**Value Function** "
