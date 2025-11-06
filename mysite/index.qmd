@@ -65,8 +65,7 @@ format:
 
     <nav>
       <a href="about.html">ABOUT</a>
-      <a href="about.html">RESEARCH</a>
-      <a href="contact.html">CONTACT</a>
+      <a href="reserch.html">RESEARCH</a>
     </nav>
   </div>
 </header>
@@ -79,7 +78,7 @@ format:
     <p class="tagline fade-in" style="font-size:1rem;color:#aaaaaa;">International Macroeconomics・Monetary Economics・EMDEs</p>
     <div class="cta-buttons fade-in">
         <a href="research.html" class="btn btn-primary">VIEW RESEARCH</a>
-        <a href="contact.html" class="btn btn-secondary">GET IN TOUCH</a>
+        <a href="about.html" class="btn btn-secondary">GET IN TOUCH</a>
     </div>
   </div>
 </section>

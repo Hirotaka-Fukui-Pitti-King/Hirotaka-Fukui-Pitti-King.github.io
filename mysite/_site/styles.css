@@ -1,89 +1,51 @@
 /* css styles */
-/* =========================================================
-   GLOBAL VARIABLES / LIGHT-DARK COLOR SCHEME
-   ========================================================= */
+/* =============================
+   Global variables
+   （必要ならここに色変数を追加）
+============================= */
 :root {
-  --bg-a: #ffffff;
-  --bg-b: #f5f7fb;
-  --grid: rgba(20, 40, 80, 0.06);
-  --glass: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(120, 140, 160, 0.25);
-  --rose-glow: #7aa6ff;
-  --ink-a: #2f5dff;
-  --ink-b: #6a7dff;
-  --ink-c: #00bcd4;
-  --text-strong: #111;
+  --text-strong: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-a: #0b0d11;
-    --bg-b: #11151c;
-    --grid: rgba(200, 220, 255, 0.06);
-    --glass: rgba(20, 24, 30, 0.55);
-    --glass-border: rgba(160, 180, 220, 0.22);
-    --rose-glow: #3ba1ff;
-    --ink-a: #6ea1ff;
-    --ink-b: #85c6ff;
-    --ink-c: #36e0ff;
-    --text-strong: #f5f7fb;
-  }
-}
+/* ==========
+   Reset (軽め)
+=========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-
-/* =========================================================
-   GLOBAL RESET
-   ========================================================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-  color: #ffffff;
-  min-height: 100vh;
-}
-
-
-/* =========================================================
-   ✅ REMOVE QUARTO DEFAULT TITLE BLOCK — ONLY ON index.qmd
-   ========================================================= */
+/* =============================
+   ページ単位の制御
+============================= */
+/* index だけ Quarto のタイトルブロックを消す */
 body.page-index #title-block-header,
 body.page-index .quarto-title-block,
 body.page-index .quarto-title {
   display: none !important;
 }
 
-/* （重要）Quarto が h1 に勝手に margin をつける対策 */
-body h1 {
-  margin-top: 0 !important;
+/* ============ ダーク用 ============ */
+/* 以降は .site-dark スコープの中だけに適用される */
+.site-dark {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: #ffffff;
+  min-height: 100vh;
 }
 
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+/* ヘッダー（固定） */
+.site-dark header {
+  position: fixed; top: 0; left: 0; right: 0;
   background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 215, 0, 0.1);
   z-index: 1000;
   transition: all 0.3s ease;
 }
-
-header.scrolled {
+.site-dark header.scrolled {
   background: rgba(10, 10, 10, 0.98);
   box-shadow: 0 2px 20px rgba(255, 20, 147, 0.1);
 }
 
-.header-container {
+.site-dark .header-container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 40px;
@@ -93,39 +55,23 @@ header.scrolled {
   height: 80px;
 }
 
-.logo-wrapper {
+/* ロゴ */
+.site-dark .logo-wrapper {
   display: flex;
   align-items: center;
   gap: 20px;
   text-decoration: none;
   transition: transform 0.3s ease;
 }
+.site-dark .logo-wrapper:hover { transform: translateX(5px); }
 
-.logo-wrapper:hover {
-  transform: translateX(5px);
-}
+.site-dark .logo-svg { width: 180px; height: auto; transition: opacity 0.3s ease; }
+.site-dark .logo-wrapper:hover .logo-svg { opacity: 0.8; }
 
-.logo-svg {
-  width: 180px;
-  height: auto;
-  transition: opacity 0.3s ease;
-}
+/* ナビゲーション */
+.site-dark nav { display: flex; gap: 40px; align-items: center; }
 
-.logo-wrapper:hover .logo-svg {
-  opacity: 0.8;
-}
-
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-nav {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-
-nav a {
+.site-dark nav a {
   color: #cccccc;
   text-decoration: none;
   font-size: 14px;
@@ -135,145 +81,93 @@ nav a {
   position: relative;
   padding: 5px 0;
 }
-
-nav a::after {
+.site-dark nav a::after {
   content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
+  position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1px;
   background: linear-gradient(90deg, #00D9FF, #FF1493);
   transition: width 0.3s ease;
 }
+.site-dark nav a:hover { color: #ffffff; }
+.site-dark nav a:hover::after { width: 100%; }
 
-nav a:hover {
-  color: #ffffff;
-}
+/* メイン */
+.site-dark main { padding-top: 80px; }
 
-nav a:hover::after {
-  width: 100%;
-}
-
-
-/* =========================================================
-   HERO SECTION
-   ========================================================= */
-main {
-  padding-top: 80px;
-}
-
-.hero {
+.site-dark .hero {
   min-height: calc(100vh - 80px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 60px 40px;
-  position: relative;
-  overflow: hidden;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 60px 40px;
+  position: relative; overflow: hidden;
 }
-
-.hero::before {
+.site-dark .hero::before {
   content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
+  width: 600px; height: 600px;
   background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
   animation: pulse 4s ease-in-out infinite;
 }
-
 @keyframes pulse {
   0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
   50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
 }
+.site-dark .hero-content { position: relative; z-index: 1; }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* ✅ グラデーション H1（ヒーロー専用） */
+/* グラデ見出し（h1のグローバル指定はしない） */
 .hero .hero-title {
   font-size: 4rem;
   font-weight: 300;
   margin-bottom: 20px;
 
-  background: linear-gradient(135deg, #00D9FF 0%, #FF1493 50%, #FFD700 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
+  background: linear-gradient(135deg, #00D9FF 0%, #FF1493 50%, #FFD700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 
-  text-shadow: 0 0 0.01px rgba(255,255,255,0.001);
+  text-shadow: 0 0 0.01px rgba(255,255,255,0.001); /* 極小フォールバック */
 }
 
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-.cta-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+.site-dark .subtitle {
+  font-size: 1.2rem; color: #999999; font-weight: 300; letter-spacing: 2px; margin-bottom: 40px;
+}
+.site-dark .tagline {
+  max-width: 700px; font-size: 1rem; line-height: 1.8; color: #cccccc; margin-bottom: 50px;
 }
 
-.btn {
-  padding: 15px 40px;
-  border: 1px solid;
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+/* CTA ボタン */
+.site-dark .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.site-dark .btn {
+  padding: 15px 40px; border: 1px solid; text-decoration: none;
+  font-size: 14px; letter-spacing: 1px; transition: all 0.3s ease;
+  position: relative; overflow: hidden;
 }
+.site-dark .btn-primary { background: transparent; border-color: #00D9FF; color: #00D9FF; }
+.site-dark .btn-primary:hover { background: rgba(0, 217, 255, 0.1); box-shadow: 0 0 20px rgba(0, 217, 255, 0.3); }
+.site-dark .btn-secondary { background: transparent; border-color: #FF1493; color: #FF1493; }
+.site-dark .btn-secondary:hover { background: rgba(255, 20, 147, 0.1); box-shadow: 0 0 20px rgba(255, 20, 147, 0.3); }
 
-.btn-primary {
-  border-color: #00D9FF;
-  color: #00D9FF;
-}
-
-.btn-primary:hover {
-  background: rgba(0, 217, 255, 0.1);
-  box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
-}
-
-.btn-secondary {
-  border-color: #FF1493;
-  color: #FF1493;
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 20, 147, 0.1);
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
-}
-
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+/* レスポンシブ */
 @media (max-width: 768px) {
-  .header-container {
-    padding: 0 20px;
-    height: 70px;
-  }
-  .logo-svg {
-    width: 140px;
-  }
-  nav {
-    gap: 20px;
-  }
-  nav a {
-    font-size: 12px;
-  }
-  .hero .hero-title {
-    font-size: 2.6rem;
-  }
+  .site-dark .header-container { padding: 0 20px; height: 70px; }
+  .site-dark .logo-svg { width: 140px; }
+  .site-dark nav { gap: 20px; }
+  .site-dark nav a { font-size: 12px; }
+  .hero .hero-title { font-size: 2.6rem; } /* .site-dark ではなく .hero で OK */
+  .site-dark .subtitle { font-size: 1rem; }
+  .site-dark .tagline { font-size: 0.9rem; }
+  .site-dark .cta-buttons { flex-direction: column; width: 100%; max-width: 300px; }
+  .site-dark .btn { width: 100%; }
 }
+
+/* フェードイン */
+.fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease forwards; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.4s; }
+.fade-in:nth-child(4) { animation-delay: 0.6s; }
 
 /* =========================
    Contact page components
