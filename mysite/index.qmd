@@ -74,10 +74,9 @@ format:
     </a>
 
     <nav>
-      <a href="#about">ABOUT</a>
-      <a href="#research">RESEARCH</a>
-      <a href="#publications">PUBLICATIONS</a>
-      <a href="#contact">CONTACT</a>
+      <a href="about.html">ABOUT</a>
+      <a href="about.html">RESEARCH</a>
+      <a href="contact.html">CONTACT</a>
     </nav>
   </div>
 </header>
@@ -89,8 +88,8 @@ format:
     <p class="subtitle fade-in">Kobe University, Graduate School of Economics, Ph.D. Student</p>
     <p class="tagline fade-in" style="font-size:1rem;color:#aaaaaa;">International Macroeconomics・Monetary Economics・Emerging and Developing Economies</p>
     <div class="cta-buttons fade-in">
-      <a href="#research" class="btn btn-primary">VIEW RESEARCH</a>
-      <a href="#contact" class="btn btn-secondary">GET IN TOUCH</a>
+        <a href="research.html" class="btn btn-primary">VIEW RESEARCH</a>
+        <a href="contact.html" class="btn btn-secondary">GET IN TOUCH</a>
     </div>
   </div>
 </section>
