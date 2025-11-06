@@ -1,5 +1,6 @@
 ---
 title: "About"
+title-block-style: none      # ← ページ上では非表示
 ---
 
 ## Welcome
@@ -14,6 +15,10 @@ I am a graduate student in Economics at
 Kobe University, Graduate School of Economics</a>.
 
 My research focuses on International Macroeconomics, Monetary Economics, Emerging and Developing Economies, with a particular emphasis on Sub-Saharan Africa.
+
+ <p class="contact-desc">
+    Feel free to reach out!
+  </p>
 
 <!-- CONTACT ICONS HERE -->
 ```{=html}

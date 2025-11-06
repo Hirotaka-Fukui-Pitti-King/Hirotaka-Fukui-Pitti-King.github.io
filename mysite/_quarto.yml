@@ -26,6 +26,7 @@ format:
       - quartz
       - brand
     css: styles.css
+    body-classes: site-dark
     toc: true
     smooth-scroll: true
 

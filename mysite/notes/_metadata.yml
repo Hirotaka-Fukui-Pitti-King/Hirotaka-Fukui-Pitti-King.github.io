@@ -1,2 +1,6 @@
 execute:
   freeze: auto   # あるいは true（常に凍結）
+format:
+  html:
+    body-classes: site-light
+    css: [../styles.css, notes-light.css] 
