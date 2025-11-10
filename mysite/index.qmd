@@ -65,7 +65,7 @@ format:
 
     <nav>
       <a href="about.html">ABOUT</a>
-      <a href="reserch.html">RESEARCH</a>
+      <a href="research.html">RESEARCH</a>
     </nav>
   </div>
 </header>
