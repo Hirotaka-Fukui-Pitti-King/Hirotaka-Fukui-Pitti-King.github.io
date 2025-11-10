@@ -1,0 +1,179 @@
+---
+title: Foundations of Dynamic Stochastic General Equilibrium Model
+date: 2025-10-15
+engine: julia
+format:
+  html:
+    code-tools: true
+    include-after-body: footer.html
+---
+
+# Starting Point
+
+In a dynamic stochastic general equilibrium framework, the optimality conditions and market clearing conditions for households, firms, and policymakers can be summarized as a system of nonlinear expectational equations:
+
+$$
+    \mathbb{E} F(x_{t+1}, y_{t+1}, x_t, y_t, z_t; \theta) = 0
+$$
+
+where
+
+- $x_t \in \mathbb{R}^{n_x}$ denotes the **state (predetermined) variables**
+
+- $y_t \in \mathbb{R}^{n_y}$ represents the **jump (control) variables**
+
+- $z_t \in \mathbb{R}^{n_z}$ stands for the **exogenous processes**, which typically evolve according to
+
+$$
+        z_{t+1} = \Lambda(\theta) z_t + \Sigma(\theta) \varepsilon_{t+1}, 
+        \quad \varepsilon_t \sim \mathcal{N}(0, I).
+$$
+
+- $\theta$ is the parameter vector collecting structural parameters of the model.
+
+The function $F(\cdot) = 0$ is a compact representation of a set of equilibrium conditions, including the Euler equations, labor supply conditions, price-setting equations, capital accumulation dynamics, policy rules, etc.
+
+## Example: A structure incorporating the Euler equation of a representative household
+
+An illustrative framework embedding the Euler equation characterizing the intertemporal optimization behavior of a representative household.
+
+The representative household maximizes expected lifetime utility:
+
+$$
+    \max_{c_{t}, k_{t+1}, n_{t}} \mathbb{E}_{0} \sum^{\infty}_{t=0} \beta^{t} U(c_{t}, 1-n_{t})
+$$
+
+subject to the intertemporal budget constraint:
+
+$$
+ c_{t}+k_{t+1} = (1-\delta)k_{t}+w_{t}n_{t}+r_{t}k_{t}
+$$
+
+### First-Order Conditions (Interior Solution)
+
+From the optimallity conditions, we obtain:
+
+1. $\lambda_{t} = U_{c}(c_{t}, 1-n_{t})$
+2. $\lambda_{t} = -U_{n}(c_{t}, 1-n_{t})/w_{t}$
+3. $\lambda_{t} = \beta \mathbb{E}_{t}[\lambda_{t+1}(r_{t+1}+1-\delta)] $
+
+From equations (1) and (3), we obtain the canonical Euler equation, which characterizes the intertemporal trade-off in consumption.
+
+By substituting equations (1) through (3) into the system and rearranging, the model can be expressed in the form of a moment condition:
+
+$$
+    \mathbb{E}_{t}\Biggl[ F(x_{t+1}, y_{t+1}, x_{t}, y_{t}, z_{t}; \theta) \Biggr] = 0
+$$
+
+This formulation embeds the Euler condition within a broader structural framework suitable for estimation or simulation.
+
+# Balanced growth Path
+
+In the deterministic version of the model, where stochastic shocks are turned off, the growth trend is governed by the following law of motion:
+
+$$
+ z_{t+1} = \Lambda(\theta)z_{t}+\Sigma(\theta)\epsilon_{t+1}
+$$
+
+In this setting, many endogenous variables evolve proportionally to the growth trend, typically taking the form:
+
+$$
+    x_{t} = \tilde{x} \cdot z_{t}
+$$
+
+This formulation implies that the dynamics of key macroeconomic variables are scaled by the underlying growth process, reflecting balanced growth path behavior in the absence of uncertainty.
+
+::: {#def-BGP}
+
+## Balanced Growth Path
+
+A path $\{C_t, K_t, Y_t\}_{t=0}^{\infty}$ is called a **Balanced Growth Path (BGP)** if there exists a constant $g \in \mathbb{R}$ such that
+$$
+\begin{align}
+\ln \frac{C_{t+1}}{C_t} = \ln \frac{K_{t+1}}{K_t} = \ln \frac{Y_{t+1}}{Y_t} = g
+\quad \forall t \ge 0.
+\end{align}
+$$
+
+Equivalently, $C_t = C_0 e^{gt}$, $K_t = K_0 e^{gt}$, and $Y_t = Y_0 e^{gt}$.
+:::
+
+::: {#thm-BGP}
+
+## Balanced Growth Path: Existence and Uniqueness
+
+Consider a discrete-time economy described by the following system:
+$$
+\begin{align}
+K_{t+1} &= F(K_t, L_t) - C_t - \delta K_t, \\
+L_{t+1} &= (1+n)L_t, \\
+U_0 &= \sum_{t=0}^{\infty} \beta^t u(C_t),
+\end{align}
+$$
+where $K_t$ is capital, $L_t$ is labor, $C_t$ is consumption, $\delta \in (0,1)$ is the depreciation rate, and $\beta \in (0,1)$ is the discount factor.
+
+Then the following two statements are equivalent:
+
+1. There exists at least one Balanced Growth Path in the economy.
+2. The production function $F$ and the utility function $u$ satisfy the following **monotonic scalar transformation conditions**:
+   $$
+    \begin{align}
+    F(aK, aL) &= a\, F(K,L), \quad \forall a>0, \\
+    u(aC) &= \phi(a)\, u(C), \quad \forall a>0,
+    \end{align}
+   $$
+   where $\phi:\mathbb{R}_+ \to \mathbb{R}_+$ is continuous and strictly monotone increasing.
+
+Moreover, if $\phi(a)$ is strictly monotone, then the Balanced Growth Path is unique.
+:::
+
+::: {.proof}
+
+## General Framework
+
+### Production
+Aggregate output is produced according to the following production function:
+
+$$
+    Y_{t} = A_{t}F(K_{t}, N_{t}L_{t})
+$$
+
+where:
+
+- $A_{t}$ denotes the level of technology,
+- $K_{t}$ represents the aggregate capital,
+- $N_{t}, L_{t}$ is the population and the employment rate, respectively.
+
+#### Assumption T1 (Constant Returns to Scale)
+The production function $F: \mathbb{R}^2_{+} \rightarrow \mathbb{R}_{+}$ is assumed to be continuous, quasi-concave, and homogeneous of degree one in reproducible factors $(K, NL)$, satisfying constant returns to scale (CRS).
+
+### Exogenous Growth
+Technological progress and population growth follow deterministic exponential trends:
+
+$$
+\begin{align}
+    A_{t+1} & = (1+g_{A})A_{t}, \\
+    N_{t+1} & = (1+g_{N})N_{t}
+\end{align}
+$$
+
+#### Assumption T2
+The growth rates $g_{A}, g_{N} \geq 0$ are constant and exogenously given.
+
+### Capital Accumulation
+Capital evolves according to the standard law of motion:
+
+$$
+    K_{t+1} = (1-\delta)K_{t}+I_{t}
+$$
+
+### Preferences
+The representative household maximizes lifetime utility given by:
+
+$$
+    U = \sum^{\infty}_{t=0} \beta^t u(C_{t}, 1-L_{t})
+$$
+
+with the period utility function specified as a generalized separable CRRA form:
+
+:::

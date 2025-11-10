@@ -95,13 +95,27 @@
     "href": "research.html",
     "title": "Research",
     "section": "",
-    "text": "On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries\n\n\nBayesian estimation of macro fluctuations in Sub-Saharan Africa.\n\n\n\nNov 10, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Financial Globalization and the Risk of Sovereign Default\n\n\n\nWorking Paper\n\n\n\nThe Global Integration of Financial Markets and Sovereign Debt Risk\n\n\n\nNov 10, 2025\n\n\n\n\n\n\n\n\n\n\nDSGE Models through the Lens of Geometry\n\n\n\nWorking Paper\n\n\n\nYou can think of determinacy, expectations, and shocks in DSGE models as geometric features like shapes and flows within Hamiltonian systems, especially when looking at…\n\n\n\nNov 10, 2025\n\n\n\n\n\n\n\n\n\n\nOn the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries\n\n\n\nWorking Paper\n\n\n\nBayesian estimation of macro fluctuations in Sub-Saharan Africa.\n\n\n\nNov 10, 2025\n\n\n\n\n\n\n\n\n\n\nSpatial Inequality Matters for Macro in Sub-Saharan Africa?\n\n\n\nWorking Paper\n\n\n\nsee project note\n\n\n\nNov 10, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "notes.html",
     "href": "notes.html",
     "title": "Notes",
     "section": "",
-    "text": "No matching items"
+    "text": "Foundations of Dynamic Stochastic General Equilibrium Model\n\n\n\n\n\n\nOct 15, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/DSGE.html",
+    "href": "notes/DSGE.html",
+    "title": "Foundations of Dynamic Stochastic General Equilibrium Model",
+    "section": "",
+    "text": "In a dynamic stochastic general equilibrium framework, the optimality conditions and market clearing conditions for households, firms, and policymakers can be summarized as a system of nonlinear expectational equations:\n\\[\n    \\mathbb{E} F(x_{t+1}, y_{t+1}, x_t, y_t, z_t; \\theta) = 0\n\\]\nwhere\n\n\\(x_t \\in \\mathbb{R}^{n_x}\\) denotes the state (predetermined) variables\n\\(y_t \\in \\mathbb{R}^{n_y}\\) represents the jump (control) variables\n\\(z_t \\in \\mathbb{R}^{n_z}\\) stands for the exogenous processes, which typically evolve according to\n\n\\[\n        z_{t+1} = \\Lambda(\\theta) z_t + \\Sigma(\\theta) \\varepsilon_{t+1},\n        \\quad \\varepsilon_t \\sim \\mathcal{N}(0, I).\n\\]\n\n\\(\\theta\\) is the parameter vector collecting structural parameters of the model.\n\nThe function \\(F(\\cdot) = 0\\) is a compact representation of a set of equilibrium conditions, including the Euler equations, labor supply conditions, price-setting equations, capital accumulation dynamics, policy rules, etc.\n\n\nAn illustrative framework embedding the Euler equation characterizing the intertemporal optimization behavior of a representative household.\nThe representative household maximizes expected lifetime utility:\n\\[\n    \\max_{c_{t}, k_{t+1}, n_{t}} \\mathbb{E}_{0} \\sum^{\\infty}_{t=0} \\beta^{t} U(c_{t}, 1-n_{t})\n\\]\nsubject to the intertemporal budget constraint:\n\\[\nc_{t}+k_{t+1} = (1-\\delta)k_{t}+w_{t}n_{t}+r_{t}k_{t}\n\\]\n\n\nFrom the optimallity conditions, we obtain:\n\n\\(\\lambda_{t} = U_{c}(c_{t}, 1-n_{t})\\)\n\\(\\lambda_{t} = -U_{n}(c_{t}, 1-n_{t})/w_{t}\\)\n${t} = {t}[{t+1}(r{t+1}+1-)] $\n\nFrom equations (1) and (3), we obtain the canonical Euler equation, which characterizes the intertemporal trade-off in consumption.\nBy substituting equations (1) through (3) into the system and rearranging, the model can be expressed in the form of a moment condition:\n\\[\n    \\mathbb{E}_{t}\\Biggl[ F(x_{t+1}, y_{t+1}, x_{t}, y_{t}, z_{t}; \\theta) \\Biggr] = 0\n\\]\nThis formulation embeds the Euler condition within a broader structural framework suitable for estimation or simulation."
+  },
+  {
+    "objectID": "notes/DSGE.html#example-a-structure-incorporating-the-euler-equation-of-a-representative-household",
+    "href": "notes/DSGE.html#example-a-structure-incorporating-the-euler-equation-of-a-representative-household",
+    "title": "Foundations of Dynamic Stochastic General Equilibrium Model",
+    "section": "",
+    "text": "An illustrative framework embedding the Euler equation characterizing the intertemporal optimization behavior of a representative household.\nThe representative household maximizes expected lifetime utility:\n\\[\n    \\max_{c_{t}, k_{t+1}, n_{t}} \\mathbb{E}_{0} \\sum^{\\infty}_{t=0} \\beta^{t} U(c_{t}, 1-n_{t})\n\\]\nsubject to the intertemporal budget constraint:\n\\[\nc_{t}+k_{t+1} = (1-\\delta)k_{t}+w_{t}n_{t}+r_{t}k_{t}\n\\]\n\n\nFrom the optimallity conditions, we obtain:\n\n\\(\\lambda_{t} = U_{c}(c_{t}, 1-n_{t})\\)\n\\(\\lambda_{t} = -U_{n}(c_{t}, 1-n_{t})/w_{t}\\)\n${t} = {t}[{t+1}(r{t+1}+1-)] $\n\nFrom equations (1) and (3), we obtain the canonical Euler equation, which characterizes the intertemporal trade-off in consumption.\nBy substituting equations (1) through (3) into the system and rearranging, the model can be expressed in the form of a moment condition:\n\\[\n    \\mathbb{E}_{t}\\Biggl[ F(x_{t+1}, y_{t+1}, x_{t}, y_{t}, z_{t}; \\theta) \\Biggr] = 0\n\\]\nThis formulation embeds the Euler condition within a broader structural framework suitable for estimation or simulation."
   }
 ]

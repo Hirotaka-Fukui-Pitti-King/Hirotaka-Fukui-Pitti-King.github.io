@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-11-10">
+<meta name="description" content="You can think of determinacy, expectations, and shocks in DSGE models as geometric features like shapes and flows within Hamiltonian systems, especially when looking at symplectic structures and invariant manifolds.">
 
-<title>Contact – Hirotaka Fukui</title>
+<title>DSGE Models through the Lens of Geometry – Hirotaka Fukui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-251603f34fb100524ce6c94bd8510ba7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-251603f34fb100524ce6c94bd8510ba7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed site-dark quarto-light">
@@ -80,9 +82,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Hirotaka Fukui</span>
     </a>
   </div>
@@ -93,19 +95,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link" href="../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes.html"> 
+    <a class="nav-link" href="../notes.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
@@ -116,23 +118,39 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Contact</h1>
+<h1 class="title">DSGE Models through the Lens of Geometry</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Working Paper</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    You can think of determinacy, expectations, and shocks in DSGE models as geometric features like shapes and flows within Hamiltonian systems, especially when looking at symplectic structures and invariant manifolds.
+  </div>
 </div>
 
 
-
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 10, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -142,61 +160,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="contact-container">
-<h2 class="anchored">
-Get in Touch
-</h2>
-<p class="contact-desc">
-Feel free to reach out for research discussions, collaborations, or academic inquiries.
-</p>
-<div class="icon-grid">
-<pre><code>&lt;!-- ========= EMAIL ========= --&gt;
-&lt;a href="mailto:227e127e@gsuite.kobe-u.ac.jp" class="icon-card" target="_blank"&gt;
-  &lt;!-- Heroicons: envelope-solid --&gt;
-  &lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ffffff" width="42" height="42"&gt;
-    &lt;path d="M1.5 4.5A2.5 2.5 0 0 1 4 2h16a2.5 2.5 0 0 1 2.5 2.5v15A2.5 2.5 0 0 1 20 22H4a2.5 2.5 0 0 1-2.5-2.5v-15Zm3 .5 7 5 7-5H4.5Zm15 2.25-7.35 5.25a1 1 0 0 1-1.3 0L3.5 7.25V19.5A1.5 1.5 0 0 0 5 21h14a1.5 1.5 0 0 0 1.5-1.5V7.25Z"/&gt;
-  &lt;/svg&gt;
-  &lt;div&gt;Email&lt;/div&gt;
-&lt;/a&gt;
-
-&lt;!-- ========= GitHub ========= --&gt;
-&lt;a href="https://github.com/Hirotaka-Fukui-Pitti-King" class="icon-card" target="_blank"&gt;
-  &lt;!-- Brandico GitHub --&gt;
-  &lt;svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="#ffffff"&gt;
-    &lt;path d="M12 .5C5.648.5.5 5.648.5 12c0 5.086 3.292 9.387 7.863 10.907.575.108.787-.25.787-.556 0-.275-.012-1.184-.012-2.152-3.2.694-3.875-1.356-3.875-1.356-.525-1.31-1.281-1.66-1.281-1.66-1.05-.719.075-.706.075-.706 1.162.081 1.775 1.194 1.775 1.194 1.031 1.775 2.7 1.262 3.362.963.106-.744.406-1.262.738-1.556-2.556-.288-5.244-1.281-5.244-5.7 0-1.262.45-2.294 1.181-3.1-.119-.294-.519-1.5.106-3.119 0 0 .975-.312 3.2 1.181a11.06 11.06 0 0 1 2.919-.394 11.1 11.1 0 0 1 2.919.394c2.225-1.494 3.2-1.181 3.2-1.181.625 1.619.225 2.825.106 3.119.744.806 1.181 1.838 1.181 3.1 0 4.431-2.7 5.4-5.269 5.681.419.356.794 1.075.794 2.181 0 1.575-.012 2.844-.012 3.231 0 .306.212.675.787.556A10.99 10.99 0 0 0 23.5 12C23.5 5.648 18.356.5 12 .5Z"/&gt;
-  &lt;/svg&gt;
-  &lt;div&gt;GitHub&lt;/div&gt;
-&lt;/a&gt;
-
-&lt;!-- ========= ORCID ========= --&gt;
-&lt;a href="https://orcid.org/0009-0004-9796-9148" class="icon-card" target="_blank"&gt;
-  &lt;!-- Academicons ORCID --&gt;
-  &lt;svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24"&gt;
-    &lt;circle cx="12" cy="12" r="10" fill="#A6CE39"/&gt;
-    &lt;path fill="#ffffff" d="M9.5 7.4v9.2H7.7V7.4h1.8zm2.2 0v1.5h-.1c-.3-.6-.8-1.1-1.5-1.3-.3-.1-.7-.1-1.1-.1H9v1.8h.7c.6 0 1.1.2 1.4.7.4.5.6 1.2.6 2.1v5.4h1.8v-5.3c0-1.3-.3-2.3-.8-3-.5-.7-1.2-1.1-2.1-1.1h-.1zm3.9 2.4h1.7v6.8h-1.8V9.8zm.8-2.3c.6 0 1-.4 1-.9s-.4-.9-1-.9c-.5 0-1 .4-1 .9s.4.9 1 .9z"/&gt;
-  &lt;/svg&gt;
-  &lt;div&gt;ORCID&lt;/div&gt;
-&lt;/a&gt;
-
-&lt;!-- ========= LinkedIn ========= --&gt;
-&lt;a href="https://www.linkedin.com/in/hirotaka-fukui-90495b342" class="icon-card" target="_blank"&gt;
-  &lt;!-- Brandico LinkedIn Rect --&gt;
-  &lt;svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="#0077B5"&gt;
-    &lt;path d="M4.98 3.5C4.98 4.6 4.07 5.5 2.98 5.5 1.89 5.5 1 4.6 1 3.5 1 2.4 1.89 1.5 2.98 1.5 4.07 1.5 4.98 2.4 4.98 3.5zM1.5 8h3v14h-3V8zM8.5 8h2.9v1.9h.1c.4-.7 1.4-1.5 2.9-1.5 3.1 0 3.7 2 3.7 4.6V22h-3v-7.1c0-1.7 0-3.8-2.3-3.8-2.3 0-2.7 1.8-2.7 3.6V22h-3V8z"/&gt;
-  &lt;/svg&gt;
-  &lt;div&gt;LinkedIn&lt;/div&gt;
-&lt;/a&gt;
-
-&lt;!-- ========= X (official logo) ========= --&gt;
-&lt;a href="https://x.com/PittiKing" class="icon-card" target="_blank"&gt;
-  &lt;!-- Official X SVG (Black) --&gt;
-  &lt;svg width="42" height="42" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg"&gt;
-    &lt;path d="M18.244 2.25H21.5l-7.51 8.602L23.25 21.75h-6.438l-4.98-6.053-5.7 6.053H.75l8.175-8.667L.75 2.25h6.597l4.53 5.425 5.367-5.425Z"/&gt;
-  &lt;/svg&gt;
-  &lt;div&gt;X (Twitter)&lt;/div&gt;
-&lt;/a&gt;</code></pre>
-</div>
-</div>
 
 
 
@@ -606,5 +569,5 @@ Feel free to reach out for research discussions, collaborations, or academic inq
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
