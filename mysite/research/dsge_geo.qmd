@@ -1,0 +1,8 @@
+---
+title: "DSGE Models through the Lens of Geometry"
+date: today
+description: "You can think of determinacy, expectations, and shocks in DSGE models as geometric features like shapes and flows within Hamiltonian systems, especially when looking at symplectic structures and invariant manifolds."
+categories: ["Working Paper"]
+url: "https://github.com/Hirotaka-Fukui-Pitti-King/Bumpy-Basilisk"
+image: mysite\static\dollar.svg
+---
