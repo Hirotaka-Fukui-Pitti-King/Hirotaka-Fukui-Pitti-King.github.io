@@ -1,0 +1,7 @@
+---
+title: "On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries"
+date: today
+description: "Bayesian estimation of macro fluctuations in Sub-Saharan Africa."
+url: "https://github.com/Hirotaka-Fukui-Pitti-King/Lively-Llama"
+image: mysite\static\af_conti.svg
+---
