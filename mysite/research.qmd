@@ -5,7 +5,6 @@ format:
   html:
     toc: true
     toc-location: left
-
 listing:
   contents: research/*.qmd
   sort: "date desc"
