@@ -1,0 +1,14 @@
+---
+title: "Research"
+description: "Research projects and papers"
+format:
+  html:
+    toc: true
+    toc-location: left
+
+listing:
+  contents: research/*.qmd
+  sort: "date desc"
+  type: grid
+  fields: [title, date, description]
+---
