@@ -1,6 +1,7 @@
 ---
 title: "Research"
 description: "Research projects and papers"
+body-classes: research-page
 format:
   html:
     toc: true
@@ -9,5 +10,6 @@ listing:
   contents: research/*.qmd
   sort: "date desc"
   type: grid
-  fields: [title, date, description]
+  fields: [title, categories, date, description]  
+  filter-ui: true                                 
 ---

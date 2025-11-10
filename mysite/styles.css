@@ -274,3 +274,50 @@ body.page-index .quarto-title {
   .micon { background: rgba(0,0,0,0.06); }
   .micon:hover { background: rgba(0,0,0,0.12); }
 }
+
+/* =========================
+   Research listing (grid)
+   ========================= */
+.research-page .quarto-grid {
+  /* 横幅の広いカードを自動で並べる：最小520px、あとは等分 */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 1.6rem;
+}
+
+/* カード本体を横長の長方形に（高さを揃えたい場合は min-height を調整） */
+.research-page .quarto-grid .quarto-grid-item.card {
+  max-width: 100%;
+  min-height: 240px;          /* 好みで 220–300px 程度に */
+  padding: 1.0rem 1.2rem;
+  border-radius: 10px;
+}
+
+/* サムネ：上部に横長で表示（トリミングは cover） */
+.research-page .quarto-grid .card-img-top {
+  height: 160px;              /* 横長に見せたいなら 160–220px くらい */
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;         /* 角丸（不要なら削除） */
+  margin-bottom: 0.75rem;
+}
+
+/* タイトルや本文を整える（必要なら） */
+.research-page .quarto-grid .card-title {
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+.research-page .quarto-grid .card-text {
+  color: #cfcfcf;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;      /* 抜粋は3行で省略 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ホバー時の軽い演出（任意） */
+.research-page .quarto-grid .quarto-grid-item.card:hover {
+  transform: translateY(-3px);
+  transition: transform .2s ease;
+}
