@@ -1,6 +1,5 @@
 ---
 title: Foundations of Dynamic Stochastic General Equilibrium Model
-date: 2025-10-15
 engine: julia
 format:
   html:

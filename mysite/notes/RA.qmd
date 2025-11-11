@@ -1,0 +1,8 @@
+---
+title: Notes on Representative Agents
+engine: julia
+format:
+  html:
+    code-tools: true
+    include-after-body: footer.html
+---

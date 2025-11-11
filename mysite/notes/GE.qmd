@@ -1,0 +1,9 @@
+---
+title: Notes on General Equilibrium
+engine: julia
+format:
+  html:
+    code-tools: true
+    include-after-body: footer.html
+---
+

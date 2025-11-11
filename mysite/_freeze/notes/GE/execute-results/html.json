@@ -1,0 +1,12 @@
+{
+  "hash": "bfb28a2160b83805680c4bcf35a29a98",
+  "result": {
+    "engine": "julia",
+    "markdown": "---\ntitle: Notes on General Equilibrium\nengine: julia\nformat:\n  html:\n    code-tools: true\n    include-after-body: footer.html\n---\n\n",
+    "supporting": [
+      "GE_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

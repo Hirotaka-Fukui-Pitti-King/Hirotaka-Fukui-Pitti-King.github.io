@@ -1,0 +1,12 @@
+{
+  "hash": "26bf854ea6512ef56c1bb32ec597e2de",
+  "result": {
+    "engine": "julia",
+    "markdown": "---\ntitle: Notes on Representative Agents\nengine: julia\nformat:\n  html:\n    code-tools: true\n    include-after-body: footer.html\n---\n\n",
+    "supporting": [
+      "RA_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

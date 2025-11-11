@@ -1,0 +1,12 @@
+{
+  "hash": "f2a20bde78b05ef8833bd6c3ee3fd166",
+  "result": {
+    "engine": "julia",
+    "markdown": "---\ntitle: Notes on Transversality Condition\nengine: julia\nformat:\n  html:\n    code-tools: true\n    include-after-body: footer.html\n---\n\n",
+    "supporting": [
+      "TVC_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

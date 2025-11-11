@@ -11,7 +11,10 @@
   {
     "listing": "/notes.html",
     "items": [
-      "/notes/DSGE.html"
+      "/notes/DSGE.html",
+      "/notes/GE.html",
+      "/notes/RA.html",
+      "/notes/TVC.html"
     ]
   }
 ]
