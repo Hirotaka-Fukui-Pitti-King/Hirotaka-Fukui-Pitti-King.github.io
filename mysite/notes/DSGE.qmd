@@ -54,7 +54,7 @@ From the optimallity conditions, we obtain:
 
 1. $\lambda_{t} = U_{c}(c_{t}, 1-n_{t})$
 2. $\lambda_{t} = -U_{n}(c_{t}, 1-n_{t})/w_{t}$
-3. $\lambda_{t} = \beta \mathbb{E}_{t}[\lambda_{t+1}(r_{t+1}+1-\delta)] $
+3. $\lambda_{t} = \beta \mathbb{E}_{t}[ \lambda_{t+1} (r_{t+1}+1-\delta) ] $
 
 From equations (1) and (3), we obtain the canonical Euler equation, which characterizes the intertemporal trade-off in consumption.
 
