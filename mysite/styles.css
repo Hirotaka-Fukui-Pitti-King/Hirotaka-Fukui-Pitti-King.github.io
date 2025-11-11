@@ -288,14 +288,14 @@ body.page-index .quarto-title {
 /* カード本体を横長の長方形に（高さを揃えたい場合は min-height を調整） */
 .research-page .quarto-grid .quarto-grid-item.card {
   max-width: 100%;
-  min-height: 240px;          /* 好みで 220–300px 程度に */
+  min-height: 300px;          /* 好みで 220–300px 程度に */
   padding: 1.0rem 1.2rem;
   border-radius: 10px;
 }
 
 /* サムネ：上部に横長で表示（トリミングは cover） */
 .research-page .quarto-grid .card-img-top {
-  height: 160px;              /* 横長に見せたいなら 160–220px くらい */
+  height: 220px;              /* 横長に見せたいなら 160–220px くらい */
   width: 100%;
   object-fit: cover;
   border-radius: 8px;         /* 角丸（不要なら削除） */
