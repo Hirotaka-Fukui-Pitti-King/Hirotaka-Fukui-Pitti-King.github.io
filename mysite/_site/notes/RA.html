@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -155,8 +184,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#aggregation-and-social-welfare" id="toc-aggregation-and-social-welfare" class="nav-link active" data-scroll-target="#aggregation-and-social-welfare">Aggregation and Social Welfare</a>
+  <ul class="collapse">
+  <li><a href="#debreu-mantel-sonnenschein-theorem" id="toc-debreu-mantel-sonnenschein-theorem" class="nav-link" data-scroll-target="#debreu-mantel-sonnenschein-theorem">Debreu-Mantel-Sonnenschein Theorem</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -199,10 +237,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="aggregation-and-social-welfare" class="level1">
+<h1>Aggregation and Social Welfare</h1>
+<p>Macroeconomics often assumes a representative individual to describe household behavior and aggregate welfare. This simplification builds on the Second Fundamental Theorem of Welfare Economics, which shows that a social planner can achieve a Pareto-efficient allocation of resources. By assigning proper welfare weights to each household, a centralized economy can replicate the outcomes of competitive markets.</p>
+<p>However, assuming that one individual can represent an entire population is a strong abstraction. It ignores differences in income, preferences, and opportunities across people. Recent studies have moved beyond this idea, developing models that incorporate household heterogeneity and inequality.</p>
+<p>Even so, the representative individual remains central to modern macroeconomics. Critics, following the Debreu–Sonnenschein–Mantel theorem, argue that aggregating individual behavior into a single agent is theoretically inconsistent. Others see it as a useful simplification that can approximate aggregate outcomes under certain assumptions.</p>
+<section id="debreu-mantel-sonnenschein-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="debreu-mantel-sonnenschein-theorem">Debreu-Mantel-Sonnenschein Theorem</h2>
+<p>When studying how prices and income affect demand, economists usually work with market-level data rather than household-level observations. For businesses and policymakers, what matters is the overall demand curve, not each household’s choices. Ideally, a few parameters could summarize how total demand responds to changes in prices and income.</p>
+<p>This raises a key question: if we only observe aggregate data, what kind of utility function should we assume for individuals? Microeconomic theory provides clear conditions—such as convex, continuous, and transitive preferences—under which individual demand satisfies symmetry, homogeneity, and the weak axiom of revealed preference.</p>
+<p>Yet these properties do not necessarily hold when we aggregate across many households. Market demand may behave quite differently from individual demand. Even if individual preferences are non-convex, the overall demand function can still appear smooth and continuous. This insight lies at the heart of the Debreu–Sonnenschein–Mantel theorem, which shows that aggregate demand can take almost any shape consistent with Walras’ law and continuity, regardless of individual preferences.</p>
+<div id="thm-DMS" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Debreu-Mantel-Sonnenschein Theorem)</strong></span> Let <span class="math inline">\(\epsilon &gt;0\)</span> and <span class="math inline">\(N \in \mathbb{N}\)</span>. Consider a set of prices <span class="math inline">\(\textbf{P}_{\epsilon}=\{p \in \mathbb{R}^{N}_{+}: p_{j}/p_{j'} \geq \epsilon,~\forall j~\text{and}~ j' \}\)</span> and any continuous function <span class="math inline">\(\textbf{x}: \textbf{P}_{\epsilon} \rightarrow \mathbb{R}^{N}_{+}\)</span> that satisfies Walras’s Law and is homogeneous of degree 0. Then there exists an exchange economy with <span class="math inline">\(N\)</span> commodities and <span class="math inline">\(H&lt;\infty\)</span> households, where the aggregate excess demand is given by <span class="math inline">\(\textbf{x}(p)\)</span> over the set <span class="math inline">\(\textbf{P}_{\epsilon}\)</span></p>
+</div>
 
 
 <!-- -->
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <div class="disclaimer">
@@ -668,7 +721,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    include-after-body: footer.html</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># Aggregation and Social Welfare</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Macroeconomics often assumes a representative individual to describe household behavior and aggregate welfare. This simplification builds on the Second Fundamental Theorem of Welfare Economics, which shows that a social planner can achieve a Pareto-efficient allocation of resources. By assigning proper welfare weights to each household, a centralized economy can replicate the outcomes of competitive markets.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>However, assuming that one individual can represent an entire population is a strong abstraction. It ignores differences in income, preferences, and opportunities across people. Recent studies have moved beyond this idea, developing models that incorporate household heterogeneity and inequality.</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Even so, the representative individual remains central to modern macroeconomics. Critics, following the Debreu–Sonnenschein–Mantel theorem, argue that aggregating individual behavior into a single agent is theoretically inconsistent. Others see it as a useful simplification that can approximate aggregate outcomes under certain assumptions.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Debreu-Mantel-Sonnenschein Theorem</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>When studying how prices and income affect demand, economists usually work with market-level data rather than household-level observations. For businesses and policymakers, what matters is the overall demand curve, not each household’s choices. Ideally, a few parameters could summarize how total demand responds to changes in prices and income.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>This raises a key question: if we only observe aggregate data, what kind of utility function should we assume for individuals? Microeconomic theory provides clear conditions---such as convex, continuous, and transitive preferences---under which individual demand satisfies symmetry, homogeneity, and the weak axiom of revealed preference.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Yet these properties do not necessarily hold when we aggregate across many households. Market demand may behave quite differently from individual demand. Even if individual preferences are non-convex, the overall demand function can still appear smooth and continuous. This insight lies at the heart of the Debreu–Sonnenschein–Mantel theorem, which shows that aggregate demand can take almost any shape consistent with Walras’ law and continuity, regardless of individual preferences.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>::: {#thm-DMS}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Debreu-Mantel-Sonnenschein Theorem</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Let $\epsilon &gt;0$ and $N \in \mathbb{N}$. Consider a set of prices $\textbf{P}_{\epsilon}=\{p \in \mathbb{R}^{N}_{+}: p_{j}/p_{j'} \geq \epsilon,~\forall j~\text{and}~ j' \}$ and any continuous function $\textbf{x}: \textbf{P}_{\epsilon} \rightarrow \mathbb{R}^{N}_{+}$ that satisfies Walras's Law and is homogeneous of degree 0. Then there exists an exchange economy with $N$ commodities and $H&lt;\infty$ households, where the aggregate excess demand is given by $\textbf{x}(p)$ over the set $\textbf{P}_{\epsilon}$</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
