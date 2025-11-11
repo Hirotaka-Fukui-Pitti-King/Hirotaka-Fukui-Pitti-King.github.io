@@ -24,7 +24,7 @@ Let $R$ be a **preference correspondence** that maps each $i \in \mathcal{I}$ to
 
 Each producer $j \in \mathcal{J}$ operates a **production set** $Y(j) = Y_j \subseteq \mathbb{R}^{\mathcal{H}}$, where each element $y_j \in Y_j$ is a **production bundle** (or production vector) describing quantities of inputs and outputs across commodities.
 
-The total resources available in the economy are represented by an **aggregate endowment vector** $\bar{\omega} \in \mathbb{R}^{\mathcal{H}}$, where $\bar{\omega} = (\bar{\omega}(h))_{h \in \mathcal{H}} = (\bar{\omega}h){h \in \mathcal{H}}$ specifies the total amount of each commodity in the economy, not necessarily individualized among agents.
+The total resources available in the economy are represented by an **aggregate endowment vector** $\bar{\omega} \in \mathbb{R}^{\mathcal{H}}$, where $\bar{\omega} = (\bar{\omega}(h))_{h \in \mathcal{H}} = (\bar{\omega}h)_{h \in \mathcal{H}}$ specifies the total amount of each commodity in the economy, not necessarily individualized among agents.
 These commodities are assumed to be pre-existing and dated. It means that each good has a defined origin in time.
 
 ::: {#def-econ}
