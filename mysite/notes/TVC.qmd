@@ -6,3 +6,146 @@ format:
     code-tools: true
     include-after-body: footer.html
 ---
+
+# Difference between No-Ponzi Game (NPG) and Transversality Condition (TVC)
+
+## Starting Point: Household's Budget Constraint
+
+A representative household faces the following budget constraint:
+
+$$
+  b_{t+1} = (1+r_{t})b_{t} + y_{t} - c_{t}
+$$
+
+This expression states that next period’s bond holdings are equal to the current assets carried forward with interest, plus current income, minus current consumption.
+
+By iterating this constraint forward indefinitely:
+
+$$
+  b_{t} = \sum^{\infty}_{j =0}\Biggl( \prod^{j-1}_{i = 0} \frac{1}{1+r_{t+i}} \Biggr) (y_{t+j} - c_{t+j}) + \lim_{j \rightarrow \infty} \Biggl(\prod^{j-1}_{i=0} \frac{1}{1+r_{t+i}} \Biggr) b_{t+j}
+$$
+
+## No-Ponzi Game (NPG) Condition
+
+A household cannot roll over its debt indefinitely by borrowing to finance both principal and interest.
+This restriction is necessary for the intertemporal budget constraint to hold and for the model to remain internally consistent.
+It rules out explosive debt paths that would imply an unbounded present value of liabilities.
+Accordingly, it functions as a feasibility condition of the model:
+
+$$
+  \lim_{j \rightarrow \infty} \Biggl(\prod^{j-1}_{i=0} \frac{1}{1+r_{t+i}} \Biggr) b_{t+j} = 0
+$$
+
+## Transversality Condition (TVC)
+
+On the other hand, the condition derived from the household’s optimization problem is:
+
+$$
+  \lim_{t \rightarrow \infty} \beta^t \lambda_{t} b_{t+1} = 0
+$$
+
+This is the transversality condition, which ensures that the household does not find it optimal to accumulate unbounded debt or assets over the infinite horizon.
+It rules out explosive paths that would violate optimality, 
+and it guarantees that the chosen consumption-saving plan satisfies the necessary boundary condition of the dynamic optimization problem.
+
+## Mathematical relationship between two conditions
+
+From the first-order condition:
+
+$$
+  \beta^t \lambda_{t} = \beta^{t+1} \lambda_{t+1} (1+r_{t})= \beta^{t+1} u'(c_{t+1}) (1+r_{t})
+$$
+
+Substituting this expression into the transversality condition yields
+
+$$
+  \lim_{t \rightarrow \infty} \beta^{t+1} u'(c_{t+1}) (1+r_{t}) b_{t+1}= 0
+$$
+
+# Necessity of Transversality Conditions
+
+## Historical Development of the Research about TVC: From Halkin, Michel, and Kamihigashi
+
+### Stage 1: Halkin (1974)
+
+Halkin demonstrated that the Maximum Principle continues to hold in infinite-horizon problems, but the standard transversality condition does not necessarily hold.
+He formulated the infinite-horizon problem as the limit of finite-horizon problems and provided explicit counterexamples showing that
+
+$$
+  \lambda(t) \rightarrow 0
+$$
+
+is neither required nor generally valid.
+
+This insight raised the fundamental question later pursued by Michel: what boundary condition should replace the TVC in full generality?
+
+### Stage 2: Michel (1982, 1990)
+
+Michel restored a general necessary boundary condition by showing that, under broad conditions, the Hamiltonian must converge to zero:
+
+$$
+  \lim_{t \rightarrow \infty} H(t) = 0
+$$
+
+In his 1982 paper he derived this limit rigorously within Halkin’s framework.
+His 1990 paper further showed its consistency with the Cass–Yaari lemma, and proved that, when the velocity set has a nonempty interior, the usual transversality condition
+
+$$
+  \lambda(t) \rightarrow 0
+$$
+
+is recovered.
+Michel’s formulation became the conceptual foundation of boundary conditions in modern economic theory such that Ramsey-Cass–Koopmans models, optimal taxation, and many others.
+
+### Stage 3: Kamihigashi (2001)
+
+Kamihigashi proved that the transversality condition is indeed a necessary condition, even without assuming concavity, integrability, or boundedness.
+By formalizing the Benveniste–Scheinkman envelope theorem and the “squeezing” argument, he established that the Euler equation and the envelope condition jointly imply
+
+$$
+  \lim_{t \rightarrow \infty} q(t) \cdot x(t) = 0,
+$$
+
+thereby deriving the TVC in a fully general setting.
+His results subsume and generalize Michel’s contributions, and are widely regarded as the modern definitive formulation of the TVC.
+
+## Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)
+
+[Halkin (1974)](https://doi.org/10.2307/1911976) provides the first rigorous formulation of the Maximum Principle for infinite-horizon optimal control problems.
+The contribution of the paper is twofold.
+
+1. It offers the first rigorous extension of the finite-horizon Maximum Principle to the infinite-horizon setting via a limiting argument.
+2. In doing so, he demonstrates that the standard Transversality Condition (TVC) does not generally hold through explicit counterexamples.
+
+Halkin develops the infinite-horizon problem as the limit of finite-horizon problems and establishes the corresponding necessary conditions.
+The results prompted Michel to ask what boundary condition does hold in general, leading him to show that, although the TVC may fail, the Hamiltonian necessarily converges to zero in the limit.
+
+### Finite Horizon Problem
+
+Begin by recalling the standard finite-horizon optimal control problem:
+
+$$
+\begin{align}
+  \max_{u(\cdot)} ~& \int^{T}_{0} L(x(t), u(t), t) dt \\
+  s.t. ~& \dot{x}(t) = f(x(t), u(t), t), \\
+       & x(0) = 0, \\
+       & h(x(T)) = 0. 
+\end{align}
+$$
+
+The Hamiltonian is defined as
+
+$$
+  H(x, u, t, \mu, \lambda) = \lambda^{\top} f(x, u, t) + \mu L(x(t), u(t), t)
+$$
+
+Pontryagin’s Maximum Principle can then be written as follows:
+
+1. $\mu(t), \lambda(t) \neq 0$;
+2. $\dot{\lambda}(t) = -H_{x}$;
+3. $H(x(t), u^{*}(t), t) \geq H(x(t), u(t), t)$ for all feasible $u$;
+4. Boundary conditions at the terminal time $T$:
+   - Free end point: $\lambda(T) = 0$,
+   - Clamped (fixed) end point: $\lambda(T)$ is unrestricted.
+
+Note that the free-end-point condition corresponds to the transversality condition for the finite-horizon problem.
