@@ -223,7 +223,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 11, 2025</p>
+      <p class="date-modified">November 18, 2025</p>
     </div>
   </div>
     
@@ -234,6 +234,19 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me.</p>
+</div>
+</div>
 <section id="general-equilibrium-theory" class="level1">
 <h1>General Equilibrium Theory</h1>
 <blockquote class="blockquote">
@@ -245,7 +258,7 @@ window.Quarto = {
 <p>Consumers derive utility from consuming goods. Let <span class="math inline">\(X\)</span> denote the <strong>consumption correspondence</strong>, which maps each consumer <span class="math inline">\(i \in \mathcal{I}\)</span> to a subset <span class="math inline">\(X(i) = X_i \subseteq \mathbb{R}^{\mathcal{H}}\)</span> of the commodity space, representing the set of consumption bundles available to that consumer. Each element <span class="math inline">\(x_i \in X_i\)</span> is a <strong>consumption bundle</strong> (or consumption vector), describing quantities of all commodities that the consumer may feasibly consume.</p>
 <p>Let <span class="math inline">\(R\)</span> be a <strong>preference correspondence</strong> that maps each <span class="math inline">\(i \in \mathcal{I}\)</span> to a reflexive binary relation <span class="math inline">\(R(i) = R_i \subseteq X_i \times X_i\)</span> over <span class="math inline">\(X_i\)</span>, representing the consumer’s preference ordering such that <span class="math inline">\((x_i, x_i) \in R_i\)</span> for all <span class="math inline">\(x_i \in X_i\)</span>.</p>
 <p>Each producer <span class="math inline">\(j \in \mathcal{J}\)</span> operates a <strong>production set</strong> <span class="math inline">\(Y(j) = Y_j \subseteq \mathbb{R}^{\mathcal{H}}\)</span>, where each element <span class="math inline">\(y_j \in Y_j\)</span> is a <strong>production bundle</strong> (or production vector) describing quantities of inputs and outputs across commodities.</p>
-<p>The total resources available in the economy are represented by an <strong>aggregate endowment vector</strong> <span class="math inline">\(\bar{\omega} \in \mathbb{R}^{\mathcal{H}}\)</span>, where <span class="math inline">\(\bar{\omega} = (\bar{\omega}(h))_{h \in \mathcal{H}} = (\bar{\omega}h){h \in \mathcal{H}}\)</span> specifies the total amount of each commodity in the economy, not necessarily individualized among agents. These commodities are assumed to be pre-existing and dated. It means that each good has a defined origin in time.</p>
+<p>The total resources available in the economy are represented by an <strong>aggregate endowment vector</strong> <span class="math inline">\(\bar{\omega} \in \mathbb{R}^{\mathcal{H}}\)</span>, where <span class="math inline">\(\bar{\omega} = (\bar{\omega}(h))_{h \in \mathcal{H}} = (\bar{\omega}h)_{h \in \mathcal{H}}\)</span> specifies the total amount of each commodity in the economy, not necessarily individualized among agents. These commodities are assumed to be pre-existing and dated. It means that each good has a defined origin in time.</p>
 <div id="def-econ" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Economy)</strong></span> The list <span class="math inline">\((\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})\)</span> is an economy if</p>
 <ol type="1">
@@ -268,11 +281,6 @@ window.Quarto = {
 </section>
 
 </main> <!-- /main -->
-<div class="disclaimer">
-
-  <p>All rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me.</p>
-
-</div>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -730,51 +738,57 @@ window.Quarto = {
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    include-after-body: footer.html</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu"># General Equilibrium Theory</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; “The two central problems of the theory that this monograph presents are (1) the explanation of the prices of commodities resulting from the interaction of the agents of a private ownership economy through markets, (2) the explanation of the role of prices in an optimal state of an economy. The analysis is therefore organized around the concept of a price system or, more generally, of a value function defined on the commodity space.”</span>  </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; — Gérard Debreu, *The Theory of Value* </span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Now, let us view a competitive economy from the general equilibrium perspective.</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>As Debreu (1959) emphasizes, general equilibrium theory seeks to explain how the prices of commodities emerge from the interactions of agents in a market economy, and how those prices, in turn, sustain an optimal allocation of resources.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>::: {.callout-important}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>All rights reserved. All errors in this document are the responsibility of the author. </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Use at your own risk. </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>If you find any errors, please get in touch with me.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># General Equilibrium Theory</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Consider an economy with $H$ commodities indexed by $h \in \mathcal{H} = {1, \dots, H}$, $I$ consumers indexed by $i \in \mathcal{I} = {1, \dots, I}$, and $J$ producers or firms indexed by $j \in \mathcal{J} = {1, \dots, J}$.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Consumers derive utility from consuming goods. Let $X$ denote the **consumption correspondence**, which maps each consumer $i \in \mathcal{I}$ to a subset $X(i) = X_i \subseteq \mathbb{R}^{\mathcal{H}}$ of the commodity space, representing the set of consumption bundles available to that consumer.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Each element $x_i \in X_i$ is a **consumption bundle** (or consumption vector), describing quantities of all commodities that the consumer may feasibly consume.</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Let $R$ be a **preference correspondence** that maps each $i \in \mathcal{I}$ to a reflexive binary relation $R(i) = R_i \subseteq X_i \times X_i$ over $X_i$, representing the consumer’s preference ordering such that $(x_i, x_i) \in R_i$ for all $x_i \in X_i$.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Each producer $j \in \mathcal{J}$ operates a **production set** $Y(j) = Y_j \subseteq \mathbb{R}^{\mathcal{H}}$, where each element $y_j \in Y_j$ is a **production bundle** (or production vector) describing quantities of inputs and outputs across commodities.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>The total resources available in the economy are represented by an **aggregate endowment vector** $\bar{\omega} \in \mathbb{R}^{\mathcal{H}}$, where $\bar{\omega} = (\bar{\omega}(h))_{h \in \mathcal{H}} = (\bar{\omega}h){h \in \mathcal{H}}$ specifies the total amount of each commodity in the economy, not necessarily individualized among agents.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>These commodities are assumed to be pre-existing and dated. It means that each good has a defined origin in time.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>::: {#def-econ}</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Economy</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>The list $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ is an economy if</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; “The two central problems of the theory that this monograph presents are (1) the explanation of the prices of commodities resulting from the interaction of the agents of a private ownership economy through markets, (2) the explanation of the role of prices in an optimal state of an economy. The analysis is therefore organized around the concept of a price system or, more generally, of a value function defined on the commodity space.”</span>  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; — Gérard Debreu, *The Theory of Value* </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Now, let us view a competitive economy from the general equilibrium perspective.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>As Debreu (1959) emphasizes, general equilibrium theory seeks to explain how the prices of commodities emerge from the interactions of agents in a market economy, and how those prices, in turn, sustain an optimal allocation of resources.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Consider an economy with $H$ commodities indexed by $h \in \mathcal{H} = {1, \dots, H}$, $I$ consumers indexed by $i \in \mathcal{I} = {1, \dots, I}$, and $J$ producers or firms indexed by $j \in \mathcal{J} = {1, \dots, J}$.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Consumers derive utility from consuming goods. Let $X$ denote the **consumption correspondence**, which maps each consumer $i \in \mathcal{I}$ to a subset $X(i) = X_i \subseteq \mathbb{R}^{\mathcal{H}}$ of the commodity space, representing the set of consumption bundles available to that consumer.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Each element $x_i \in X_i$ is a **consumption bundle** (or consumption vector), describing quantities of all commodities that the consumer may feasibly consume.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Let $R$ be a **preference correspondence** that maps each $i \in \mathcal{I}$ to a reflexive binary relation $R(i) = R_i \subseteq X_i \times X_i$ over $X_i$, representing the consumer’s preference ordering such that $(x_i, x_i) \in R_i$ for all $x_i \in X_i$.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Each producer $j \in \mathcal{J}$ operates a **production set** $Y(j) = Y_j \subseteq \mathbb{R}^{\mathcal{H}}$, where each element $y_j \in Y_j$ is a **production bundle** (or production vector) describing quantities of inputs and outputs across commodities.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>The total resources available in the economy are represented by an **aggregate endowment vector** $\bar{\omega} \in \mathbb{R}^{\mathcal{H}}$, where $\bar{\omega} = (\bar{\omega}(h))_{h \in \mathcal{H}} = (\bar{\omega}h)_{h \in \mathcal{H}}$ specifies the total amount of each commodity in the economy, not necessarily individualized among agents.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>These commodities are assumed to be pre-existing and dated. It means that each good has a defined origin in time.</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathcal{H}$ is a nonempty finite set of commodities;</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathcal{I}$ is a nonempty finite set of consumers;</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathcal{J}$ is a nonempty finite set of producers or firms;</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$X$ is a correspondence from $\mathcal{I}$ to the commodity space $\mathbb{R}^{\mathcal{H}}$;</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$R$ is a correspondence from $\mathcal{I}$ to $\mathbb{R}^{\mathcal{H}} \times \mathbb{R}^{\mathcal{H}}$ such that $R(i)$ is a reflexive binary relation over $X_{i}$ s.t. $(x_{i},x_{i}) \in R_{i}$ for each $x_{i} \in X_{i}$;</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$Y$ is a correspondence from $\mathcal{J}$ to $\mathbb{R}^{\mathcal{H}}$; and</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\bar{\omega}$ is a point of $\mathbb{R}^{\mathcal{H}}$.</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>::: {#def-FeaAlo}</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feasible Allocation</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Let $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ be an economy. Then $(x, y) \in (\mathbb{R}^{\mathcal{H}})^{\mathcal{I}} \times (\mathbb{R}^{\mathcal{H}})^{\mathcal{J}}$ is a feasible allocation for $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ if $(x, y) \in X \times Y$ and $\sum_{i \in \mathcal{I}}x_{i}=\bar{\omega}+\sum_{j \in \mathcal{J}}y_{i}$.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>::: {#def-econ}</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Economy</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>The list $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ is an economy if</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathcal{H}$ is a nonempty finite set of commodities;</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathcal{I}$ is a nonempty finite set of consumers;</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathcal{J}$ is a nonempty finite set of producers or firms;</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$X$ is a correspondence from $\mathcal{I}$ to the commodity space $\mathbb{R}^{\mathcal{H}}$;</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$R$ is a correspondence from $\mathcal{I}$ to $\mathbb{R}^{\mathcal{H}} \times \mathbb{R}^{\mathcal{H}}$ such that $R(i)$ is a reflexive binary relation over $X_{i}$ s.t. $(x_{i},x_{i}) \in R_{i}$ for each $x_{i} \in X_{i}$;</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$Y$ is a correspondence from $\mathcal{J}$ to $\mathbb{R}^{\mathcal{H}}$; and</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\bar{\omega}$ is a point of $\mathbb{R}^{\mathcal{H}}$.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>::: {#def-FeaAlo}</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feasible Allocation</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>Let $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ be an economy. Then $(x, y) \in (\mathbb{R}^{\mathcal{H}})^{\mathcal{I}} \times (\mathbb{R}^{\mathcal{H}})^{\mathcal{J}}$ is a feasible allocation for $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ if $(x, y) \in X \times Y$ and $\sum_{i \in \mathcal{I}}x_{i}=\bar{\omega}+\sum_{j \in \mathcal{J}}y_{i}$.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

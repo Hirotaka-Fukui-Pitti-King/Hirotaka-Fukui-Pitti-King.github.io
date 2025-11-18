@@ -4,8 +4,14 @@ engine: julia
 format:
   html:
     code-tools: true
-    include-after-body: footer.html
 ---
+
+::: {.callout-important}
+All rights reserved. All errors in this document are the responsibility of the author. 
+Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
+Use at your own risk. 
+If you find any errors, please get in touch with me.
+:::
 
 # Aggregation and Social Welfare
 
