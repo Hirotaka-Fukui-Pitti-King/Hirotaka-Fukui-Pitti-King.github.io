@@ -7,8 +7,8 @@ format:
     toc-location: left
 listing:
   contents: notes/*.qmd
-  sort: "date desc"
-  type: grid   # "grid" にすればカード表示
+  sort: false
+  type: default   # "grid" にすればカード表示
   fields: [title, date, description]
 ---
 

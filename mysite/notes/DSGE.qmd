@@ -1,5 +1,5 @@
 ---
-title: Foundations of Dynamic Stochastic General Equilibrium Model
+title: The Way To Me
 engine: julia
 format:
   html:
@@ -180,5 +180,14 @@ $$
 $$
 
 with the period utility function specified as a generalized separable CRRA form:
+
+:::
+
+## Homothetic Utility
+
+Homotheticity is 
+
+::: {#def-Homotheticity}
+
 
 :::

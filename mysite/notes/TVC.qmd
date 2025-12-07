@@ -1,5 +1,5 @@
 ---
-title: Notes on Transversality Condition
+title: Be With You
 engine: julia
 format:
   html:

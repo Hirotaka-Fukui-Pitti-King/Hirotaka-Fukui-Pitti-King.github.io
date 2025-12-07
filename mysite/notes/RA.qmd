@@ -1,5 +1,5 @@
 ---
-title: Notes on Representative Agents
+title: Miracle
 engine: julia
 format:
   html:

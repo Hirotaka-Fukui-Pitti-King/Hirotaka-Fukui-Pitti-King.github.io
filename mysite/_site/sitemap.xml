@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fukui-hirotaka.com/research.html</loc>
-    <lastmod>2025-11-10T09:18:01.665Z</lastmod>
+    <lastmod>2025-12-07T09:33:09.655Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/research/rbc-africa.html</loc>
@@ -10,18 +10,22 @@
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/notes.html</loc>
-    <lastmod>2025-11-10T09:18:01.665Z</lastmod>
+    <lastmod>2025-12-07T09:33:19.277Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/notes/SC.html</loc>
-    <lastmod>2025-11-24T17:33:28.474Z</lastmod>
+    <lastmod>2025-12-07T09:28:32.602Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/notes/GE.html</loc>
-    <lastmod>2025-11-18T14:56:15.595Z</lastmod>
+    <lastmod>2025-12-07T09:27:56.529Z</lastmod>
   </url>
   <url>
-    <loc>https://fukui-hirotaka.com/index.html</loc>
+    <loc>https://fukui-hirotaka.com/cv.html</loc>
+    <lastmod>2025-11-24T17:44:43.366Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fukui-hirotaka.com/about.html</loc>
     <lastmod>2025-11-10T09:18:01.665Z</lastmod>
   </url>
   <url>
@@ -29,24 +33,20 @@
     <lastmod>2025-11-10T09:18:01.665Z</lastmod>
   </url>
   <url>
-    <loc>https://fukui-hirotaka.com/about.html</loc>
+    <loc>https://fukui-hirotaka.com/index.html</loc>
     <lastmod>2025-11-10T09:18:01.665Z</lastmod>
   </url>
   <url>
-    <loc>https://fukui-hirotaka.com/cv.html</loc>
-    <lastmod>2025-11-24T17:44:43.366Z</lastmod>
-  </url>
-  <url>
     <loc>https://fukui-hirotaka.com/notes/DSGE.html</loc>
-    <lastmod>2025-11-18T14:56:12.736Z</lastmod>
+    <lastmod>2025-12-07T09:27:35.433Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/notes/RA.html</loc>
-    <lastmod>2025-11-18T14:56:18.067Z</lastmod>
+    <lastmod>2025-12-07T09:28:21.058Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/notes/TVC.html</loc>
-    <lastmod>2025-11-18T14:56:21.484Z</lastmod>
+    <lastmod>2025-12-07T09:28:46.736Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/research/FinGloDef.html</loc>
