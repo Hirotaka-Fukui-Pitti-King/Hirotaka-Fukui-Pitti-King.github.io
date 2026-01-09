@@ -23,10 +23,8 @@ page-footer:
 format:
   html:
     theme:
-      - quartz
-      - brand
+      - brite
     css: styles.css
-    body-classes: site-dark
     toc: true
     smooth-scroll: true
 
