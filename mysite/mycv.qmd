@@ -3,27 +3,27 @@ title: "Hirotaka Fukui's CV"
 author:
   firstname: Hirotaka
   lastname: Fukui
-  address: "Rämistrasse 101, CH-8092 Zürich, Switzerland, Zürich"
-  position: "Research Physicist ・ Professor"
+  address: "2-1 Rokkodai-cho Nada-ku Kobe Hyogo Prefecture 657-8501 Japan"
+  position: "Ph.D. student"
   contacts:
     - icon: fa envelope
-      text: ae@example.com
-      url: "mailto:ae@example.com"
+      text: 227e127e@gsuite.kobe-u.ac.jp
+      url: "mailto:227e127e@gsuite.kobe-u.ac.jp"
     - icon: assets/icon/bi-house-fill.svg
-      text: example.com
-      url: https://example.com
+      text: fukui-hirotaka.com
+      url: https://fukui-hirotaka.com/
     - icon: fa brands orcid
-      text: 0000-0000-0000-0000
-      url: https://orcid.org/0000-0000-0000-0000
+      text: 0009-0004-9796-9148
+      url: https://orcid.org/0009-0004-9796-9148
     - icon: fa brands github
       text: GitHub
-      url: https://github.com/example
+      url: https://github.com/Hirotaka-Fukui-Pitti-King
     - icon: fa brands linkedin
       text: LinkedIn
-      url: https://linkedin.com/in/example
+      url: https://www.linkedin.com/in/hirotaka-fukui-90495b342
     - icon: fa brands x-twitter
-      text: twitter
-      url: https://twitter.com/example
+      text: X
+      url: https://x.com/PittiKing
 format: awesomecv-typst
 brand:
   typography: 
