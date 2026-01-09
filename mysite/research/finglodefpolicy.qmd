@@ -1,0 +1,11 @@
+---
+title: "A Continuous-Time Model of Sovereign Risk with Long-Term Debt and Capital Account Liberalization: Evidence from Ghana"
+description: "The Global Integration of Financial Markets and Sovereign Debt Risk"
+categories: ["Working Paper"]
+url: "https://github.com/Hirotaka-Fukui-Pitti-King/Golden-Gerbil"
+image: mysite\static\dollar.svg
+---
+
+Building on a model with debt maturity structure and maturity-specific capital flow regulations, I study the design of optimal capital control policies in the presence of sovereign default risk. The framework allows capital account restrictions to vary across debt maturities, forming a “capital control portfolio” that shapes the composition of sovereign borrowing.
+
+Using stochastic calculus and quantitative methods, I analyze how maturity-contingent capital controls can mitigate rollover risk, reduce default incentives, and enhance macro-financial stability under stochastic global interest rate shocks.

@@ -1,9 +1,0 @@
----
-title: "Spatial Inequality Matters for Macro in Sub-Saharan Africa?"
-description: "see project note"
-categories: ["Working Paper"]
-url: "https://github.com/Hirotaka-Fukui-Pitti-King/Sad-Sharks"
-image: mysite\static\dollar.svg
----
-
-
