@@ -4,7 +4,7 @@ project:
 website:
   title: "Hirotaka Fukui"
   site-url: https://fukui-hirotaka.com/
-  description: "Doctoral student in Economics. Research on internatinal macroeconomics, monetary economics, macro-finance."
+  description: "Doctoral student in Economics. Research on international macroeconomics, monetary economics, macro-finance."
   navbar:
     pinned: true
     left:
@@ -17,16 +17,17 @@ website:
       - href: notes.qmd
         text: Notes
     right:
-    - icon: github
-      href: https://github.com/Hirotaka-Fukui-Pitti-King
-    - icon: envelope
-      href: mailto:227e127e@gsuite.kobe-u.ac.jp
-    - icon: twitter
-      href: https://x.com/PittiKing
-    - icon: orcid
-      href: https://orcid.org/0009-0004-9796-9148
-    - icon: linkedin
-      href: https://www.linkedin.com/in/hirotaka-fukui-90495b342
+      - icon: github
+        href: https://github.com/Hirotaka-Fukui-Pitti-King
+      - icon: envelope
+        href: mailto:227e127e@gsuite.kobe-u.ac.jp
+      - icon: twitter
+        href: https://x.com/PittiKing
+      - icon: orcid
+        href: https://orcid.org/0009-0004-9796-9148
+      - icon: linkedin
+        href: https://www.linkedin.com/in/hirotaka-fukui-90495b342
+
   page-footer:
     right: "&copy; 2025 Hirotaka Fukui. All rights reserved."
 
@@ -36,5 +37,6 @@ format:
     css: styles.css
     toc: true
     smooth-scroll: true
+
 
 
