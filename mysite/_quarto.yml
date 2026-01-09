@@ -21,9 +21,9 @@ website:
         href: https://github.com/Hirotaka-Fukui-Pitti-King
       - icon: envelope
         href: mailto:227e127e@gsuite.kobe-u.ac.jp
-      - icon: twitter
+      - icon: twitter-x
         href: https://x.com/PittiKing
-      - icon: orcid
+      - text: orcid
         href: https://orcid.org/0009-0004-9796-9148
       - icon: linkedin
         href: https://www.linkedin.com/in/hirotaka-fukui-90495b342
@@ -37,6 +37,7 @@ format:
     css: styles.css
     toc: true
     smooth-scroll: true
+
 
 
 

@@ -9,19 +9,19 @@ date-modified: last-modified
 # Hirotaka Fukui  
 Ph.D. Student in Economics, Kobe University  
 
-## 🎓 Current Position
+## Current Position
 **Ph.D. Student**, Graduate School of Economics, Kobe University, Apr. 2024 - present  
 
 - Advisors: Shigeto Kitano, Yoichi Matsubayashi, 
 - Fields: International Macroeconomics, Monetary Economics, Macro-Finance
-## 📘 Education
-M.A. in Economics, 2024 
-Kobe University, Japan
 
-B.A. in Language and Area Studies (Africa), 2022  
-Tokyo University of Foreign Studies, Japan
+## Education
 
-## 📄 Working Papers
+M.A. in Economics, Kobe University, Japan, 2024.
+
+B.A. in Language and Area Studies (Africa), Tokyo University of Foreign Studies, Japan, 2022.
+
+## Working Papers
 - **The Effects of Financial Liberalization on Sovereign Risk: A Continuous-Time Model of Sovereign Debt under Capital-Account Openness**
 
     *(Under preparation)*
@@ -31,7 +31,7 @@ Tokyo University of Foreign Studies, Japan
   *(Under preparation)*
 
 
-## 🧑‍🏫 Teaching Experience
+## Teaching Experience
 
 **Teaching Assistant**, Kobe University  
 
@@ -44,30 +44,30 @@ Tokyo University of Foreign Studies, Japan
 - *Advanced Macroeconomics IV* (Ph.D., Prof. Kazuharu Yanagimoto), Fall 2025
 
 
-## 🎤 Presentations & Seminars (* Scheduled)
+## Presentations & Seminars (* Scheduled)
 2025:  [Economics Workshop for Young Economists](https://sites.google.com/site/kansaimacro/), Monetary Economics Seminar of Kobe University, Spring Conference of the Japan Society of International Economics, 2025 Princeton Initiative (**Selected participant**), JSIE Next Generation Workshop, 20th Macroeconomics Conference for Young Economists* 
 
 
-## 🎖 Fellowships and Awards
+## Fellowships and Awards
 - JST SPRING Fellowship, JST, 2024–present
 
 
-## 🔨　Other Activities
+## Other Activities
 
 - Completed, [IMF 19th Macroeconomist Training Program, IMF Regional Office for Asia and the Pacific in cooperation with JICA, 2024](https://www.imf.org/-/media/files/oap/oap-home/2023/19th-mtp-flyer-agenda-final.pdf)  
 - Completed, [KOBE HPC Summer School, cosponsored by Kobe University, University of Hyogo, and RIKEN Center for Computational Science (R-CCS), 2024](https://www.eccse.kobe-u.ac.jp/simulation_school/kobe-hpc-summer-basic-2024/)
 - Selected participant, [2025 Princeton Initiative, Princeton University, Bendheim Center for Finance, 2025](https://initiative.princeton.edu/programs/2025-program/) 
 - Completed, [2025 Macrofinance Online Summer School, Princeton University, Bendheim Center for Finance, 2025](https://initiative.princeton.edu/2025-macrofinance-online-summer-school/)
 
-## 👨‍💻 Programming and Skills
+## Programming and Skills
 
 - Languages: Japanese, English, French
 - Programming: MATLAB, Julia, Python, R, Fortran, C, Stata
 
-## 👥 Professional Memberships
+## Professional Memberships
 - Japan Society of International Economics  
 - Japanese Economic Association
 - Japan Society of Monetary Economics
 
-## 📝 Service
+## Service
 - Chair of the Executive Committee, The Student Council of the Graduate School of Economics, Kobe U, Apr. 2024-Mar. 2025

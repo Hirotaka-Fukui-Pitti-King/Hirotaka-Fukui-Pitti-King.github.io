@@ -1,7 +1,6 @@
 ---
 title: "Hirotaka Fukui"     
 title-block-style: none      
-navbar: false
 ---
 
 ## Welcome
