@@ -14,20 +14,6 @@
     "text": "My research examines how global financial conditions, the international supply of safe assets, and capital flow policies jointly shape sovereign risk and macroeconomic stability in open economies. In particular, I study the interaction between financial globalization, global financial cycles, and sovereign debt dynamics, emphasizing how capital account liberalization and debt composition condition crisis vulnerability and default risk.\nMethodologically, I develop quantitative macroeconomic models with financial frictions, with a focus on continuous-time macro-finance frameworks that allow for a rigorous and tractable characterization of risk, debt rollover dynamics, and the timing of financial crises under uncertainty surrounding shifts in U.S. monetary policy and global risk sentiment. By integrating structural modeling, stochastic calculus, and advanced quantitative methods, my work seeks to provide a coherent analytical framework for understanding how financial globalization and sovereign debt structures shape macroeconomic volatility, debt sustainability, and the resilience of the international monetary system."
   },
   {
-    "objectID": "research/finglodefpolicy.html",
-    "href": "research/finglodefpolicy.html",
-    "title": "A Continuous-Time Model of Sovereign Risk with Long-Term Debt and Capital Account Liberalization: Evidence from Ghana",
-    "section": "",
-    "text": "Building on a model with debt maturity structure and maturity-specific capital flow regulations, I study the design of optimal capital control policies in the presence of sovereign default risk. The framework allows capital account restrictions to vary across debt maturities, forming a “capital control portfolio” that shapes the composition of sovereign borrowing.\nUsing stochastic calculus and quantitative methods, I analyze how maturity-contingent capital controls can mitigate rollover risk, reduce default incentives, and enhance macro-financial stability under stochastic global interest rate shocks."
-  },
-  {
-    "objectID": "research/finglodeflong.html",
-    "href": "research/finglodeflong.html",
-    "title": "A Continuous-Time Model of Sovereign Risk with Long-Term Debt and Capital Account Liberalization",
-    "section": "",
-    "text": "This research examines the case of Ghana’s capital account liberalization for medium- and long-term sovereign bonds and its subsequent default approximately fifteen years later. I develop a continuous-time sovereign debt model with long-term bonds, capital flow frictions, and stochastic global interest rates to study how capital account liberalization affects sovereign risk and crisis dynamics.\nUsing stochastic calculus and monotone comparative statics, I provide theoretical results on how liberalization of capital controls on longer-maturity debt influences default risk and financial vulnerability. I then solve the model numerically by computing the associated Hamilton-Jacobi-Bellman and Kolmogorov forward equations, and estimate the parameters using a modified simulated method of moments calibrated to Ghanaian macro-financial data.\nThis framework enables counterfactual experiments that quantify the relative importance of domestic financial liberalization versus external global financial conditions—captured by shifts in U.S. monetary policy and global interest rates—in driving Ghana’s rising sovereign risk prior to its default."
-  },
-  {
     "objectID": "notes.html",
     "href": "notes.html",
     "title": "Notes",
@@ -222,26 +208,5 @@
     "title": "Be With You",
     "section": "Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)",
     "text": "Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)\nHalkin (1974) provides the first rigorous formulation of the Maximum Principle for infinite-horizon optimal control problems. The contribution of the paper is twofold.\n\nIt offers the first rigorous extension of the finite-horizon Maximum Principle to the infinite-horizon setting via a limiting argument.\nIn doing so, he demonstrates that the standard Transversality Condition (TVC) does not generally hold through explicit counterexamples.\n\nHalkin develops the infinite-horizon problem as the limit of finite-horizon problems and establishes the corresponding necessary conditions. The results prompted Michel to ask what boundary condition does hold in general, leading him to show that, although the TVC may fail, the Hamiltonian necessarily converges to zero in the limit.\n\nFinite Horizon Problem\nBegin by recalling the standard finite-horizon optimal control problem:\n\\[\n\\begin{align}\n  \\max_{u(\\cdot)} ~& \\int^{T}_{0} L(x(t), u(t), t) dt \\\\\n  s.t. ~& \\dot{x}(t) = f(x(t), u(t), t), \\\\\n       & x(0) = 0, \\\\\n       & h(x(T)) = 0.\n\\end{align}\n\\]\nThe Hamiltonian is defined as\n\\[\n  H(x, u, t, \\mu, \\lambda) = \\lambda^{\\top} f(x, u, t) + \\mu L(x(t), u(t), t)\n\\]\nPontryagin’s Maximum Principle can then be written as follows:\n\n\\(\\mu(t), \\lambda(t) \\neq 0\\);\n\\(\\dot{\\lambda}(t) = -H_{x}\\);\n\\(H(x(t), u^{*}(t), t) \\geq H(x(t), u(t), t)\\) for all feasible \\(u\\);\nBoundary conditions at the terminal time \\(T\\):\n\nFree end point: \\(\\lambda(T) = 0\\),\nClamped (fixed) end point: \\(\\lambda(T)\\) is unrestricted.\n\n\nNote that the free-end-point condition corresponds to the transversality condition for the finite-horizon problem."
-  },
-  {
-    "objectID": "research/FinGloDef.html",
-    "href": "research/FinGloDef.html",
-    "title": "Financial Globalization and the Risk of Sovereign Default",
-    "section": "",
-    "text": "Building on a baseline continuous-time sovereign debt framework, I extend the model to incorporate a maturity structure of sovereign bonds, following the insights of Arellano and Ramanarayanan (2012) on the importance of debt maturity for default risk. The model features maturity-specific capital flow regulations and stochastic global interest rates, allowing me to study how liberalization of capital controls across different maturities affects sovereign risk and crisis vulnerability.\nUsing stochastic calculus and monotone comparative statics, I derive theoretical results on how maturity-dependent capital account liberalization influences default incentives and rollover risk. I then solve the model numerically to quantify the interaction between debt maturity, capital flow management policies, and global financial conditions in shaping sovereign risk."
-  },
-  {
-    "objectID": "research/finglodeflong_ghana.html",
-    "href": "research/finglodeflong_ghana.html",
-    "title": "A Continuous-Time Model of Sovereign Risk with Long-Term Debt and Capital Account Liberalization: Evidence from Ghana",
-    "section": "",
-    "text": "This research examines the case of Ghana’s capital account liberalization for medium- and long-term sovereign bonds and its subsequent default approximately fifteen years later. I develop a continuous-time sovereign debt model with long-term bonds, capital flow frictions, and stochastic global interest rates to study how capital account liberalization affects sovereign risk and crisis dynamics.\nUsing stochastic calculus and monotone comparative statics, I provide theoretical results on how liberalization of capital controls on longer-maturity debt influences default risk and financial vulnerability. I then solve the model numerically by computing the associated Hamilton-Jacobi-Bellman and Kolmogorov forward equations, and estimate the parameters using a modified simulated method of moments calibrated to Ghanaian macro-financial data.\nThis framework enables counterfactual experiments that quantify the relative importance of domestic financial liberalization versus external global financial conditions—captured by shifts in U.S. monetary policy and global interest rates—in driving Ghana’s rising sovereign risk prior to its default."
-  },
-  {
-    "objectID": "research/finglodef_dev.html",
-    "href": "research/finglodef_dev.html",
-    "title": "Financial Integration, Financial Development, and the Risk of Sovereign Default",
-    "section": "",
-    "text": "This research examines the case of Ghana’s capital account liberalization for medium- and long-term sovereign bonds and its subsequent default approximately fifteen years later. I develop a continuous-time sovereign debt model with long-term bonds, capital flow frictions, and stochastic global interest rates to study how capital account liberalization affects sovereign risk and crisis dynamics.\nUsing stochastic calculus and monotone comparative statics, I provide theoretical results on how liberalization of capital controls on longer-maturity debt influences default risk and financial vulnerability. I then solve the model numerically by computing the associated Hamilton-Jacobi-Bellman and Kolmogorov forward equations, and estimate the parameters using a modified simulated method of moments calibrated to Ghanaian macro-financial data.\nThis framework enables counterfactual experiments that quantify the relative importance of domestic financial liberalization versus external global financial conditions—captured by shifts in U.S. monetary policy and global interest rates—in driving Ghana’s rising sovereign risk prior to its default."
   }
 ]

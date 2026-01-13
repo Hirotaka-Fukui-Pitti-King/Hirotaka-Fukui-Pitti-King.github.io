@@ -6,8 +6,3 @@ url: "https://github.com/Hirotaka-Fukui-Pitti-King/Golden-Gerbil"
 image: mysite\static\dollar.svg
 ---
 
-This research examines the case of Ghana’s capital account liberalization for medium- and long-term sovereign bonds and its subsequent default approximately fifteen years later. I develop a continuous-time sovereign debt model with long-term bonds, capital flow frictions, and stochastic global interest rates to study how capital account liberalization affects sovereign risk and crisis dynamics.
-
-Using stochastic calculus and monotone comparative statics, I provide theoretical results on how liberalization of capital controls on longer-maturity debt influences default risk and financial vulnerability. I then solve the model numerically by computing the associated Hamilton-Jacobi-Bellman and Kolmogorov forward equations, and estimate the parameters using a modified simulated method of moments calibrated to Ghanaian macro-financial data.
-
-This framework enables counterfactual experiments that quantify the relative importance of domestic financial liberalization versus external global financial conditions---captured by shifts in U.S. monetary policy and global interest rates—in driving Ghana’s rising sovereign risk prior to its default.
