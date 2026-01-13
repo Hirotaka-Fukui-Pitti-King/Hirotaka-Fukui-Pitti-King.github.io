@@ -21,109 +21,32 @@
     "text": "Building on a model with debt maturity structure and maturity-specific capital flow regulations, I study the design of optimal capital control policies in the presence of sovereign default risk. The framework allows capital account restrictions to vary across debt maturities, forming a “capital control portfolio” that shapes the composition of sovereign borrowing.\nUsing stochastic calculus and quantitative methods, I analyze how maturity-contingent capital controls can mitigate rollover risk, reduce default incentives, and enhance macro-financial stability under stochastic global interest rate shocks."
   },
   {
-    "objectID": "research/FinGloDef.html",
-    "href": "research/FinGloDef.html",
-    "title": "Financial Globalization and the Risk of Sovereign Default",
+    "objectID": "research/finglodeflong.html",
+    "href": "research/finglodeflong.html",
+    "title": "A Continuous-Time Model of Sovereign Risk with Long-Term Debt and Capital Account Liberalization",
     "section": "",
-    "text": "Building on a baseline continuous-time sovereign debt framework, I extend the model to incorporate a maturity structure of sovereign bonds, following the insights of Arellano and Ramanarayanan (2012) on the importance of debt maturity for default risk. The model features maturity-specific capital flow regulations and stochastic global interest rates, allowing me to study how liberalization of capital controls across different maturities affects sovereign risk and crisis vulnerability.\nUsing stochastic calculus and monotone comparative statics, I derive theoretical results on how maturity-dependent capital account liberalization influences default incentives and rollover risk. I then solve the model numerically to quantify the interaction between debt maturity, capital flow management policies, and global financial conditions in shaping sovereign risk."
+    "text": "This research examines the case of Ghana’s capital account liberalization for medium- and long-term sovereign bonds and its subsequent default approximately fifteen years later. I develop a continuous-time sovereign debt model with long-term bonds, capital flow frictions, and stochastic global interest rates to study how capital account liberalization affects sovereign risk and crisis dynamics.\nUsing stochastic calculus and monotone comparative statics, I provide theoretical results on how liberalization of capital controls on longer-maturity debt influences default risk and financial vulnerability. I then solve the model numerically by computing the associated Hamilton-Jacobi-Bellman and Kolmogorov forward equations, and estimate the parameters using a modified simulated method of moments calibrated to Ghanaian macro-financial data.\nThis framework enables counterfactual experiments that quantify the relative importance of domestic financial liberalization versus external global financial conditions—captured by shifts in U.S. monetary policy and global interest rates—in driving Ghana’s rising sovereign risk prior to its default."
   },
   {
-    "objectID": "notes/TVC.html",
-    "href": "notes/TVC.html",
-    "title": "Be With You",
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
     "section": "",
-    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me."
+    "text": "The Way To Me\n\n\n\n\n\n\n\n\n\n\n\n\n\nTo Heart\n\n\n\n\n\n\n\n\n\n\n\n\n\nMiracle\n\n\n\n\n\n\n\n\n\n\n\n\n\nPinocchio\n\n\n\n\n\n\n\n\n\n\n\n\n\nBe With You\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "notes/TVC.html#starting-point-households-budget-constraint",
-    "href": "notes/TVC.html#starting-point-households-budget-constraint",
-    "title": "Be With You",
-    "section": "Starting Point: Household’s Budget Constraint",
-    "text": "Starting Point: Household’s Budget Constraint\nA representative household faces the following budget constraint:\n\\[\n  b_{t+1} = (1+r_{t})b_{t} + y_{t} - c_{t}\n\\]\nThis expression states that next period’s bond holdings are equal to the current assets carried forward with interest, plus current income, minus current consumption.\nBy iterating this constraint forward indefinitely:\n\\[\n  b_{t} = \\sum^{\\infty}_{j =0}\\Biggl( \\prod^{j-1}_{i = 0} \\frac{1}{1+r_{t+i}} \\Biggr) (y_{t+j} - c_{t+j}) + \\lim_{j \\rightarrow \\infty} \\Biggl(\\prod^{j-1}_{i=0} \\frac{1}{1+r_{t+i}} \\Biggr) b_{t+j}\n\\]"
-  },
-  {
-    "objectID": "notes/TVC.html#no-ponzi-game-npg-condition",
-    "href": "notes/TVC.html#no-ponzi-game-npg-condition",
-    "title": "Be With You",
-    "section": "No-Ponzi Game (NPG) Condition",
-    "text": "No-Ponzi Game (NPG) Condition\nA household cannot roll over its debt indefinitely by borrowing to finance both principal and interest. This restriction is necessary for the intertemporal budget constraint to hold and for the model to remain internally consistent. It rules out explosive debt paths that would imply an unbounded present value of liabilities. Accordingly, it functions as a feasibility condition of the model:\n\\[\n  \\lim_{j \\rightarrow \\infty} \\Biggl(\\prod^{j-1}_{i=0} \\frac{1}{1+r_{t+i}} \\Biggr) b_{t+j} = 0\n\\]"
-  },
-  {
-    "objectID": "notes/TVC.html#transversality-condition-tvc",
-    "href": "notes/TVC.html#transversality-condition-tvc",
-    "title": "Be With You",
-    "section": "Transversality Condition (TVC)",
-    "text": "Transversality Condition (TVC)\nOn the other hand, the condition derived from the household’s optimization problem is:\n\\[\n  \\lim_{t \\rightarrow \\infty} \\beta^t \\lambda_{t} b_{t+1} = 0\n\\]\nThis is the transversality condition, which ensures that the household does not find it optimal to accumulate unbounded debt or assets over the infinite horizon. It rules out explosive paths that would violate optimality, and it guarantees that the chosen consumption-saving plan satisfies the necessary boundary condition of the dynamic optimization problem."
-  },
-  {
-    "objectID": "notes/TVC.html#mathematical-relationship-between-two-conditions",
-    "href": "notes/TVC.html#mathematical-relationship-between-two-conditions",
-    "title": "Be With You",
-    "section": "Mathematical relationship between two conditions",
-    "text": "Mathematical relationship between two conditions\nFrom the first-order condition:\n\\[\n  \\beta^t \\lambda_{t} = \\beta^{t+1} \\lambda_{t+1} (1+r_{t})= \\beta^{t+1} u'(c_{t+1}) (1+r_{t})\n\\]\nSubstituting this expression into the transversality condition yields\n\\[\n  \\lim_{t \\rightarrow \\infty} \\beta^{t+1} u'(c_{t+1}) (1+r_{t}) b_{t+1}= 0\n\\]"
-  },
-  {
-    "objectID": "notes/TVC.html#historical-development-of-the-research-about-tvc-from-halkin-michel-and-kamihigashi",
-    "href": "notes/TVC.html#historical-development-of-the-research-about-tvc-from-halkin-michel-and-kamihigashi",
-    "title": "Be With You",
-    "section": "Historical Development of the Research about TVC: From Halkin, Michel, and Kamihigashi",
-    "text": "Historical Development of the Research about TVC: From Halkin, Michel, and Kamihigashi\n\nStage 1: Halkin (1974)\nHalkin demonstrated that the Maximum Principle continues to hold in infinite-horizon problems, but the standard transversality condition does not necessarily hold. He formulated the infinite-horizon problem as the limit of finite-horizon problems and provided explicit counterexamples showing that\n\\[\n  \\lambda(t) \\rightarrow 0\n\\]\nis neither required nor generally valid.\nThis insight raised the fundamental question later pursued by Michel: what boundary condition should replace the TVC in full generality?\n\n\nStage 2: Michel (1982, 1990)\nMichel restored a general necessary boundary condition by showing that, under broad conditions, the Hamiltonian must converge to zero:\n\\[\n  \\lim_{t \\rightarrow \\infty} H(t) = 0\n\\]\nIn his 1982 paper he derived this limit rigorously within Halkin’s framework. His 1990 paper further showed its consistency with the Cass–Yaari lemma, and proved that, when the velocity set has a nonempty interior, the usual transversality condition\n\\[\n  \\lambda(t) \\rightarrow 0\n\\]\nis recovered. Michel’s formulation became the conceptual foundation of boundary conditions in modern economic theory such that Ramsey-Cass–Koopmans models, optimal taxation, and many others.\n\n\nStage 3: Kamihigashi (2001)\nKamihigashi proved that the transversality condition is indeed a necessary condition, even without assuming concavity, integrability, or boundedness. By formalizing the Benveniste–Scheinkman envelope theorem and the “squeezing” argument, he established that the Euler equation and the envelope condition jointly imply\n\\[\n  \\lim_{t \\rightarrow \\infty} q(t) \\cdot x(t) = 0,\n\\]\nthereby deriving the TVC in a fully general setting. His results subsume and generalize Michel’s contributions, and are widely regarded as the modern definitive formulation of the TVC."
-  },
-  {
-    "objectID": "notes/TVC.html#necessary-conditions-for-optimal-control-problems-with-infinite-horizons-halkin-1974",
-    "href": "notes/TVC.html#necessary-conditions-for-optimal-control-problems-with-infinite-horizons-halkin-1974",
-    "title": "Be With You",
-    "section": "Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)",
-    "text": "Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)\nHalkin (1974) provides the first rigorous formulation of the Maximum Principle for infinite-horizon optimal control problems. The contribution of the paper is twofold.\n\nIt offers the first rigorous extension of the finite-horizon Maximum Principle to the infinite-horizon setting via a limiting argument.\nIn doing so, he demonstrates that the standard Transversality Condition (TVC) does not generally hold through explicit counterexamples.\n\nHalkin develops the infinite-horizon problem as the limit of finite-horizon problems and establishes the corresponding necessary conditions. The results prompted Michel to ask what boundary condition does hold in general, leading him to show that, although the TVC may fail, the Hamiltonian necessarily converges to zero in the limit.\n\nFinite Horizon Problem\nBegin by recalling the standard finite-horizon optimal control problem:\n\\[\n\\begin{align}\n  \\max_{u(\\cdot)} ~& \\int^{T}_{0} L(x(t), u(t), t) dt \\\\\n  s.t. ~& \\dot{x}(t) = f(x(t), u(t), t), \\\\\n       & x(0) = 0, \\\\\n       & h(x(T)) = 0.\n\\end{align}\n\\]\nThe Hamiltonian is defined as\n\\[\n  H(x, u, t, \\mu, \\lambda) = \\lambda^{\\top} f(x, u, t) + \\mu L(x(t), u(t), t)\n\\]\nPontryagin’s Maximum Principle can then be written as follows:\n\n\\(\\mu(t), \\lambda(t) \\neq 0\\);\n\\(\\dot{\\lambda}(t) = -H_{x}\\);\n\\(H(x(t), u^{*}(t), t) \\geq H(x(t), u(t), t)\\) for all feasible \\(u\\);\nBoundary conditions at the terminal time \\(T\\):\n\nFree end point: \\(\\lambda(T) = 0\\),\nClamped (fixed) end point: \\(\\lambda(T)\\) is unrestricted.\n\n\nNote that the free-end-point condition corresponds to the transversality condition for the finite-horizon problem."
-  },
-  {
-    "objectID": "notes/RA.html",
-    "href": "notes/RA.html",
-    "title": "Miracle",
+    "objectID": "notes/SC.html",
+    "href": "notes/SC.html",
+    "title": "Pinocchio",
     "section": "",
-    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me."
+    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me. This note is based on the author’s notes for the Stochastic Processes course taught by Professor Katsushi Fukuyama at the Graduate School of Science, Kobe University, during the Fall 2024 semester, and on Nancy L. Stokey’s book The Economics of Inaction published by Princeton University Press in 2009.\n\n\n\nNotation\nLet \\(\\mathcal F\\) be a complete \\(\\sigma\\)-algebra on \\(\\Omega\\), and let \\(P\\) be a probability measure on \\((\\Omega, \\mathcal F)\\). We shall henceforth work within the probability space \\((\\Omega, \\mathcal F, P)\\). A function \\(X\\) on \\(\\Omega\\) that is \\(\\mathcal F\\)-measurable is defined as a random variable. The \\(\\sigma\\)-algebra generated by the random variables \\(X_{1}, \\dots, X_{n}\\) is denoted by \\(\\sigma(X_{1}, \\dots, X_{n})\\). The expectation of a random variable \\(X\\) is denoted by \\(\\mathbb{E} [X]\\) and \\(\\mathbb{E}(X:A) = \\mathbb{E} [X \\mathbb{1}_{A}] = \\int_{A}X(\\omega)P(d\\omega)\\).\n\n\nBrownian Motions"
   },
   {
-    "objectID": "notes/RA.html#debreu-mantel-sonnenschein-theorem",
-    "href": "notes/RA.html#debreu-mantel-sonnenschein-theorem",
-    "title": "Miracle",
-    "section": "Debreu-Mantel-Sonnenschein Theorem",
-    "text": "Debreu-Mantel-Sonnenschein Theorem\nWhen studying how prices and income affect demand, economists usually work with market-level data rather than household-level observations. For businesses and policymakers, what matters is the overall demand curve, not each household’s choices. Ideally, a few parameters could summarize how total demand responds to changes in prices and income.\nThis raises a key question: if we only observe aggregate data, what kind of utility function should we assume for individuals? Microeconomic theory provides clear conditions—such as convex, continuous, and transitive preferences—under which individual demand satisfies symmetry, homogeneity, and the weak axiom of revealed preference.\nYet these properties do not necessarily hold when we aggregate across many households. Market demand may behave quite differently from individual demand. Even if individual preferences are non-convex, the overall demand function can still appear smooth and continuous. This insight lies at the heart of the Debreu–Sonnenschein–Mantel theorem, which shows that aggregate demand can take almost any shape consistent with Walras’ law and continuity, regardless of individual preferences.\n\nTheorem 1 (Debreu-Mantel-Sonnenschein Theorem) Let \\(\\epsilon &gt;0\\) and \\(N \\in \\mathbb{N}\\). Consider a set of prices \\(\\textbf{P}_{\\epsilon}=\\{p \\in \\mathbb{R}^{N}_{+}: p_{j}/p_{j'} \\geq \\epsilon,~\\forall j~\\text{and}~ j' \\}\\) and any continuous function \\(\\textbf{x}: \\textbf{P}_{\\epsilon} \\rightarrow \\mathbb{R}^{N}_{+}\\) that satisfies Walras’s Law and is homogeneous of degree 0. Then there exists an exchange economy with \\(N\\) commodities and \\(H&lt;\\infty\\) households, where the aggregate excess demand is given by \\(\\textbf{x}(p)\\) over the set \\(\\textbf{P}_{\\epsilon}\\)"
-  },
-  {
-    "objectID": "notes/DSGE.html",
-    "href": "notes/DSGE.html",
-    "title": "The Way To Me",
+    "objectID": "notes/GE.html",
+    "href": "notes/GE.html",
+    "title": "To Heart",
     "section": "",
-    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me."
-  },
-  {
-    "objectID": "notes/DSGE.html#example-a-structure-incorporating-the-euler-equation-of-a-representative-household",
-    "href": "notes/DSGE.html#example-a-structure-incorporating-the-euler-equation-of-a-representative-household",
-    "title": "The Way To Me",
-    "section": "Example: A structure incorporating the Euler equation of a representative household",
-    "text": "Example: A structure incorporating the Euler equation of a representative household\nAn illustrative framework embedding the Euler equation characterizing the intertemporal optimization behavior of a representative household.\nThe representative household maximizes expected lifetime utility:\n\\[\n    \\max_{c_{t}, k_{t+1}, n_{t}} \\mathbb{E}_{0} \\sum^{\\infty}_{t=0} \\beta^{t} U(c_{t}, 1-n_{t})\n\\]\nsubject to the intertemporal budget constraint:\n\\[\nc_{t}+k_{t+1} = (1-\\delta)k_{t}+w_{t}n_{t}+r_{t}k_{t}\n\\]\n\nFirst-Order Conditions (Interior Solution)\nFrom the optimallity conditions, we obtain:\n\n\\(\\lambda_{t} = U_{c}(c_{t}, 1-n_{t})\\)\n\\(\\lambda_{t} = -U_{n}(c_{t}, 1-n_{t})/w_{t}\\)\n${t} = {t}[ {t+1} (r{t+1}+1-) ] $\n\nFrom equations (1) and (3), we obtain the canonical Euler equation, which characterizes the intertemporal trade-off in consumption.\nBy substituting equations (1) through (3) into the system and rearranging, the model can be expressed in the form of a moment condition:\n\\[\n    \\mathbb{E}_{t}\\Biggl[ F(x_{t+1}, y_{t+1}, x_{t}, y_{t}, z_{t}; \\theta) \\Biggr] = 0\n\\]\nThis formulation embeds the Euler condition within a broader structural framework suitable for estimation or simulation."
-  },
-  {
-    "objectID": "notes/DSGE.html#homothetic-utility",
-    "href": "notes/DSGE.html#homothetic-utility",
-    "title": "The Way To Me",
-    "section": "Homothetic Utility",
-    "text": "Homothetic Utility\nHomotheticity is\n\nDefinition 2"
-  },
-  {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Hirotaka Fukui",
-    "section": "Welcome",
-    "text": "Welcome\nThis is the personal website of Hirotaka Fukui, a graduate student in Economics.\nI have included information about my research, CV, and how to get in touch with me."
-  },
-  {
-    "objectID": "index.html#about-me",
-    "href": "index.html#about-me",
-    "title": "Hirotaka Fukui",
-    "section": "About Me",
-    "text": "About Me\nI am a graduate student in Economics at  Kobe University, Graduate School of Economics.\nMy research focuses on International Macroeconomics, Monetary Economics, and Macro-Finance.\n\nFeel free to reach out!\n\nCurriculum Vitae\nFun fact: I support Real Madrid, the kings of football, and I’m a fan of fromis_9 (see this channel as well), the queens of K-pop.\n\n\n\n“The study of economics does not seem to require any specialised gifts of an unusually high order.\nIs it not, intellectually regarded, a very easy subject compared with the higher branches of philosophy and pure science?\nYet good, or even competent, economists are the rarest of birds.\nAn easy subject, at which very few excel!\nThe paradox finds its explanation, perhaps, in that the master-economist must possess a rare combination of gifts.\nHe must reach a high standard in several different directions and must combine talents not often found together.\nHe must be mathematician, historian, statesman, philosopher—​in some degree.\nHe must understand symbols and speak in words. He must contemplate the particular in terms of the general, and touch abstract and concrete in the same flight of thought.\nHe must study the present in the light of the past for the purposes of the future. No part of man's nature or his institutions must lie entirely outside his regard.\nHe must be purposeful and disinterested in a simultaneous mood;\nas aloof and incorruptible as an artist, yet sometimes as near the earth as a politician.”\n\n\n\n— John Maynard Keynes, “Alfred Marshall, 1842–1924.”\nThe Economic Journal (1924)"
+    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me.\n\n\n\nGeneral Equilibrium Theory\n\n“The two central problems of the theory that this monograph presents are (1) the explanation of the prices of commodities resulting from the interaction of the agents of a private ownership economy through markets, (2) the explanation of the role of prices in an optimal state of an economy. The analysis is therefore organized around the concept of a price system or, more generally, of a value function defined on the commodity space.”\n— Gérard Debreu, The Theory of Value\n\nNow, let us view a competitive economy from the general equilibrium perspective. As Debreu (1959) emphasizes, general equilibrium theory seeks to explain how the prices of commodities emerge from the interactions of agents in a market economy, and how those prices, in turn, sustain an optimal allocation of resources.\nConsider an economy with \\(H\\) commodities indexed by \\(h \\in \\mathcal{H} = {1, \\dots, H}\\), \\(I\\) consumers indexed by \\(i \\in \\mathcal{I} = {1, \\dots, I}\\), and \\(J\\) producers or firms indexed by \\(j \\in \\mathcal{J} = {1, \\dots, J}\\).\nConsumers derive utility from consuming goods. Let \\(X\\) denote the consumption correspondence, which maps each consumer \\(i \\in \\mathcal{I}\\) to a subset \\(X(i) = X_i \\subseteq \\mathbb{R}^{\\mathcal{H}}\\) of the commodity space, representing the set of consumption bundles available to that consumer. Each element \\(x_i \\in X_i\\) is a consumption bundle (or consumption vector), describing quantities of all commodities that the consumer may feasibly consume.\nLet \\(R\\) be a preference correspondence that maps each \\(i \\in \\mathcal{I}\\) to a reflexive binary relation \\(R(i) = R_i \\subseteq X_i \\times X_i\\) over \\(X_i\\), representing the consumer’s preference ordering such that \\((x_i, x_i) \\in R_i\\) for all \\(x_i \\in X_i\\).\nEach producer \\(j \\in \\mathcal{J}\\) operates a production set \\(Y(j) = Y_j \\subseteq \\mathbb{R}^{\\mathcal{H}}\\), where each element \\(y_j \\in Y_j\\) is a production bundle (or production vector) describing quantities of inputs and outputs across commodities.\nThe total resources available in the economy are represented by an aggregate endowment vector \\(\\bar{\\omega} \\in \\mathbb{R}^{\\mathcal{H}}\\), where \\(\\bar{\\omega} = (\\bar{\\omega}(h))_{h \\in \\mathcal{H}} = (\\bar{\\omega}h)_{h \\in \\mathcal{H}}\\) specifies the total amount of each commodity in the economy, not necessarily individualized among agents. These commodities are assumed to be pre-existing and dated. It means that each good has a defined origin in time.\n\nDefinition 1 (Economy) The list \\((\\mathcal{H}, \\mathcal{I}, \\mathcal{J}, X, R, Y, \\bar{\\omega})\\) is an economy if\n\n\\(\\mathcal{H}\\) is a nonempty finite set of commodities;\n\\(\\mathcal{I}\\) is a nonempty finite set of consumers;\n\\(\\mathcal{J}\\) is a nonempty finite set of producers or firms;\n\\(X\\) is a correspondence from \\(\\mathcal{I}\\) to the commodity space \\(\\mathbb{R}^{\\mathcal{H}}\\);\n\\(R\\) is a correspondence from \\(\\mathcal{I}\\) to \\(\\mathbb{R}^{\\mathcal{H}} \\times \\mathbb{R}^{\\mathcal{H}}\\) such that \\(R(i)\\) is a reflexive binary relation over \\(X_{i}\\) s.t. \\((x_{i},x_{i}) \\in R_{i}\\) for each \\(x_{i} \\in X_{i}\\);\n\\(Y\\) is a correspondence from \\(\\mathcal{J}\\) to \\(\\mathbb{R}^{\\mathcal{H}}\\); and\n\\(\\bar{\\omega}\\) is a point of \\(\\mathbb{R}^{\\mathcal{H}}\\).\n\n\n\nDefinition 2 (Feasible Allocation) Let \\((\\mathcal{H}, \\mathcal{I}, \\mathcal{J}, X, R, Y, \\bar{\\omega})\\) be an economy. Then \\((x, y) \\in (\\mathbb{R}^{\\mathcal{H}})^{\\mathcal{I}} \\times (\\mathbb{R}^{\\mathcal{H}})^{\\mathcal{J}}\\) is a feasible allocation for \\((\\mathcal{H}, \\mathcal{I}, \\mathcal{J}, X, R, Y, \\bar{\\omega})\\) if \\((x, y) \\in X \\times Y\\) and \\(\\sum_{i \\in \\mathcal{I}}x_{i}=\\bar{\\omega}+\\sum_{j \\in \\mathcal{J}}y_{i}\\)."
   },
   {
     "objectID": "cv.html",
@@ -203,30 +126,121 @@
     "text": "Chair of the Executive Committee, The Student Council of the Graduate School of Economics, Kobe U, Apr. 2024-Mar. 2025"
   },
   {
-    "objectID": "notes/GE.html",
-    "href": "notes/GE.html",
-    "title": "To Heart",
-    "section": "",
-    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me.\n\n\n\nGeneral Equilibrium Theory\n\n“The two central problems of the theory that this monograph presents are (1) the explanation of the prices of commodities resulting from the interaction of the agents of a private ownership economy through markets, (2) the explanation of the role of prices in an optimal state of an economy. The analysis is therefore organized around the concept of a price system or, more generally, of a value function defined on the commodity space.”\n— Gérard Debreu, The Theory of Value\n\nNow, let us view a competitive economy from the general equilibrium perspective. As Debreu (1959) emphasizes, general equilibrium theory seeks to explain how the prices of commodities emerge from the interactions of agents in a market economy, and how those prices, in turn, sustain an optimal allocation of resources.\nConsider an economy with \\(H\\) commodities indexed by \\(h \\in \\mathcal{H} = {1, \\dots, H}\\), \\(I\\) consumers indexed by \\(i \\in \\mathcal{I} = {1, \\dots, I}\\), and \\(J\\) producers or firms indexed by \\(j \\in \\mathcal{J} = {1, \\dots, J}\\).\nConsumers derive utility from consuming goods. Let \\(X\\) denote the consumption correspondence, which maps each consumer \\(i \\in \\mathcal{I}\\) to a subset \\(X(i) = X_i \\subseteq \\mathbb{R}^{\\mathcal{H}}\\) of the commodity space, representing the set of consumption bundles available to that consumer. Each element \\(x_i \\in X_i\\) is a consumption bundle (or consumption vector), describing quantities of all commodities that the consumer may feasibly consume.\nLet \\(R\\) be a preference correspondence that maps each \\(i \\in \\mathcal{I}\\) to a reflexive binary relation \\(R(i) = R_i \\subseteq X_i \\times X_i\\) over \\(X_i\\), representing the consumer’s preference ordering such that \\((x_i, x_i) \\in R_i\\) for all \\(x_i \\in X_i\\).\nEach producer \\(j \\in \\mathcal{J}\\) operates a production set \\(Y(j) = Y_j \\subseteq \\mathbb{R}^{\\mathcal{H}}\\), where each element \\(y_j \\in Y_j\\) is a production bundle (or production vector) describing quantities of inputs and outputs across commodities.\nThe total resources available in the economy are represented by an aggregate endowment vector \\(\\bar{\\omega} \\in \\mathbb{R}^{\\mathcal{H}}\\), where \\(\\bar{\\omega} = (\\bar{\\omega}(h))_{h \\in \\mathcal{H}} = (\\bar{\\omega}h)_{h \\in \\mathcal{H}}\\) specifies the total amount of each commodity in the economy, not necessarily individualized among agents. These commodities are assumed to be pre-existing and dated. It means that each good has a defined origin in time.\n\nDefinition 1 (Economy) The list \\((\\mathcal{H}, \\mathcal{I}, \\mathcal{J}, X, R, Y, \\bar{\\omega})\\) is an economy if\n\n\\(\\mathcal{H}\\) is a nonempty finite set of commodities;\n\\(\\mathcal{I}\\) is a nonempty finite set of consumers;\n\\(\\mathcal{J}\\) is a nonempty finite set of producers or firms;\n\\(X\\) is a correspondence from \\(\\mathcal{I}\\) to the commodity space \\(\\mathbb{R}^{\\mathcal{H}}\\);\n\\(R\\) is a correspondence from \\(\\mathcal{I}\\) to \\(\\mathbb{R}^{\\mathcal{H}} \\times \\mathbb{R}^{\\mathcal{H}}\\) such that \\(R(i)\\) is a reflexive binary relation over \\(X_{i}\\) s.t. \\((x_{i},x_{i}) \\in R_{i}\\) for each \\(x_{i} \\in X_{i}\\);\n\\(Y\\) is a correspondence from \\(\\mathcal{J}\\) to \\(\\mathbb{R}^{\\mathcal{H}}\\); and\n\\(\\bar{\\omega}\\) is a point of \\(\\mathbb{R}^{\\mathcal{H}}\\).\n\n\n\nDefinition 2 (Feasible Allocation) Let \\((\\mathcal{H}, \\mathcal{I}, \\mathcal{J}, X, R, Y, \\bar{\\omega})\\) be an economy. Then \\((x, y) \\in (\\mathbb{R}^{\\mathcal{H}})^{\\mathcal{I}} \\times (\\mathbb{R}^{\\mathcal{H}})^{\\mathcal{J}}\\) is a feasible allocation for \\((\\mathcal{H}, \\mathcal{I}, \\mathcal{J}, X, R, Y, \\bar{\\omega})\\) if \\((x, y) \\in X \\times Y\\) and \\(\\sum_{i \\in \\mathcal{I}}x_{i}=\\bar{\\omega}+\\sum_{j \\in \\mathcal{J}}y_{i}\\)."
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Hirotaka Fukui",
+    "section": "Welcome",
+    "text": "Welcome\nThis is the personal website of Hirotaka Fukui, a graduate student in Economics.\nI have included information about my research, CV, and how to get in touch with me."
   },
   {
-    "objectID": "notes/SC.html",
-    "href": "notes/SC.html",
-    "title": "Pinocchio",
-    "section": "",
-    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me. This note is based on the author’s notes for the Stochastic Processes course taught by Professor Katsushi Fukuyama at the Graduate School of Science, Kobe University, during the Fall 2024 semester, and on Nancy L. Stokey’s book The Economics of Inaction published by Princeton University Press in 2009.\n\n\n\nNotation\nLet \\(\\mathcal F\\) be a complete \\(\\sigma\\)-algebra on \\(\\Omega\\), and let \\(P\\) be a probability measure on \\((\\Omega, \\mathcal F)\\). We shall henceforth work within the probability space \\((\\Omega, \\mathcal F, P)\\). A function \\(X\\) on \\(\\Omega\\) that is \\(\\mathcal F\\)-measurable is defined as a random variable. The \\(\\sigma\\)-algebra generated by the random variables \\(X_{1}, \\dots, X_{n}\\) is denoted by \\(\\sigma(X_{1}, \\dots, X_{n})\\). The expectation of a random variable \\(X\\) is denoted by \\(\\mathbb{E} [X]\\) and \\(\\mathbb{E}(X:A) = \\mathbb{E} [X \\mathbb{1}_{A}] = \\int_{A}X(\\omega)P(d\\omega)\\).\n\n\nBrownian Motions"
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Hirotaka Fukui",
+    "section": "About Me",
+    "text": "About Me\nI am a graduate student in Economics at  Kobe University, Graduate School of Economics.\nMy research focuses on International Macroeconomics, Monetary Economics, and Macro-Finance.\n\nFeel free to reach out!\n\nCurriculum Vitae\nFun fact: I support Real Madrid, the kings of football, and I’m a fan of fromis_9 (see this channel as well), the queens of K-pop.\n\n\n\n“The study of economics does not seem to require any specialised gifts of an unusually high order.\nIs it not, intellectually regarded, a very easy subject compared with the higher branches of philosophy and pure science?\nYet good, or even competent, economists are the rarest of birds.\nAn easy subject, at which very few excel!\nThe paradox finds its explanation, perhaps, in that the master-economist must possess a rare combination of gifts.\nHe must reach a high standard in several different directions and must combine talents not often found together.\nHe must be mathematician, historian, statesman, philosopher—​in some degree.\nHe must understand symbols and speak in words. He must contemplate the particular in terms of the general, and touch abstract and concrete in the same flight of thought.\nHe must study the present in the light of the past for the purposes of the future. No part of man's nature or his institutions must lie entirely outside his regard.\nHe must be purposeful and disinterested in a simultaneous mood;\nas aloof and incorruptible as an artist, yet sometimes as near the earth as a politician.”\n\n\n\n— John Maynard Keynes, “Alfred Marshall, 1842–1924.”\nThe Economic Journal (1924)"
   },
   {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "Notes",
+    "objectID": "notes/DSGE.html",
+    "href": "notes/DSGE.html",
+    "title": "The Way To Me",
     "section": "",
-    "text": "The Way To Me\n\n\n\n\n\n\n\n\n\n\n\n\n\nTo Heart\n\n\n\n\n\n\n\n\n\n\n\n\n\nMiracle\n\n\n\n\n\n\n\n\n\n\n\n\n\nPinocchio\n\n\n\n\n\n\n\n\n\n\n\n\n\nBe With You\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me."
   },
   {
-    "objectID": "research/finglodeflong.html",
-    "href": "research/finglodeflong.html",
+    "objectID": "notes/DSGE.html#example-a-structure-incorporating-the-euler-equation-of-a-representative-household",
+    "href": "notes/DSGE.html#example-a-structure-incorporating-the-euler-equation-of-a-representative-household",
+    "title": "The Way To Me",
+    "section": "Example: A structure incorporating the Euler equation of a representative household",
+    "text": "Example: A structure incorporating the Euler equation of a representative household\nAn illustrative framework embedding the Euler equation characterizing the intertemporal optimization behavior of a representative household.\nThe representative household maximizes expected lifetime utility:\n\\[\n    \\max_{c_{t}, k_{t+1}, n_{t}} \\mathbb{E}_{0} \\sum^{\\infty}_{t=0} \\beta^{t} U(c_{t}, 1-n_{t})\n\\]\nsubject to the intertemporal budget constraint:\n\\[\nc_{t}+k_{t+1} = (1-\\delta)k_{t}+w_{t}n_{t}+r_{t}k_{t}\n\\]\n\nFirst-Order Conditions (Interior Solution)\nFrom the optimallity conditions, we obtain:\n\n\\(\\lambda_{t} = U_{c}(c_{t}, 1-n_{t})\\)\n\\(\\lambda_{t} = -U_{n}(c_{t}, 1-n_{t})/w_{t}\\)\n${t} = {t}[ {t+1} (r{t+1}+1-) ] $\n\nFrom equations (1) and (3), we obtain the canonical Euler equation, which characterizes the intertemporal trade-off in consumption.\nBy substituting equations (1) through (3) into the system and rearranging, the model can be expressed in the form of a moment condition:\n\\[\n    \\mathbb{E}_{t}\\Biggl[ F(x_{t+1}, y_{t+1}, x_{t}, y_{t}, z_{t}; \\theta) \\Biggr] = 0\n\\]\nThis formulation embeds the Euler condition within a broader structural framework suitable for estimation or simulation."
+  },
+  {
+    "objectID": "notes/DSGE.html#homothetic-utility",
+    "href": "notes/DSGE.html#homothetic-utility",
+    "title": "The Way To Me",
+    "section": "Homothetic Utility",
+    "text": "Homothetic Utility\nHomotheticity is\n\nDefinition 2"
+  },
+  {
+    "objectID": "notes/RA.html",
+    "href": "notes/RA.html",
+    "title": "Miracle",
+    "section": "",
+    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me."
+  },
+  {
+    "objectID": "notes/RA.html#debreu-mantel-sonnenschein-theorem",
+    "href": "notes/RA.html#debreu-mantel-sonnenschein-theorem",
+    "title": "Miracle",
+    "section": "Debreu-Mantel-Sonnenschein Theorem",
+    "text": "Debreu-Mantel-Sonnenschein Theorem\nWhen studying how prices and income affect demand, economists usually work with market-level data rather than household-level observations. For businesses and policymakers, what matters is the overall demand curve, not each household’s choices. Ideally, a few parameters could summarize how total demand responds to changes in prices and income.\nThis raises a key question: if we only observe aggregate data, what kind of utility function should we assume for individuals? Microeconomic theory provides clear conditions—such as convex, continuous, and transitive preferences—under which individual demand satisfies symmetry, homogeneity, and the weak axiom of revealed preference.\nYet these properties do not necessarily hold when we aggregate across many households. Market demand may behave quite differently from individual demand. Even if individual preferences are non-convex, the overall demand function can still appear smooth and continuous. This insight lies at the heart of the Debreu–Sonnenschein–Mantel theorem, which shows that aggregate demand can take almost any shape consistent with Walras’ law and continuity, regardless of individual preferences.\n\nTheorem 1 (Debreu-Mantel-Sonnenschein Theorem) Let \\(\\epsilon &gt;0\\) and \\(N \\in \\mathbb{N}\\). Consider a set of prices \\(\\textbf{P}_{\\epsilon}=\\{p \\in \\mathbb{R}^{N}_{+}: p_{j}/p_{j'} \\geq \\epsilon,~\\forall j~\\text{and}~ j' \\}\\) and any continuous function \\(\\textbf{x}: \\textbf{P}_{\\epsilon} \\rightarrow \\mathbb{R}^{N}_{+}\\) that satisfies Walras’s Law and is homogeneous of degree 0. Then there exists an exchange economy with \\(N\\) commodities and \\(H&lt;\\infty\\) households, where the aggregate excess demand is given by \\(\\textbf{x}(p)\\) over the set \\(\\textbf{P}_{\\epsilon}\\)"
+  },
+  {
+    "objectID": "notes/TVC.html",
+    "href": "notes/TVC.html",
+    "title": "Be With You",
+    "section": "",
+    "text": "Important\n\n\n\nAll rights reserved. All errors in this document are the responsibility of the author. Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. Use at your own risk. If you find any errors, please get in touch with me."
+  },
+  {
+    "objectID": "notes/TVC.html#starting-point-households-budget-constraint",
+    "href": "notes/TVC.html#starting-point-households-budget-constraint",
+    "title": "Be With You",
+    "section": "Starting Point: Household’s Budget Constraint",
+    "text": "Starting Point: Household’s Budget Constraint\nA representative household faces the following budget constraint:\n\\[\n  b_{t+1} = (1+r_{t})b_{t} + y_{t} - c_{t}\n\\]\nThis expression states that next period’s bond holdings are equal to the current assets carried forward with interest, plus current income, minus current consumption.\nBy iterating this constraint forward indefinitely:\n\\[\n  b_{t} = \\sum^{\\infty}_{j =0}\\Biggl( \\prod^{j-1}_{i = 0} \\frac{1}{1+r_{t+i}} \\Biggr) (y_{t+j} - c_{t+j}) + \\lim_{j \\rightarrow \\infty} \\Biggl(\\prod^{j-1}_{i=0} \\frac{1}{1+r_{t+i}} \\Biggr) b_{t+j}\n\\]"
+  },
+  {
+    "objectID": "notes/TVC.html#no-ponzi-game-npg-condition",
+    "href": "notes/TVC.html#no-ponzi-game-npg-condition",
+    "title": "Be With You",
+    "section": "No-Ponzi Game (NPG) Condition",
+    "text": "No-Ponzi Game (NPG) Condition\nA household cannot roll over its debt indefinitely by borrowing to finance both principal and interest. This restriction is necessary for the intertemporal budget constraint to hold and for the model to remain internally consistent. It rules out explosive debt paths that would imply an unbounded present value of liabilities. Accordingly, it functions as a feasibility condition of the model:\n\\[\n  \\lim_{j \\rightarrow \\infty} \\Biggl(\\prod^{j-1}_{i=0} \\frac{1}{1+r_{t+i}} \\Biggr) b_{t+j} = 0\n\\]"
+  },
+  {
+    "objectID": "notes/TVC.html#transversality-condition-tvc",
+    "href": "notes/TVC.html#transversality-condition-tvc",
+    "title": "Be With You",
+    "section": "Transversality Condition (TVC)",
+    "text": "Transversality Condition (TVC)\nOn the other hand, the condition derived from the household’s optimization problem is:\n\\[\n  \\lim_{t \\rightarrow \\infty} \\beta^t \\lambda_{t} b_{t+1} = 0\n\\]\nThis is the transversality condition, which ensures that the household does not find it optimal to accumulate unbounded debt or assets over the infinite horizon. It rules out explosive paths that would violate optimality, and it guarantees that the chosen consumption-saving plan satisfies the necessary boundary condition of the dynamic optimization problem."
+  },
+  {
+    "objectID": "notes/TVC.html#mathematical-relationship-between-two-conditions",
+    "href": "notes/TVC.html#mathematical-relationship-between-two-conditions",
+    "title": "Be With You",
+    "section": "Mathematical relationship between two conditions",
+    "text": "Mathematical relationship between two conditions\nFrom the first-order condition:\n\\[\n  \\beta^t \\lambda_{t} = \\beta^{t+1} \\lambda_{t+1} (1+r_{t})= \\beta^{t+1} u'(c_{t+1}) (1+r_{t})\n\\]\nSubstituting this expression into the transversality condition yields\n\\[\n  \\lim_{t \\rightarrow \\infty} \\beta^{t+1} u'(c_{t+1}) (1+r_{t}) b_{t+1}= 0\n\\]"
+  },
+  {
+    "objectID": "notes/TVC.html#historical-development-of-the-research-about-tvc-from-halkin-michel-and-kamihigashi",
+    "href": "notes/TVC.html#historical-development-of-the-research-about-tvc-from-halkin-michel-and-kamihigashi",
+    "title": "Be With You",
+    "section": "Historical Development of the Research about TVC: From Halkin, Michel, and Kamihigashi",
+    "text": "Historical Development of the Research about TVC: From Halkin, Michel, and Kamihigashi\n\nStage 1: Halkin (1974)\nHalkin demonstrated that the Maximum Principle continues to hold in infinite-horizon problems, but the standard transversality condition does not necessarily hold. He formulated the infinite-horizon problem as the limit of finite-horizon problems and provided explicit counterexamples showing that\n\\[\n  \\lambda(t) \\rightarrow 0\n\\]\nis neither required nor generally valid.\nThis insight raised the fundamental question later pursued by Michel: what boundary condition should replace the TVC in full generality?\n\n\nStage 2: Michel (1982, 1990)\nMichel restored a general necessary boundary condition by showing that, under broad conditions, the Hamiltonian must converge to zero:\n\\[\n  \\lim_{t \\rightarrow \\infty} H(t) = 0\n\\]\nIn his 1982 paper he derived this limit rigorously within Halkin’s framework. His 1990 paper further showed its consistency with the Cass–Yaari lemma, and proved that, when the velocity set has a nonempty interior, the usual transversality condition\n\\[\n  \\lambda(t) \\rightarrow 0\n\\]\nis recovered. Michel’s formulation became the conceptual foundation of boundary conditions in modern economic theory such that Ramsey-Cass–Koopmans models, optimal taxation, and many others.\n\n\nStage 3: Kamihigashi (2001)\nKamihigashi proved that the transversality condition is indeed a necessary condition, even without assuming concavity, integrability, or boundedness. By formalizing the Benveniste–Scheinkman envelope theorem and the “squeezing” argument, he established that the Euler equation and the envelope condition jointly imply\n\\[\n  \\lim_{t \\rightarrow \\infty} q(t) \\cdot x(t) = 0,\n\\]\nthereby deriving the TVC in a fully general setting. His results subsume and generalize Michel’s contributions, and are widely regarded as the modern definitive formulation of the TVC."
+  },
+  {
+    "objectID": "notes/TVC.html#necessary-conditions-for-optimal-control-problems-with-infinite-horizons-halkin-1974",
+    "href": "notes/TVC.html#necessary-conditions-for-optimal-control-problems-with-infinite-horizons-halkin-1974",
+    "title": "Be With You",
+    "section": "Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)",
+    "text": "Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)\nHalkin (1974) provides the first rigorous formulation of the Maximum Principle for infinite-horizon optimal control problems. The contribution of the paper is twofold.\n\nIt offers the first rigorous extension of the finite-horizon Maximum Principle to the infinite-horizon setting via a limiting argument.\nIn doing so, he demonstrates that the standard Transversality Condition (TVC) does not generally hold through explicit counterexamples.\n\nHalkin develops the infinite-horizon problem as the limit of finite-horizon problems and establishes the corresponding necessary conditions. The results prompted Michel to ask what boundary condition does hold in general, leading him to show that, although the TVC may fail, the Hamiltonian necessarily converges to zero in the limit.\n\nFinite Horizon Problem\nBegin by recalling the standard finite-horizon optimal control problem:\n\\[\n\\begin{align}\n  \\max_{u(\\cdot)} ~& \\int^{T}_{0} L(x(t), u(t), t) dt \\\\\n  s.t. ~& \\dot{x}(t) = f(x(t), u(t), t), \\\\\n       & x(0) = 0, \\\\\n       & h(x(T)) = 0.\n\\end{align}\n\\]\nThe Hamiltonian is defined as\n\\[\n  H(x, u, t, \\mu, \\lambda) = \\lambda^{\\top} f(x, u, t) + \\mu L(x(t), u(t), t)\n\\]\nPontryagin’s Maximum Principle can then be written as follows:\n\n\\(\\mu(t), \\lambda(t) \\neq 0\\);\n\\(\\dot{\\lambda}(t) = -H_{x}\\);\n\\(H(x(t), u^{*}(t), t) \\geq H(x(t), u(t), t)\\) for all feasible \\(u\\);\nBoundary conditions at the terminal time \\(T\\):\n\nFree end point: \\(\\lambda(T) = 0\\),\nClamped (fixed) end point: \\(\\lambda(T)\\) is unrestricted.\n\n\nNote that the free-end-point condition corresponds to the transversality condition for the finite-horizon problem."
+  },
+  {
+    "objectID": "research/FinGloDef.html",
+    "href": "research/FinGloDef.html",
+    "title": "Financial Globalization and the Risk of Sovereign Default",
+    "section": "",
+    "text": "Building on a baseline continuous-time sovereign debt framework, I extend the model to incorporate a maturity structure of sovereign bonds, following the insights of Arellano and Ramanarayanan (2012) on the importance of debt maturity for default risk. The model features maturity-specific capital flow regulations and stochastic global interest rates, allowing me to study how liberalization of capital controls across different maturities affects sovereign risk and crisis vulnerability.\nUsing stochastic calculus and monotone comparative statics, I derive theoretical results on how maturity-dependent capital account liberalization influences default incentives and rollover risk. I then solve the model numerically to quantify the interaction between debt maturity, capital flow management policies, and global financial conditions in shaping sovereign risk."
+  },
+  {
+    "objectID": "research/finglodeflong_ghana.html",
+    "href": "research/finglodeflong_ghana.html",
     "title": "A Continuous-Time Model of Sovereign Risk with Long-Term Debt and Capital Account Liberalization: Evidence from Ghana",
+    "section": "",
+    "text": "This research examines the case of Ghana’s capital account liberalization for medium- and long-term sovereign bonds and its subsequent default approximately fifteen years later. I develop a continuous-time sovereign debt model with long-term bonds, capital flow frictions, and stochastic global interest rates to study how capital account liberalization affects sovereign risk and crisis dynamics.\nUsing stochastic calculus and monotone comparative statics, I provide theoretical results on how liberalization of capital controls on longer-maturity debt influences default risk and financial vulnerability. I then solve the model numerically by computing the associated Hamilton-Jacobi-Bellman and Kolmogorov forward equations, and estimate the parameters using a modified simulated method of moments calibrated to Ghanaian macro-financial data.\nThis framework enables counterfactual experiments that quantify the relative importance of domestic financial liberalization versus external global financial conditions—captured by shifts in U.S. monetary policy and global interest rates—in driving Ghana’s rising sovereign risk prior to its default."
+  },
+  {
+    "objectID": "research/finglodef_dev.html",
+    "href": "research/finglodef_dev.html",
+    "title": "Financial Integration, Financial Development, and the Risk of Sovereign Default",
     "section": "",
     "text": "This research examines the case of Ghana’s capital account liberalization for medium- and long-term sovereign bonds and its subsequent default approximately fifteen years later. I develop a continuous-time sovereign debt model with long-term bonds, capital flow frictions, and stochastic global interest rates to study how capital account liberalization affects sovereign risk and crisis dynamics.\nUsing stochastic calculus and monotone comparative statics, I provide theoretical results on how liberalization of capital controls on longer-maturity debt influences default risk and financial vulnerability. I then solve the model numerically by computing the associated Hamilton-Jacobi-Bellman and Kolmogorov forward equations, and estimate the parameters using a modified simulated method of moments calibrated to Ghanaian macro-financial data.\nThis framework enables counterfactual experiments that quantify the relative importance of domestic financial liberalization versus external global financial conditions—captured by shifts in U.S. monetary policy and global interest rates—in driving Ghana’s rising sovereign risk prior to its default."
   }

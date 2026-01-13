@@ -1,5 +1,5 @@
 ---
-title: "A Continuous-Time Model of Sovereign Risk with Long-Term Debt and Capital Account Liberalization"
+title: "Financial Integration, Financial Development, and the Risk of Sovereign Default"
 description: "The Global Integration of Financial Markets and Sovereign Debt Risk"
 categories: ["Working Paper"]
 url: "https://github.com/Hirotaka-Fukui-Pitti-King/Golden-Gerbil"
