@@ -1,0 +1,9 @@
+---
+title: "Quizzical-Quail"
+description: "The Global Integration of Financial Markets and Sovereign Debt Risk"
+categories: ["Working Paper"]
+url: "https://github.com/Hirotaka-Fukui-Pitti-King/Quizzical-Quail"
+image: mysite\static\dollar.svg
+---
+
+[URL](https://github.com/Hirotaka-Fukui-Pitti-King/Quizzical-Quail)

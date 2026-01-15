@@ -1,7 +1,0 @@
----
-title: "Properties of Macroeconomic Fluctuations in Sub-Saharan African Economies"
-description: "Properties of Macroeconomic Fluctuations in Sub-Saharan African Economies."
-categories: ["Working Paper"]
-url: "https://github.com/Hirotaka-Fukui-Pitti-King/Lively-Llama"
-image: mysite\static\af_conti.svg
----

@@ -1,0 +1,9 @@
+---
+title: "xenolithic-xoloitzcuintle"
+description: "Properties of Macroeconomic Fluctuations in Sub-Saharan African Economies."
+categories: ["Working Paper"]
+url: "https://github.com/Hirotaka-Fukui-Pitti-King/xenolithic-xoloitzcuintle"
+image: mysite\static\af_conti.svg
+---
+
+[URL](https://github.com/Hirotaka-Fukui-Pitti-King/xenolithic-xoloitzcuintle)
