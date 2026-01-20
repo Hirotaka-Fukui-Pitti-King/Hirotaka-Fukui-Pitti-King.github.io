@@ -1,0 +1,98 @@
+---
+title: "Glass Shoes"
+engine: julia
+format:
+  html:
+    code-tools: true
+---
+
+> It’s past 12 o’clock and
+> I have to go back
+> I’ll leave my heart as I leave, so let’s promise to meet
+> In our future
+> [*Glass Shoes* - fromis_9](https://fromis9.fandom.com/wiki/Glass_Shoes)
+
+# Modern Portfolio Theory
+
+## Expected Return of a Single Asset
+
+Consider an asset $i$ with $J$ possible outcomes $j = 1, \dots J$. Let $R_{ij}$ denote the return for outcome $j$ and $p_{ij}$ denote its probability. The expected return is
+
+$$
+\mathbb{E}[R_{i}] = \sum_{j=1}^{J} p_{ij} R_{ij}
+$$ {#eq-ex-r-single}
+
+The variance of an asset $i$ is
+
+$$
+\sigma^{2}_{i} = \sum_{j=1}^{J} p_{ij} \left(R_{ij}-\mathbb{E}[R_{i}] \right)^{2}
+$$
+
+## Portfolio with two risky assets
+
+A portfolio consists with two risky assets indexed by $i=A, B$. Let $X_{i}$ be portfolio weights ($X_{A}+X_{B}=1$). The portfolio return is 
+
+$$
+R_{p, m} = X_{A} R_{A, m}+ (1-X_{A}) R_{B, m}
+$$
+
+The expected return of the portfolio is
+
+$$
+\mathbb{E}[R_{p}] = X_{A} \mathbb{E}[R_{A}]+ (1-X_{A}) \mathbb{E}[R_{B}]
+$$
+
+The variance of the portfolio return is
+
+$$
+\begin{align}
+\sigma_{p}^{2} & = \left(X_{A} \sigma_{A}+ (1-X_{A}) \sigma_{B}  \right)^{2} \\
+& = X^{2}_{A} \sigma^{2}_{A} + (1-X_{A})^{2} \sigma^{2}_{B} + 2 X_{A} (1-X_{A}) \sigma_{AB}
+\end{align}
+$$
+
+where $\sigma_{12}$ is the covariance between asset A and asset B. 
+
+$$
+\sigma_{12} = \sum_{j=1}^{J} p_{j} \left(R_{A, m}-\mathbb{E}[R_{A}] \right)\left(R_{B, m}-\mathbb{E}[R_{B}] \right)
+$$
+
+## Portfolio with $N$ risky assets
+
+## Portfolio Possibility Curve
+
+## Minimum Risk Portfolio
+
+## Efficient Frontier
+
+## Riskless Lending and Borrowing
+
+# Single Index Model
+
+# Multi Index Model
+
+# Capital Asset Pricing Model (CAPM)
+
+# Arbitrage Pricing Theory (APT)
+
+# Empirical Tests of CAPM and APT
+
+# Consumption CAPM (C-CAPM)
+
+# Empirical Tests of C-CAPM
+
+# The Factor Zoo
+
+# Intermediary Asset Pricing
+
+# Production-based Asset Pricing
+
+# Demand System Approach to Asset Pricing
+
+
+::: {.callout-important}
+All rights reserved. All errors in this document are the responsibility of the author. 
+Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
+Use at your own risk. 
+If you find any errors, please get in touch with me.
+:::

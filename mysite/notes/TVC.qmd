@@ -6,12 +6,12 @@ format:
     code-tools: true
 ---
 
-::: {.callout-important}
-All rights reserved. All errors in this document are the responsibility of the author. 
-Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
-Use at your own risk. 
-If you find any errors, please get in touch with me.
-:::
+> Lots of thoughts are forming
+> It’s like tangled strings but
+> But this moment as I watch you
+> Makes me very happy
+> [*Be With You* - fromis_9](https://fromis9.fandom.com/wiki/Be_With_You))
+
 
 # Difference between No-Ponzi Game (NPG) and Transversality Condition (TVC)
 
@@ -155,3 +155,10 @@ Pontryagin’s Maximum Principle can then be written as follows:
    - Clamped (fixed) end point: $\lambda(T)$ is unrestricted.
 
 Note that the free-end-point condition corresponds to the transversality condition for the finite-horizon problem.
+
+::: {.callout-important}
+All rights reserved. All errors in this document are the responsibility of the author. 
+Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
+Use at your own risk. 
+If you find any errors, please get in touch with me.
+:::

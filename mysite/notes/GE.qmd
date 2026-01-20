@@ -6,12 +6,9 @@ format:
     code-tools: true
 ---
 
-::: {.callout-important}
-All rights reserved. All errors in this document are the responsibility of the author. 
-Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
-Use at your own risk. 
-If you find any errors, please get in touch with me.
-:::
+> Will the day I once wished for come?
+> Will you know of my heart that was preciously hoping for it?
+> [*To Heart* - fromis_9](https://fromis9.fandom.com/wiki/To_Heart)
 
 # General Equilibrium Theory
 
@@ -54,4 +51,11 @@ The list $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ is an 
 
 Let $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ be an economy. Then $(x, y) \in (\mathbb{R}^{\mathcal{H}})^{\mathcal{I}} \times (\mathbb{R}^{\mathcal{H}})^{\mathcal{J}}$ is a feasible allocation for $(\mathcal{H}, \mathcal{I}, \mathcal{J}, X, R, Y, \bar{\omega})$ if $(x, y) \in X \times Y$ and $\sum_{i \in \mathcal{I}}x_{i}=\bar{\omega}+\sum_{j \in \mathcal{J}}y_{i}$.
 
+:::
+
+::: {.callout-important}
+All rights reserved. All errors in this document are the responsibility of the author. 
+Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
+Use at your own risk. 
+If you find any errors, please get in touch with me.
 :::

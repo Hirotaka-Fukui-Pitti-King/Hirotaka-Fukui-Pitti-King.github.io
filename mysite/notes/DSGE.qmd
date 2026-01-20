@@ -6,12 +6,16 @@ format:
     code-tools: true
 ---
 
-::: {.callout-important}
-All rights reserved. All errors in this document are the responsibility of the author. 
-Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
-Use at your own risk. 
-If you find any errors, please get in touch with me.
-:::
+> I’ve been waiting ever since sometime
+> Who you are, and where you are
+> I don’t know a thing but
+> From an unknown attraction
+> I am waiting for you
+> Are you also waiting for me like this?
+> Are you on the way to me?
+> [*The Way To Me* - fromis_9](https://fromis9.fandom.com/wiki/The_Way_To_Me)
+
+
 
 # Starting Point
 
@@ -190,4 +194,11 @@ Homotheticity is
 ::: {#def-Homotheticity}
 
 
+:::
+
+::: {.callout-important}
+All rights reserved. All errors in this document are the responsibility of the author. 
+Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
+Use at your own risk. 
+If you find any errors, please get in touch with me.
 :::

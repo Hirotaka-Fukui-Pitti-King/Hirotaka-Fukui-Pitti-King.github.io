@@ -6,12 +6,9 @@ format:
     code-tools: true
 ---
 
-::: {.callout-important}
-All rights reserved. All errors in this document are the responsibility of the author. 
-Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
-Use at your own risk. 
-If you find any errors, please get in touch with me.
-:::
+> Love me! Take me! Kiss me! Get me closer
+> [*Miracle* - fromis_9](https://fromis9.fandom.com/wiki/Miracle)
+
 
 # Aggregation and Social Welfare
 
@@ -35,4 +32,11 @@ Yet these properties do not necessarily hold when we aggregate across many house
 
 Let $\epsilon >0$ and $N \in \mathbb{N}$. Consider a set of prices $\textbf{P}_{\epsilon}=\{p \in \mathbb{R}^{N}_{+}: p_{j}/p_{j'} \geq \epsilon,~\forall j~\text{and}~ j' \}$ and any continuous function $\textbf{x}: \textbf{P}_{\epsilon} \rightarrow \mathbb{R}^{N}_{+}$ that satisfies Walras's Law and is homogeneous of degree 0. Then there exists an exchange economy with $N$ commodities and $H<\infty$ households, where the aggregate excess demand is given by $\textbf{x}(p)$ over the set $\textbf{P}_{\epsilon}$
 
+:::
+
+::: {.callout-important}
+All rights reserved. All errors in this document are the responsibility of the author. 
+Although every effort has been made to ensure the accuracy of this material, I cannot guarantee that it is free of errors or misprints. 
+Use at your own risk. 
+If you find any errors, please get in touch with me.
 :::
