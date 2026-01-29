@@ -1,0 +1,8 @@
+---
+title: "Aggregate Fluctuations in Sub-Saharan African Economies: The role of Informality"
+description: "DSGE estimation of macro fluctuations in Sub-Saharan Africa."
+categories: ["Working Paper"]
+url: "https://github.com/Hirotaka-Fukui-Pitti-King/Lively-Llama"
+image: mysite\static\af_conti.svg
+---
+

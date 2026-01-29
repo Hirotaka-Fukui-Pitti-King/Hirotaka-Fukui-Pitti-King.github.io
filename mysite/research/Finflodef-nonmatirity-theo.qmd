@@ -1,0 +1,9 @@
+---
+title: "The Effects of Financial Liberalization on Sovereign Default Risk: A Continuous-Time Model of Sovereign Debt under Capital-Account Openness."
+description: "The Global Integration of Financial Markets and Sovereign Debt Risk"
+categories: ["Working Paper"]
+url: "https://github.com/Hirotaka-Fukui-Pitti-King/Golden-Gerbil"
+image: mysite\static\dollar.svg
+---
+
+Fukui, Hirotaka (2026): [The Effects of Financial Liberalization on Sovereign Default Risk: A Continuous-Time Model of Sovereign Debt under Capital-Account Openness](https://mpra.ub.uni-muenchen.de/id/eprint/127909). MPRA Paper 127909. 
