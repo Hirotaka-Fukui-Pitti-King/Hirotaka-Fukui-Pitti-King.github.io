@@ -33,7 +33,7 @@ website:
 
 format:
   html:
-    theme: lux
+    theme: Superhero
     css: styles.css
     toc: true
     smooth-scroll: true
