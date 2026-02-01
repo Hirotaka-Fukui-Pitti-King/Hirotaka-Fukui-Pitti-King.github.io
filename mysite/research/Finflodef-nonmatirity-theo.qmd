@@ -1,9 +1,17 @@
 ---
 title: "The Effects of Financial Liberalization on Sovereign Default Risk: A Continuous-Time Model of Sovereign Debt under Capital-Account Openness."
 description: "The Global Integration of Financial Markets and Sovereign Debt Risk"
-categories: ["Working Paper"]
+categories: ["working-paper"]
 url: "https://github.com/Hirotaka-Fukui-Pitti-King/Golden-Gerbil"
 image: mysite\static\dollar.svg
 ---
 
-Fukui, Hirotaka (2026): [The Effects of Financial Liberalization on Sovereign Default Risk: A Continuous-Time Model of Sovereign Debt under Capital-Account Openness](https://mpra.ub.uni-muenchen.de/id/eprint/127909). MPRA Paper 127909. 
+Fukui, Hirotaka (2026) [The Effects of Financial Liberalization on Sovereign Default Risk: A Continuous-Time Model of Sovereign Debt under Capital-Account Openness](https://mpra.ub.uni-muenchen.de/id/eprint/127909). MPRA Paper 127909. 
+
+
+**Type**: Article
+
+**Abstract**: Financial globalization has expanded access to external financing, yet liberalization is often followed by sharp spread spikes and renewed default risk. This paper studies how capital-account liberalization reshapes sovereign debt dynamics and default incentives. We develop a continuous-time sovereign default model with a transaction wedge capturing capital-account frictions. The wedge creates an endogenous no-trade band around pure rollover. When liberalization lowers the wedge, issuance becomes more frequent and aggressive. Because bond prices embed a debt-dilution term, greater issuance depresses prices and makes spreads more convex in output and global interest-rate shocks. These effects shift the default frontier inward and raise conditional default risk, highlighting a trade-off between borrowing flexibility and financial fragility.
+
+**Publication Status**: Working Papers
+

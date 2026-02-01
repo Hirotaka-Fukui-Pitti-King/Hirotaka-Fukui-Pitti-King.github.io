@@ -5,13 +5,7 @@ body-classes: research-page
 format:
   html:
     toc: true
-    toc-location: left
-listing:
-  contents: research/*.qmd
-  sort: "date desc"
-  type: default
-  fields: [title, categories, date, description]  
-  filter-ui: true                                 
+    toc-location: left                                 
 ---
 
 ## Research Agenda
@@ -19,3 +13,12 @@ listing:
 My research examines how global financial conditions, the international supply of safe assets, and capital flow policies jointly shape sovereign risk and macroeconomic stability in open economies. In particular, I study the interaction between financial globalization, global financial cycles, and sovereign debt dynamics, emphasizing how capital account liberalization and debt composition condition crisis vulnerability and default risk.
 
 Methodologically, I develop quantitative macroeconomic models with financial frictions, with a focus on continuous-time macro-finance frameworks that allow for a rigorous and tractable characterization of risk, debt rollover dynamics, and the timing of financial crises under uncertainty surrounding shifts in U.S. monetary policy and global risk sentiment. By integrating structural modeling, stochastic calculus, and advanced quantitative methods, my work seeks to provide a coherent analytical framework for understanding how financial globalization and sovereign debt structures shape macroeconomic volatility, debt sustainability, and the resilience of the international monetary system.
+
+## Working Papers
+
+- [**The Effects of Financial Liberalization on Sovereign Risk: A Continuous-Time Model of Sovereign Debt under Capital-Account Openness**](research/Finflodef-nonmatirity-theo.qmd) [MPRA Paper 127909](https://mpra.ub.uni-muenchen.de/id/eprint/127909).
+
+- [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](research/lively-llama.qmd) [MPRA Paper 127916](https://mpra.ub.uni-muenchen.de/id/eprint/127916).
+
+## Work in Progress
+

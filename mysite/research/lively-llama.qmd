@@ -1,7 +1,15 @@
 ---
 title: "On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries"
 description: "Bayesian estimation of macro fluctuations in Sub-Saharan Africa."
-categories: ["Working Paper"]
+categories: ["working-paper"]
 url: "https://github.com/Hirotaka-Fukui-Pitti-King/Lively-Llama"
 image: mysite\static\af_conti.svg
 ---
+
+Fukui, Hirotaka (2026) [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](https://mpra.ub.uni-muenchen.de/id/eprint/127916) MPRA Paper 127916.
+
+**Type**: Article
+
+**Abstract**: This paper examines the sources of macroeconomic fluctuations in Sub-Saharan Africa using a structurally estimated small open economy real business cycle model with financial frictions applied to annual data from 23 countries over 1960-2019. Using Bayesian methods, we decompose volatility into permanent and transitory productivity shocks, country risk premium shocks, and other disturbances. We find that stationary productivity shocks explain a larger share of output volatility than nonstationary trend shocks, while financial shocks dominate investment and external balance fluctuations. These results challenge the view that African business cycles are primarily driven by trend shocks and highlight the central role of financial frictions in shaping macroeconomic instability.
+
+**Publication Status**: Working Papers
