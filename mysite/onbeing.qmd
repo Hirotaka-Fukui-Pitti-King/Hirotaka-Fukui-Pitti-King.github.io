@@ -2,7 +2,7 @@
 title: "経済学者として生きるということ"
 subtitle: "フリードリヒ・ハイエク"
 description: "日本語訳"
-image: static\hayek.png
+image: static/hayek.png
 format:
   html:
     page-layout: full                               
@@ -26,7 +26,7 @@ Hayek, F.A. (1999). On Being an Economist. In: Klein, D.B. (eds) What do Economi
 
 Originally delivered as an address at the London School of Economics, February 1944. 
 
-![ChatGPTによるイメージ画像](static\hayek.png){fig-align="center"}
+![ChatGPTによるイメージ画像](static/hayek.png){fig-align="center"}
 
 要約
 
