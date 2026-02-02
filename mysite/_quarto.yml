@@ -33,7 +33,7 @@ website:
 
 format:
   html:
-    theme: Superhero
+    theme: superhero
     css: styles.css
     toc: true
     smooth-scroll: true
