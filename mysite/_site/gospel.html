@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Short notes, slides, and scratchpads.">
 
-<title>Notes – Hirotaka Fukui</title>
+<title>Amor Angelorum Lapsorum – Hirotaka Fukui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,71 +67,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -166,7 +105,7 @@ window.Quarto = {
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./notes.html" aria-current="page"> 
+    <a class="nav-link" href="./notes.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
@@ -203,31 +142,24 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notes</h1>
-</div>
-
-<div>
-  <div class="description">
-    Short notes, slides, and scratchpads.
-  </div>
+<h1 class="title">Amor Angelorum Lapsorum</h1>
+<p class="subtitle lead">Evangelium Saeculi Sine Deo</p>
 </div>
 
 
-<div class="quarto-title-meta">
+
+<div class="quarto-title-meta column-page">
 
     
   
@@ -239,115 +171,63 @@ window.Quarto = {
 </header>
 
 
-<p><a href="./onbeing.html">フリードリヒ・ハイエク『経済学者として生きるということ』日本語訳</a></p>
-<p><a href="./gospel.html">Amor Angelorum Lapsorum: Evangelium Saeculi Sine Deo</a></p>
+<p>They said the city was built of light, but it only learned to glow after the sun had left.</p>
+<p>Every evening, figures walked the streets carrying invisible weights. Some called them memories. Others mistook them for wings.</p>
+<p>There were songs in the air— not sung, but reflected from windows and passing screens. Each melody promised arrival, yet every road curved back into itself.</p>
+<p>One traveler believed the glow was a sign. He followed it across empty intersections, thinking it would lead him home. Instead, it taught him how far a person can move without leaving the same place.</p>
+<p>In the mirrors of shops, strangers rehearsed faces they hoped would be recognized. They learned to admire what they could never inhabit, to name themselves with borrowed voices.</p>
+<p>Beneath the bridges, another kind of language grew— sentences made of noise and defiance, rhythms that struck the ground like fists, as if sound itself were asking to be seen.</p>
+<p>And still, the night kept unfolding. Not as darkness, but as a classroom where each lesson erased the previous one.</p>
+<p>At the edge of the city stood a telephone that never rang, yet everyone knew its number. It waited like a confession with no priest, like a prayer addressed to no one in particular.</p>
+<p>Those who paused there did not speak of endings. They spoke of weight becoming air, of the long experiment of remaining.</p>
+<p>When morning returned, the light did not look like victory. It looked like agreement.</p>
+<p>Two figures sat on opposite sides of a table and shared what could not be measured. Not because it was perfect, but because it was still there.</p>
+<p>And somewhere between the fading neon and the unfinished day, the fallen learned a quieter movement— not upward, but toward each other.</p>
+<p>Its clocks learned to move without time, and its people learned to breathe without sound. Windows stayed awake long after their rooms had emptied, as if waiting for a face that no longer remembered itself.</p>
+<p>Some began to trade their shadows. Others tried to outrun them.</p>
+<p>Every reflection carried a small distortion— a curve in the glass, a tremor in the eye, a sentence that ended before meaning arrived.</p>
+<p>There were those who believed distance could be erased by speed. They ran through corridors of color and noise, calling the motion “freedom,” until motion became the only thing left to hold.</p>
+<p>Under the streets, voices multiplied. Not in harmony, but in collision. Each word sharpened itself against another until language resembled weather— storms without sky.</p>
+<p>The bridges learned new names. So did the rooms with no doors.</p>
+<p>In one such room, a signal pulsed without origin. It spoke in numbers, in pauses, in the thin grammar of remaining. No answer was required. Only endurance.</p>
+<p>Night began to teach differently.</p>
+<p>It no longer asked questions. It issued instructions: Stand. Disappear. Repeat.</p>
+<p>Those who stayed long enough felt a strange inversion— weight rising, silence growing loud, the future shrinking into a narrow corridor where only one foot could pass at a time.</p>
+<p>Morning did not arrive as relief. It arrived as exposure.</p>
+<p>Faces looked unfinished in its light. Hands searched for something that had never existed. Even the air seemed unsure what it was meant to carry.</p>
+<p>And yet, between two ruined sounds, a slower rhythm survived. Not a promise. Not a solution. Only a refusal to vanish.</p>
+<p>Two shapes remained in the open space where a crowd had been. They did not speak of beginnings. They shared the remaining temperature of the world.</p>
+<p>Above them, no witness waited. No voice descended. Only the long echo of a question asked too late and learned too well.</p>
+<p>The fallen did not rise.</p>
+<p>They learned instead to lean into the dark without naming it.</p>
+<p>It flickered above closed stores and empty crossings, teaching the streets how to pretend that something was still happening. Cars passed like thoughts that refused to finish themselves. Engines spoke in brief confessions, then vanished into tunnels of color.</p>
+<p>A figure walked without destination. Not lost— only postponed.</p>
+<p>Every corner offered a reflection: glass faces, chrome faces, faces borrowed from advertisements. Each one whispered a different version of arrival, and none of them remembered the way back.</p>
+<p>Music leaked from nowhere in particular. It was not meant to be heard— only to accompany motion, like a pulse assigned to a body that no longer trusted stillness.</p>
+<p>Speed became a ritual. The faster the lights blurred, the thinner the silence felt. Distance collapsed into repetition: street after street, sign after sign, promise after promise.</p>
+<p>Somewhere, a room kept blinking red. Inside it, time folded into itself. Not sleep. Not waking. Only a suspended hour where every thought repeated its first word.</p>
+<p>Voices rose from radios and walls. They did not speak to anyone. They spoke to absence. Their language was made of echo— a sound shaped like a person.</p>
+<p>Under bridges, the night stored its excess. Broken phrases. Unfinished gestures. Names that had forgotten their owners.</p>
+<p>The city did not ask who remained. It only counted movement.</p>
+<p>One crossing learned to wait forever. One window forgot how to close its eyes. One body mistook exhaustion for direction and called it a journey.</p>
+<p>When the sky finally changed color, it did not feel like morning. It felt like interruption.</p>
+<p>Light exposed the choreography of damage: footprints going nowhere, cups still warm, screens still speaking.</p>
+<p>Two silhouettes paused in a place once designed for crowds. They did not touch. They aligned their shadows as if coincidence were enough.</p>
+<p>No anthem followed them. No instruction descended.</p>
+<p>Only the slow hum of electricity, carrying a question without language through the hollow arteries of the night.</p>
+<p>And the night answered by continuing.</p>
+<p>It came in fragments— a pulse, a blur, a trembling veil drawn across the streets. Not bright enough to reveal, not dark enough to hide.</p>
+<p>It hovered like breath on cold glass, flickering between what was seen and what was remembered.</p>
+<p>Buildings softened under it. Edges forgot their sharpness. Even the noise of engines seemed to dissolve into a quieter motion, as if the city were learning to fade without disappearing.</p>
+<p>No direction was given. Only a haze of color spreading across unfinished faces and empty hands.</p>
+<p>For a moment, everything looked suspended— neither broken nor whole, neither awake nor asleep.</p>
+<p>The world continued under this thin, uncertain glow, as though covered by a dream that refused to call itself one.</p>
+<p>And in that trembling atmosphere, nothing was resolved. Nothing was named.</p>
+<p>Only a pale flicker hung over the city, mistaking persistence for meaning.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1768942157341" data-listing-reading-time-sort="5" data-listing-word-count-sort="822">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/DSGE.html" class="no-external">The Way To Me</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/DSGE.html" class="no-external">
-I’ve been waiting ever since sometime Who you are, and where you are I don’t know a thing but From an unknown attraction I am waiting for you Are you also waiting for me…<em></em>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/DSGE.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1768942875054" data-listing-reading-time-sort="2" data-listing-word-count-sort="285">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/Finance.html" class="no-external">Glass Shoes</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/Finance.html" class="no-external">
-It’s past 12 o’clock and I have to go back I’ll leave my heart as I leave, so let’s promise to meet In our future <em>Glass Shoes</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/Finance.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1768942445116" data-listing-reading-time-sort="3" data-listing-word-count-sort="585">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/GE.html" class="no-external">To Heart</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/GE.html" class="no-external">
-Will the day I once wished for come? Will you know of my heart that was preciously hoping for it? <em>To Heart</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/GE.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1769703955750" data-listing-reading-time-sort="9" data-listing-word-count-sort="1769">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/Growth.html" class="no-external">Close To You</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/Growth.html" class="no-external">
-The moment I see you, Time will stop. All of the light of the world will only shine on us. I’m gonna fly above the clouds. <em>Close To You</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/Growth.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1768942491689" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/RA.html" class="no-external">Miracle</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/RA.html" class="no-external">
-Love me! Take me! Kiss me! Get me closer <em>Miracle</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/RA.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1768942601695" data-listing-reading-time-sort="2" data-listing-word-count-sort="209">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/SC.html" class="no-external">Pinocchio</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/SC.html" class="no-external">
-Every time you open your mouth, you lie OK! I won’t let you go anymore, I’ll make you into Pinocchio! <em>Pinocchio</em> - fromis_9)
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/SC.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1768942720671" data-listing-reading-time-sort="5" data-listing-word-count-sort="833">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/TVC.html" class="no-external">Be With You</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/TVC.html" class="no-external">
-Lots of thoughts are forming It’s like tangled strings but But this moment as I watch you Makes me very happy <em>Be With You</em> - fromis_9)
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/TVC.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

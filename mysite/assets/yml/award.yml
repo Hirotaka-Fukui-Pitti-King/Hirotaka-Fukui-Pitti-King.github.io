@@ -1,8 +1,14 @@
 nobel-prize:
-  title: Nobel Prize in Physics
-  location: Stockholm, Sweden
-  date: 1921
-  description: For his services to
-  details:
-    - Theoretical Physics
-    - Discovery of the law of the photoelectric effect
+  title: Kanematsu Prize
+  location: Kobe University, Japan
+  date: 2027
+  description: Research Institute for Economics and Business Administration 
+
+nobel-prize:
+  title: Moriguchi Prize
+  location: University of Osaka, Japan
+  date: 2027    
+  description: Institute of Social and Economic Research
+
+
+  

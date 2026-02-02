@@ -1,9 +1,9 @@
 lang:
   title: Languages
-  description: German (Native), English (Fluent), French (Intermediate)
+  description: Japanese (native), English (fluent), French (basic), Korean (basic)
 programming:
   title: Programming Languages
-  description: Python, C++, Fortran
+  description: Matlab, Python, R, Julia, C, Fortran, and Stata
 markup:
   title: Markup Languages
   description: Typst, Quarto, LaTeX

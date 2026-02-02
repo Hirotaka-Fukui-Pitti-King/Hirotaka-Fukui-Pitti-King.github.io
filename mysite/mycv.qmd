@@ -3,12 +3,12 @@ title: "Hirotaka Fukui's CV"
 author:
   firstname: Hirotaka
   lastname: Fukui
-  address: "2-1 Rokkodai-cho Nada-ku Kobe Hyogo Prefecture 657-8501 Japan"
+  address: "Department of Economics, Universitat Pompeu Fabra, Ramon Trias Fargas 25-27, 08005 Barcelona, Spain"
   position: "Ph.D. student"
   contacts:
     - icon: fa envelope
-      text: 227e127e@gsuite.kobe-u.ac.jp
-      url: "mailto:227e127e@gsuite.kobe-u.ac.jp"
+      text: hirotaka.fukui@upf.edu
+      url: "mailto:hirotaka.fukui@upf.edu"
     - icon: assets/icon/bi-house-fill.svg
       text: fukui-hirotaka.com
       url: https://fukui-hirotaka.com/
@@ -37,13 +37,22 @@ brand:
         style: [normal, italic]
     base: Source Sans 3
   color:
-    primary: "#dc3522"
-    link: "#771822"
+    primary: "#4d4398"
+    link: "#674196"
   defaults: 
     awesomecv-typst:
       font-header: Roboto
 ---
 
+## Current Position
+
+**PhD in Economics, Universitat Pompeu Fabra, Barcelona, Spain**  
+
+2029-present
+
+***References***
+
+{{< yaml assets/yml/reference.yml >}}
 
 ## Education
 
@@ -61,6 +70,10 @@ brand:
 ## Awards
 
 {{< yaml assets/yml/award.yml >}}
+
+## FELLOWSHIPS AND RESEARCH GRANTS
+
+{{< yaml assets/yml/fellowship.yml >}}
 
 ## Skills
 

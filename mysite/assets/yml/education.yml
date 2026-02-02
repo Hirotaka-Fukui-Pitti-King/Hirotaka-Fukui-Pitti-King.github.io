@@ -1,10 +1,43 @@
-phd:
-  title: Ph.D. in Physics
-  location: Zürich, Switzerland
-  date: 1905
-  description: University of Zürich
+
+#phd:
+  #title: PhD in Economics
+  #location: Barcelona, Spain
+  #date: 2029-2032
+  #description: Universitat Pompeu Fabra
+  
+
 master:
-  title: Master of Science
-  location: Zürich, Switzerland
-  date: 1896 - 1900
-  description: ETH
+  title: MRes in Economics
+  location: Barcelona, Spain
+  date: 2028-2029
+  description: Universitat Pompeu Fabra
+
+master:
+  title: MS in Economics
+  location: Barcelona, Spain
+  date: 2027-2028
+  description: Barcelona School of Economics
+
+phd:
+  title: PhD Program in Economics
+  location: Kobe, Japan
+  date: 2024-2027
+  description: Kobe University 
+  details:
+    - Advisors: Shigeto Kitano, Youichi Matsubayashi
+
+master:
+  title: MA in Economics
+  location: Kobe, Japan
+  date: 2022-2024
+  description: Kobe University 
+  details:
+    - Advisors: Shigeto Kitano, Youichi Matsubayashi
+
+bachelor:
+  title: BA in Language and Area Studies (Africa)
+  location: Tokyo, Japan
+  date: 2018-2022
+  description: Tokyo University of Foreign Studies 
+  details:
+    - Advisor: Kazue Demachi
