@@ -15,3 +15,5 @@ listing:
 [フリードリヒ・ハイエク『経済学者として生きるということ』日本語訳](onbeing.qmd)
 
 [Amor Angelorum Lapsorum: Evangelium Saeculi Sine Deo](gospel.qmd)
+
+[Note on Boppart and Krusell (2020, Section V.B)](pdf/BK2020JPEGHH.pdf)
