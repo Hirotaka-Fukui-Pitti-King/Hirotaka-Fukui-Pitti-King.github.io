@@ -17,3 +17,5 @@ listing:
 [Amor Angelorum Lapsorum: Evangelium Saeculi Sine Deo](gospel.qmd)
 
 [Note on Boppart and Krusell (2020, Section V.B)](pdf/BK2020JPEGHH.pdf)
+
+[プロジェクトノートテンプレート](projectnote.qmd)

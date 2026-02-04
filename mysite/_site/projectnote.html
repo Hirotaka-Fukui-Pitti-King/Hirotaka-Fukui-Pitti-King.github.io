@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Short notes, slides, and scratchpads.">
 
-<title>Notes – Hirotaka Fukui</title>
+<title>プロジェクトノート – Hirotaka Fukui</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,71 +67,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -166,7 +105,7 @@ window.Quarto = {
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./notes.html" aria-current="page"> 
+    <a class="nav-link" href="./notes.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
@@ -203,31 +142,38 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#project-note-template" id="toc-project-note-template" class="nav-link active" data-scroll-target="#project-note-template">📘 Project Note Template</a>
+  <ul class="collapse">
+  <li><a href="#research-question問い" id="toc-research-question問い" class="nav-link" data-scroll-target="#research-question問い">1. 🎯 Research Question（問い）</a></li>
+  <li><a href="#literature-gap文献的ギャップ" id="toc-literature-gap文献的ギャップ" class="nav-link" data-scroll-target="#literature-gap文献的ギャップ">2. 📚 Literature Gap（文献的ギャップ）</a></li>
+  <li><a href="#method-model方法モデル" id="toc-method-model方法モデル" class="nav-link" data-scroll-target="#method-model方法モデル">3. 🛠 Method / Model（方法・モデル）</a></li>
+  <li><a href="#roadmapステップと時系列" id="toc-roadmapステップと時系列" class="nav-link" data-scroll-target="#roadmapステップと時系列">4. 🗺 Roadmap（ステップと時系列）</a></li>
+  <li><a href="#policy-relevance-impact政策社会的意義" id="toc-policy-relevance-impact政策社会的意義" class="nav-link" data-scroll-target="#policy-relevance-impact政策社会的意義">5. 🧭 Policy Relevance / Impact（政策・社会的意義）</a></li>
+  <li><a href="#three-paper-structures構成案3パターン" id="toc-three-paper-structures構成案3パターン" class="nav-link" data-scroll-target="#three-paper-structures構成案3パターン">6. 🧱 Three Paper Structures（構成案3パターン）</a></li>
+  <li><a href="#notes-next-steps自由メモ欄" id="toc-notes-next-steps自由メモ欄" class="nav-link" data-scroll-target="#notes-next-steps自由メモ欄">7. 📝 Notes / Next Steps（自由メモ欄）</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notes</h1>
-</div>
-
-<div>
-  <div class="description">
-    Short notes, slides, and scratchpads.
-  </div>
+<h1 class="title">プロジェクトノート</h1>
 </div>
 
 
-<div class="quarto-title-meta">
+
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -239,131 +185,87 @@ window.Quarto = {
 </header>
 
 
-<p><a href="./onbeing.html">フリードリヒ・ハイエク『経済学者として生きるということ』日本語訳</a></p>
-<p><a href="./gospel.html">Amor Angelorum Lapsorum: Evangelium Saeculi Sine Deo</a></p>
-<p><a href="pdf/BK2020JPEGHH.pdf">Note on Boppart and Krusell (2020, Section V.B)</a></p>
-<p><a href="./projectnote.html">プロジェクトノートテンプレート</a></p>
+<section id="project-note-template" class="level1">
+<h1>📘 Project Note Template</h1>
+<p>このテンプレートは、研究アイデアを構造的に整理し、論文や研究計画の基礎を築くための「プロジェクトノート」フォーマットです。</p>
+<hr>
+<section id="research-question問い" class="level2">
+<h2 class="anchored" data-anchor-id="research-question問い">1. 🎯 Research Question（問い）</h2>
+<ul>
+<li>私の問いは何か？</li>
+<li>なぜこの問いは重要か？（経済的・政策的含意）</li>
+<li>既存研究ではこの問いにどこまで答えているか？</li>
+</ul>
+<hr>
+</section>
+<section id="literature-gap文献的ギャップ" class="level2">
+<h2 class="anchored" data-anchor-id="literature-gap文献的ギャップ">2. 📚 Literature Gap（文献的ギャップ）</h2>
+<ul>
+<li>関連分野の代表的な研究は？（理論／実証／制度）</li>
+<li>それらの研究で扱われていない点は何か？</li>
+<li>自分の研究がどこを補うのか？</li>
+</ul>
+<hr>
+</section>
+<section id="method-model方法モデル" class="level2">
+<h2 class="anchored" data-anchor-id="method-model方法モデル">3. 🛠 Method / Model（方法・モデル）</h2>
+<ul>
+<li>使うモデル・理論枠組みは？</li>
+<li>データを使う場合、どんなデータをどう使うか？</li>
+<li>キーとなる構造・仮定・メカニズムは？</li>
+</ul>
+<hr>
+</section>
+<section id="roadmapステップと時系列" class="level2">
+<h2 class="anchored" data-anchor-id="roadmapステップと時系列">4. 🗺 Roadmap（ステップと時系列）</h2>
+<ul>
+<li>ステップ1：まず何をする？（例：実証分析、データ整理）</li>
+<li>ステップ2：次にどうモデルを構築する？</li>
+<li>ステップ3：反実仮想、定量評価、政策比較など</li>
+<li>想定される成果物（論文、図表、投稿先など）</li>
+</ul>
+<hr>
+</section>
+<section id="policy-relevance-impact政策社会的意義" class="level2">
+<h2 class="anchored" data-anchor-id="policy-relevance-impact政策社会的意義">5. 🧭 Policy Relevance / Impact（政策・社会的意義）</h2>
+<ul>
+<li>この研究はどのような政策判断に貢献するか？</li>
+<li>開発政策・マクロ経済政策・制度設計などへの含意は？</li>
+<li>アフリカ・中南米・先進国など地域的応用性は？</li>
+</ul>
+<hr>
+</section>
+<section id="three-paper-structures構成案3パターン" class="level2">
+<h2 class="anchored" data-anchor-id="three-paper-structures構成案3パターン">6. 🧱 Three Paper Structures（構成案3パターン）</h2>
+<ul>
+<li><ol type="a">
+<li>実証重視型構成</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>理論メカニズム主導型構成</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>政策型構成</li>
+</ol></li>
+</ul>
+<p><strong>（各構成ごとに：セクション構成・データ／モデルの組み方を箇条書きで）</strong></p>
+<p><strong>Four Possible Paper Structures（構成案）</strong>を並列的に考える</p>
+<p><strong>そして、その中から「一番いいストーリーが組めるルート」で書き始める</strong></p>
+<hr>
+</section>
+<section id="notes-next-steps自由メモ欄" class="level2">
+<h2 class="anchored" data-anchor-id="notes-next-steps自由メモ欄">7. 📝 Notes / Next Steps（自由メモ欄）</h2>
+<ul>
+<li>気づいたこと、残課題、相談したいことなど自由に書いてOK</li>
+</ul>
+<hr>
+<p>このノートは、研究アイデアが浮かんだ段階から書き始め、進捗に応じて更新していく「思考のプラットフォーム」として使ってください。</p>
 
 
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1768942157341" data-listing-reading-time-sort="5" data-listing-word-count-sort="822">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/DSGE.html" class="no-external">The Way To Me</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/DSGE.html" class="no-external">
-I’ve been waiting ever since sometime Who you are, and where you are I don’t know a thing but From an unknown attraction I am waiting for you Are you also waiting for me…<em></em>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/DSGE.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1768942875054" data-listing-reading-time-sort="2" data-listing-word-count-sort="285">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/Finance.html" class="no-external">Glass Shoes</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/Finance.html" class="no-external">
-It’s past 12 o’clock and I have to go back I’ll leave my heart as I leave, so let’s promise to meet In our future <em>Glass Shoes</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/Finance.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1768942445116" data-listing-reading-time-sort="3" data-listing-word-count-sort="585">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/GE.html" class="no-external">To Heart</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/GE.html" class="no-external">
-Will the day I once wished for come? Will you know of my heart that was preciously hoping for it? <em>To Heart</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/GE.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1769703955750" data-listing-reading-time-sort="9" data-listing-word-count-sort="1769">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/Growth.html" class="no-external">Close To You</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/Growth.html" class="no-external">
-The moment I see you, Time will stop. All of the light of the world will only shine on us. I’m gonna fly above the clouds. <em>Close To You</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/Growth.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1770176424639" data-listing-reading-time-sort="1" data-listing-word-count-sort="73">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/Hetero.html" class="no-external">Think of You</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/Hetero.html" class="no-external">
-マクロ経済分析に家計の異質性（Heterogeneity）、<strong>不完全市場（Incomplete Markets）</strong>の仮定を取り込む必要がある理由は、単一の代表的家計（RANK）モデルでは捉えきれない、現実の経済における政策波及メカニズムや不平等の動態を正確に理解するためです。家計の異質性をモデルに取り込むことは、単にモデルを複雑にするためではなく、ミ…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/Hetero.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1768942491689" data-listing-reading-time-sort="3" data-listing-word-count-sort="427">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/RA.html" class="no-external">Miracle</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/RA.html" class="no-external">
-Love me! Take me! Kiss me! Get me closer <em>Miracle</em> - fromis_9
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/RA.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1768942601695" data-listing-reading-time-sort="2" data-listing-word-count-sort="209">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/SC.html" class="no-external">Pinocchio</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/SC.html" class="no-external">
-Every time you open your mouth, you lie OK! I won’t let you go anymore, I’ll make you into Pinocchio! <em>Pinocchio</em> - fromis_9)
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/SC.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-file-modified-sort="1768942720671" data-listing-reading-time-sort="5" data-listing-word-count-sort="833">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notes/TVC.html" class="no-external">Be With You</a>
-</h3>
-<div class="delink listing-description"><a href="./notes/TVC.html" class="no-external">
-Lots of thoughts are forming It’s like tangled strings but But this moment as I watch you Makes me very happy <em>Be With You</em> - fromis_9)
-</a></div>
-</div>
-<div class="metadata">
-<a href="./notes/TVC.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
