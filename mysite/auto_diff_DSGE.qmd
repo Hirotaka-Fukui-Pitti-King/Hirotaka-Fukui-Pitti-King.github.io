@@ -1,0 +1,10 @@
+---
+title: "Perturbation Methods for the Numerical Analysis of DSGE Models"
+subtitle: "An Application of Automatic Differentiation"
+description: "Julia Codes"
+format:
+  html:
+    page-layout: full                               
+---
+
+Perturbation Methods for the Numerical Analysis of DSGE Models

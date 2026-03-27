@@ -1,0 +1,61 @@
+---
+title: "マクロ経済学 Reading List"
+subtitle: "ぷくぷくぴーす"
+format:
+  html:
+    page-layout: full                               
+---
+
+***Preliminary and Incomplete.***
+
+- [The ABCs of RBCs](https://www.amazon.co.jp/ABCs-RBCs-Introduction-Dynamic-Macroeconomic/dp/0674028147)
+
+古いですが、RBCでのモデルを使って研究する上での基礎知識として重要なことがたくさん書いてあります
+
+- [Method for Applied Macroeconomic Research](https://press.princeton.edu/books/hardcover/9780691115047/methods-for-applied-macroeconomic-research?srsltid=AfmBOopiPBb5d7dB9VQygoTXG3QEGYaVoxCBJnRGMKnSUJWF3p79tYyn)
+
+時系列の話も含めてマクロモデルの推定に必要な知識がまとまっています。
+
+- [Recursive Macroeconomic Theory](https://mitpress.mit.edu/9780262038669/recursive-macroeconomic-theory/)
+
+正直、大学院でマクロ経済学をやるには避けては通れない本です。1人で読むときついのでみんなで輪読した方がいいです。アドバイスとしては最初の数学のところは飛ばして、7章くらいから読み始めた方がいいです。途中で数学が分からなかったら戻る感じで。
+
+- [Dynamic General Equilibrium Modeling](https://link.springer.com/book/10.1007/978-3-031-51681-8)
+
+本というより辞書ですが、一つ持っておくと困った時に参照できて便利です。マクロモデルの数値計算に関する情報が網羅的にまとめてあります。
+
+- [Open Economy Macroeconomics](https://press.princeton.edu/books/hardcover/9780691158778/open-economy-macroeconomics?srsltid=AfmBOor1HOMFUXykkY16wb0JerfZMS5SrTuLSrz3x34X-a59Migy9ZUN)
+
+開放経済マクロの院レベルの本ですが、個人的には院レベルのマクロモデルへの入門としては一番いい気がします。非線形な均衡システムを線形近似や二次近似して線形モデルに持ち込む摂動のことが詳しく解説されてるので割とおすすめです。
+
+- [Solution and Estimation Methods for DSGE Models](https://www.sciencedirect.com/science/chapter/handbook/abs/pii/S1574004816000070)
+
+本ではなくてHandbookのチャプターですが、DSGEモデルの均衡システムをいかに数値的に解くか、またいかに推定するのか、というDSGEモデルの数値計算と推定メソッドがまとめられています。
+
+- [Introduction to Structural Estimation of DSGE Models](https://hirothreading.github.io/teaching/masters-phd/advanced_macroeconomics/advmacro_notes2.pdf) & [Real Business Cycle Models: Linear Approximation and GMM Estimation](https://www.antonbabkin.com/econ714/gmm_burnside.pdf)
+
+ベイズ推定以外のDSGEモデルのestimation methodsに関する資料です。
+
+- [Bayesian Estimation of DSGE Models](https://www.amazon.co.jp/-/en/Bayesian-Estimation-Econometric-Tinbergen-Institutes/dp/0691161089)
+
+DSGEモデルのベイズ推定について唯一と言っていい教科書です。これを読めば基本的にはDSGEモデルのベイズ推定に関する知識は身に付きます。
+
+- [Numerical Methods in Economics](https://www.amazon.co.jp/-/en/Numerical-Methods-Economics-MIT-Press/dp/0262100711)
+
+どちらかというと「数値計算」側の話です。数値計算とはなにか、なにをすることなのか、どういう手法があって、それは経済学モデルにどう生かせるのかという主題を扱います。古典的ですが、基礎知識として知っておくべきことがまとめられています。
+
+- [コンピュータはなぜ動くのか](https://www.amazon.co.jp/gp/aw/d/B0BHMS1BYP/ref=tmm_kin_swatch_0) & [プログラムはなぜ動くのか](https://www.amazon.co.jp/gp/aw/d/4296000195/ref=dp_ob_neva_mobile)
+
+これらは経済学というよりはコンピュータに関する本です。マクロモデルの数値計算手法はどんどんと進化していきますが、それについていくためにもコンピュータの基礎知識はもっておくべきだと思います。
+
+- [Macroeconomics I](https://kazuyanagimoto.com/course-kobe-macro1-2025/)
+
+神戸大学の[柳本和春先生](https://kazuyanagimoto.com/)　が公開されている講義資料です。RBC、NK、サーチ理論とマクロ経済学のいわゆる循環論の院レベルのトピックの内容がまとめられています。 `MacroModelling.jl`　というJuliaのパッケージを使って分析を行う方法が学べます。
+
+- [Family Macroeconomics](https://kazuyanagimoto.com/course-kobe-macro4-2025/)
+
+神戸大学の[柳本和春先生](https://kazuyanagimoto.com/)　が公開されている講義資料です。主題はFamily Macroeconomicsですが、[数値計算の基礎](https://kazuyanagimoto.com/course-kobe-macro4-2025/lecture/01-2-numerical-method.html)、[動学モデルの基礎](https://kazuyanagimoto.com/course-kobe-macro4-2025/lecture/01-3-dynamic-model.html)、[数値計算の補足](https://kazuyanagimoto.com/course-kobe-macro4-2025/lecture/10-2-numerical-method.html)は内容がきれいにまとめられていて、数値計算入門としておすすめです。
+
+- [Pythonで学ぶマクロ経済学 (中級＋レベル)](https://py4macro.github.io/index.html)
+
+神戸大学の[春山鉄源先生](https://t-haruyama.github.io/)が公開されているPythonを使った学部中級から上級レベルのマクロ経済学をPythonを使って学べるサイトです。院レベルのマクロ経済学でやっていることの基礎のキソがここにあるのでわからなくなった時に戻るというようにも使えますし、Pythonの勉強としても使えます。最近本、[経済学のためのPython入門](https://www.saiensu.co.jp/search/?isbn=978-4-88384-416-6&y=2025)、になったみたいです。

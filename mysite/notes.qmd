@@ -19,3 +19,5 @@ listing:
 [Note on Boppart and Krusell (2020, Section V.B)](pdf/BK2020JPEGHH.pdf)
 
 [プロジェクトノートテンプレート](projectnote.qmd)
+
+[マクロ経済学 Reading List](Macro_reading.qmd)
