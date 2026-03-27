@@ -16,7 +16,7 @@ format:
 
 - [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](research/lively-llama.qmd) [MPRA Paper 127916](https://mpra.ub.uni-muenchen.de/id/eprint/127916).
 
-- **Real Business Cycles in Sub-Saharan Africa: Stylized Facts and Comparative Evidence through the Lens of Financial Frictions**
+- **Stylized Facts and Comparative Evidence of Business Cycles in Sub-Saharan Africa**
 
 ## Publications
 
@@ -26,11 +26,9 @@ format:
 
 - **Investment Specific Technology Shocks and Real Business Cycles in Sub-Saharan African Economies**
 
-- **High Volatility in Sub-Saharan African Macroeconomic Fluctuations: Role of Staple Food Import Dependence**
+- **Import Price Shocks and High Volatility in Consumption of Sub-Saharan African Countries: Role of Staple Food Import Dependence**
 
-- **Import Price Shocks and High Volatility in Consumption of Sub-Saharan African Countries**
-
-- **Aggregate Fluctuations in Sub-Saharan African Economies: The role of Informality**
+- **Informality, Financial Frictions, and Business Cycles in Sub-Saharan African Economies**
 
 - **Exporting Crude, Importing Petroleum: The Sources of Volatility in African Oil Producers**
 
@@ -38,23 +36,17 @@ format:
 
 - **Natural Disasters and High Volatility in Consumption in Low-Income Countries**
 
-- **Import Price Shocks and High Volatility in Consumption of Sub-Saharan African Countries**
-
-- **Explaining business cycles in Sub-Saharan African economies: ‘How much do world prices matter?’**
-
 - **Quantitative Analysis of Ghana's 2014-2016 Macroeconomic Crisis**
 
 - **Rollover Risk and Sovereign Credit Ratings: The Debt Burden Channel in Low-income Countries**
 
 - **Global Financial Conditions, Trade Finance, and Real Business Cycles in Sub-Saharan Africa**
 
-- **Trade Dynamics and Real Business Cycles in Sub-Saharan African Economies**
+- **Explaining Trade Dynamics in Sub-Saharan African Economies: `How much do world prices matter?'**
 
 - **Sovereign Risk, Leverage, and Business Cycles in Sub-Saharan African Economies**
 
 - **Banking Crises and Government Financial Policy in Sub-Saharan Africa: A Quantitative Perspective**
-
-- **How Important Are Trade Shocks for Macroeconomic Fluctuations in Africa?**
 
 - **Adjustment cost, Irreversibility, and Uncertainty in Investment: Cause of Volatility in Sub-Saharan African Economies**
 
@@ -76,8 +68,6 @@ format:
 
 ## Work in Progress
 
-- **How Financial Frictions Constrain Fiscal Space in Emerging Economies?**
-
 # Others
 
 ## Working Papers
@@ -86,12 +76,5 @@ format:
 
 ## Work in Progress
 
-- **Commodity Booms and Busts are Not All Alike in Emerging Economies**
-
-- **Rent Seeking, Tariff Evasion, and Inflation**
-
 # Permanent working papers
 
-- **Business cycle fluctuations in Sub-Saharan African macroeconomic time series**
-
-- **MXN-Trend Model**
