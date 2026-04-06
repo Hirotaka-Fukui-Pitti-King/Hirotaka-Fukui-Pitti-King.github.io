@@ -6,7 +6,7 @@ url: "https://github.com/Hirotaka-Fukui-Pitti-King/Lively-Llama"
 image: mysite\static\af_conti.svg
 ---
 
-Fukui, Hirotaka (2026) [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](https://mpra.ub.uni-muenchen.de/id/eprint/127916) MPRA Paper 127916.
+Fukui, Hirotaka (2026) [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](pdf/Africa_Trend.pdf) 
 
 **Type**: Article
 

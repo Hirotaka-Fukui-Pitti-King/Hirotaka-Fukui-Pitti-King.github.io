@@ -3,8 +3,8 @@ title: "Hirotaka Fukui's CV"
 author:
   firstname: Hirotaka
   lastname: Fukui
-  address: "Department of Economics, Universitat Pompeu Fabra, Ramon Trias Fargas 25-27, 08005 Barcelona, Spain"
-  position: "Ph.D. student"
+  address: "Institute of Developing Economies, Japan External Trade Organization (JETRO), 3-2-2 Wakaba, Mihama-ku, Chiba-shi, Chiba, 261-8545, Japan"
+  position: "Research Fellow"
   contacts:
     - icon: fa envelope
       text: hirotaka.fukui@upf.edu
@@ -46,13 +46,7 @@ brand:
 
 ## Current Position
 
-**PhD in Economics, Universitat Pompeu Fabra, Barcelona, Spain**  
-
-2029-present
-
-***References***
-
-{{< yaml assets/yml/reference.yml >}}
+{{< yaml assets/yml/position.yml >}}
 
 ## Education
 
@@ -61,11 +55,6 @@ brand:
 ## Publications
 
 {{< yaml assets/yml/publication.yml >}}
-
-
-## Work Experience
-
-{{< yaml assets/yml/work.yml >}}
 
 ## Awards
 

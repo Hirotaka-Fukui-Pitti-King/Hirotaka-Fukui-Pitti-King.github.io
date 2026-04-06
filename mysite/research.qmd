@@ -14,7 +14,7 @@ format:
 
 ## Working Papers
 
-- [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](research/lively-llama.qmd) [MPRA Paper 127916](https://mpra.ub.uni-muenchen.de/id/eprint/127916).
+- [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](research/lively-llama.qmd) 
 
 - **Stylized Facts and Comparative Evidence of Business Cycles in Sub-Saharan Africa**
 
