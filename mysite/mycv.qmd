@@ -1,14 +1,14 @@
 ---
-title: "Hirotaka Fukui's CV"
+title: "Hirotaka Fukui"
 author:
   firstname: Hirotaka
   lastname: Fukui
-  address: "Institute of Developing Economies, Japan External Trade Organization (JETRO), 3-2-2 Wakaba, Mihama-ku, Chiba-shi, Chiba, 261-8545, Japan"
-  position: "Research Fellow"
+  address: "Graduate School of Economics, Kobe University, 2-1 Rokkodai-cho Nada-ku, Kobe, Hyogo Prefecture, 657-8501, Japan"
+  position: "Ph.D. Student in Economics, Kobe University. International Macroeconomics, Monetary Economics, and Macro-Finance."
   contacts:
     - icon: fa envelope
-      text: hirotaka.fukui@upf.edu
-      url: "mailto:hirotaka.fukui@upf.edu"
+      text: 227e127e@gsuite.kobe-u.ac.jp
+      url: "mailto:227e127e@gsuite.kobe-u.ac.jp"
     - icon: assets/icon/bi-house-fill.svg
       text: fukui-hirotaka.com
       url: https://fukui-hirotaka.com/

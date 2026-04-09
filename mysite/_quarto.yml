@@ -23,13 +23,18 @@ website:
         href: mailto:227e127e@gsuite.kobe-u.ac.jp
       - icon: twitter-x
         href: https://x.com/PittiKing
-      - text: orcid
-        href: https://orcid.org/0009-0004-9796-9148
+      - icon: instagram
+        href: https://www.instagram.com/pegutti_king/
+      - icon: substack
+        href: https://substack.com/@pittiking
       - icon: linkedin
         href: https://www.linkedin.com/in/hirotaka-fukui-90495b342
+      - text: "ORCID"
+        href: https://orcid.org/{{< var orcid >}}
 
   page-footer:
-    right: "&copy; 2025 Hirotaka Fukui. All rights reserved."
+    right: |
+      <i class="bi bi-c-circle"></i> 2025 Hirotaka Fukui. </span>
 
 format:
   html:

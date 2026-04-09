@@ -1,18 +1,18 @@
 phd:
   title: PhD in Economics
   location: Kobe, Japan
-  date: 2024-2027
+  date: 2024-present
   description: Kobe University 
   details:
-    - Advisors: Shigeto Kitano, Youichi Matsubayashi, Kazuharu Yanagimoto
+    - Advisors: Shigeto Kitano, Youichi Matsubayashi, 
 
 master:
   title: MA in Economics
   location: Kobe, Japan
-  date: 2022-2024
+  date: Apr.2022- Mar.2024
   description: Kobe University 
   details:
-    - Advisors: Shigeto Kitano, Youichi Matsubayashi
+    - Advisors: Shigeto Kitano, Youichi Matsubayashi, Masahiko Shibamoto
 
 bachelor:
   title: BA in Language and Area Studies
