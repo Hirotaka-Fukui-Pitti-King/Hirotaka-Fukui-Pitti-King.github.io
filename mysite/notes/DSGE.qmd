@@ -6,20 +6,27 @@ format:
     code-tools: true
 ---
 
-> I’ve been waiting ever since sometime
-> Who you are, and where you are
-> I don’t know a thing but
-> From an unknown attraction
-> I am waiting for you
-> Are you also waiting for me like this?
-> Are you on the way to me?
+> 언제부턴가 너무 기다려져요
+> 
+> 그대가 누군지 어디쯤인지
+> 
+> 아무것도 모르지만
+> 
+> 뭔지 모를 이끌림에
+> 
+> 그대를 기다리고 있어요
+> 
+> 당신도 이렇게 날 기다리고 있을까요?
+> 
+> 나에게 오고 있을까요?
+> 
 > [*The Way To Me* - fromis_9](https://fromis9.fandom.com/wiki/The_Way_To_Me)
 
 
 
 # Starting Point
 
-In a dynamic stochastic general equilibrium framework, the optimality conditions and market clearing conditions for households, firms, and policymakers can be summarized as a system of nonlinear expectational equations:
+動学的かつ不確実性を伴う一般均衡の枠組みでは、家計、企業、政策担当者の最適性条件や市場均衡条件は、非線形な期待値をその変数に持つ方程式のシステムとしてまとめることができます.
 
 $$
     \mathbb{E} F(x_{t+1}, y_{t+1}, x_t, y_t, z_t; \theta) = 0
@@ -27,20 +34,20 @@ $$
 
 where
 
-- $x_t \in \mathbb{R}^{n_x}$ denotes the **state (predetermined) variables**
+- $x_t \in \mathbb{R}^{n_x}$ は **state (predetermined) variables** を表します.
 
-- $y_t \in \mathbb{R}^{n_y}$ represents the **jump (control) variables**
+- $y_t \in \mathbb{R}^{n_y}$ は **jump (control) variables** を表します.
 
-- $z_t \in \mathbb{R}^{n_z}$ stands for the **exogenous processes**, which typically evolve according to
+- $z_t \in \mathbb{R}^{n_z}$ は **exogenous processes** を表します. そのLaw of Motionsは以下のように表されます.
 
 $$
         z_{t+1} = \Lambda(\theta) z_t + \Sigma(\theta) \varepsilon_{t+1}, 
         \quad \varepsilon_t \sim \mathcal{N}(0, I).
 $$
 
-- $\theta$ is the parameter vector collecting structural parameters of the model.
+- $\theta$ はモデルの構造パラメータのベクトルです.
 
-The function $F(\cdot) = 0$ is a compact representation of a set of equilibrium conditions, including the Euler equations, labor supply conditions, price-setting equations, capital accumulation dynamics, policy rules, etc.
+$F(\cdot) = 0$ は、Euler方程式、労働供給条件、価格設定方程式、資本蓄積ダイナミクス、政策規則などを含む均衡条件システムとなっています.
 
 ## Example: A structure incorporating the Euler equation of a representative household
 

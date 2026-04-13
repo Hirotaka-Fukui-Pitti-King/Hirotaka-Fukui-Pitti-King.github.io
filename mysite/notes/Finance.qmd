@@ -6,27 +6,41 @@ format:
     code-tools: true
 ---
 
-> It’s past 12 o’clock and
-> I have to go back
-> I’ll leave my heart as I leave, so let’s promise to meet
-> In our future
+> 지금부터 나를
+> 
+> 가득 채운 너를 모두 모아서
+> 
+> 그대가 날 찾을 수 있게
+> 
+> 밝게 빛나 줄 거야
+> 
+> 열두시가 넘어 나는 다시
+> 
+> 돌아가야만 해요
+> 
+> 내 마음을 남기고서 갈게 꼭 만나자
+> 
+> 우리의 미래에서
+> 
 > [*Glass Shoes* - fromis_9](https://fromis9.fandom.com/wiki/Glass_Shoes)
 
 # Modern Portfolio Theory
 
 ## Expected Return of a Single Asset
 
-Consider an asset $i$ with $J$ possible outcomes $j = 1, \dots J$. Let $R_{ij}$ denote the return for outcome $j$ and $p_{ij}$ denote its probability. The expected return is
+$J$ 個の実現可能な outcomes $j = 1, \dots J$ を持つ資産 $i$ を考えます. $R_{ij}$ をoutcome $j$ のリターン, $p_{ij}$ をその確率とします. リターンの期待値は
 
 $$
 \mathbb{E}[R_{i}] = \sum_{j=1}^{J} p_{ij} R_{ij}
 $$ {#eq-ex-r-single}
 
-The variance of an asset $i$ is
+と表されます. 資産 $i$ の分散は
 
 $$
 \sigma^{2}_{i} = \sum_{j=1}^{J} p_{ij} \left(R_{ij}-\mathbb{E}[R_{i}] \right)^{2}
 $$
+
+と表されます.
 
 ## Portfolio with two risky assets
 
