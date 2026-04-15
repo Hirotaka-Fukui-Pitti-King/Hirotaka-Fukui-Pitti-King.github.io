@@ -17,11 +17,12 @@ I am a graduate student in Economics at
 Kobe University, Graduate School of Economics</a>.
 
 My research focuses on International Macroeconomics, Monetary Economics, and Macro-Finance.
+ 
  <p class="contact-desc">
     Feel free to reach out!
   </p>
 
-**Curriculum Vitae**
+[**Curriculum Vitae**](pdf\academic_cv.pdf)
 
 Fun fact: I support [Real Madrid](https://www.realmadrid.com/en-US), the king of football, and I’m a fan of [fromis_9](https://fromis9.fandom.com/wiki/Fromis_9), the queen of K-pop.
 

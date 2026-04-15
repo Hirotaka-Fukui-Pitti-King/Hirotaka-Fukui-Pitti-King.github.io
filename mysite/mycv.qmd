@@ -56,10 +56,6 @@ brand:
 
 {{< yaml assets/yml/publication.yml >}}
 
-## Awards
-
-{{< yaml assets/yml/award.yml >}}
-
 ## FELLOWSHIPS AND RESEARCH GRANTS
 
 {{< yaml assets/yml/fellowship.yml >}}
