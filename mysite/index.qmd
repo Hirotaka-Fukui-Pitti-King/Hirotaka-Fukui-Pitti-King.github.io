@@ -3,6 +3,8 @@ title: "Hirotaka Fukui"
 title-block-style: none      
 ---
 
+![](static\hui.png){fig-align="center"}
+
 ## Welcome
 
 This is the personal website of Hirotaka Fukui, a graduate student in Economics.  
@@ -47,3 +49,4 @@ as aloof and incorruptible as an artist, yet sometimes as near the earth as a po
 </figure>
 ```
 
+![](static\carpediem.png){fig-align="center"}

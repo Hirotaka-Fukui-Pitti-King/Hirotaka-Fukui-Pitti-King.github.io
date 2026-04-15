@@ -44,19 +44,19 @@ $$
 
 ## Portfolio with two risky assets
 
-A portfolio consists with two risky assets indexed by $i=A, B$. Let $X_{i}$ be portfolio weights ($X_{A}+X_{B}=1$). The portfolio return is 
+2つのリスク資産からなるポートフォリオを考えます. リスク資産のインデックスを $i=A, B$ とします. $X_{i}$ をそれぞれのリスク資産のポートフォリオ内のウェイトとします ($X_{A}+X_{B}=1$). ポートフォリオ全体のリターンは 
 
 $$
 R_{p, m} = X_{A} R_{A, m}+ (1-X_{A}) R_{B, m}
 $$
 
-The expected return of the portfolio is
+と表せます. ポートフォリオの期待リターンは
 
 $$
 \mathbb{E}[R_{p}] = X_{A} \mathbb{E}[R_{A}]+ (1-X_{A}) \mathbb{E}[R_{B}]
 $$
 
-The variance of the portfolio return is
+と書けます. ポートフォリオの分散は
 
 $$
 \begin{align}
@@ -65,10 +65,10 @@ $$
 \end{align}
 $$
 
-where $\sigma_{12}$ is the covariance between asset A and asset B. 
+となります. $\sigma_{AB}$ はリスク資産 $A$ と $B$ の共分散です. 
 
 $$
-\sigma_{12} = \sum_{j=1}^{J} p_{j} \left(R_{A, m}-\mathbb{E}[R_{A}] \right)\left(R_{B, m}-\mathbb{E}[R_{B}] \right)
+\sigma_{AB} = \sum_{j=1}^{J} p_{j} \left(R_{A, m}-\mathbb{E}[R_{A}] \right)\left(R_{B, m}-\mathbb{E}[R_{B}] \right)
 $$
 
 ## Portfolio with $N$ risky assets
@@ -79,7 +79,7 @@ $$
 
 ## Efficient Frontier
 
-## Riskless Lending and Borrowing
+## Portfolio with Riskless Lending and Borrowing
 
 # Single Index Model
 
