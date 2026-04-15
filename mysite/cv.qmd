@@ -6,7 +6,7 @@ author:
 date-modified: last-modified
 ---
 
-[**PDF is here**](pdf\academic_cv.pdf)
+[**PDF is here**](..pdf\academic_cv.pdf)
 
 # Hirotaka Fukui  
 Ph.D. Student in Economics, Kobe University  
