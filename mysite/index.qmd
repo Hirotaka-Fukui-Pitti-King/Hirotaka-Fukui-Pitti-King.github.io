@@ -3,7 +3,7 @@ title: "Hirotaka Fukui"
 title-block-style: none      
 ---
 
-![](..static\hui.png){fig-align="center"}
+![](static/hui.png){fig-align="center"}
 
 ## Welcome
 
@@ -22,7 +22,7 @@ My research focuses on International Macroeconomics, Monetary Economics, and Mac
     Feel free to reach out!
   </p>
 
-[**Curriculum Vitae**](..pdf\academic_cv.pdf)
+[**Curriculum Vitae**](pdf/academic_cv.pdf)
 
 Fun fact: I support [Real Madrid](https://www.realmadrid.com/en-US), the king of football, and I’m a fan of [fromis_9](https://fromis9.fandom.com/wiki/Fromis_9), the queen of K-pop.
 
@@ -50,4 +50,4 @@ as aloof and incorruptible as an artist, yet sometimes as near the earth as a po
 </figure>
 ```
 
-![](..static\carpediem.png){fig-align="center"}
+![](static/carpediem.png){fig-align="center"}
