@@ -8,6 +8,8 @@ format:
     toc-location: left                                 
 ---
 
+![](static/hui.png){fig-align="center"}
+
 # Research Agenda
 
 # Sub-Saharan Africa
