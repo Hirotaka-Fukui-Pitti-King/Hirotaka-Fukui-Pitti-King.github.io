@@ -1,0 +1,23 @@
+---
+title: 22Century Girl
+engine: julia
+format:
+  html:
+    code-tools: true
+---
+
+> You 새로운 나를 보여줄게 숨지마
+> 
+> Touch 구름 위를 걷는 이 기분에 난 빠져가
+> 
+> 반쯤 나를 비추는 저 달빛 아래 서서
+>
+> want you tell me Yeah
+> 
+> 다른 어떤 말보다
+> 
+> 나 니가 좋아 니가 좋아 고백해
+> 
+> [***22Century Girl*** - fromis_9](https://fromis9.fandom.com/wiki/22Century_Girl)
+
+## 演繹的推論アプローチ

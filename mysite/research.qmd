@@ -12,17 +12,13 @@ format:
 
 # Research Agenda
 
-# Sub-Saharan Africa
-
-## Working Papers
+## Sub-Saharan Africa
 
 - [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](research/lively-llama.qmd) 
 
 - **Stylized Facts and Comparative Evidence of Business Cycles in Sub-Saharan Africa**
 
-## Publications
-
-## Work in Progress
+<!--
 
 - **Trade shocks and macroeconomic fluctuations in Africa. A Replication Study of Kose and Riezman (Journal of Development Economics, 2001)**
 
@@ -62,21 +58,9 @@ format:
 
 - **Was Robert Mugabe Truly a Ruthless Dictator?**
 
-# Macro-Finance
+-->
 
-## Working Papers
+## Macro-Finance
 
-## Publications
-
-## Work in Progress
-
-# Others
-
-## Working Papers
-
-## Publications
-
-## Work in Progress
-
-# Permanent working papers
+- **Sovereign Default Risk in the International Monetary System**
 

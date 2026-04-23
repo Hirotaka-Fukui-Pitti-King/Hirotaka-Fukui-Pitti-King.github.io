@@ -1,8 +1,8 @@
 {
-  "hash": "ed8707bf792d4814915f6158ddb444ba",
+  "hash": "f935673514d1f859b9e6238ae5492fae",
   "result": {
     "engine": "julia",
-    "markdown": "---\ntitle: PITAPAT (DKDK)\nengine: julia\nformat:\n  html:\n    code-tools: true\n---\n\n> 두근 두근 두근 두근\n> \n> 두근 두근 두근 두근\n> \n> 이만큼 이만큼 좋아해 너를\n> \n> [***PITAPAT (DKDK)*** - fromis_9](https://fromis9.fandom.com/wiki/PITAPAT_(DKDK))\n\n",
+    "markdown": "---\ntitle: PITAPAT (DKDK)\nengine: julia\nformat:\n  html:\n    code-tools: true\n---\n\n> 두근 두근 두근 두근\n> \n> 두근 두근 두근 두근\n> \n> 이만큼 이만큼 좋아해 너를\n> \n> [***PITAPAT (DKDK)*** - fromis_9](https://fromis9.fandom.com/wiki/PITAPAT_(DKDK))\n\n# 国際貿易論\n\n## 国際貿易論の簡単な歴史\n\n1. 1830-1980: Neoclassical trade theory\n2. 1980-1990: New trade theory\n3. 1990-2000: Empirical trade\n4. 2000-2010: Firm-level heterogeneity\n\n## 国際貿易論の課題\n\n1. 貿易パターンの解明\n  - 複数存在する国家間でどのような性質をもった財が輸出入されるのか、それはなぜかという様相を明らかにする.\n2. 貿易利益の論証\n  - 貿易によって世界全体の福祉の状況がどうなるのかについて明らかにする.\n\n## Neoclassical Trade Theory\n\n",
     "supporting": [
       "CI_files"
     ],

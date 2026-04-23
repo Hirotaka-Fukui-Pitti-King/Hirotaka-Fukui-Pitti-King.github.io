@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fukui-hirotaka.com/research.html</loc>
-    <lastmod>2026-04-16T04:10:04.497Z</lastmod>
+    <lastmod>2026-04-23T15:06:01.079Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/research/sunny-scorpion.html</loc>
@@ -45,32 +45,36 @@
     <lastmod>2026-04-09T13:07:30.096Z</lastmod>
   </url>
   <url>
-    <loc>https://fukui-hirotaka.com/index.html</loc>
-    <lastmod>2026-04-16T04:09:56.923Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fukui-hirotaka.com/EME_RBC_readlist.html</loc>
-    <lastmod>2026-03-27T10:11:20.109Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fukui-hirotaka.com/auto_diff_DSGE.html</loc>
-    <lastmod>2026-03-27T11:49:08.555Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fukui-hirotaka.com/cv.html</loc>
-    <lastmod>2026-04-15T23:34:18.275Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fukui-hirotaka.com/gospel.html</loc>
-    <lastmod>2026-02-02T12:54:24.090Z</lastmod>
+    <loc>https://fukui-hirotaka.com/notes/ADMACRO.html</loc>
+    <lastmod>2026-04-20T20:25:36.094Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/Macro_reading.html</loc>
     <lastmod>2026-04-09T12:46:45.461Z</lastmod>
   </url>
   <url>
+    <loc>https://fukui-hirotaka.com/gospel.html</loc>
+    <lastmod>2026-02-02T12:54:24.090Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fukui-hirotaka.com/cv.html</loc>
+    <lastmod>2026-04-15T23:34:18.275Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fukui-hirotaka.com/auto_diff_DSGE.html</loc>
+    <lastmod>2026-03-27T11:49:08.555Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fukui-hirotaka.com/EME_RBC_readlist.html</loc>
+    <lastmod>2026-03-27T10:11:20.109Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fukui-hirotaka.com/index.html</loc>
+    <lastmod>2026-04-16T04:09:56.923Z</lastmod>
+  </url>
+  <url>
     <loc>https://fukui-hirotaka.com/notes/CI.html</loc>
-    <lastmod>2026-04-14T20:50:32.923Z</lastmod>
+    <lastmod>2026-04-20T20:33:11.630Z</lastmod>
   </url>
   <url>
     <loc>https://fukui-hirotaka.com/notes/Finance.html</loc>

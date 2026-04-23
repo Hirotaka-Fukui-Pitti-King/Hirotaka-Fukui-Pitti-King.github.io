@@ -14,3 +14,20 @@ format:
 > 
 > [***PITAPAT (DKDK)*** - fromis_9](https://fromis9.fandom.com/wiki/PITAPAT_(DKDK))
 
+# 国際貿易論
+
+## 国際貿易論の簡単な歴史
+
+1. 1830-1980: Neoclassical trade theory
+2. 1980-1990: New trade theory
+3. 1990-2000: Empirical trade
+4. 2000-2010: Firm-level heterogeneity
+
+## 国際貿易論の課題
+
+1. 貿易パターンの解明
+  - 複数存在する国家間でどのような性質をもった財が輸出入されるのか、それはなぜかという様相を明らかにする.
+2. 貿易利益の論証
+  - 貿易によって世界全体の福祉の状況がどうなるのかについて明らかにする.
+
+## Neoclassical Trade Theory
