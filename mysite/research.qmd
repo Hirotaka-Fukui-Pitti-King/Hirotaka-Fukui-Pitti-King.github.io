@@ -62,5 +62,5 @@ format:
 
 ## Macro-Finance
 
-- **Sovereign Default Risk in the International Monetary System**
+- **The Resilience Trade-off of Globalization**
 
