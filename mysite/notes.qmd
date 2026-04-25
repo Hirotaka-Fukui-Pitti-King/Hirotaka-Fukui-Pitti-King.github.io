@@ -20,6 +20,10 @@ listing:
 
 [Note on Boppart and Krusell (2020, Section V.B)](pdf/BK2020JPEGHH.pdf)
 
+[Note on the Existence of Stationary Distributions in Finite-State Markov Chains](pdf/markov_finite.pdf)
+
+[Note on the Existence of Stationary Distributions for Markov Chains with Infinite State Spaces](pdf/markov_infinite.pdf)
+
 [プロジェクトノートテンプレート](projectnote.qmd)
 
 [マクロ経済学 Reading List](Macro_reading.qmd)

@@ -2,7 +2,6 @@
   {
     "listing": "/notes.html",
     "items": [
-      "/notes/ADMACRO.html",
       "/notes/CI.html",
       "/notes/DSGE.html",
       "/notes/Finance.html",
@@ -11,7 +10,8 @@
       "/notes/Hetero.html",
       "/notes/RA.html",
       "/notes/SC.html",
-      "/notes/TVC.html"
+      "/notes/TVC.html",
+      "/notes/money.html"
     ]
   }
 ]
