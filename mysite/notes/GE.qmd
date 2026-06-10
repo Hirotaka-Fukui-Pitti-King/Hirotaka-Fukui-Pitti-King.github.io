@@ -1,6 +1,5 @@
 ---
 title: To Heart
-engine: julia
 format:
   html:
     code-tools: true

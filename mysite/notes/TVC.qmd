@@ -1,19 +1,22 @@
 ---
 title: Be With You
-engine: julia
 format:
   html:
     code-tools: true
 ---
 
-> Lots of thoughts are forming
-> It’s like tangled strings but
-> But this moment as I watch you
-> Makes me very happy
-> [*Be With You* - fromis_9](https://fromis9.fandom.com/wiki/Be_With_You))
+> 생각에 생각이 많아져
+> 
+> 엉켜버린 실타래 같지만
+> 
+> 너를 바라보는 이 순간의 느낌은
+> 
+> 너무나 행복한 걸
+> 
+> [*Be With You* - fromis_9](https://fromis9.fandom.com/wiki/Be_With_You)
 
 
-# Difference between No-Ponzi Game (NPG) and Transversality Condition (TVC)
+# No-Ponzi Game 条件（NPG）と横断性条件（TVC）の違い
 
 ## Starting Point: Household's Budget Constraint
 
@@ -68,93 +71,33 @@ $$
   \lim_{t \rightarrow \infty} \beta^{t+1} u'(c_{t+1}) (1+r_{t}) b_{t+1}= 0
 $$
 
-# Necessity of Transversality Conditions
+# なぜ transversality condition が必要なのか
 
-## Historical Development of the Research about TVC: From Halkin, Michel, and Kamihigashi
+**有限期間問題と無限期間問題の違い**
 
-### Stage 1: Halkin (1974)
+横断性条件は単なる「終端条件」ではなく、無限遠に残された状態変数・資産・資本・資源の価値をどう扱うかという、無限期間問題に固有の条件として位置づけられます。
 
-Halkin demonstrated that the Maximum Principle continues to hold in infinite-horizon problems, but the standard transversality condition does not necessarily hold.
-He formulated the infinite-horizon problem as the limit of finite-horizon problems and provided explicit counterexamples showing that
+[Halkin(1974)](https://www.jstor.org/stable/1911976) は古典的な最適制御問題では終端時点があらかじめ与えられている場合でもそうでない場合でも、常に実数であると説明しています。これに対して経済学では終端時点が $+\infty$ になる無限期間問題を扱うため、数学的困難が生じると述べています。
 
-$$
-  \lambda(t) \rightarrow 0
-$$
-
-is neither required nor generally valid.
-
-This insight raised the fundamental question later pursued by Michel: what boundary condition should replace the TVC in full generality?
-
-### Stage 2: Michel (1982, 1990)
-
-Michel restored a general necessary boundary condition by showing that, under broad conditions, the Hamiltonian must converge to zero:
+有限期間問題では時間区間を $I = [0, T]$ と置き、状態変数を $x(t)$, 制御変数を $u(t)$ とします。データとして閉集合 $Q \subset \mathbb R^r$, 関数 $(f, L): \mathbb R^n \times Q \times I \rightarrow \mathbb R^n \times \mathbb R$ を考えます。ここで $f$ は状態方程式、$L$ は瞬時利得とします。有限期間の最適制御問題は抽象的には
 
 $$
-  \lim_{t \rightarrow \infty} H(t) = 0
+\max_{u(\cdot)} \int^T_0 L(x(t), u(t), t) dt
 $$
 
-In his 1982 paper he derived this limit rigorously within Halkin’s framework.
-His 1990 paper further showed its consistency with the Cass–Yaari lemma, and proved that, when the velocity set has a nonempty interior, the usual transversality condition
+subject to
 
 $$
-  \lambda(t) \rightarrow 0
+\dot(x)(t)=f(x(t), u(t), t), \quad u(t) \in Q, \quad x(0)=x_0
 $$
 
-is recovered.
-Michel’s formulation became the conceptual foundation of boundary conditions in modern economic theory such that Ramsey-Cass–Koopmans models, optimal taxation, and many others.
+という形で理解できます。重要な点は有限期間問題には終端条件の違いによって、少なくとも2つの極端なケースがあるということです。Halkin は、$m=0$ の場合を finite horizon free end-point problem、$m=n$ で終端状態が固定される場合を finite horizon clamped end-point problem と呼んでいます。
 
-### Stage 3: Kamihigashi (2001)
-
-Kamihigashi proved that the transversality condition is indeed a necessary condition, even without assuming concavity, integrability, or boundedness.
-By formalizing the Benveniste–Scheinkman envelope theorem and the “squeezing” argument, he established that the Euler equation and the envelope condition jointly imply
+有限期間で終端状態が自由な場合、Halkin は最大原理の条件のうち終端条件が
 
 $$
-  \lim_{t \rightarrow \infty} q(t) \cdot x(t) = 0,
+\lambda(T)=0
 $$
-
-thereby deriving the TVC in a fully general setting.
-His results subsume and generalize Michel’s contributions, and are widely regarded as the modern definitive formulation of the TVC.
-
-## Necessary Conditions for Optimal Control Problems with Infinite Horizons (Halkin, 1974)
-
-[Halkin (1974)](https://doi.org/10.2307/1911976) provides the first rigorous formulation of the Maximum Principle for infinite-horizon optimal control problems.
-The contribution of the paper is twofold.
-
-1. It offers the first rigorous extension of the finite-horizon Maximum Principle to the infinite-horizon setting via a limiting argument.
-2. In doing so, he demonstrates that the standard Transversality Condition (TVC) does not generally hold through explicit counterexamples.
-
-Halkin develops the infinite-horizon problem as the limit of finite-horizon problems and establishes the corresponding necessary conditions.
-The results prompted Michel to ask what boundary condition does hold in general, leading him to show that, although the TVC may fail, the Hamiltonian necessarily converges to zero in the limit.
-
-### Finite Horizon Problem
-
-Begin by recalling the standard finite-horizon optimal control problem:
-
-$$
-\begin{align}
-  \max_{u(\cdot)} ~& \int^{T}_{0} L(x(t), u(t), t) dt \\
-  s.t. ~& \dot{x}(t) = f(x(t), u(t), t), \\
-       & x(0) = 0, \\
-       & h(x(T)) = 0. 
-\end{align}
-$$
-
-The Hamiltonian is defined as
-
-$$
-  H(x, u, t, \mu, \lambda) = \lambda^{\top} f(x, u, t) + \mu L(x(t), u(t), t)
-$$
-
-Pontryagin’s Maximum Principle can then be written as follows:
-
-1. $\mu(t), \lambda(t) \neq 0$;
-2. $\dot{\lambda}(t) = -H_{x}$;
-3. $H(x(t), u^{*}(t), t) \geq H(x(t), u(t), t)$ for all feasible $u$;
-4. Boundary conditions at the terminal time $T$:
-   - Free end point: $\lambda(T) = 0$,
-   - Clamped (fixed) end point: $\lambda(T)$ is unrestricted.
-
-Note that the free-end-point condition corresponds to the transversality condition for the finite-horizon problem.
 
 ::: {.callout-important}
 All rights reserved. All errors in this document are the responsibility of the author. 

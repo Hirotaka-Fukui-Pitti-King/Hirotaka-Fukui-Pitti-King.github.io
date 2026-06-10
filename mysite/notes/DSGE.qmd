@@ -1,6 +1,5 @@
 ---
 title: The Way To Me
-engine: julia
 format:
   html:
     code-tools: true

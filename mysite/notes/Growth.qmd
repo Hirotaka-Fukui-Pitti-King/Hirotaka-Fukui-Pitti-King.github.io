@@ -1,6 +1,5 @@
 ---
 title: "Close To You"
-engine: julia
 format:
   html:
     code-tools: true

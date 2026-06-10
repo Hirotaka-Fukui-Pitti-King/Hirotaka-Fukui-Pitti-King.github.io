@@ -1,6 +1,5 @@
 ---
 title: "Glass Shoes"
-engine: julia
 format:
   html:
     code-tools: true
