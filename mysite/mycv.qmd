@@ -37,8 +37,8 @@ brand:
         style: [normal, italic]
     base: Source Sans 3
   color:
-    primary: "#4d4398"
-    link: "#674196"
+    primary: "#715c1e"
+    link: "#9f975d"
   defaults: 
     awesomecv-typst:
       font-header: Roboto
