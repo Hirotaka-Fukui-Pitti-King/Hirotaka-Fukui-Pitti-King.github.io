@@ -1,18 +1,6 @@
 [
   {
     "listing": "/notes.html",
-    "items": [
-      "/notes/CI.html",
-      "/notes/DSGE.html",
-      "/notes/Finance.html",
-      "/notes/GE.html",
-      "/notes/Growth.html",
-      "/notes/Hetero.html",
-      "/notes/Num.html",
-      "/notes/RA.html",
-      "/notes/SC.html",
-      "/notes/TVC.html",
-      "/notes/money.html"
-    ]
+    "items": []
   }
 ]
