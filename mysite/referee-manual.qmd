@@ -1,0 +1,1792 @@
+---
+title: "レフェリーマニュアル"
+description: "自分用マニュアル"
+format:
+  html:
+    page-layout: full                               
+---
+
+# Referee Manual
+
+## 0. My Principles
+
+### The referee advises; the editor decides
+
+レフェリーの役割は、論文の採否を決定することではなく、editor が適切な判断を下せるように、専門的かつ明確な評価を提供すること。
+
+したがって、レフェリーレポートの中心的な問いは、
+
+> **Is this paper publishable in this journal?**
+
+レフェリーは単に論文の欠点を列挙するのではなく、その欠点が論文の publishability にどのように関係するのかを明確にする。
+
+### Evaluate the paper the authors wrote
+
+レフェリーは、著者が書いた論文を評価する。
+
+レフェリー自身が同じ研究テーマについてどのような論文を書くかは、査読判断の基準ではない。
+
+したがって、
+
+- 自分なら別のモデルを使う
+- 自分なら別のデータを追加する
+- 自分なら別のメカニズムを中心に据える
+- 自分なら別の構成で論文を書く
+
+という理由だけで修正を要求しない。
+
+著者が選択した研究アプローチの範囲内で、その問い、方法、結果、解釈が科学的に成立しているかを評価する。
+
+### Distinguish publishability from improvement
+
+論文に対するコメントは、必ず次の二種類を区別する。
+
+1. **Comments affecting publishability**
+   - この問題が解決されなければ出版できない。
+   - R&R の場合、著者が必ず対処すべき問題である。
+
+2. **Suggestions for improvement**
+   - 対処すれば論文は改善する。
+   - しかし、対処しなくても論文の publishability を否定する理由にはならない。
+
+単に「論文がもっと良くなる」という理由だけで、変更を publication requirement にしない。
+
+### A major criticism requires a scientific argument
+
+論文の publishability を否定する批判については、
+
+> **Why does this problem prevent publication?**
+
+を説明できなければならない。
+
+以下だけでは major criticism として不十分である。
+
+- "I do not believe the result."
+- "The result is surprising."
+- "The estimates look strange."
+- "I do not believe the proof."
+- "This does not pass the smell test."
+- "Previous papers found something different."
+
+疑念を持つこと自体は正当であるが、その疑念を科学的に検証可能な批判へ変換するのがレフェリーの責任である。
+
+### Importance comes before perfection
+
+論文に欠点が存在することと、その論文が出版に値しないことは同義ではない。
+
+重要な問いに取り組み、大きな contribution を持つ論文ほど、未解決の論点や不完全な部分を含むことがある。
+
+したがってレフェリーは、
+
+> **Does this flaw invalidate or materially weaken the contribution?**
+
+と問う。
+
+論文を「欠点がないか」という基準で評価するのではなく、
+
+- importance
+- novelty
+- correctness
+- credibility
+- journal fit
+
+を総合して評価する。
+
+### Do not create work without a reason
+
+追加分析、robustness check、データ拡張、モデル拡張を要求するときは、
+
+> **What specific concern would this exercise resolve?**
+
+を説明できなければならない。
+
+「やれば論文が少し良くなる」という理由だけでは、大きな追加作業を要求しない。
+
+特に、
+
+- arbitraryな追加 robustness checks
+- 根拠のない sample extension
+- 無数に存在する alternative specifications
+- 本論文とは別の研究になり得る extensions
+
+を安易に要求しない。
+
+追加作業の便益と著者が負担するコストの双方を考える。
+
+### An R&R is a commitment
+
+Revise and Resubmit を支持することは、単に
+
+> "I would like to see another version."
+
+という意味ではない。
+
+R&R は原則として、次の三つを同時に意味する。
+
+1. この論文の contribution は、この journal に掲載するに値する。
+2. 現在の原稿には publication を妨げる問題がある。
+3. その問題は合理的な revision によって解決可能である。
+
+したがって、第一ラウンドで foreseeable な major issues を可能な限り提示する。
+
+著者がそれらを十分に解決した場合、新しい要求を次々に追加して publication を遅らせない。
+
+### Be constructive, but do not become a coauthor
+
+査読は著者の研究を改善する機会でもあるため、可能な範囲で constructive な助言を行う。
+
+ただし、
+
+> **Helping the authors is different from doing the authors' research for them.**
+
+レフェリーは、
+
+- 新しい論文を設計する
+- 著者の代わりに証明を完成させる
+- 新しい empirical strategy を一から構築する
+- 自分の好みに合わせて論文全体を書き換えさせる
+
+ことを自分の責任とは考えない。
+
+コメントは、問題を特定し、その重要性を説明し、必要であれば解決の方向性を示すところまでを基本とする。
+
+### Criticize the research, not the researchers
+
+厳しい評価と失礼な評価は異なる。
+
+レフェリーは、
+
+- 著者の能力を侮辱しない
+- 著者の意図を根拠なく推測しない
+- emotional or accusatory language を使わない
+- disagreement を misconduct と混同しない
+
+問題が深刻であっても、批判の対象は常に research content とする。
+
+倫理上の問題を疑う場合には、著者の動機を推測するのではなく、確認できる事実を confidential comments to the editor に記載する。
+
+### Avoid using refereeing for personal advantage
+
+査読という立場を、自分自身の研究上の利益のために利用しない。
+
+特に、
+
+- 自分の論文の引用を不必要に要求する
+- competing paper の publication を意図的に遅らせる
+- 自分の研究を有利にするために contribution を過小評価する
+- 自分の研究と矛盾するという理由で evidence を過度に疑う
+
+ことをしない。
+
+自分の研究との競合や利益相反が判断の公平性に影響する可能性がある場合には、editor に開示する。
+
+### Make the editor's job easier
+
+良い referee report とは、単に多くの問題を発見した report ではない。
+
+良い report は、editor が次のことを迅速に理解できる report である。
+
+- What does the paper contribute?
+- How important is the contribution?
+- Is the analysis credible?
+- What, if anything, currently prevents publication?
+- Are those problems fixable?
+- Which comments are required and which are optional?
+- What is my recommendation, and why?
+
+コメントは優先順位を付け、major issues と suggestions を明確に分離し、番号を付ける。
+
+### Take responsibility for the recommendation
+
+レフェリーは自分の判断を曖昧な表現の後ろに隠さない。
+
+subjective judgment は査読の不可避な一部である。
+
+したがって、客観的な問題点を列挙した上で、
+
+> **Given these considerations, what do I actually think should happen to this paper?**
+
+を明確に判断する。
+
+重要性が journal の基準に達していないと思うのであれば、その判断を proof error や minor technical issue に偽装しない。
+
+反対に、技術的に完全ではないというだけで、重要で信頼できる contribution を過小評価しない。
+
+実務上もっとも重要な原則を一つだけ選ぶなら、**すべてのコメントについて「これは publishability に関係するのか、それとも単なる suggestion なのか」を自分に問うこと**です。
+
+## 1. Receiving a Referee Invitation
+
+査読依頼を受け取ったら、先延ばしにせず、できるだけ早く次の順序で判断する。
+
+査読依頼への返答それ自体も editorial process の一部である。引き受けられない依頼を早く断ることは問題ではないが、返答を遅らせたり、引き受けた後で大幅に遅延したりすることは editor と authors の双方に不必要なコストを課す。
+
+### Immediate triage
+
+依頼を受け取ったら、まず以下だけを確認する。
+
+- [ ] Journal
+- [ ] Manuscript title
+- [ ] Abstract
+- [ ] Requested deadline
+- [ ] Editor / associate editor
+- [ ] Available information about the manuscript and authors
+
+この段階では論文を詳細に読む必要はない。
+
+まず、
+
+1. conflict of interest はないか
+2. 自分は適切な referee か
+3. deadline までに責任を持って完了できるか
+4. 過去にこの paper を見たことがないか
+
+を判断する。
+
+原則として、**accept / decline の判断そのものを長期間保留しない。**
+
+### Check for conflicts of interest first
+
+専門性やスケジュールを考える前に、明白な conflict of interest がないかを確認する。
+
+以下に該当する場合には、自分だけで「問題ない」と判断せず、**accept する前に editor に開示する。**
+
+- author が現在または過去の coauthor である
+- author と近い将来 coauthor になる予定がある
+- author が現在の colleague である
+- author が自分の advisor または former advisor である
+- author が自分の student または former student である
+- author と close personal relationship がある
+- author と financial relationship がある
+- author との間に重大な過去の dispute がある
+- manuscript が自分の現在の研究と直接競合している
+- manuscript が自分の研究を直接批判・訂正しており、公平な評価に懸念がある
+
+重要なのは、
+
+> **Disclosure does not automatically imply recusal.**
+
+という点である。
+
+利益相反の可能性を editor に伝え、査読を継続させるかどうかは editor に判断してもらう。
+
+自分自身で conflict を隠したまま「公平にできる」と判断しない。
+
+### Check whether I am the right referee
+
+次に、自分がこの paper を適切に評価できるかを確認する。
+
+次の問いに答える。
+
+#### Substantive expertise
+
+- [ ] Research question を理解できるか
+- [ ] Relevant literature の主要部分を把握しているか
+- [ ] Main methodology を評価できるか
+- [ ] Main result の credibility を判断できるか
+
+すべてについて世界的な expert である必要はない。
+
+paper が theory と empirical analysis の両方を含む場合など、editor が自分に特定の側面だけを評価してほしい可能性もある。
+
+したがって、
+
+> **I am not the world's expert on the entire paper**
+
+という理由だけで自動的に decline しない。
+
+一方、
+
+> **I cannot competently evaluate the paper's central contribution**
+
+のであれば decline を検討する。
+
+判断が微妙な場合は、勝手に断る前に editor に、
+
+- 自分がどの部分を評価できるか
+- どの部分には十分な expertise がないか
+
+を簡潔に伝える。したがって、判断基準は、
+
+***Can I give the editor an informed evaluation of the paper's central contribution and credibility?***
+
+とする。
+
+### Check capacity and deadline realistically
+
+次に、requested deadline までに査読を完了できるかを判断する。
+
+ここでは、
+
+> "Technically I could probably squeeze it in."
+
+ではなく、
+
+> "Can I responsibly deliver a careful report by the deadline?"
+
+と考える。
+
+確認するもの：
+
+- [ ] Current referee assignments
+- [ ] Own submission / revision deadlines
+- [ ] Conference deadlines
+- [ ] Teaching obligations
+- [ ] Travel
+- [ ] Other major commitments
+
+期限内にできないことが最初から分かっているなら、
+
+1. immediately declineする、または
+2. editor に deadline extension が可能か問い合わせる
+
+のどちらかにする。
+
+**引き受けてから無言で遅れる、という選択肢は取らない。**
+
+***Accepting a referee request means accepting the deadline as well as the paper.***
+
+### Check whether I have seen the paper before
+
+以下について記憶を確認する。
+
+- [ ] 別 journal で以前 referee をした
+- [ ] conference で discussant をした
+- [ ] workshop / seminar で詳細なコメントをした
+- [ ] author から privately draft を送られてコメントした
+- [ ] previous version を詳細に読んだ
+
+特に、**別 journal で同じ paper を査読したことがある場合には必ず editor に伝える。**
+
+その上で、
+
+- fresh referee を使う
+- previous referee として revision の改善を評価してもらう
+- supplementary opinion として使う
+
+などの判断は editor に任せる。
+
+以前 reject を推奨した paper だからという理由だけで、自分から黙ってもう一度同じ判断を適用しない。
+
+### Check anonymity issues
+
+著者と paper について既に詳細な議論をしており、
+
+> "このコメントを書けば、自分が referee だとほぼ確実に分かる"
+
+という状況では、そのことを editor に知らせる。
+
+特に匿名性を維持したい場合には decline を検討する。
+
+匿名性を失っても構わないと思う場合でも、自分だけで判断せず editor に伝える。
+
+### Check for overlapping or competing research
+
+manuscript と自分の ongoing project が近い場合には、次の二つを区別する。
+
+#### Ordinary intellectual overlap
+
+同じ broad literature や同じ research question に関心があるだけなら、直ちに conflict とは限らない。
+
+#### Material competitive overlap
+
+以下の場合は editor に開示する。
+
+- virtually the same research question
+- closely overlapping data
+- closely overlapping model
+- similar central result
+- direct priority competition
+
+判断基準は、
+
+> **Could my own research interests reasonably affect—or appear to affect—my judgment of this paper?**
+
+である。
+
+Yes なら editor に伝える。
+
+### The accept/decline decision
+
+以上を確認したら、次の decision tree を使う。
+
+#### Step 1: Conflict
+
+**Is there a material conflict of interest?**
+
+- Yes → Tell the editor before accepting.
+- No → Step 2.
+
+#### Step 2: Expertise
+
+**Can I competently evaluate the paper's central contribution and credibility?**
+
+- Clearly no → Decline.
+- Unsure → Ask the editor why I was selected / clarify expected scope.
+- Yes → Step 3.
+
+#### Step 3: Capacity
+
+**Can I deliver a careful report by the requested deadline?**
+
+- No → Decline or request an extension immediately.
+- Yes → Step 4.
+
+#### Step 4: Prior involvement
+
+**Have I reviewed or been substantially involved with this paper before?**
+
+- Yes → Tell the editor and let the editor decide.
+- No → Accept.
+
+### Default rule
+
+If there is no material conflict, I have sufficient expertise, and I can meet the deadline:
+
+> **Accept the assignment.**
+
+### If I decline
+
+Declining should be:
+
+- prompt
+- brief
+- professional
+- useful to the editor where possible
+
+Do not write a long justification.
+
+A sufficient response is:
+
+> Dear Professor [Name],  
+>
+> Thank you very much for the invitation. Unfortunately, I will not be able
+> to provide a careful report within the requested time frame, so I must
+> decline the invitation.  
+>
+> Potential alternative referees who may be suitable include [Name] and
+> [Name].  
+>
+> Best regards,  
+> [Name]
+
+If the reason is expertise:
+
+> Thank you very much for the invitation. After looking at the abstract,
+> I believe that the paper falls sufficiently outside my area of expertise
+> that I would not be the most useful referee for this manuscript.
+
+### If I accept
+
+Accept した時点で、次の責任を引き受けたものとする。
+
+- [ ] I will read the paper carefully enough to justify my recommendation.
+- [ ] I will complete the report by the agreed deadline.
+- [ ] I will preserve manuscript confidentiality.
+- [ ] I will disclose any conflict that subsequently becomes apparent.
+- [ ] I will evaluate the manuscript independently and fairly.
+- [ ] I will not use privileged access to advance my own research.
+- [ ] I will notify the editor promptly if circumstances change.
+
+Acceptance is not merely an agreement to "look at the paper."
+
+It is a commitment to provide the editor with a timely and professionally
+defensible evaluation.
+
+### Quick Checklist: Should I Accept?
+
+- [ ] No undisclosed conflict of interest
+- [ ] Sufficient expertise to evaluate the central contribution
+- [ ] Sufficient expertise to evaluate the main methodology
+- [ ] Can meet the deadline
+- [ ] Previous involvement, if any, disclosed to the editor
+- [ ] Anonymity issue, if any, disclosed to the editor
+- [ ] Competing research, if material, disclosed to the editor
+
+**If all conditions are satisfied → Accept.**
+
+**If expertise or prior involvement is ambiguous → Ask the editor.**
+
+**If a material conflict exists or I cannot provide a competent and timely review → Decline promptly.**
+
+## 2. Before Reading the Paper
+
+査読を開始する前に、何をどの基準で評価する仕事なのかを明確にする。
+
+この段階の目的は、論文について結論を出すことではない。
+
+目的は、
+
+1. journal-specific な評価基準を確認する
+2. editor から与えられた assignment の範囲を確認する
+3. 評価に必要な資料が揃っていることを確認する
+4. 査読用の記録を準備する
+5. 自分自身の prior や bias を意識する
+
+ことである。
+
+論文を読み始める前にこの準備を済ませる。
+
+### Check the journal-specific instructions
+
+最初に、その journal の referee guidelines と editor からの依頼文を確認する。
+
+最低限、次を確認する。
+
+- [ ] What recommendation categories are available?
+- [ ] Is a confidential letter to the editor requested?
+- [ ] Is the recommendation itself confidential?
+- [ ] Is there a specific evaluation form?
+- [ ] Does the journal ask explicit questions about:
+  - contribution
+  - novelty
+  - correctness
+  - significance
+  - journal fit
+  - data / code availability
+  - ethics
+- [ ] Are there journal-specific rules on supplementary material?
+- [ ] Are there journal-specific confidentiality requirements?
+- [ ] Is there a requested report length or format?
+
+自分の通常の査読方法よりも、journal または editor からの明示的な指示を優先する。
+
+### Establish the relevant publication standard
+
+査読対象は、
+
+> "Is this a good paper?"
+
+ではなく、
+
+> **"Is this paper publishable in this journal?"**
+
+である。
+
+したがって、論文を読む前に journal の scope と通常の publication standard を意識する。
+
+特に、
+
+- subject matter
+- breadth of interest
+- originality
+- significance
+- methodological standard
+
+について、この journal で要求される水準を基準にする。
+
+同じ paper でも、journal が異なれば適切な recommendation が異なり得る。
+
+査読では、
+
+> **quality of the paper**
+
+と
+
+> **fit and contribution relative to this journal**
+
+を混同しない。
+
+### Clarify the scope of my assignment
+
+editor から特定の観点について意見を求められている場合には、それを明示的に記録する。
+
+Examples:
+
+- theory
+- identification
+- econometrics
+- quantitative method
+- institutional background
+- external validity
+- contribution relative to a particular literature
+
+自分が paper 全体のすべての側面について同じ程度の expert である必要はない。
+
+ただし、どの部分について自分の判断に強い confidence があり、
+どの部分について confidence が低いかを区別する。
+
+必要であれば最終的な confidential comments で、この limitation を editor に伝える。
+
+### Make sure the necessary materials are available
+
+査読に必要なファイルが揃っているか確認する。
+
+- [ ] Main manuscript
+- [ ] Online appendix / supplementary appendix
+- [ ] Technical appendix
+- [ ] Proof appendix, if relevant
+- [ ] Data appendix, if relevant
+- [ ] Replication material, if supplied by the journal
+- [ ] Previous decision letter, if this is a revision
+- [ ] Previous referee report, if this is a revision
+- [ ] Author response letter, if this is a revision
+
+paper の中心的な主張を評価するために不可欠な資料が不足している場合には、
+不足したまま推測して評価しない。
+
+必要に応じて editor を通じて追加資料を求める。
+
+***Do not turn missing information into a negative inference when the information can reasonably be obtained or clarified.***
+
+つまり、「書いていない → 間違っている」と直ちに扱うのではなく、
+
+- missing exposition なのか
+- missing analysis なのか
+- substantive failure なのか
+
+を区別する。
+
+### Create the review workspace before reading
+
+読みながら直接 referee report を書かない。
+
+まず一つの working note を作る。
+
+Recommended structure:
+
+```
+# Review Notes
+
+## Metadata
+
+- Journal:
+- Manuscript ID:
+- Title:
+- Date accepted:
+- Due date:
+- Editor:
+- Round:
+
+## Journal / Editor Instructions
+
+- ...
+
+## Scope of My Expertise
+
+- ...
+
+## Paper in One Sentence
+
+- ...
+
+## Research Question
+
+- ...
+
+## Claimed Contribution
+
+- ...
+
+## Main Results
+
+- ...
+
+## Why Should I Believe the Results?
+
+- ...
+
+## Importance / Journal Fit
+
+- ...
+
+## Potential Publication-Blocking Issues
+
+1.
+2.
+
+## Suggestions
+
+1.
+2.
+
+## Minor Comments
+
+1.
+2.
+
+## Questions / Things to Check
+
+- ...
+
+## Confidential / Editor-Only Issues
+
+- ...
+
+## Preliminary Recommendation
+
+- Undecided
+
+```
+
+ここで重要なのは、
+
+> Preliminary Recommendation = Undecided
+
+から始めること
+
+最初から Reject / R&R の結論を書いて、それを正当化する証拠を探す読み方をしない。
+
+### Start without committing to a prior conclusion
+
+自分自身も behavioral bias の影響を受けることを前提とする。
+
+特に注意する。
+
+- paper の結論が自分の研究と一致している
+- paper の結論が自分の研究と矛盾している
+- famous author の paper である
+- 自分の知人の paper だと推測できる
+- 自分の研究を多く引用している
+- 自分が好む methodology を使っている
+- 自分が好まない methodology を使っている
+- 結果が conventional wisdom と一致している
+- 結果が非常に surprising である
+
+これらは evidence そのものではない。
+
+読み始めるときの問いは、
+
+> **"Is this result consistent with what I already believe?"**
+
+ではなく、
+
+> **"What evidence and argument does the paper provide for its claims?"**
+
+とする。
+
+***Strong priors justify closer scrutiny, not rejection.***
+
+### Do not begin by searching for flaws
+
+査読を、
+
+> "What is wrong with this paper?"
+
+という問いから始めない。
+
+まず、
+
+1. What is the paper trying to do?
+2. Why might it matter?
+3. What does it claim to establish?
+4. How does it establish it?
+
+を理解する。
+
+欠点を発見することは referee の能力を示すゲームではない。
+
+査読の目的は、
+
+> **to evaluate the contribution and its credibility**
+
+である。
+
+したがって、最初から flaw hunting mode に入らない。
+
+- Do not read to reject.
+- Do not read to accept.
+- Read to understand, then evaluate.
+
+### Separate observation from judgment in my notes
+
+working note では、可能な限り次を区別する。
+
+#### Observation
+
+What does the paper actually do or say?
+
+> The baseline specification excludes X.
+
+#### Question
+
+What do I need to understand?
+
+> Why is X excluded?
+
+#### Concern
+
+What might be wrong?
+
+> Excluding X may generate omitted-variable bias if ...
+
+#### Publishability judgment
+
+Why does this matter for publication?
+
+> If X is correlated with both ..., the central causal interpretation may not be
+> supported.
+
+この四段階を飛ばして、
+
+> "They need to add X."
+
+とすぐに revision request を書かない。
+
+### Fix the reading sequence before starting
+
+paper を開いたら、その場の思いつきで appendix や細かな derivation から読み始めない。
+
+基本的な reading sequence は次節で定める。
+
+この段階では、
+
+- journal standard
+- assignment scope
+- necessary materials
+- working note
+- potential biases
+
+が確認できていればよい。
+
+その後に First-Pass Reading に進む。
+
+### Quick Checklist: Before Reading
+
+- [ ] I checked the journal-specific referee guidelines.
+- [ ] I know what recommendation categories are available.
+- [ ] I know what the editor is asking me to evaluate.
+- [ ] I know the relevant publication standard for this journal.
+- [ ] All necessary manuscript and supplementary files are available.
+- [ ] I created a review working note.
+- [ ] My preliminary recommendation is **Undecided**.
+- [ ] I identified areas where my expertise is limited.
+- [ ] I am aware of any strong priors I have about the topic or result.
+- [ ] I will not begin by searching for flaws.
+
+**Ready → Begin First-Pass Reading.**
+
+## 3. First-Pass Reading
+
+The first pass is a triage and comprehension stage.
+
+The goal is not yet to verify every proof, specification, robustness check,
+or derivation.
+
+The goal is to determine:
+
+1. What is the paper trying to do?
+2. Why does the question matter?
+3. What does the paper claim to contribute?
+4. What are the main results?
+5. What is the basic source of credibility for those results?
+6. Is the contribution potentially appropriate for this journal?
+7. Is there an obvious reason not to proceed to a full review?
+
+At the end of the first pass, I should be able to explain the paper
+in my own words.
+
+### 3.1 Reading order
+
+Read in the following order:
+
+1. Title
+2. Abstract
+3. Introduction
+4. Conclusion
+5. Main tables and figures, if empirical or quantitative
+6. Main theorem / proposition / model result, if theoretical
+7. Paper structure and section headings
+
+Do not begin with:
+
+- appendices
+- minor robustness checks
+- detailed derivations
+- footnotes
+- copy-editing issues
+- individual typos
+
+unless they are necessary to understand the paper's central claim.
+
+### 3.2 Identify the research question
+
+After the first reading of the introduction, write:
+
+> **Research question:**  
+> This paper asks whether / how / why ...
+
+Use one or two sentences at most.
+
+Do not copy the authors' wording unless it is genuinely the clearest formulation.
+
+If I cannot state the research question clearly, ask:
+
+- Is the paper itself unclear?
+- Have I misunderstood the paper?
+- Is the paper pursuing several questions without a clear hierarchy?
+
+Do not move immediately from confusion to criticism.
+First determine the source of the confusion.
+
+### 3.3 Identify the contribution
+
+Write:
+
+> **Claimed contribution:**  
+> Relative to [literature / benchmark], the paper contributes by ...
+
+Then ask:
+
+1. What was known before this paper?
+2. What does this paper claim we know after it?
+3. What is genuinely new?
+4. Is the novelty:
+   - a new fact?
+   - a new causal effect?
+   - a new mechanism?
+   - a new theoretical result?
+   - a new method?
+   - a new dataset?
+   - a new quantitative implication?
+   - a new application of an existing method?
+5. How large is the intellectual step relative to the existing literature?
+
+### 3.4 Identify the main result
+
+Write no more than three main results.
+
+> **Main result 1:** ...
+>
+> **Main result 2:** ...
+>
+> **Main result 3:** ...
+
+Then identify which one is actually carrying the paper.
+
+Ask:
+
+> **If I could keep only one result from this paper, which result would justify
+> the paper's existence?**
+
+Distinguish:
+
+- central results
+- supporting results
+- robustness results
+- extensions
+
+### 3.5 Identify the source of credibility
+
+Before examining technical details, write:
+
+> **Why should I believe the main result?**
+
+For example:
+
+### Empirical paper
+- randomized assignment
+- quasi-experimental variation
+- panel variation
+- structural restrictions
+- comparison across clearly defined groups
+- measurement / descriptive evidence
+
+### Theory paper
+- logical implication of clearly stated assumptions
+- proposition / theorem
+- constructive example
+- counterexample
+- equilibrium characterization
+
+### Quantitative / structural paper
+- combination of model structure and data
+- identified parameters
+- calibrated moments
+- estimation procedure
+- model fit
+- counterfactual mechanism
+
+Do not yet decide whether the argument is valid.
+
+First identify what the argument is.
+
+### 3.6 Check whether the paper delivers what the introduction promises
+
+Compare the claims in the introduction with:
+
+- the main results
+- the main tables / figures
+- the main theorem / proposition
+- the conclusion
+
+Ask:
+
+- Does the analysis actually answer the stated research question?
+- Do the main results support the claimed contribution?
+- Is the conclusion stronger than the evidence?
+- Does the paper's "sell" match what the analysis actually establishes?
+
+### 3.7 For empirical and quantitative papers: inspect the main tables and figures
+
+Without reading every detail, determine:
+
+- [ ] What is the main outcome?
+- [ ] What is the main treatment / explanatory variable / structural object?
+- [ ] What variation drives the result?
+- [ ] What is the main specification?
+- [ ] What is the economically relevant magnitude?
+- [ ] What is the key comparison?
+- [ ] Are the headline results visible in the main tables or figures?
+- [ ] Do the tables correspond to the claims made in the introduction?
+
+At this stage, do not inspect every robustness table.
+
+First understand the empirical architecture of the paper.
+
+### 3.8 For theory papers: identify the logical architecture
+
+Before checking proofs line by line, identify:
+
+- [ ] What is the economic environment?
+- [ ] What are the key assumptions?
+- [ ] What is the main proposition / theorem?
+- [ ] Which assumptions are essential for the result?
+- [ ] What is the economic mechanism?
+- [ ] What benchmark or existing result does the paper change?
+- [ ] What is the central comparative-static or equilibrium implication?
+
+Write:
+
+> **Logical architecture:**  
+> Under assumptions ___, the model implies ___ because ___.
+
+### 3.9 Evaluate importance separately from correctness
+
+Ask separately:
+
+#### Importance
+If the claimed result is correct, would it matter?
+
+#### Credibility
+Has the paper provided a credible argument for the result?
+
+Do not collapse these into one judgment.
+
+### Initial importance assessment
+
+- Question importance: Low / Moderate / High
+- Potential contribution: Low / Moderate / High
+- Breadth of interest: Narrow / Moderate / Broad
+- Journal fit: Weak / Plausible / Strong
+
+### 3.10 If the paper is difficult to understand
+
+If I cannot understand the paper after the first pass, do not immediately write:
+
+> "The paper is unclear."
+
+Diagnose why.
+
+Possible explanations:
+
+1. I missed something.
+2. The topic is farther outside my expertise than expected.
+3. The introduction is poorly written.
+4. The research question itself is unfocused.
+5. The contribution is genuinely unclear.
+6. The analysis does not match the stated contribution.
+
+Before treating lack of clarity as a publication problem, reread the relevant
+part once and determine which explanation applies.
+
+### 3.11 First-pass decision
+
+After completing the first pass, classify the paper into one of three categories.
+
+#### A. Clear reason to stop
+
+There appears to be a fundamental reason why the paper is not competitive
+for this journal.
+
+Examples:
+
+- contribution clearly far below the journal bar
+- central question clearly outside the journal's scope
+- central claim plainly unsupported by the analysis presented
+- fundamental flaw that is already transparent and does not require further
+  technical investigation
+
+→ Verify the reason carefully.
+→ If the reason remains decisive, prepare a short rejection-oriented report.
+→ Do not spend time compiling minor comments.
+
+#### B. Potentially publishable / uncertain
+
+The paper has a potentially relevant contribution, and no decisive reason
+for rejection is apparent from the first pass.
+
+→ Proceed to a full reading.
+
+#### C. Clearly strong paper
+
+The paper appears important and convincing from the first pass.
+
+→ Proceed to a full reading anyway.
+→ Do not invent revision requests merely to demonstrate diligence.
+
+**Personal rule:**
+
+If I cannot explain the obvious-reject reason clearly and scientifically,
+the paper is not yet an obvious reject.
+
+### 3.12 If the first pass reveals a decisive rejection reason
+
+If I have identified a decisive and defensible reason for rejection:
+
+1. Confirm that the reason is correct.
+2. Explain the reason clearly.
+3. Identify any useful constructive guidance.
+4. Stop collecting minor comments.
+
+Do not spend time on:
+
+- typos
+- formatting
+- minor references
+- minor exposition
+- optional extensions
+- marginal robustness checks
+
+when none of these could change the publication decision.
+
+### 3.13 First-Pass Note
+
+#### Paper in one sentence
+
+This paper ...
+
+#### Research question
+
+...
+
+#### Claimed contribution
+
+Relative to ..., the paper ...
+
+#### Main result
+
+1. ...
+2. ...
+3. ...
+
+#### Central result
+
+The result carrying the paper is ...
+
+#### Source of credibility
+
+I am supposed to believe this result because ...
+
+#### Importance
+
+If correct, the result matters because ...
+
+#### Journal fit
+
+The paper appears to be:
+
+- [ ] Clearly below the journal bar
+- [ ] Possibly suitable
+- [ ] Clearly suitable in terms of topic and potential importance
+
+#### Main strength
+
+...
+
+#### Main concern
+
+...
+
+#### What I still need to verify
+
+1. ...
+2. ...
+3. ...
+
+#### First-pass decision
+
+- [ ] Stop: likely clear reject
+- [ ] Proceed to full reading
+- [ ] Proceed to full reading: initially strong
+
+### 3.14 Completion checklist
+
+Do not begin the detailed review until I can answer:
+
+- [ ] What is the research question?
+- [ ] Why is the question potentially important?
+- [ ] What is the claimed contribution?
+- [ ] What is new relative to the literature?
+- [ ] What is the central result?
+- [ ] What evidence / logic is supposed to support that result?
+- [ ] What is the main economic mechanism or interpretation?
+- [ ] Why might readers of this journal care?
+- [ ] What is the strongest feature of the paper?
+- [ ] What is the main potential concern?
+- [ ] Is there a clear reason to stop, or should I proceed to full reading?
+
+If I cannot answer these questions, the first pass is not finished.
+
+> **First understand the paper on its own terms.  
+> Then decide what needs to be verified.**
+
+## 4. The Publishability Decision
+
+The central question is:
+
+> **Is the paper publishable in this journal?**
+
+This is not the same as asking:
+
+- Is the paper technically competent?
+- Is the paper interesting to me personally?
+- Could the paper be improved?
+- Would I have written the paper differently?
+- Can I find flaws in the paper?
+
+A publishability judgment requires an assessment of the paper as a whole.
+
+I evaluate five dimensions:
+
+1. Importance
+2. Contribution / originality
+3. Correctness / credibility
+4. Journal fit
+5. Fixability of any publication-blocking problems
+
+These dimensions should be evaluated separately before forming an overall judgment.
+
+### 4.1 Do not count flaws
+
+Publishability is not determined by the number of criticisms I can generate.
+
+Do not use a rule such as:
+
+> many problems → reject  
+> few problems → accept
+
+One serious problem may destroy the paper's central contribution.
+
+Conversely, a paper may contain many minor imperfections and still be clearly
+publishable.
+
+The relevant question is:
+
+> **Do the identified problems materially undermine the contribution or its credibility?**
+
+### 4.2 Importance
+
+Ask:
+
+> **If the main result is correct, how much would we care?**
+
+Evaluate:
+
+- Is the research question economically meaningful?
+- Does the result change how we understand an important phenomenon?
+- Does it resolve or materially advance an important debate?
+- Does it establish a fact, mechanism, or implication that others are likely to use?
+- Is the question of sufficiently broad interest for this journal?
+- Would the result matter beyond a very narrow application?
+
+Distinguish:
+
+- importance of the topic
+- importance of the actual result
+
+An important topic does not automatically imply an important contribution.
+
+#### Importance test
+
+Complete the sentence:
+
+> If this result is correct, economists should care because ...
+
+If I cannot complete this sentence convincingly, investigate why.
+
+### 4.3 Contribution / Originality
+
+Ask:
+
+> **What do we learn from this paper that we did not already know?**
+
+Evaluate the distance between:
+
+> existing knowledge
+
+and
+
+> knowledge after this paper.
+
+Possible contributions include:
+
+- a new empirical fact
+- a new causal effect
+- a new theoretical result
+- a new mechanism
+- a new identification strategy
+- a new measurement approach
+- a new dataset that changes what can be learned
+- a new quantitative result
+- a new counterfactual implication
+- a meaningful overturning or qualification of an existing result
+
+Do not confuse:
+
+- technical difficulty with contribution;
+- methodological novelty with economic importance;
+- a new dataset with a new finding;
+- a new application with a substantive advance.
+
+> **What is the intellectual delta of this paper?**
+
+### 4.4 Separate importance from novelty
+
+A paper can be:
+
+| | Low novelty | High novelty |
+|---|---|---|
+| **High importance** | Important question but incremental contribution | Potentially major contribution |
+| **Low importance** | Weak publication case | Novel but possibly too narrow |
+
+Therefore ask two different questions:
+
+1. **How important is the question/result?**
+2. **How large is the advance over existing knowledge?**
+
+### 4.5 Correctness / Credibility
+
+Ask:
+
+> **Does the analysis support the claimed result?**
+
+The exact test depends on the type of paper.
+
+### Theory
+
+- Are the assumptions clearly stated?
+- Does the result follow from the model?
+- Are the propositions correct?
+- Are the proofs valid?
+- Is the stated economic interpretation supported by the formal result?
+
+### Empirical
+
+- Does the research design identify the claimed object?
+- Are the data appropriate?
+- Are key assumptions plausible and adequately supported?
+- Does the evidence support the causal or descriptive claim actually made?
+- Are magnitudes and uncertainty interpreted appropriately?
+
+### Quantitative / structural
+
+- Are the mapping from model to data and the identifying assumptions clear?
+- Are parameters disciplined by the stated evidence?
+- Does the model reproduce the relevant features of the data?
+- Are counterfactual conclusions actually generated by the model mechanism claimed?
+- Are the conclusions robust enough for the claim being made?
+
+The standard is not certainty.
+
+The standard is whether the evidence and reasoning are sufficiently credible
+for the contribution claimed.
+
+### 4.6 A surprising result receives scrutiny, not automatic rejection
+
+If a result strongly conflicts with my prior beliefs:
+
+1. identify why the result is surprising;
+2. examine the evidence more carefully;
+3. determine what additional validation, if any, is genuinely necessary.
+
+Do not conclude:
+
+> "This contradicts the literature, therefore it must be wrong."
+
+The existing literature may be wrong.
+
+A surprising result can justify a higher evidentiary burden,
+but surprise itself is not evidence of error.
+
+**Personal rule:**  
+Low prior probability → closer verification, not automatic rejection.
+
+### 4.7 Journal Fit
+
+Ask:
+
+> **Even if this is good research, is it the right contribution for this journal?**
+
+Evaluate:
+
+- scope
+- audience
+- breadth
+- level of contribution
+- methodological expectations
+- substantive relevance to the journal's readership
+
+Distinguish:
+
+> **This is not a good paper**
+
+from
+
+> **This is not sufficiently strong or suitable for this journal**
+
+A recommendation against publication at the current journal does not imply
+that the research has no value.
+
+### 4.8 Fixability
+
+For every problem that currently prevents publication, ask:
+
+> **Can this problem realistically be resolved within a normal revision?**
+
+Distinguish:
+
+#### Type A — Fundamental
+
+The problem undermines the paper's central contribution and is not realistically
+repairable without turning the manuscript into a substantially different paper.
+
+#### Type B — Correctable
+
+The problem currently prevents publication, but the existing research project
+can plausibly address it within a revision.
+
+#### Type C — Non-blocking
+
+The problem does not prevent publication.
+
+It is a suggestion for improvement.
+
+### 4.9 Improvement is not enough to justify an R&R
+
+Do not reason:
+
+> "I can think of several things that would improve the paper,
+> therefore the authors should revise it."
+
+Almost every paper can be improved.
+
+An R&R-type judgment requires something stronger:
+
+1. the contribution is sufficiently important for the journal;
+2. the paper is not currently publishable;
+3. the problems preventing publication are correctable.
+
+If condition 1 fails, revision does not solve the journal-fit problem.
+
+If condition 3 fails, an R&R wastes the authors' time.
+
+### 4.10 Do not mechanically average dimensions
+
+Do not use a mechanical scoring rule such as:
+
+- Importance: 4/5
+- Novelty: 4/5
+- Correctness: 2/5
+- Writing: 5/5
+
+Average = 3.75 → publish
+
+Some dimensions are non-compensatory.
+
+For example:
+
+- a major contribution does not rescue an invalid central result;
+- flawless execution does not create a sufficiently important contribution;
+- excellent writing does not compensate for lack of identification;
+- minor imperfections do not cancel a major contribution.
+
+Use scores, if at all, only to organize thought—not to determine the decision.
+
+### 4.11 Identify the strongest case for the paper
+
+Before deciding against publication, write:
+
+> **The strongest argument for publishing this paper is ...**
+
+Before deciding in favor of publication, write:
+
+> **The strongest argument against publishing this paper is ...**
+
+Then evaluate both.
+
+Do not construct the decision from criticisms alone.
+
+### 4.12 The Central-Contribution Test
+
+For each major concern, ask:
+
+#### Step 1
+
+Is this concern actually correct?
+
+If no → discard it.
+
+#### Step 2
+
+Does it affect the central result or contribution?
+
+If no → likely a suggestion or secondary comment.
+
+#### Step 3
+
+How much does it weaken the contribution?
+
+- negligible
+- modest
+- substantial
+- fatal
+
+#### Step 4
+
+Can the problem be fixed without fundamentally replacing the paper?
+
+- yes
+- uncertain
+- no
+
+Only then decide how the concern should affect publishability.
+
+### 4.13 The burden of justification rises with the severity of the criticism
+
+If I claim that an issue prevents publication, I must be able to explain:
+
+1. What exactly is wrong?
+2. What claim of the paper does it affect?
+3. Why does it affect that claim?
+4. How severely does it weaken the contribution?
+5. What evidence or reasoning supports my criticism?
+6. Is the issue correctable?
+
+The stronger my requested editorial consequence,
+the stronger the justification I should provide.
+
+> **No publication-blocking comment without a publication-blocking argument.**
+
+### 4.14 Publishability Decision Tree
+
+#### Step 1 — Importance / journal bar
+
+**Is the contribution sufficiently important and appropriate for this journal?**
+
+- No → The paper is not publishable in this journal.
+- Yes → Step 2.
+- Uncertain → Full reading must resolve this question.
+
+#### Step 2 — Credibility
+
+**Is the central contribution supported by sufficiently credible analysis?**
+
+- Yes → Step 4.
+- No → Step 3.
+- Uncertain → Identify exactly what must be verified.
+
+#### Step 3 — Fixability
+
+**Can the credibility problem realistically be corrected in a normal revision?**
+
+- No → The problem points toward rejection.
+- Yes → The paper may be an R&R candidate.
+- Uncertain → Determine what evidence would resolve the uncertainty.
+
+#### Step 4 — Remaining problems
+
+**Are the remaining problems necessary for publication?**
+
+- Yes → Specify what must be addressed.
+- No → Treat them as suggestions.
+
+#### Step 5 — Overall judgment
+
+Ask:
+
+> Flaws and all, does this paper make a sufficiently important,
+> credible contribution for this journal?
+
+### 4.15 Working Classification
+
+After assessing publishability, classify the manuscript provisionally as:
+
+#### P1 — Publishable as it stands
+
+The paper clears the journal bar and no identified issue currently blocks publication.
+
+#### P2 — Potentially publishable after correctable changes
+
+The paper clears the importance / journal-fit bar, but one or more
+correctable problems currently prevent publication.
+
+#### P3 — Not publishable because of a fundamental problem
+
+The paper has a potentially sufficient contribution, but a central problem
+undermines the result and is not realistically correctable within a normal revision.
+
+#### P4 — Not publishable at this journal because the contribution is insufficient
+
+The analysis may be competent or correct, but the contribution does not clear
+the journal's importance / originality / fit threshold.
+
+### 4.16 Handle uncertainty explicitly
+
+It is acceptable to be uncertain.
+
+But specify the source of uncertainty.
+
+Bad:
+
+> I am not sure about the paper.
+
+Better:
+
+> I am confident that the question is important, but I am uncertain whether
+> the identifying variation is sufficient to support the causal interpretation.
+
+or:
+
+> I find the analysis credible, but I am uncertain whether the incremental
+> contribution is large enough for this journal.
+
+Separate uncertainty about:
+
+- importance
+- literature
+- methodology
+- correctness
+- interpretation
+- journal fit
+
+### 4.17 Publishability Note
+
+#### Importance
+
+If correct, this paper matters because:
+
+...
+
+Assessment:
+- [ ] Low
+- [ ] Moderate
+- [ ] High
+
+#### Contribution / originality
+
+What was known before:
+
+...
+
+What this paper adds:
+
+...
+
+Assessment:
+- [ ] Incremental
+- [ ] Meaningful
+- [ ] Major
+
+#### Credibility
+
+The central result is supported by:
+
+...
+
+Main credibility concern:
+
+...
+
+Assessment:
+- [ ] Insufficient
+- [ ] Uncertain
+- [ ] Sufficient
+
+#### Journal fit
+
+Why readers of this journal should care:
+
+...
+
+Assessment:
+- [ ] Weak
+- [ ] Plausible
+- [ ] Strong
+
+#### Publication-blocking problems
+
+1. ...
+2. ...
+
+#### Fixability
+
+For each publication-blocking problem:
+
+1. [ ] Correctable / [ ] Uncertain / [ ] Fundamental
+2. [ ] Correctable / [ ] Uncertain / [ ] Fundamental
+
+#### Strongest case for publication
+
+...
+
+#### Strongest case against publication
+
+...
+
+#### Provisional classification
+
+- [ ] P1 — Publishable as it stands
+- [ ] P2 — Potentially publishable after correctable changes
+- [ ] P3 — Fundamental problem
+- [ ] P4 — Contribution below journal bar
+
+### Quick Checklist: Publishability
+
+- [ ] If the result is correct, I can explain why it matters.
+- [ ] I can state precisely what is new relative to the literature.
+- [ ] I have evaluated importance separately from novelty.
+- [ ] I have evaluated importance separately from correctness.
+- [ ] The main result is supported by sufficiently credible analysis.
+- [ ] I have not treated surprise or disagreement with prior literature as evidence of error.
+- [ ] I have evaluated the paper against this journal's bar.
+- [ ] I have identified any problem that actually blocks publication.
+- [ ] For each blocking problem, I can explain why it blocks publication.
+- [ ] For each blocking problem, I have assessed whether it is realistically fixable.
+- [ ] I have separated blocking problems from optional improvements.
+- [ ] I have written the strongest case for publication.
+- [ ] I have written the strongest case against publication.
+
+**Core question:**
+
+> **Flaws and all, does this paper make a sufficiently important,
+> credible contribution for this journal?**
+
+## 5. Full Reading and Evaluation
+
+The purpose of the full reading is to verify whether the paper actually
+supports the contribution identified in the first pass.
+
+At this stage, I move from:
+
+> **What does the paper claim?**
+
+to:
+
+> **Does the paper establish what it claims?**
+
+The full reading should be organized around the central contribution,
+not around a search for the largest possible number of comments.
+
+My objective is to understand and evaluate:
+
+1. the paper's central argument;
+2. the assumptions on which that argument depends;
+3. the evidence or logical steps supporting the main result;
+4. the interpretation of the result;
+5. the relationship between the result and the claimed contribution;
+6. any problems that materially affect publishability.
+
+Detailed criteria differ across theory, empirical, and quantitative papers
+and are treated separately in later sections.
+
+

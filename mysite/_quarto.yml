@@ -39,7 +39,7 @@ website:
 
   page-footer:
     right: |
-      <i class="bi bi-c-circle"></i> 2025 Hirotaka Fukui. </span>
+      <i class="bi bi-c-circle"></i> 2026 Hirotaka Fukui. </span>
 
 format:
   html:
@@ -47,6 +47,9 @@ format:
     css: styles.css
     toc: true
     smooth-scroll: true
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex">
 
 
 
