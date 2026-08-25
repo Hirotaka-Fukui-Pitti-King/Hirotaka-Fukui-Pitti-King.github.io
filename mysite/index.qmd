@@ -3,48 +3,29 @@ title: "Hirotaka Fukui"
 title-block-style: none      
 ---
 
-## Welcome
+Sometimes everything begins to come apart.
 
-This is the personal website of Hirotaka Fukui, a graduate student in Economics.  
-I have included information about my research, CV, and how to get in touch with me.
+And by the time I realize it, everything has already gone so terribly wrong that nothing can be undone.
 
-## About Me
+When I needed it most, where was the passion that was supposed to keep me alive?
 
-I am a graduate student in Economics at
-<a href="https://www.econ.kobe-u.ac.jp/en/" target="_blank" rel="noopener noreferrer">
-Kobe University, Graduate School of Economics</a>.
+When I needed it most, where was the moment that was supposed to save me?
 
-My research focuses on International Macroeconomics, Monetary Economics, and Macro-Finance.
- 
- <p class="contact-desc">
-    Feel free to reach out!
-  </p>
+My life has been drifting farther and farther from where it was ever meant to be.
 
-[**Curriculum Vitae**](pdf/academic_cv.pdf)
+Every time something happens, another part of me breaks.
 
-Fun fact: I support [Real Madrid](https://www.realmadrid.com/en-US), the king of football, and I’m a fan of [fromis_9](https://fromis9.fandom.com/wiki/Fromis_9), the queen of K-pop.
+Again and again, I fall apart.
 
-```{=html}
-<figure class="epigraph">
-<blockquote>
-<p>
-“The study of economics does not seem to require any specialised gifts of an unusually high order.
-Is it not, intellectually regarded, a very easy subject compared with the higher branches of philosophy and pure science?
-Yet good, or even competent, economists are the rarest of birds.
-An easy subject, at which very few excel!
-The paradox finds its explanation, perhaps, in that the master-economist must possess a rare combination of gifts.
-He must reach a high standard in several different directions and must combine talents not often found together.
-He must be mathematician, historian, statesman, philosopher—​in some degree.
-He must understand symbols and speak in words. He must contemplate the particular in terms of the general, and touch abstract and concrete in the same flight of thought.
-He must study the present in the light of the past for the purposes of the future. No part of man's nature or his institutions must lie entirely outside his regard.
-He must be purposeful and disinterested in a simultaneous mood;
-as aloof and incorruptible as an artist, yet sometimes as near the earth as a politician.”
-</p>
-</blockquote>
-<figcaption style="text-align:right;">
-— <strong>John Maynard Keynes</strong>, <em>“Alfred Marshall, 1842–1924.”</em>
-<a href="https://doi.org/10.2307/2222645" target="_blank" rel="noopener noreferrer">The Economic Journal (1924)</a>
-</figcaption>
-</figure>
-```
+You do not understand.
+
+You do not know what I have lost, or how much of me has already collapsed.
+
+And you never will.
+
+You never knew.
+
+You never understood.
+
+And now there is nothing left for you to understand.
 
