@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Particle Night</title>
+  <style>
+    :root{
+      --panel: rgba(10,14,28,.46);
+      --border: rgba(255,255,255,.13);
+      --text: rgba(255,255,255,.93);
+      --muted: rgba(255,255,255,.62);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      width:100%;
+      height:100%;
+      overflow:hidden;
+      background:#050816;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+    }
+    canvas{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      display:block;
+    }
+    .shade{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 50% 40%, transparent 0 35%, rgba(0,0,0,.12) 70%, rgba(0,0,0,.42) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.28));
+    }
+    .ui{
+      position:fixed;
+      left:24px;
+      top:24px;
+      width:min(390px,calc(100vw - 48px));
+      padding:18px 20px 17px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:var(--panel);
+      backdrop-filter:blur(14px) saturate(130%);
+      -webkit-backdrop-filter:blur(14px) saturate(130%);
+      box-shadow:0 16px 48px rgba(0,0,0,.28);
+      user-select:none;
+    }
+    .eyebrow{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:5px;
+    }
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1;
+      letter-spacing:-.03em;
+      font-weight:700;
+    }
+    p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .controls{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:14px;
+    }
+    button{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.16);
+      color:var(--text);
+      background:rgba(255,255,255,.075);
+      border-radius:999px;
+      padding:8px 12px;
+      font:inherit;
+      font-size:12px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+    button:hover{background:rgba(255,255,255,.14);transform:translateY(-1px)}
+    button.active{background:rgba(255,255,255,.20)}
+    .hint{
+      position:fixed;
+      right:20px;
+      bottom:18px;
+      color:rgba(255,255,255,.45);
+      font-size:11px;
+      letter-spacing:.04em;
+      user-select:none;
+      text-align:right;
+    }
+    @media (max-width:600px){
+      .ui{left:14px;top:14px;width:calc(100vw - 28px)}
+      h1{font-size:24px}
+      .hint{right:14px;bottom:12px}
+    }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <div class="shade"></div>
+
+  <section class="ui">
+    <div class="eyebrow">interactive canvas</div>
+    <h1>Particle Night</h1>
+    <p>粒子はゆっくり漂い、近い粒子同士が線でつながります。マウスを動かすと周囲の粒子が引き寄せられ、クリックすると小さな波が広がります。</p>
+    <div class="controls">
+      <button id="toggleLines" class="active">Lines</button>
+      <button id="toggleGravity" class="active">Mouse gravity</button>
+      <button id="burst">Burst</button>
+      <button id="reset">Reset</button>
+    </div>
+  </section>
+
+  <div class="hint">MOVE · ATTRACT<br>CLICK · RIPPLE</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d', { alpha: false });
+
+  let W = 0, H = 0, DPR = 1;
+  let particles = [];
+  let ripples = [];
+  let showLines = true;
+  let mouseGravity = true;
+  const mouse = { x: 0, y: 0, active: false };
+
+  const rand = (a,b) => a + Math.random() * (b-a);
+
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = innerWidth;
+    H = innerHeight;
+    canvas.width = Math.round(W * DPR);
+    canvas.height = Math.round(H * DPR);
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    makeParticles();
+  }
+
+  function makeParticles(){
+    const target = Math.max(70, Math.min(190, Math.round((W*H)/8500)));
+    particles = Array.from({length:target}, () => ({
+      x: rand(0,W),
+      y: rand(0,H),
+      vx: rand(-.22,.22),
+      vy: rand(-.22,.22),
+      r: rand(.7,2.2),
+      a: rand(.3,.95),
+      hue: rand(190,265),
+      tw: rand(0,Math.PI*2),
+      tws: rand(.006,.018)
+    }));
+  }
+
+  function ripple(x,y){
+    ripples.push({x,y,r:4,a:.75});
+    if(ripples.length > 8) ripples.shift();
+  }
+
+  function burst(x = W/2, y = H/2){
+    for(const p of particles){
+      const dx = p.x - x;
+      const dy = p.y - y;
+      const d = Math.hypot(dx,dy) || 1;
+      const f = Math.max(0, 1 - d/380) * 3.4;
+      p.vx += dx/d * f;
+      p.vy += dy/d * f;
+    }
+    ripple(x,y);
+  }
+
+  function background(t){
+    const g = ctx.createRadialGradient(
+      W*.48 + Math.cos(t*.00008)*W*.12,
+      H*.36 + Math.sin(t*.00006)*H*.10,
+      0,
+      W*.5,H*.45,Math.max(W,H)*.82
+    );
+    g.addColorStop(0,'#10235a');
+    g.addColorStop(.38,'#0a1539');
+    g.addColorStop(.73,'#070d24');
+    g.addColorStop(1,'#030510');
+    ctx.fillStyle = g;
+    ctx.fillRect(0,0,W,H);
+
+    const nebula = ctx.createRadialGradient(W*.78,H*.22,0,W*.78,H*.22,Math.max(W,H)*.32);
+    nebula.addColorStop(0,'rgba(107,65,180,.13)');
+    nebula.addColorStop(1,'rgba(107,65,180,0)');
+    ctx.fillStyle = nebula;
+    ctx.fillRect(0,0,W,H);
+  }
+
+  function updateParticle(p){
+    p.tw += p.tws;
+
+    if(mouse.active && mouseGravity){
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const d2 = dx*dx + dy*dy;
+      if(d2 < 90000){
+        const d = Math.sqrt(d2) || 1;
+        const force = (1 - d/300) * .012;
+        p.vx += dx/d * force;
+        p.vy += dy/d * force;
+      }
+    }
+
+    p.vx *= .995;
+    p.vy *= .995;
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if(p.x < -30) p.x = W+30;
+    if(p.x > W+30) p.x = -30;
+    if(p.y < -30) p.y = H+30;
+    if(p.y > H+30) p.y = -30;
+  }
+
+  function drawConnections(){
+    if(!showLines) return;
+    const maxD = W < 700 ? 85 : 115;
+    const maxD2 = maxD*maxD;
+
+    for(let i=0;i<particles.length;i++){
+      const a = particles[i];
+      for(let j=i+1;j<particles.length;j++){
+        const b = particles[j];
+        const dx = a.x-b.x, dy = a.y-b.y;
+        const d2 = dx*dx+dy*dy;
+        if(d2 < maxD2){
+          const alpha = (1-d2/maxD2)*.17;
+          ctx.strokeStyle = `rgba(170,205,255,${alpha})`;
+          ctx.lineWidth = .55;
+          ctx.beginPath();
+          ctx.moveTo(a.x,a.y);
+          ctx.lineTo(b.x,b.y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function drawParticles(){
+    ctx.save();
+    ctx.globalCompositeOperation='lighter';
+
+    for(const p of particles){
+      const twinkle = .68 + Math.sin(p.tw)*.28;
+      const alpha = p.a * twinkle;
+
+      const glow = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5.5);
+      glow.addColorStop(0,`hsla(${p.hue},100%,86%,${alpha})`);
+      glow.addColorStop(.18,`hsla(${p.hue},95%,70%,${alpha*.48})`);
+      glow.addColorStop(1,`hsla(${p.hue},90%,55%,0)`);
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r*5.5,0,Math.PI*2);
+      ctx.fill();
+
+      ctx.fillStyle = `rgba(240,247,255,${Math.min(1,alpha+.2)})`;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r*.66,0,Math.PI*2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+
+  function drawRipples(){
+    for(let i=ripples.length-1;i>=0;i--){
+      const q = ripples[i];
+      q.r += 2.15;
+      q.a *= .965;
+      ctx.strokeStyle = `rgba(185,215,255,${q.a})`;
+      ctx.lineWidth = 1.1;
+      ctx.beginPath();
+      ctx.arc(q.x,q.y,q.r,0,Math.PI*2);
+      ctx.stroke();
+      if(q.a < .025) ripples.splice(i,1);
+    }
+  }
+
+  function animate(t){
+    background(t);
+    particles.forEach(updateParticle);
+    drawConnections();
+    drawParticles();
+    drawRipples();
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize);
+
+  window.addEventListener('pointermove', e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.active = true;
+  });
+
+  window.addEventListener('pointerleave', () => mouse.active = false);
+
+  window.addEventListener('pointerdown', e => {
+    if(e.target.tagName === 'BUTTON') return;
+    ripple(e.clientX,e.clientY);
+    for(const p of particles){
+      const dx = p.x-e.clientX, dy=p.y-e.clientY;
+      const d = Math.hypot(dx,dy);
+      if(d < 180){
+        const f = (1-d/180)*1.35;
+        p.vx += dx/(d||1)*f;
+        p.vy += dy/(d||1)*f;
+      }
+    }
+  });
+
+  document.getElementById('toggleLines').onclick = e => {
+    showLines = !showLines;
+    e.currentTarget.classList.toggle('active',showLines);
+  };
+  document.getElementById('toggleGravity').onclick = e => {
+    mouseGravity = !mouseGravity;
+    e.currentTarget.classList.toggle('active',mouseGravity);
+  };
+  document.getElementById('burst').onclick = () => burst(mouse.active ? mouse.x : W/2, mouse.active ? mouse.y : H/2);
+  document.getElementById('reset').onclick = () => { makeParticles(); ripples=[]; };
+
+  resize();
+  requestAnimationFrame(animate);
+})();
+</script>
+</body>
+</html>
