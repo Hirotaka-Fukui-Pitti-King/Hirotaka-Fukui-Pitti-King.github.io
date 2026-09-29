@@ -8,8 +8,6 @@ format:
     toc-location: left                                 
 ---
 
-![](static/hui.png){fig-align="center"}
-
 # Research Agenda
 
 ## Sub-Saharan Africa
@@ -17,6 +15,10 @@ format:
 - [**On the Sources of Macroeconomic Fluctuations in Sub-Saharan African Countries**](research/lively-llama.qmd) 
 
 - **Stylized Facts and Comparative Evidence of Business Cycles in Sub-Saharan Africa**
+
+- **Investment Specific Technology Shocks and Real Business Cycles in Sub-Saharan African Economies**
+
+- **Import Price Shocks and High Volatility in Consumption of Sub-Saharan African Countries: Role of Food Import Dependence**
 
 <!--
 
@@ -59,8 +61,4 @@ format:
 - **Was Robert Mugabe Truly a Ruthless Dictator?**
 
 -->
-
-## Macro-Finance
-
-- **The Resilience Trade-off of Globalization**
 

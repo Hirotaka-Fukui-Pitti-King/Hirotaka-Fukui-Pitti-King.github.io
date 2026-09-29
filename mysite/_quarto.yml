@@ -9,7 +9,35 @@ website:
   image: static\HIROTAKA FUKUI.png
   favicon: static\HIROTAKA FUKUI.png
   site-url: https://fukui-hirotaka.com/
- 
+  description: "Doctoral student in Economics. Research on international macroeconomics, monetary economics, macro-finance."
+  navbar:
+    pinned: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: research.qmd
+        text: Research
+      - href: cv.qmd
+        text: CV
+    right:
+      - icon: github
+        href: https://github.com/Hirotaka-Fukui-Pitti-King
+      - icon: envelope
+        href: mailto:227e127e@gsuite.kobe-u.ac.jp
+      - icon: twitter-x
+        href: https://x.com/PittiKing
+      - icon: instagram
+        href: https://www.instagram.com/pegutti_king/
+      - icon: substack
+        href: https://substack.com/@pittiking
+      - icon: linkedin
+        href: https://www.linkedin.com/in/hirotaka-fukui-90495b342
+      - text: "ORCID"
+        href: https://orcid.org/{{< var orcid >}}
+
+  page-footer:
+    right: |
+      <i class="bi bi-c-circle"></i> 2026 Hirotaka Fukui. </span>
 
 format:
   html:
@@ -17,9 +45,6 @@ format:
     css: styles.css
     toc: true
     smooth-scroll: true
-    include-in-header:
-      text: |
-        <meta name="robots" content="noindex">
 
 
 
