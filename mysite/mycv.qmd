@@ -52,6 +52,10 @@ brand:
 
 {{< yaml assets/yml/education.yml >}}
 
+**Summer Schools**
+
+
+
 ## Publications
 
 {{< yaml assets/yml/publication.yml >}}
