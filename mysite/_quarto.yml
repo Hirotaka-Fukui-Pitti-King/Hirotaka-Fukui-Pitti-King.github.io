@@ -48,6 +48,7 @@ format:
     toc: true
     smooth-scroll: true
     canonical-url: true
+    include-in-header: person.html
 
 
 
