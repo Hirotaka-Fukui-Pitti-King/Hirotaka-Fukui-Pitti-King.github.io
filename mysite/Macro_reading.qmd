@@ -1,14 +1,12 @@
 ---
 title: "マクロ経済学 Reading List"
-subtitle: "ぷくぷくぴーす"
+subtitle: ""
 format:
   html:
     page-layout: full                               
 ---
 
 ***Preliminary and Incomplete.***
-
-## DSGEモデル編
 
 - [The ABCs of RBCs](https://www.amazon.co.jp/ABCs-RBCs-Introduction-Dynamic-Macroeconomic/dp/0674028147)
 
@@ -66,33 +64,5 @@ DSGEモデルのベイズ推定について唯一と言っていい教科書で�
 
 ミュンヘン連邦軍大学のJohannes Pfeifer先生の講義資料です。時系列分析やカルマンフィルターからDSGEモデルの摂動、パラメータの識別など、DSGEモデルを解き、推定するための知識が詳しくまとめられていて、それらを[Dynare](https://www.dynare.org/)を使って身に着けることができます。
 
-## 金融マクロ編
-
 - [Lectures on Macro, Money, and Finance: A Heterogeneous-Agent Continuous-Time Approach](https://www.dropbox.com/scl/fi/tsu7w23stvm4zlhvep7q9/LectureNotes_Macrofinance.pdf?rlkey=p74gvi1kytapfnexjkfadm29l&st=kosc80jx&dl=0)
-
-- [Dynamic Asset Pricing Theory](https://press.princeton.edu/books/hardcover/9780691090221/dynamic-asset-pricing-theory?srsltid=AfmBOoqRZKumbIRJ7gWCj_X4VBXAUdJm8DekpHoPoCax8km62k0sYucv)
-
-- [Theory of Incomplete Markets](https://www.e-elgar.com/shop/gbp/incomplete-markets-9781845428624.html )
-
-- [Modern Portfolio Theory and Investment Analysis](https://www.wiley.com/en-au/Modern+Portfolio+Theory+and+Investment+Analysis%2C+9th+Edition-p-9781118469941)
-
-- [Asset Pricing: Revised Edition](https://www.johnhcochrane.com/asset-pricing)
-
-- [Stochastic Differential Equations: An Introduction with Applications](https://link.springer.com/book/10.1007/978-3-642-14394-6)
-
-- [Brownian Motion and Stochastic Calculus](https://link.springer.com/book/10.1007/978-1-4612-0949-2)
-
-- [Wholesale Banking and Bank Runs in Macroeconomic Modeling of Financial Crises](https://www.sciencedirect.com/science/article/pii/S1574004816000100)
-
-- [Financial Intermediation and Credit Policy in Business Cycle Analysis](https://www.sciencedirect.com/science/article/pii/B9780444532381000119)
-
-- [Economics of Money, Banking, and Financial Markets](https://www.pearson.com/en-us/subject-catalog/p/economics-of-money-banking-and-financial-markets-the/P200000005989/9780136893929?srsltid=AfmBOop75c-uitaunLTtgBFzSHoT5_IhxFpKVWZWQ8JtTpl3xkRLXv2R)
-
-- [Monetary Theory and Policy](https://mitpress.mit.edu/9780262035811/monetary-theory-and-policy/)
-
-- [Interest and Prices: Foundations of a Theory of Monetary Policy](https://press.princeton.edu/books/hardcover/9780691010496/interest-and-prices?srsltid=AfmBOor8P9kodk1r6tr3wRJ_eAzbR6gPqORTsiJqD_5Sha1IzqvMHS9O)
-
-- [Microeconomics of Banking](https://mitpress.mit.edu/9780262048194/microeconomics-of-banking/)
-
-## 国際マクロ編
 

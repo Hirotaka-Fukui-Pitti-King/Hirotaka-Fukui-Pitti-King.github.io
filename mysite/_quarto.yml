@@ -19,6 +19,8 @@ website:
         text: Research
       - href: cv.qmd
         text: CV
+      - href: notes.qmd
+        text: Notes
     right:
       - icon: github
         href: https://github.com/Hirotaka-Fukui-Pitti-King
@@ -45,6 +47,7 @@ format:
     css: styles.css
     toc: true
     smooth-scroll: true
+    canonical-url: true
 
 
 
