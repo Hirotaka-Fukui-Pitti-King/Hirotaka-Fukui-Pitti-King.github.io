@@ -41,7 +41,7 @@ website:
 
 format:
   html:
-    theme: superhero
+    theme: journal
     css: styles.css
     toc: true
     smooth-scroll: true
