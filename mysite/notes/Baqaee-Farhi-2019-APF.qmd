@@ -1,0 +1,70 @@
+---
+title: "Notes on @BaqaeeFarhi2019"
+subtitle: "The Microeconomic Foundations of Aggregate Production Functions"
+description: ""
+date: today
+categories:
+  - Macroeconomics
+  - Production Function
+  - Aggregate Production Function
+  - Microeconomic Foundation
+---
+
+# Executive Summary
+
+## Central Research Question
+
+@BaqaeeFarhi2019 の中心的な研究質問は、次の一文に集約できます.
+
+> Can we derive the first- and second-order properties of aggregate production functions from microeconomic production technologies and input–output networks, without imposing an aggregate functional form?
+
+すなわち、企業・産業ごとの生産技術、要素間の代替弾力性、産業連関構造から、経済全体の生産関数とその性質を導出できるか、という問題です。
+
+通常のマクロモデルでは、例えば
+
+$$
+Y=AK^\alpha L^{1-\alpha}
+$$
+
+あるいは
+
+$$
+Y=A\left[
+\omega_KK^{\frac{\sigma-1}{\sigma}}
++\omega_LL^{\frac{\sigma-1}{\sigma}}
+\right]^{\frac{\sigma}{\sigma-1}}
+$$
+
+のような集計生産関数を直接仮定します。
+
+しかし、現実の経済では、資本財や労働の種類が異なり、産業によって生産技術も異なります。さらに、ある産業の生産物は別の産業の中間投入になっています。したがって、個々の企業がCES生産関数を持つとしても、それらを組み合わせた経済全体がCES生産関数で表現できるとは限りません。
+
+@BaqaeeFarhi2019 のアプローチは、集計生産関数をprimitiveとして仮定せず、ミクロの生産技術と競争均衡から内生的に生じるreduced-formとして導出するというものです。
+
+## Main Results
+
+@BaqaeeFarhi2019 の主要な理論的貢献は異質な生産者と生産要素が産業連関を通じて結びついた競争均衡経済において、集計生産関数の特定の関数形を仮定せず、個々の生産技術と資源制約のもとで実現可能な最大産出として内生的に定義し, 集計生産関数と集計費用関数の一階・二階の性質をミクロ経済の技術とネットワーク構造から特徴づけたことです。
+
+集計生産関数の一階微分について、Hultenの定理 [@Hulten1978] に基づき、
+
+   - 生産要素の限界的な産出寄与はその要素所得シェア
+   - 個別生産者の生産性向上による集計産出の増加率はその生産者のDomar weight
+  
+にそれぞれ等しいことを示しました.
+
+また， @BaqaeeFarhi2019 はこの一階の結果を二階へ拡張しました。集計生産関数と集計費用関数のHessianは、要素所得シェアとDomar weightがショックに応じてどのように変化するかによって決まります。@BaqaeeFarhi2019 はこうしたシェアの変化を、各生産者のミクロ代替弾力性、Leontief inverseによって測定される直接・間接の投入依存関係、およびネットワーク上のexposureの共分散を用いて特徴づけました。
+
+さらに、この二階の特徴づけから、マクロの要素間代替弾力性は一般には個々の生産者の代替弾力性と一致せず、ミクロの代替弾力性と生産ネットワークの相互作用によって内生的に決定されることを示しました。集計費用関数のMorishima Elasticity of Substitution（MES）は、ネットワーク構造によって決まる重みを用いたミクロ代替弾力性の加重和として表現できます。一方、すべての生産者が同じ代替弾力性を持つ場合には、集計生産関数と集計費用関数のMESもその共通値に等しくなります。
+
+そして，個々の生産者にとってHicks-neutralな技術進歩であっても、マクロ経済では要素偏向的な技術進歩になり得ることもしめしました。特定の生産者の生産性向上は、直接的にはその生産者の費用を引き下げますが、産業間の相対価格と投入構成を変化させ、最終的に経済全体の相対要素需要や要素所得シェアに影響します。この効果の方向と大きさは、技術ショックを受ける生産者のネットワーク上の位置、各生産者の要素集約度、ミクロ代替弾力性によって決まります。
+
+第五に、Cambridge capital controversyとの関連では、異質な生産要素を少数の集計要素へ正確にまとめることは一般には不可能であると示します。正確な要素集計には、集計される要素がグループ外の要素に対して特定の代替関係を共有する必要があり、この条件は一般的な生産ネットワークでは成立しません。他方、ネットワークの一部分が一定の分離可能な構造を持つ場合には、その部分をsubaggregate production functionとして表現できることも示します。したがって、著者は異質な資本財を単一の資本量に集計することを正当化するのではなく、生産要素の異質性を保持したまま、生産者の活動を集計する方法を提供しています。
+
+最後に、これらの理論的結果をcapital–skill complementarityの分析に適用し、産業間の異質性と中間投入の連関を明示的に考慮すると、従来の集計CESモデルが含意するマクロ代替弾力性とskill premiumの反応が変化することを示します。米国の66産業を用いた校正モデルでは、資本蓄積がskill premiumに与える影響は、従来の集計モデルより約20%小さくなります。これは普遍的な理論的結論ではなく、特定の校正に基づく定量的結果ですが、ミクロの生産構造を無視した集計生産関数が、所得分配に関する定量的な予測を変え得ることを具体的に示しています。
+
+以上の結果を通じて、本論文は、集計生産関数を外生的に与えられた構造的な関数として扱う従来のアプローチに代わり、ミクロの生産技術と産業連関から内生的に生じる一般均衡上の関係として理解し、その局所的な性質を十分統計量によって特徴づける理論的枠組みを確立しています。
+
+
+# Research Motivation and Previous Literature
+
+# Model Environment and Equilibrium

@@ -1,5 +1,8 @@
 execute:
   freeze: auto   # あるいは true（常に凍結）
+  echo: false
+  warning: false
+  message: false
 author:
   - name: Hirotaka Fukui
     email: 227e127e@gsuite.kobe-u.ac.jp
@@ -7,3 +10,6 @@ author:
     affiliations:
     - name: Kobe University, Graduate School of Economics
 date-modified: last-modified
+
+bibliography: notes-references.bib
+  
