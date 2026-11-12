@@ -1,0 +1,15 @@
+Caballero, Farhi, Gourinchas (2008): Figure 5
+Source: prog_UR_inv_final.gau, lines 191-192 and 256 / 314
+deltaU=0.240000000000
+deltaR=0.162580645161
+r_no_fdi=0.054193548387
+kappaP_lower_bound=0.081290322581 (8.129032%)
+kappaP_upper_bound=0.120000000000 (12.000000%)
+Mode: GAUSS numerical values
+Simulated kappaP values: 0.081290323, 0.094193548, 0.107096774, 0.120000000
+WARNING: the source GAUSS code computes kappaP=8.129032...%,
+         but its legend and the paper say 5%. This script does not
+         relabel 8.129...% as 5%.
+         With kappaP=5%, the lower private-gains condition
+         (Assumption 6) fails in the calibrated model.
+         The GAUSS endpoints are boundary cases of the strict inequalities.

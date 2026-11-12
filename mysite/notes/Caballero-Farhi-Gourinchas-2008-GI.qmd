@@ -1,0 +1,11 @@
+---
+title: "Notes on @CaballeroFarhiGourinchas2008"
+subtitle: "世界的な資産供給不足、国際資本移動、経常収支と均衡実質利子率"
+description: ""
+date: today
+categories:
+  - Macroeconomics
+  - Production Function
+  - Aggregate Production Function
+  - Microeconomic Foundation
+---
