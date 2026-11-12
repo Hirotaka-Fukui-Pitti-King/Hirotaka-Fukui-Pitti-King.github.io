@@ -2,7 +2,7 @@
 
 julia_version = "1.12.6"
 manifest_format = "2.0"
-project_hash = "776370d0af3117b54b3346ad3c60b70ce57b0efb"
+project_hash = "5213b6679e9bb3bf6e325fecf11e01e3033a460a"
 
 [[deps.Accessors]]
 deps = ["CompositionsBase", "ConstructionBase", "Dates", "InverseFunctions", "MacroTools"]
@@ -33,6 +33,11 @@ deps = ["PtrArrays", "Random"]
 git-tree-sha1 = "9876e1e164b144ca45e9e3198d0b689cadfed9ff"
 uuid = "66dad0bd-aa9a-41b7-9441-69ab47430ed8"
 version = "1.1.3"
+
+[[deps.ArgCheck]]
+git-tree-sha1 = "f9e9a66c9b7be1ad7372bbd9b062d9230c30c5ce"
+uuid = "dce04be8-c92d-5529-be00-80e4d2c0e197"
+version = "2.5.0"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -79,6 +84,12 @@ version = "1.1.1"
     SentinelArrays = "91c51154-3ec4-41a3-a24f-3f23e20d615c"
     StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
     StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
+
+[[deps.CodecInflate64]]
+deps = ["TranscodingStreams"]
+git-tree-sha1 = "d981a6e8656b1e363a2731716f46851a2257deb7"
+uuid = "6309b1aa-fc58-479c-8956-599a07234577"
+version = "0.1.3"
 
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
@@ -451,6 +462,11 @@ version = "2.0.1"
     ArrowTypes = "31f734f8-188a-4ce0-8406-c8a06bd891cd"
     Parsers = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
     Serialization = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
+
+[[deps.InputBuffers]]
+git-tree-sha1 = "e5392ea00942566b631e991dd896942189937b2f"
+uuid = "0c81fc1b-5583-44fc-8770-48be1e1cca08"
+version = "1.1.1"
 
 [[deps.InteractiveUtils]]
 deps = ["Markdown"]
@@ -1248,6 +1264,33 @@ git-tree-sha1 = "337cbbac66f558bdd5653d3fa5b39cf370165559"
 uuid = "d049ceea-54ee-41d7-a26f-ba29db3b6599"
 version = "1.3.0"
 
+[[deps.XLSX]]
+deps = ["Colors", "Dates", "OrderedCollections", "Parsers", "PrecompileTools", "Printf", "Random", "Tables", "UUIDs", "Unicode", "XML", "ZipArchives"]
+git-tree-sha1 = "6706b33b8c359bff7690efbeb59e75766491fec9"
+uuid = "fdbf4ff8-1666-58a4-91e7-1b58723a45e0"
+version = "0.13.3"
+
+    [deps.XLSX.extensions]
+    FileIOExt = "FileIO"
+    StyledStringsSstsExt = "StyledStrings"
+
+    [deps.XLSX.weakdeps]
+    FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+    StyledStrings = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
+
+[[deps.XML]]
+git-tree-sha1 = "c3f9ebdf8b8bf9c292913201ec3fa603277d7919"
+uuid = "72c71f33-b9b6-44de-8c94-c961784809e2"
+version = "0.4.8"
+
+    [deps.XML.extensions]
+    XMLAbstractTreesExt = "AbstractTrees"
+    XMLStringViewsExt = "StringViews"
+
+    [deps.XML.weakdeps]
+    AbstractTrees = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
+    StringViews = "354b36f9-a18e-4713-926e-db85100087ba"
+
 [[deps.XML2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libiconv_jll", "Zlib_jll"]
 git-tree-sha1 = "b826aedca5fce2e3c91904e338c279e5c1a2da74"
@@ -1403,6 +1446,12 @@ deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "a63799ff68005991f9d9491b6e95bd3478d783cb"
 uuid = "c5fb5394-a638-5e4d-96e5-b29de1b5cf10"
 version = "1.6.0+0"
+
+[[deps.ZipArchives]]
+deps = ["ArgCheck", "CodecInflate64", "CodecZlib", "InputBuffers", "PrecompileTools", "TranscodingStreams", "Zlib_jll"]
+git-tree-sha1 = "3e6acd912522133953125645b263934ae2ac745e"
+uuid = "49080126-0e18-4c2a-b176-c102e4b3760c"
+version = "2.6.1"
 
 [[deps.ZipFile]]
 deps = ["Libdl", "Printf", "Zlib_jll"]

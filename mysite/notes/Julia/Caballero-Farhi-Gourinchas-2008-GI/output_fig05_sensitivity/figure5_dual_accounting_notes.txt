@@ -1,0 +1,8 @@
+GAUSS computed lower price: 8.129032258%
+Published figure labels: 5% and 12% (5% outside Assumption 6).
+Default Figure 5 script remains unmodified.
+CA_GAUSS = goods TB + r*NFA; CA_adjusted = d(NFA)/dt, excluding jump valuation.
+Published label: 5%: κP=5.000000000%; Imposed FDI; seller rejects; max accounting residual 2.055e-15
+GAUSS lower: 8.129%: κP=8.129032258%; R indifference boundary; max accounting residual 2.006e-15
+Interior: 9.5%: κP=9.500000000%; Strict bilateral gains; max accounting residual 2.029e-15
+GAUSS upper: 12%: κP=12.000000000%; U indifference boundary; max accounting residual 2.029e-15

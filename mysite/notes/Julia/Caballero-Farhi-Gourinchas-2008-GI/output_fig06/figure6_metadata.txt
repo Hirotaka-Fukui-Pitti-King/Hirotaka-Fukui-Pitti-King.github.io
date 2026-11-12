@@ -1,0 +1,18 @@
+Caballero, Farhi, Gourinchas (2008), Figure 6
+Original GAUSS source: prog_UR_exch_final.gau
+Reimplementation: single-q shooting + differentiated goods clearing + RK4
+Paper original: per-step NLSYS + Euler + 250-year truncated PV integrals
+theta=0.250000000000 g=0.030000000000 gamma=0.900000000000 sigma=4.000000
+deltaU=0.120000000000 deltaR=0.081290322581 ARU=0.021428571429 AUR=0.050000000000
+q_pre=1.170433589781 R_output_0=0.366164669498 lambda_pre=1.133214574677
+q_impact=1.036309993756 VU_impact=4.274771603987 VR_impact=3.275888033074
+PV_U_residual=-1.2079e-13 PV_R_residual=4.6230e-13
+maximum_goods_market_residual=2.6756e-14
+world_real_rate_impact=5.66040087% nominal_rate_impact=6.30200112%
+lambda_impact=1.028933940548 lambda_longrun=1.155423176821
+impact_appreciation_log_percent=9.653509
+longrun_depreciation_from_pre_percent=1.959788
+longrun_CA_over_U_output_percent=-1.469625
+longrun_NFA_over_U_output_percent=-48.987501
+dt=0.025000000000 terminal_time=350.0
+WARNING: Julia runtime/syntax must be tested in your Julia environment.
