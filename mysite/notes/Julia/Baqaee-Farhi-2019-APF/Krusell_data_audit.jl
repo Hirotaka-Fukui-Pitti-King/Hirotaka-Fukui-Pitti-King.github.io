@@ -542,7 +542,9 @@ end
 
 function _named_rows(rows::AbstractVector{<:NamedTuple})
     isempty(rows) && return (String[],Vector{Vector{Any}}())
-    keys=String.(propertynames(first(rows)))
+    # propertynames returns a Tuple; broadcasting String preserves that shape.
+    # The CSV writer deliberately accepts a Vector{String} header.
+    keys = [String(k) for k in propertynames(first(rows))]
     data=Vector{Vector{Any}}()
     for row in rows
         push!(data,Any[getproperty(row,Symbol(k)) for k in keys])
@@ -968,6 +970,20 @@ function run_tests(;data_dir::Union{Nothing,AbstractString}=nothing,
             @test length(r)==5
             @test all(z->z.mismatches==0,r)
             @test sum(z->z.n,r)==8386
+            # Regression for the tuple-versus-vector header error that used
+            # to surface only after every model/data integration test passed.
+            example_rows = [(alpha=1, beta="x,y"), (alpha=2, beta="plain")]
+            headers, csv_data = _named_rows(example_rows)
+            @test headers == ["alpha", "beta"]
+            @test headers isa Vector{String}
+            @test length(csv_data) == 2
+            mktempdir() do dir
+                path = joinpath(dir, "smoke.csv")
+                @test _save_named(path, example_rows) == path
+                @test isfile(path)
+                @test readlines(path) == ["alpha,beta", "1,\"x,y\"", "2,plain"]
+                @test_throws ArgumentError _save_named(joinpath(dir, "empty.csv"), NamedTuple[])
+            end
         end
         if data_dir !== nothing || source_dir !== nothing
             data_dir===nothing && throw(ArgumentError("--data-dir is required for source audit tests"))
@@ -1006,6 +1022,20 @@ function run_tests(;data_dir::Union{Nothing,AbstractString}=nothing,
                 # Determinism of source-data reconstruction and paper comparison.
                 @test audit.io.values == reconstruct_io2013(audit.sources).values
                 @test audit.paper_comparison == _publication_audit(audit.book,audit.run)
+                # Exercise the entire production export path during integration
+                # tests; passing numerical tests alone does not verify output.
+                mktempdir() do dir
+                    paths = save_audit_results(audit, dir)
+                    @test length(paths) == 12
+                    @test all(isfile, paths)
+                    @test all(p -> filesize(p) > 0, paths)
+                    @test startswith(read(joinpath(dir, "source_mat_comparison.csv"), String),
+                                     "variable,")
+                    @test occursin("Source Excel", read(joinpath(dir,
+                             "BF2019_reproducibility_audit.md"), String))
+                    @test occursin("\\begin{", read(joinpath(dir,
+                             "BF2019_discrepancy_summary.tex"), String))
+                end
             end
         end
     end

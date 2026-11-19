@@ -1,0 +1,237 @@
+section,object,sheet,cell,julia_value,excel_value,abs_error,rel_error,within_tolerance,status
+benchmark,"aggregate_production_raw[1,1]",Sheet1,B5,1,1,0,0,true,Match within numerical precision
+benchmark,"aggregate_production_raw[1,2]",Sheet1,C5,1.050752251354832,1.05075225135483,2.220446049250313e-15,2.113196565971942e-15,true,Match within numerical precision
+benchmark,"aggregate_production_raw[1,3]",Sheet1,D5,0.67,0.67,0,0,true,Match within numerical precision
+benchmark,"aggregate_production_raw[2,1]",Sheet1,B6,1.67,1.67,0,0,true,Match within numerical precision
+benchmark,"aggregate_production_raw[2,2]",Sheet1,C6,1,1,0,0,true,Match within numerical precision
+benchmark,"aggregate_production_raw[2,3]",Sheet1,D6,1.67,1.67,0,0,true,Match within numerical precision
+benchmark,"aggregate_production_raw[3,1]",Sheet1,B7,0.67,0.67,0,0,true,Match within numerical precision
+benchmark,"aggregate_production_raw[3,2]",Sheet1,C7,0.8774696302073511,0.877469630207351,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+benchmark,"aggregate_production_raw[3,3]",Sheet1,D7,1,1,0,0,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[1,1]",Sheet1,G5,1,1,0,0,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[1,2]",Sheet1,H5,1.275143847127333,1.27514384712733,3.108624468950438e-15,2.437861795713175e-15,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[1,3]",Sheet1,I5,0.6700000000000002,0.67,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[2,1]",Sheet1,G6,1.67,1.67,0,0,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[2,2]",Sheet1,H6,1,1,0,0,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[2,3]",Sheet1,I6,1.67,1.67,0,0,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[3,1]",Sheet1,G7,0.6700000000000002,0.67,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[3,2]",Sheet1,H7,1.064856152872667,1.06485615287267,3.33066907387547e-15,3.12781126811382e-15,true,Match within numerical precision
+benchmark,"aggregate_cost_raw[3,3]",Sheet1,I7,1,1,0,0,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[1,1]",Sheet2,B5,1,1,0,0,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[1,2]",Sheet2,C5,0.9355196384165448,0.935519638416545,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[1,3]",Sheet2,D5,0.6631044206439365,0.663104420643937,5.551115123125783e-16,5.551115123125783e-16,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[2,1]",Sheet2,B6,1.429784083396987,1.42978408339699,3.108624468950438e-15,2.174191547555021e-15,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[2,2]",Sheet2,C6,1,1,0,0,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[2,3]",Sheet2,D6,1.593348585003848,1.59334858500385,2.442490654175344e-15,1.532929251742765e-15,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[3,1]",Sheet2,B7,0.6962523492077485,0.696252349207749,5.551115123125783e-16,5.551115123125783e-16,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[3,2]",Sheet2,C7,0.9374333381844685,0.9374333381844689,4.440892098500626e-16,4.440892098500626e-16,true,Match within numerical precision
+benchmark,"disaggregated_production_raw[3,3]",Sheet2,D7,1,1,0,0,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[1,1]",Sheet2,G5,1,1,0,0,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[1,2]",Sheet2,H5,1.090739328628932,1.09073932862893,2.220446049250313e-15,2.035725668791494e-15,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[1,3]",Sheet2,I5,0.6417273781450892,0.641727378145089,2.220446049250313e-16,2.220446049250313e-16,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[2,1]",Sheet2,G6,1.468570139963165,1.46857013996317,4.884981308350689e-15,3.326352058658362e-15,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[2,2]",Sheet2,H6,1,1,0,0,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[2,3]",Sheet2,I6,1.541982496410999,1.541982496411,1.110223024625157e-15,7.199971641761345e-16,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[3,1]",Sheet2,G7,0.7151397345929222,0.715139734592923,7.771561172376096e-16,7.771561172376096e-16,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[3,2]",Sheet2,H7,1.092970545927155,1.09297054592716,4.440892098500626e-15,4.063139775403047e-15,true,Match within numerical precision
+benchmark,"disaggregated_cost_raw[3,3]",Sheet2,I7,1,1,0,0,true,Match within numerical precision
+Sheet3 benchmark,aggregate_cost_HK,Sheet3,B5,0.6700000000000002,0.67,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+Sheet3 benchmark,aggregate_production_HK,Sheet3,C5,0.67,0.67,0,0,true,Match within numerical precision
+Sheet3 benchmark,disaggregated_cost_HK,Sheet3,E5,0.6417273781450892,0.641727378145089,2.220446049250313e-16,2.220446049250313e-16,true,Match within numerical precision
+Sheet3 benchmark,disaggregated_production_HK,Sheet3,F5,0.6631044206439365,0.663104420643937,5.551115123125783e-16,5.551115123125783e-16,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta0_cost_HK,Sheet3,B7,0,0,0,0,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta0_production_HK,Sheet3,C7,0,0,0,0,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta0_cost_HK,Sheet3,E7,0.1303047899942782,0.1303,4.789994278220355e-06,4.789994278220355e-06,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta0_production_HK,Sheet3,F7,0.1211632253162596,0.1212,3.677468374041482e-05,3.677468374041482e-05,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta3_cost_HK,Sheet3,B8,0,0,0,0,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta3_production_HK,Sheet3,C8,0,0,0,0,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta3_cost_HK,Sheet3,E8,0.09495064405777821,0.095,4.935594222178763e-05,4.935594222178763e-05,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta3_production_HK,Sheet3,F8,0.08756954750164611,0.0876,3.045249835388619e-05,3.045249835388619e-05,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta4_cost_HK,Sheet3,B9,0,0,0,0,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta4_production_HK,Sheet3,C9,0,0,0,0,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta4_cost_HK,Sheet3,E9,0.08851963606501828,0.0885,1.963606501828585e-05,1.963606501828585e-05,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta4_production_HK,Sheet3,F9,0.08280132135442142,0.0828,1.321354421421339e-06,1.321354421421339e-06,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta2_cost_HK,Sheet3,B10,-1.329608412716028e-11,0,1.329608412716028e-11,1.329608412716028e-11,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta2_production_HK,Sheet3,C10,0,0,0,0,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta2_cost_HK,Sheet3,E10,0.01719813743169183,0.0172,1.862568308169665e-06,1.862568308169665e-06,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta2_production_HK,Sheet3,F10,0.04488075807174522,0.0449,1.924192825478177e-05,1.924192825478177e-05,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta1_cost_HK,Sheet3,B11,0.9999999999807782,1,1.922184633684765e-11,1.922184633684765e-11,true,Match within numerical precision
+Sheet3 derivative,aggregate_theta1_production_HK,Sheet3,C11,0.9999999999973487,1,2.651323605107336e-12,2.651323605107336e-12,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta1_cost_HK,Sheet3,E11,0.6690268710627538,0.669,2.687106275378603e-05,2.687106275378603e-05,true,Match within numerical precision
+Sheet3 derivative,disaggregated_theta1_production_HK,Sheet3,F11,0.6497219086249663,0.6497000000000001,2.190862496620483e-05,2.190862496620483e-05,true,Match within numerical precision
+Sheet4 capital shock,aggregate_production_Capital,Sheet4,B4,0.05007077654744706,0.0501,2.922345255293446e-05,2.922345255293446e-05,true,Match within numerical precision
+Sheet4 capital shock,aggregate_production_Noncollege,Sheet4,C4,0.0679512458178448,0.068,4.875418215520566e-05,4.875418215520566e-05,true,Match within numerical precision
+Sheet4 capital shock,aggregate_production_College,Sheet4,D4,-0.1322612952552736,-0.1323,3.870474472636443e-05,3.870474472636443e-05,true,Match within numerical precision
+Sheet4 capital shock,aggregate_cost_Capital,Sheet4,B9,0.01162325641691146,0.0116,2.32564169114647e-05,2.32564169114647e-05,true,Match within numerical precision
+Sheet4 capital shock,aggregate_cost_Noncollege,Sheet4,C9,0.1134785805158008,0.1135,2.141948419918938e-05,2.141948419918938e-05,true,Match within numerical precision
+Sheet4 capital shock,aggregate_cost_College,Sheet4,D9,-0.1105392316909114,-0.1105,3.923169091142598e-05,3.923169091142598e-05,true,Match within numerical precision
+Sheet4 derived skill premium,aggregate_college_minus_noncollege_unrounded,Sheet4,G4,-0.2002125410731184,-0.2003,8.745892688158396e-05,8.745892688158396e-05,true,Match within numerical precision
+Sheet4 capital shock,disaggregated_production_Capital,Sheet4,B5,0.06186436261992501,0.0619,3.56373800749904e-05,3.56373800749904e-05,true,Match within numerical precision
+Sheet4 capital shock,disaggregated_production_Noncollege,Sheet4,C5,0.03634919150892406,0.0363,4.919150892405966e-05,4.919150892405966e-05,true,Match within numerical precision
+Sheet4 capital shock,disaggregated_production_College,Sheet4,D5,-0.1262133432727603,-0.1262,1.334327276025782e-05,1.334327276025782e-05,true,Match within numerical precision
+Sheet4 capital shock,disaggregated_cost_Capital,Sheet4,B10,0.03064577377105984,0.0306,4.577377105983993e-05,4.577377105983993e-05,true,Match within numerical precision
+Sheet4 capital shock,disaggregated_cost_Noncollege,Sheet4,C10,0.06423650757270762,0.06419999999999999,3.65075727076225e-05,3.65075727076225e-05,true,Match within numerical precision
+Sheet4 capital shock,disaggregated_cost_College,Sheet4,D10,-0.1019829380674526,-0.102,1.706193254744082e-05,1.706193254744082e-05,true,Match within numerical precision
+Sheet4 derived skill premium,disaggregated_college_minus_noncollege_unrounded,Sheet4,G5,-0.1625625347816843,-0.1625,6.25347816843036e-05,6.25347816843036e-05,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[1,1]",Sheet5,B43,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[1,2]",Sheet5,C43,1.050752251354832,1.05075225135483,2.220446049250313e-15,2.113196565971942e-15,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[1,3]",Sheet5,D43,0.67,0.67,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[2,1]",Sheet5,B44,1.67,1.67,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[2,2]",Sheet5,C44,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[2,3]",Sheet5,D44,1.67,1.67,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[3,1]",Sheet5,B45,0.67,0.67,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[3,2]",Sheet5,C45,0.8774696302073511,0.877469630207351,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_production[3,3]",Sheet5,D45,1,1,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[1,1]",Sheet5,B50,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[1,2]",Sheet5,C50,0.2395651544190464,0.239565749593496,5.951744496413003e-07,5.951744496413003e-07,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[1,3]",Sheet5,D50,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[2,1]",Sheet5,B51,1.000000000005584,1.00000000002876,2.317568359444522e-11,2.317568359377868e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[2,2]",Sheet5,C51,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[2,3]",Sheet5,D51,1.000000000005584,1.00000000002876,2.317568359444522e-11,2.317568359377868e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[3,1]",Sheet5,B52,-6.648042063580139e-12,0,6.648042063580139e-12,6.648042063580139e-12,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[3,2]",Sheet5,C52,0.1090100939581879,0.10901044057432,3.466161320742067e-07,3.466161320742067e-07,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_production[3,3]",Sheet5,D52,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[1,1]",Sheet5,B56,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[1,2]",Sheet5,C56,0.9711544605910435,0.971152639328565,1.821262478496344e-06,1.821262478496344e-06,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[1,3]",Sheet5,D56,0.9999999999973487,0.999999999995449,1.899702617436105e-12,1.899702617436105e-12,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[2,1]",Sheet5,B57,0,-2.22044604925031e-11,2.22044604925031e-11,2.22044604925031e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[2,2]",Sheet5,C57,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[2,3]",Sheet5,D57,0,-2.22044604925031e-11,2.22044604925031e-11,2.22044604925031e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[3,1]",Sheet5,B58,0.9999999999973487,0.999999999995449,1.899702617436105e-12,1.899702617436105e-12,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[3,2]",Sheet5,C58,1.037940130934539,1.03793907029193,1.060642609296281e-06,1.021873672216583e-06,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_production[3,3]",Sheet5,D58,0,0,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[1,1]",Sheet5,G43,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[1,2]",Sheet5,H43,1.275143847127333,1.27514384712733,3.108624468950438e-15,2.437861795713175e-15,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[1,3]",Sheet5,I43,0.6700000000000002,0.67,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[2,1]",Sheet5,G44,1.67,1.67,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[2,2]",Sheet5,H44,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[2,3]",Sheet5,I44,1.67,1.67,0,0,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[3,1]",Sheet5,G45,0.6700000000000002,0.67,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[3,2]",Sheet5,H45,1.064856152872667,1.06485615287267,3.33066907387547e-15,3.12781126811382e-15,true,Match within numerical precision
+Sheet5 benchmark,"aggregate_cost[3,3]",Sheet5,I45,1,1,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[1,1]",Sheet5,G50,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[1,2]",Sheet5,H50,0.6051438471373157,0.605143847143275,5.95923310697799e-12,5.95923310697799e-12,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[1,3]",Sheet5,I50,-1.329608412716028e-11,0,1.329608412716028e-11,1.329608412716028e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[2,1]",Sheet5,G51,1.000000000005584,1.00000000000655,9.656719868189612e-13,9.656719868126359e-13,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[2,2]",Sheet5,H51,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[2,3]",Sheet5,I51,1.000000000005584,1.00000000000655,9.656719868189612e-13,9.656719868126359e-13,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[3,1]",Sheet5,G52,-1.329608412716028e-11,0,1.329608412716028e-11,1.329608412716028e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[3,2]",Sheet5,H52,0.3948561528815646,0.394856152885481,3.916367230516471e-12,3.916367230516471e-12,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta2_cost[3,3]",Sheet5,I52,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[1,1]",Sheet5,G56,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[1,2]",Sheet5,H56,0.3948561528795801,0.394856152885481,5.900835375882707e-12,5.900835375882707e-12,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[1,3]",Sheet5,I56,0.9999999999807782,0.999999999995449,1.467082011430421e-11,1.467082011430421e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[2,1]",Sheet5,G57,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[2,2]",Sheet5,H57,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[2,3]",Sheet5,I57,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[3,1]",Sheet5,G58,0.9999999999807782,0.999999999995449,1.467082011430421e-11,1.467082011430421e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[3,2]",Sheet5,H58,0.605143847134339,0.6051438471210701,1.326894150111002e-11,1.326894150111002e-11,true,Match within numerical precision
+Sheet5 derivative,"aggregate_theta1_cost[3,3]",Sheet5,I58,0,0,0,0,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[1,1]",Sheet5,B4,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[1,2]",Sheet5,C4,0.9355196384165448,0.935519638416545,1.110223024625157e-16,1.110223024625157e-16,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[1,3]",Sheet5,D4,0.6631044206439365,0.663104420643937,5.551115123125783e-16,5.551115123125783e-16,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[2,1]",Sheet5,B5,1.429784083396987,1.42978408339699,3.108624468950438e-15,2.174191547555021e-15,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[2,2]",Sheet5,C5,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[2,3]",Sheet5,D5,1.593348585003848,1.59334858500385,2.442490654175344e-15,1.532929251742765e-15,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[3,1]",Sheet5,B6,0.6962523492077485,0.696252349207749,5.551115123125783e-16,5.551115123125783e-16,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[3,2]",Sheet5,C6,0.9374333381844685,0.9374333381844689,4.440892098500626e-16,4.440892098500626e-16,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_production[3,3]",Sheet5,D6,1,1,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[1,1]",Sheet5,B23,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[1,2]",Sheet5,C23,0.09599732120272711,0.0959972223824046,9.882032250829731e-08,9.882032250829731e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[1,3]",Sheet5,D23,0.08280132135442142,0.0828012650555543,5.629886712377186e-08,5.629886712377186e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[2,1]",Sheet5,B24,0.05852918150101541,0.0585289414711809,2.400298345084373e-07,2.400298345084373e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[2,2]",Sheet5,C24,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[2,3]",Sheet5,D24,0.00777022890469564,0.0077703755652081,1.466605124601783e-07,1.466605124601783e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[3,1]",Sheet5,B25,0.07889111586171724,0.078891032295747,8.356597024083978e-08,8.356597024083978e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[3,2]",Sheet5,C25,0.07178269090199631,0.07178246425043611,2.266515602006303e-07,2.266515602006303e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_production[3,3]",Sheet5,D25,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[1,1]",Sheet5,B29,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[1,2]",Sheet5,C29,0.2205846675031292,0.220585000498819,3.32995689800164e-07,3.32995689800164e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[1,3]",Sheet5,D29,0.04488075807174522,0.0448807399133777,1.815836751795086e-08,1.815836751795086e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[2,1]",Sheet5,B30,0.7561061257688444,0.7561062955741,1.698052556342589e-07,1.698052556342589e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[2,2]",Sheet5,C30,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[2,3]",Sheet5,D30,0.9831010624004817,0.983100779028412,2.833720696981956e-07,2.833720696981956e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[3,1]",Sheet5,B31,0.05790150657634228,0.057901523131676,1.655533371502926e-08,1.655533371502926e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[3,2]",Sheet5,C31,0.2085032295772785,0.208503547671768,3.180944894987103e-07,3.180944894987103e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_production[3,3]",Sheet5,D31,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[1,1]",Sheet5,B35,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[1,2]",Sheet5,C35,0.5695626475226977,0.569561950214403,6.97308294661525e-07,6.97308294661525e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[1,3]",Sheet5,D35,0.6497219086249663,0.649721908596579,2.838729251664063e-11,2.838729251664063e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[2,1]",Sheet5,B36,0.06333804833805826,0.0633378528291928,1.955088654581605e-07,1.955088654581605e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[2,2]",Sheet5,C36,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[2,3]",Sheet5,D36,-0.09993770239153549,-0.09993735861080209,3.43780733394472e-07,3.43780733394472e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[3,1]",Sheet5,B37,0.6822008587179963,0.68220085874815,3.015365734881925e-11,3.015365734881925e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[3,2]",Sheet5,C37,0.6920164385262495,0.692015886738506,5.517877434968455e-07,5.517877434968455e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_production[3,3]",Sheet5,D37,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[1,1]",Sheet5,B11,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[1,2]",Sheet5,C11,0.1439738708490486,0.143973868216296,2.632752627018675e-09,2.632752627018675e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[1,3]",Sheet5,D11,0.1211632253162596,0.121163225885734,5.694744120710027e-10,5.694744120710027e-10,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[2,1]",Sheet5,B12,0.09128169763211764,0.09128169256023,5.071887645979878e-09,5.071887645979878e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[2,2]",Sheet5,C12,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[2,3]",Sheet5,D12,0.01004213487667385,0.0100421419846342,7.107960350513642e-09,7.107960350513642e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[3,1]",Sheet5,B13,0.1138512041549138,0.113851202920845,1.234068805477939e-09,1.234068805477939e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[3,2]",Sheet5,C13,0.1010642812147556,0.101064276336604,4.878151618759041e-09,4.878151618759041e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_production[3,3]",Sheet5,D13,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[1,1]",Sheet5,B17,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[1,2]",Sheet5,C17,0.1118956571836579,0.11189565339853,3.785127933308985e-09,3.785127933308985e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[1,3]",Sheet5,D17,0.08756954750164611,0.0875695485902384,1.088592285758416e-09,1.088592285758416e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[2,1]",Sheet5,B18,0.08497991861255833,0.0849799045132827,1.409927562201485e-08,1.409927562201485e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[2,2]",Sheet5,C18,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[2,3]",Sheet5,D18,0.01898217329975082,0.0189821912188748,1.791912398324547e-08,1.791912398324547e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[3,1]",Sheet5,B19,0.08001640849855977,0.0800164044356677,4.062892078326996e-09,4.062892078326996e-09,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[3,2]",Sheet5,C19,0.06922955975107335,0.069229548760319,1.099075434829455e-08,1.099075434829455e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_production[3,3]",Sheet5,D19,0,0,0,0,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[1,1]",Sheet5,G4,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[1,2]",Sheet5,H4,1.090739328628932,1.09073932862893,2.220446049250313e-15,2.035725668791494e-15,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[1,3]",Sheet5,I4,0.6417273781450892,0.641727378145089,2.220446049250313e-16,2.220446049250313e-16,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[2,1]",Sheet5,G5,1.468570139963165,1.46857013996317,4.884981308350689e-15,3.326352058658362e-15,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[2,2]",Sheet5,H5,1,1,0,0,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[2,3]",Sheet5,I5,1.541982496410999,1.541982496411,1.110223024625157e-15,7.199971641761345e-16,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[3,1]",Sheet5,G6,0.7151397345929222,0.715139734592923,7.771561172376096e-16,7.771561172376096e-16,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[3,2]",Sheet5,H6,1.092970545927155,1.09297054592716,4.440892098500626e-15,4.063139775403047e-15,true,Match within numerical precision
+Sheet5 benchmark,"disaggregated_cost[3,3]",Sheet5,I6,1,1,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[1,1]",Sheet5,G23,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[1,2]",Sheet5,H23,0.07225375853134168,0.0722536415809216,1.169504200843052e-07,1.169504200843052e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[1,3]",Sheet5,I23,0.08851963606501828,0.0885195574062969,7.865872138357322e-08,7.865872138357322e-08,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[2,1]",Sheet5,G24,0.04333489123069999,0.0433347659978267,1.252328732867514e-07,1.252328732867514e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[2,2]",Sheet5,H24,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[2,3]",Sheet5,I24,0.02767430729004505,0.0276741584537277,1.488363173506035e-07,1.488363173506035e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[3,1]",Sheet5,G25,0.07285905212436335,0.0728589498621979,1.022621654439559e-07,1.022621654439559e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[3,2]",Sheet5,H25,0.04394018482372165,0.0439400742902052,1.105335164508503e-07,1.105335164508503e-07,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta4_cost[3,3]",Sheet5,I25,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[1,1]",Sheet5,G29,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[1,2]",Sheet5,H29,0.4596182863547886,0.45961828636365,8.861356093348149e-12,8.861356093348149e-12,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[1,3]",Sheet5,I29,0.01719813743169183,0.0171981374363916,4.699768352267597e-12,4.699768352267597e-12,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[2,1]",Sheet5,G30,0.8233402133804415,0.823340213385038,4.596545366553073e-12,4.596545366553073e-12,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[2,2]",Sheet5,H30,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[2,3]",Sheet5,I30,0.8883665226539941,0.888366522633355,2.063904602778166e-11,2.063904602778166e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[3,1]",Sheet5,G31,0.08222444669194839,0.0822244467069133,1.49649043157396e-11,1.49649043157396e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[3,2]",Sheet5,H31,0.4459463737043051,0.445946373739403,3.509786905553369e-11,3.509786905553369e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta2_cost[3,3]",Sheet5,I31,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[1,1]",Sheet5,G35,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[1,2]",Sheet5,H35,0.2635377184786443,0.263537718470097,8.547329510832924e-12,8.547329510832924e-12,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[1,3]",Sheet5,I35,0.6690268710627538,0.66902687105852,4.233835504408034e-12,4.233835504408034e-12,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[2,1]",Sheet5,G36,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[2,2]",Sheet5,H36,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[2,3]",Sheet5,I36,3.314098580948905e-11,0,3.314098580948905e-11,3.314098580948905e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[3,1]",Sheet5,G37,0.6690268710461833,0.66902687105852,1.233668722733228e-11,1.233668722733228e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[3,2]",Sheet5,H37,0.40548915260068,0.405489152610628,9.948042389851253e-12,9.948042389851253e-12,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta1_cost[3,3]",Sheet5,I37,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[1,1]",Sheet5,G11,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[1,2]",Sheet5,H11,0.1107602921964543,0.110760292182377,1.40772948853396e-11,1.40772948853396e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[1,3]",Sheet5,I11,0.1303047899942782,0.130304790013636,1.9357793146213e-11,1.9357793146213e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[2,1]",Sheet5,G12,0.06731284961479976,0.06731284960537209,9.427666980421634e-12,9.427666980421634e-12,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[2,2]",Sheet5,H12,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[2,3]",Sheet5,I12,0.04106994186685079,0.0410699418473826,1.946819094822416e-11,1.946819094822416e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[3,1]",Sheet5,G13,0.1040618822710009,0.104061882255646,1.5354884030927e-11,1.5354884030927e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[3,2]",Sheet5,H13,0.06061443966467473,0.0606144396897435,2.5068766507097e-11,2.5068766507097e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta0_cost[3,3]",Sheet5,I13,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[1,1]",Sheet5,G17,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[1,2]",Sheet5,H17,0.09383006140889086,0.0938300614095056,6.14744366522757e-13,6.14744366522757e-13,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[1,3]",Sheet5,I17,0.09495064405777821,0.0949506440806047,2.282649069762499e-11,2.282649069762499e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[2,1]",Sheet5,G18,0.06601217106229126,0.0660121710183148,4.397646136133915e-11,4.397646136133915e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[2,2]",Sheet5,H18,0,0,0,0,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[2,3]",Sheet5,I18,0.0428893770718052,0.0428893770276773,4.412790272079192e-11,4.412790272079192e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[3,1]",Sheet5,G19,0.07182785011170108,0.0718278501121716,4.705263956239492e-13,4.705263956239492e-13,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[3,2]",Sheet5,H19,0.04400995967628363,0.0440099596987764,2.249276459531657e-11,2.249276459531657e-11,true,Match within numerical precision
+Sheet5 derivative,"disaggregated_theta3_cost[3,3]",Sheet5,I19,0,0,0,0,true,Match within numerical precision

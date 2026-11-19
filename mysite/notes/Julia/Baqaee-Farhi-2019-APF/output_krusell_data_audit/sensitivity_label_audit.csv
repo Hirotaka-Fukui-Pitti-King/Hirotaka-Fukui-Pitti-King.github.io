@@ -1,0 +1,11 @@
+table,model,parameter,type,source_derivative,published,alternate_source_derivative,agrees_under_switch,switch_kind
+B.4,aggregate,theta2,production,0.2395651544190464,0.97,0.9711544605910435,true,theta1/theta2 row
+B.4,aggregate,theta1,production,0.9711544605910435,0.24,0.2395651544190464,true,theta1/theta2 row
+B.4,aggregate,theta2,cost,0.6051438471373157,0.4,0.3948561528795801,true,theta1/theta2 row
+B.4,aggregate,theta1,cost,0.3948561528795801,0.6,0.6051438471373157,true,theta1/theta2 row
+B.4,disaggregated,theta2,production,0.2205846675031292,0.57,0.5695626475226977,true,theta1/theta2 row
+B.4,disaggregated,theta1,production,0.5695626475226977,0.22,0.2205846675031292,true,theta1/theta2 row
+B.4,disaggregated,theta4,production,0.09599732120272711,0.07,0.07225375853134168,true,cost/production column
+B.4,disaggregated,theta2,cost,0.4596182863547886,0.26,0.2635377184786443,true,theta1/theta2 row
+B.4,disaggregated,theta1,cost,0.2635377184786443,0.46,0.4596182863547886,true,theta1/theta2 row
+B.4,disaggregated,theta4,cost,0.07225375853134168,0.1,0.09599732120272711,true,cost/production column

@@ -1,0 +1,23 @@
+metric,result,unit
+Excel to MAT exact element count,8386,cells
+Excel to MAT mismatch count,0,cells
+IO source dots mapped to zero,2555,cells
+IO source negative entries retained,83,cells
+Official results numerical comparison count,236,cells
+Official results outside respective tolerances,0,cells
+Published table comparisons,66,cells
+Published discrepancy class A,11,cells
+Published discrepancy class B,41,cells
+Published discrepancy class C,0,cells
+Published discrepancy class D,0,cells
+Published discrepancy class E,9,cells
+Published discrepancy class F,5,cells
+Published discrepancy class G,0,cells
+aggregate Leontief max residual,0,absolute
+aggregate Hessian symmetry max residual,1.387778780781446e-17,absolute
+aggregate factors 326:328 Domar sum,1,income share
+aggregate terminal node 329 Domar weight,0,weight
+disaggregated Leontief max residual,6.661338147750939e-16,absolute
+disaggregated Hessian symmetry max residual,2.775557561562891e-17,absolute
+disaggregated factors 326:328 Domar sum,0.9999999999999998,income share
+disaggregated terminal node 329 Domar weight,0,weight

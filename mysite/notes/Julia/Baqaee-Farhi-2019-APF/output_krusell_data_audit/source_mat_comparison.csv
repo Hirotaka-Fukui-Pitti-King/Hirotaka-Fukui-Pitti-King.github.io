@@ -1,0 +1,6 @@
+variable,n,matches,mismatches,max_abs,max_rel,status
+IO2013,8134,8134,0,0,0,Exact reconstruction
+output_new,63,63,0,0,0,Exact reconstruction
+VA_new,63,63,0,0,0,Exact reconstruction
+labor_no_col,63,63,0,0,0,Exact reconstruction
+labor_col,63,63,0,0,0,Exact reconstruction

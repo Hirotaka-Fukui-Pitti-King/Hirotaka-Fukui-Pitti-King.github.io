@@ -1,0 +1,67 @@
+table,row,column,object,model,parameter,matlab_equivalent,official_excel_value,published,raw_gap,classification,evidence
+B.1,Capital,Noncollege,production MES,aggregate,benchmark,1.67,1.67,1.67,0,A,Original MAT and source-matched Julia; official workbook Sheet1!B6
+B.1,Capital,College,production MES,aggregate,benchmark,0.67,0.67,0.67,0,A,Original MAT and source-matched Julia; official workbook Sheet1!B7
+B.1,Noncollege,Capital,production MES,aggregate,benchmark,1.050752251354832,1.05075225135483,1.05,0.0007522513548321452,B,Original MAT and source-matched Julia; official workbook Sheet1!C5
+B.1,Noncollege,College,production MES,aggregate,benchmark,0.8774696302073511,0.877469630207351,0.88,-0.002530369792648868,B,Original MAT and source-matched Julia; official workbook Sheet1!C7
+B.1,College,Capital,production MES,aggregate,benchmark,0.67,0.67,0.67,0,A,Original MAT and source-matched Julia; official workbook Sheet1!D5
+B.1,College,Noncollege,production MES,aggregate,benchmark,1.67,1.67,1.67,0,A,Original MAT and source-matched Julia; official workbook Sheet1!D6
+B.1,Capital,Noncollege,cost MES,aggregate,benchmark,1.67,1.67,1.67,0,A,Original MAT and source-matched Julia; official workbook Sheet1!G6
+B.1,Capital,College,cost MES,aggregate,benchmark,0.6700000000000002,0.67,0.67,1.110223024625157e-16,A,Original MAT and source-matched Julia; official workbook Sheet1!G7
+B.1,Noncollege,Capital,cost MES,aggregate,benchmark,1.275143847127333,1.27514384712733,1.28,-0.004856152872666941,B,Original MAT and source-matched Julia; official workbook Sheet1!H5
+B.1,Noncollege,College,cost MES,aggregate,benchmark,1.064856152872667,1.06485615287267,1.07,-0.00514384712733329,F,Original MAT and source-matched Julia; official workbook Sheet1!H7
+B.1,College,Capital,cost MES,aggregate,benchmark,0.6700000000000002,0.67,0.67,1.110223024625157e-16,A,Original MAT and source-matched Julia; official workbook Sheet1!I5
+B.1,College,Noncollege,cost MES,aggregate,benchmark,1.67,1.67,1.67,0,A,Original MAT and source-matched Julia; official workbook Sheet1!I6
+B.2,Capital,Noncollege,production MES,disaggregated,benchmark,1.429784083396987,1.42978408339699,1.43,-0.0002159166030131221,B,Original MAT and source-matched Julia; official workbook Sheet2!B6
+B.2,Capital,College,production MES,disaggregated,benchmark,0.6962523492077485,0.696252349207749,0.70,-0.003747650792251478,B,Original MAT and source-matched Julia; official workbook Sheet2!B7
+B.2,Noncollege,Capital,production MES,disaggregated,benchmark,0.9355196384165448,0.935519638416545,0.94,-0.004480361583455106,B,Original MAT and source-matched Julia; official workbook Sheet2!C5
+B.2,Noncollege,College,production MES,disaggregated,benchmark,0.9374333381844685,0.9374333381844689,0.94,-0.002566661815531446,B,Original MAT and source-matched Julia; official workbook Sheet2!C7
+B.2,College,Capital,production MES,disaggregated,benchmark,0.6631044206439365,0.663104420643937,0.67,-0.006895579356063553,F,Original MAT and source-matched Julia; official workbook Sheet2!D5
+B.2,College,Noncollege,production MES,disaggregated,benchmark,1.593348585003848,1.59334858500385,1.59,0.003348585003847493,B,Original MAT and source-matched Julia; official workbook Sheet2!D6
+B.2,Capital,Noncollege,cost MES,disaggregated,benchmark,1.468570139963165,1.46857013996317,1.47,-0.001429860036834762,B,Original MAT and source-matched Julia; official workbook Sheet2!G6
+B.2,Capital,College,cost MES,disaggregated,benchmark,0.7151397345929222,0.715139734592923,0.72,-0.004860265407077735,B,Original MAT and source-matched Julia; official workbook Sheet2!G7
+B.2,Noncollege,Capital,cost MES,disaggregated,benchmark,1.090739328628932,1.09073932862893,1.09,0.0007393286289321122,B,Original MAT and source-matched Julia; official workbook Sheet2!H5
+B.2,Noncollege,College,cost MES,disaggregated,benchmark,1.092970545927155,1.09297054592716,1.09,0.002970545927155399,B,Original MAT and source-matched Julia; official workbook Sheet2!H7
+B.2,College,Capital,cost MES,disaggregated,benchmark,0.6417273781450892,0.641727378145089,0.64,0.001727378145089165,B,Original MAT and source-matched Julia; official workbook Sheet2!I5
+B.2,College,Noncollege,cost MES,disaggregated,benchmark,1.541982496410999,1.541982496411,1.54,0.001982496410998902,B,Original MAT and source-matched Julia; official workbook Sheet2!I6
+B.5,aggregate,Capital,Production income-share change,aggregate,capital shock,0.05007077654744706,0.0501,0.05,7.077654744706147e-05,B,Original MAT and source-matched Julia; official workbook Sheet4!B4
+B.5,aggregate,Noncollege,Production income-share change,aggregate,capital shock,0.0679512458178448,0.068,0.07,-0.002048754182155207,B,Original MAT and source-matched Julia; official workbook Sheet4!C4
+B.5,aggregate,College,Production income-share change,aggregate,capital shock,-0.1322612952552736,-0.1323,-0.13,-0.002261295255273632,B,Original MAT and source-matched Julia; official workbook Sheet4!D4
+B.5,disaggregated,Capital,Production income-share change,disaggregated,capital shock,0.06186436261992501,0.0619,0.06,0.001864362619925009,B,Original MAT and source-matched Julia; official workbook Sheet4!B5
+B.5,disaggregated,Noncollege,Production income-share change,disaggregated,capital shock,0.03634919150892406,0.0363,0.04,-0.003650808491075942,B,Original MAT and source-matched Julia; official workbook Sheet4!C5
+B.5,disaggregated,College,Production income-share change,disaggregated,capital shock,-0.1262133432727603,-0.1262,-0.13,0.00378665672723974,B,Original MAT and source-matched Julia; official workbook Sheet4!D5
+B.3,Benchmark,HK,MES,aggregate,benchmark,0.67,0.67,0.67,0,A,Original MAT and source-matched Julia; official workbook Sheet5!D43
+B.3,theta2,HK,production sensitivity,aggregate,theta2,0,0,0,0,A,Original MAT finite difference and analytic derivative; official workbook Sheet5!D50
+B.3,theta1,HK,production sensitivity,aggregate,theta1,0.9999999999973487,0.999999999995449,1,-2.651323605107336e-12,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!D56
+B.3,Benchmark,HK,MES,aggregate,benchmark,0.6700000000000002,0.67,0.67,1.110223024625157e-16,A,Original MAT and source-matched Julia; official workbook Sheet5!I43
+B.3,theta2,HK,cost sensitivity,aggregate,theta2,-1.329608412716028e-11,0,0,-1.329608412716028e-11,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!I50
+B.3,theta1,HK,cost sensitivity,aggregate,theta1,0.9999999999807782,0.999999999995449,1,-1.922184633684765e-11,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!I56
+B.3,Benchmark,HK,MES,disaggregated,benchmark,0.6631044206439365,0.663104420643937,0.66,0.003104420643936456,B,Original MAT and source-matched Julia; official workbook Sheet5!D4
+B.3,theta0,HK,production sensitivity,disaggregated,theta0,0.1211632253162596,0.121163225885734,0.12,0.001163225316259592,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!D11
+B.3,theta3,HK,production sensitivity,disaggregated,theta3,0.08756954750164611,0.0875695485902384,0.09,-0.002430452498353886,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!D17
+B.3,theta4,HK,production sensitivity,disaggregated,theta4,0.08280132135442142,0.0828012650555543,0.08,0.002801321354421418,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!D23
+B.3,theta2,HK,production sensitivity,disaggregated,theta2,0.04488075807174522,0.0448807399133777,0.05,-0.005119241928254782,F,Original MAT finite difference and analytic derivative; official workbook Sheet5!D29
+B.3,theta1,HK,production sensitivity,disaggregated,theta1,0.6497219086249663,0.649721908596579,0.65,-0.0002780913750337621,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!D35
+B.3,Benchmark,HK,MES,disaggregated,benchmark,0.6417273781450892,0.641727378145089,0.64,0.001727378145089165,B,Original MAT and source-matched Julia; official workbook Sheet5!I4
+B.3,theta0,HK,cost sensitivity,disaggregated,theta0,0.1303047899942782,0.130304790013636,0.13,0.0003047899942782151,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!I11
+B.3,theta3,HK,cost sensitivity,disaggregated,theta3,0.09495064405777821,0.0949506440806047,0.1,-0.005049355942221792,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!I17
+B.3,theta4,HK,cost sensitivity,disaggregated,theta4,0.08851963606501828,0.0885195574062969,0.09,-0.001480363934981715,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!I23
+B.3,theta2,HK,cost sensitivity,disaggregated,theta2,0.01719813743169183,0.0171981374363916,0.01,0.00719813743169183,F,Original MAT finite difference and analytic derivative; official workbook Sheet5!I29
+B.3,theta1,HK,cost sensitivity,disaggregated,theta1,0.6690268710627538,0.66902687105852,0.67,-0.0009731289372462149,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!I35
+B.4,Benchmark,LK,MES,aggregate,benchmark,1.050752251354832,1.05075225135483,1.05,0.0007522513548321452,B,Original MAT and source-matched Julia; official workbook Sheet5!C43
+B.4,theta2,LK,production sensitivity,aggregate,theta2,0.2395651544190464,0.239565749593496,0.97,-0.7304348455809536,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!C50
+B.4,theta1,LK,production sensitivity,aggregate,theta1,0.9711544605910435,0.971152639328565,0.24,0.7311544605910435,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!C56
+B.4,Benchmark,LK,MES,aggregate,benchmark,1.275143847127333,1.27514384712733,1.28,-0.004856152872666941,B,Original MAT and source-matched Julia; official workbook Sheet5!H43
+B.4,theta2,LK,cost sensitivity,aggregate,theta2,0.6051438471373157,0.605143847143275,0.4,0.2051438471373157,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!H50
+B.4,theta1,LK,cost sensitivity,aggregate,theta1,0.3948561528795801,0.394856152885481,0.6,-0.2051438471204198,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!H56
+B.4,Benchmark,LK,MES,disaggregated,benchmark,0.9355196384165448,0.935519638416545,0.93,0.005519638416544792,F,Original MAT and source-matched Julia; official workbook Sheet5!C4
+B.4,theta0,LK,production sensitivity,disaggregated,theta0,0.1439738708490486,0.143973868216296,0.14,0.003973870849048627,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!C11
+B.4,theta3,LK,production sensitivity,disaggregated,theta3,0.1118956571836579,0.11189565339853,0.11,0.001895657183657931,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!C17
+B.4,theta4,LK,production sensitivity,disaggregated,theta4,0.09599732120272711,0.0959972223824046,0.07,0.0259973212027271,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!C23
+B.4,theta2,LK,production sensitivity,disaggregated,theta2,0.2205846675031292,0.220585000498819,0.57,-0.3494153324968707,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!C29
+B.4,theta1,LK,production sensitivity,disaggregated,theta1,0.5695626475226977,0.569561950214403,0.22,0.3495626475226977,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!C35
+B.4,Benchmark,LK,MES,disaggregated,benchmark,1.090739328628932,1.09073932862893,1.09,0.0007393286289321122,B,Original MAT and source-matched Julia; official workbook Sheet5!H4
+B.4,theta0,LK,cost sensitivity,disaggregated,theta0,0.1107602921964543,0.110760292182377,0.11,0.000760292196454293,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!H11
+B.4,theta3,LK,cost sensitivity,disaggregated,theta3,0.09383006140889086,0.0938300614095056,0.09,0.003830061408890861,B,Original MAT finite difference and analytic derivative; official workbook Sheet5!H17
+B.4,theta4,LK,cost sensitivity,disaggregated,theta4,0.07225375853134168,0.0722536415809216,0.1,-0.02774624146865833,B,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!H23
+B.4,theta2,LK,cost sensitivity,disaggregated,theta2,0.4596182863547886,0.45961828636365,0.26,0.1996182863547886,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!H29
+B.4,theta1,LK,cost sensitivity,disaggregated,theta1,0.2635377184786443,0.263537718470097,0.46,-0.1964622815213557,E,Exact source-computed value agrees under a theta1/theta2 row or cost/production column switch; official workbook Sheet5!H35

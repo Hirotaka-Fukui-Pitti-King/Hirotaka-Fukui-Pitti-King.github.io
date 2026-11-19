@@ -1,0 +1,61 @@
+workbook,sheet,year,audited_range,status
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,ReadMe,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,NAICS codes,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,1997,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,1998,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,1999,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2000,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2001,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2002,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2003,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2004,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2005,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2006,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2007,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2008,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2009,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2010,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2011,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2012,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2013,2013,C8:CV90,Audited
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2014,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2015,2013,Not used in 2013 benchmark,Inventoried
+IOUse_After_Redefinitions_PRO_1997-2016_Summary.xlsx,2016,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Readme (Integrated MFP),2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,NAICS codes,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_Art_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_R&D_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_IT_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_Other_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_Software_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Energy_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Materials_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Services_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Gross Output_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,VA_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Labor_Col_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Labor_NoCol_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Integrated MFP Index,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Integrated Labor Productivity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Labor Input_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Labor Hours_Quantity,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_Art Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_It Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_Other Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_R&D Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Capital_Software Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Energy Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Materials Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Service Compensation,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Labor_NoCol Compensation,2013,Q3:Q65,Audited
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Labor_Col Compensation,2013,Q3:Q65,Audited
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Gross Output,2013,Q3:Q65,Audited
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Value Added,2013,Q3:Q65,Audited
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,ReadMe (Official MFP),2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Official MFP,2013,Not used in 2013 benchmark,Inventoried
+BEA-BLS-industry-level-production-account-1998-2015.xlsx,Official MFP%,2013,Not used in 2013 benchmark,Inventoried
+results tables1-5.xlsx,Sheet1,2013,Official result tab,Audited
+results tables1-5.xlsx,Sheet2,2013,Official result tab,Audited
+results tables1-5.xlsx,Sheet3,2013,Official result tab,Audited
+results tables1-5.xlsx,Sheet4,2013,Official result tab,Audited
+results tables1-5.xlsx,Sheet5,2013,Official result tab,Audited

@@ -110,3 +110,93 @@ $$
 が成立します^[ここでは減耗などを捨象し、$r$ を資本の純収益率として表しています。]．
 
 # Model Environment and Equilibrium
+
+## Model Setup
+
+生産者の集合を $\mathcal N$、生産要素の集合を $\mathcal F$ とします。経済には $N$ 種類の生産物と $F$ 種類の一次生産要素が存在します。各生産者 $i$ は、他の生産者から購入する中間財と一次生産要素を用いて財 $i$ を生産します。
+
+最終需要は
+
+$$
+Y=D_0(c_1,\ldots,c_N)
+$$
+
+と与えられます。ここで $D_0$ は一次同次の集計関数、$c_i$ は最終需要に使用される財 $i$ の数量です。
+
+各企業の生産技術は
+$$
+y_i=A_iF_i(x_{i1},\ldots,x_{iN},L_{i1},\ldots,L_{iF})
+$$
+
+で与えられます。$y_i$ は総生産、$A_i$ は企業 $i$ のHicks-neutral productivity、$x_{ij}$ は企業 $i$ が使用する財 $j$、$L_{if}$ は要素 $f$ の投入量です。
+
+生産物に関する資源制約は
+
+$$
+y_j=c_j+\sum_{i\in\mathcal N}x_{ij}
+$$
+
+が，一次生産要素については
+$$
+\sum_{i\in\mathcal N}L_{if}=L_f
+$$
+
+が成立します。
+
+このモデルの特徴は、同じ財が最終消費だけでなく中間投入としても使用されることです。
+
+## Competitive Equilibrium
+
+企業 \(i\) は
+\[
+\max_{\{x_{ij},L_{if}\}}
+p_iA_iF_i(x_i,L_i)
+-\sum_jp_jx_{ij}
+-\sum_fw_fL_{if}
+\]
+
+を解きます。
+
+ここで \(p_i\) は財価格、\(w_f\) は生産要素 \(f\) の価格です。
+
+内点解では
+\[
+p_iA_i\frac{\partial F_i}{\partial x_{ij}}
+=p_j
+\]
+
+および
+\[
+p_iA_i\frac{\partial F_i}{\partial L_{if}}
+=w_f
+\]
+
+が成立します。
+
+さらに一次同次性から、Eulerの定理によって
+\[
+p_iy_i
+=
+\sum_jp_jx_{ij}
++\sum_fw_fL_{if}
+\]
+
+が得られます。
+
+最終需要側では
+\[
+\max_{\{c_i\}}D_0(c_1,\ldots,c_N)
+\]
+
+subject to
+\[
+\sum_i p_ic_i=E,
+\qquad
+E=\sum_fw_fL_f
+\]
+
+を解きます。
+
+財市場と生産要素市場は、それぞれ(3)、(4)によって清算します。
+
+## Aggregate Production Function
