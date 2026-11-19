@@ -71,6 +71,18 @@ const TARGETS = Dict(
         end
     end
 
+    @testset "Steep HA-style asset demand: residual-based root accuracy" begin
+        # A 1e-10-wide beta bracket need not imply accurate asset clearing:
+        # dA/dbeta can be of order 10^4 in a near-unit-root household model.
+        beta_star = 0.981762569127977
+        steep_demand(b) = 1e4 * (b - beta_star)
+        beta_root = GoldilocksCalibration._bisect(
+            steep_demand, 0.90, 1.01;
+            ftol=1e-9, xtol=1e-14, maxiter=100)
+        @test abs(steep_demand(beta_root)) < 5e-8
+        @test abs(beta_root - beta_star) < 5e-12
+    end
+
     @testset "Original SSJ lottery extrapolation is explicit" begin
         policy = reshape([0.1, 1.5, 2.1], 1, 3)
         grid = [0.0, 1.0, 2.0]
@@ -93,6 +105,12 @@ const TARGETS = Dict(
                 @test h.source_lottery_extrapolation
             end
             b=baseline_equilibrium(s,h)
+            if model === :ha
+                # Regression: the HA inner beta root must clear assets to
+                # economic residual accuracy even at official outer EIS.
+                # A beta-only bisection tolerance formerly left 1e-7 errors.
+                @test abs(b.eq.asset_mkt) <= 5e-8
+            end
             @test isapprox(h.beta,ref.beta; atol=model === :ha ? 3e-5 : 2e-8)
             @test isapprox(b.eq.B,s.state.B;atol=1e-10)
             @test isapprox(b.eq.A,s.state.B+b.eq.j;atol=model === :ha ? 1e-4 : 1e-7)
@@ -148,6 +166,9 @@ const TARGETS = Dict(
                 @test abs(result.phi-s.phi_target)<5e-5
                 @test abs(result.phi_finite-s.phi_target)<1e-3
                 @test abs(v.asset_mkt)<2e-4
+                if model === :ha
+                    @test abs(v.asset_mkt) <= 5e-8
+                end
                 @test abs(v.goods_mkt)<2e-4
                 @test isapprox(v.beta,ref.beta;atol=model===:ha ? 2e-3 : 8e-3)
                 @test isapprox(result.calibrated_parameter,ref.parameter;

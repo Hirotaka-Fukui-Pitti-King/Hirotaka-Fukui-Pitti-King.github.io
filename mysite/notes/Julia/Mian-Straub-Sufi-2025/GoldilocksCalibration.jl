@@ -99,26 +99,52 @@ end
     hasproperty(x, name) ? getproperty(x, name) : default
 end
 
-"""Solve a continuous scalar calibration restriction by safeguarded bisection."""
-function _bisect(f, a::Real, b::Real; tol=1e-10, maxiter=90)
+"""Solve a bracketed scalar root, stopping on the *function residual*.
+
+`ftol` controls the economically relevant root accuracy; `xtol` controls the
+floating-point resolution of the unknown. In the HA asset-market problem,
+`dA/dβ` can be large, so stopping just because the β bracket is 1e-10 wide
+can leave asset-market residuals above 1e-7. Keep both criteria separate.
+"""
+function _bisect(f, a::Real, b::Real; ftol=1e-10, xtol=1e-14, maxiter=100)
+    ftol > 0 && xtol > 0 && maxiter > 0 ||
+        throw(ArgumentError("positive ftol, xtol and maxiter required"))
     lo, hi = Float64(a), Float64(b)
+    lo < hi || throw(ArgumentError("invalid root bracket"))
     flo, fhi = f(lo), f(hi)
-    isfinite(flo) && isfinite(fhi) && signbit(flo) != signbit(fhi) ||
+    isfinite(flo) && isfinite(fhi) ||
+        throw(DomainError((flo, fhi), "nonfinite root bracket endpoints"))
+    abs(flo) <= ftol && return lo
+    abs(fhi) <= ftol && return hi
+    signbit(flo) != signbit(fhi) ||
         throw(DomainError((flo, fhi), "calibration root not bracketed"))
+
+    # Preserve the point with the smallest *economic* residual, including
+    # when bisection reaches machine precision before the residual target.
+    best_x, best_f = abs(flo) <= abs(fhi) ? (lo, flo) : (hi, fhi)
     for _ in 1:maxiter
-        mid = (lo+hi)/2
+        mid = lo + (hi-lo)/2
+        if mid == lo || mid == hi
+            break
+        end
         fm = f(mid)
         isfinite(fm) || throw(DomainError(fm, "nonfinite calibration moment"))
-        if abs(fm) < tol || abs(hi-lo) < tol * max(1.0,abs(mid))
-            return mid
+        if abs(fm) < abs(best_f)
+            best_x, best_f = mid, fm
         end
+        abs(fm) <= ftol && return mid
         if signbit(fm) == signbit(flo)
             lo, flo = mid, fm
         else
-            hi = mid
+            hi, fhi = mid, fm
+        end
+        # `xtol` only ends the bracket search, not the residual requirement.
+        # The outer caller makes an independent asset-market check.
+        if hi-lo <= xtol * max(1.0, abs(mid))
+            break
         end
     end
-    error("scalar calibration failed to converge")
+    return best_x
 end
 
 """Numerically differentiate a scalar/vector function with a symmetric difference."""
@@ -199,12 +225,15 @@ function calibrated_household(s::CalibrationSetup, model::Symbol, parameter::Rea
         # The GE finite perturbation is only 1e-5 in r. A loose beta root
         # can leave a 1e-6-level baseline asset-market residual, which then
         # contaminates Δlog(B) by an amount comparable to the true response.
-        # Solve the INNER asset-clearing equation accurately before taking
-        # any outer finite differences; do not weaken the phi validation.
-        bh = _bisect(demand, lower, upper; tol=1e-10, maxiter=80)
+        # Stop on the *asset-clearing residual*, not on a 1e-10-wide beta
+        # interval. Near the root, such an interval can still imply a demand
+        # error of 1e-7 or more. This applies both to final and trial EIS
+        # values, so outer line searches can evaluate valid candidates.
+        bh = _bisect(demand, lower, upper;
+                     ftol=1e-9, xtol=1e-14, maxiter=100)
         demand_error = demand(bh)
         abs(demand_error) <= 5e-8 ||
-            error("HA inner asset-market calibration residual $(demand_error) exceeds 5e-8")
+            error("HA inner asset-market calibration residual $(demand_error) exceeds 5e-8; stationary demand may be numerically discontinuous")
         return HAHousehold(; beta=bh, eis, lumpsum=0.0,
                  rho_e=s.ha_rho, sd_e=0.92, n_e=7, n_a=300,
                  min_a=0.0, max_a=500.0,
