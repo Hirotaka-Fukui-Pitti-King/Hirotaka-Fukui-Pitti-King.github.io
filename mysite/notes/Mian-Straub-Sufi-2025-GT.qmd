@@ -1,0 +1,11 @@
+---
+title: "Notes on @MianStraubSufi2025"
+subtitle: "不完備市場における価格理論"
+description: ""
+date: today
+categories:
+  - Incomplete Markets
+  - Consumer Demand Theory
+  - Precautionary Savings
+  - Heterogeneous-Agent Macroeconomics
+---
